@@ -44,7 +44,8 @@ FAM = [('IfcBuiltElement','Built elements'),('IfcDistributionControlElement','Di
        ('IfcDistributionChamberElement','Distribution: chambers'),('IfcElementComponent','Components'),('IfcFeatureElement','Features (voids, projections, surface treatments)'),
        ('IfcFurnishingElement','Furnishing'),('IfcGeographicElement','Geographic'),('IfcGeotechnicalElement','Geotechnical'),('IfcTransportationDevice','Transportation devices'),
        ('IfcCivilElement','Other'),('IfcElementAssembly','Other'),('IfcVirtualElement','Other')]
-rows = {}; total = 0; covered = 0; ptotal = 0
+rows = {}; total = 0; covered = 0; ptotal = 0; nbuilt = [0]
+from pathlib import Path
 for d, n, a, p in t:
     if a: continue
     b = branch[n]
@@ -58,7 +59,9 @@ for d, n, a, p in t:
     total += 1; ptotal += len(p or [])
     if sh: covered += 1
     pt = ', '.join(p) if p else '—'
-    rows.setdefault(fam, []).append(f"| `{n}` | {arch} | {len(p or [])} | {pt} | {', '.join(sh) if sh else '—'} | {note} |")
+    built = "✅" if (Path(root) / "library/templates" / n / "object.ifcx").exists() else "planned"
+    if built == "✅": nbuilt[0] += 1
+    rows.setdefault(fam, []).append(f"| `{n}` | {arch} | {built} | {len(p or [])} | {pt} | {', '.join(sh) if sh else '—'} | {note} |")
 out = [f"""# IFC coverage — every IFC 4.3 element class has an OPO
 
 **Draft v0.1 · 24 Nov 2026** · generated from the IFC 4.3 schema (ifcopenshell `IFC4X3_ADD2`) by `tools/gen_coverage.py`; do not edit the tables by hand.
@@ -71,7 +74,7 @@ out = [f"""# IFC coverage — every IFC 4.3 element class has an OPO
 
 Anyone (a firm, a manufacturer, Curva Pro) makes their own objects by starting from a template or a library object, the way a Revit user starts from a family template.
 
-**Counts:** {total} concrete element classes · {ptotal} predefined types · {covered} classes with a detailed sheet · {total - covered} classes covered by their template only (for now).
+**Counts:** {total} concrete element classes · {ptotal} predefined types · {covered} classes with a detailed sheet · {total - covered} classes covered by their template only (for now) · class templates built: NBUILT.
 
 Archetypes (`any` = the user picks one, for generic classes such as `IfcBuildingElementProxy`): **point** (placed equipment or component, optionally hosted, with ports) · **linear** (profile along a path) · **area** (boundary + thickness or layer build-up) · **wall** (path + height + layers or grid) · **hosted** (sits in or on a host and cuts or adds to it) · **flight** (level to level: stairs, ramps) · **fitting** (joins the ends of segments) · **assembly** (nests other OPOs).
 
@@ -81,5 +84,5 @@ for key, lbl in FAM:
     if lbl in rows and rows[lbl] is not None:
         out.append(f"\n## {lbl}\n\n| Class | Archetype | Types | Predefined types | Detailed sheets | Note |\n|---|---|---|---|---|---|\n" + '\n'.join(rows[lbl]))
         rows[lbl] = None
-open(f'{root}/spec/objects/ifc-coverage.md', 'w').write('\n'.join(out) + '\n')
+open(f'{root}/spec/objects/ifc-coverage.md', 'w').write('\n'.join(out).replace('NBUILT', str(nbuilt[0])) + '\n')
 print(total, covered, ptotal, [n for d,n,a,p in t if not a and (A.get(n) or ('point' if branch[n] in EQUIP_BRANCHES else '?'))=='?'])

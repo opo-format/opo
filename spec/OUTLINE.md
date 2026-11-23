@@ -45,7 +45,9 @@ Curva is the first application to implement OPO, but the format belongs to no si
 Name, unique ID, object version, author, licence, OPO spec version, description, tags, preview image.
 
 ### 4.2 Parameters
-Typed values: length, angle, number, integer, boolean, choice (enum), text, material slot, colour.
+Typed values: length, angle, number, integer, boolean, choice (enum), text, material slot, colour, and two structured types:
+- `layers` — an ordered build-up, each entry `{material, thickness, function, core}` (walls, slabs, roofs, coverings). A wall or slab *type* is a set of layers.
+- `property_set` — one IFC property set with its properties (name, IFC measure type, enumeration values). Values are data entered by the user or set by a `value` formula; they are written to IFC unchanged. Class templates generate one per applicable IFC property set; sets that apply to many classes are marked `optional`.
 Each has: unit, default, limits (min/max/step or allowed list), UI label and group, visibility conditions.
 
 **Units.** Values are always *stored* in IFCX's default units: lengths in **metres**, angles in degrees (IFCX alpha still lists radians vs degrees as undecided; OPO follows whatever IFCX settles on). Applications *display* and accept any unit (mm, m, ft-in…). Stored numbers are full double precision and never rounded on save (1/16" = 0.0015875 m must round-trip exactly). Limits and steps may be given per unit system (e.g. step 10 mm metric, ½" imperial), so sliders and snapping feel native in both.
@@ -70,9 +72,12 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 - **Regional rule sets:** referenced, swappable sets of limits (stair riser/going, guard heights) per country or code. Rule sets and variants carry each market's standard sizes (a US door is 36"×80", not a converted 900×2100).
 
 **Formula language: FEEL subset.** Formulas use FEEL (Friendly Enough Expression Language) from the OMG DMN standard: an open standard by a neutral body, readable by non-programmers, with several open implementations. OPO allows a listed subset only:
-- numbers, strings, booleans, lists (`[x, y]` for points; FEEL indexes from 1, so `p[1]` is x), context access (`host.thickness`)
+- numbers, strings, booleans, `null`, lists (`[x, y]` for points; FEEL indexes from 1, so `p[1]` is x, and `p[-1]` is the last item), contexts (`{width: 0.1, depth: 0.2}`) and context access (`host.thickness`); a path on a list maps over it (`layers.thickness` is the list of thicknesses)
 - arithmetic, comparisons (`=`, `!=`, `<`, `<=`, `>`, `>=`), `and`/`or`/`not`, `if … then … else`
-- `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`
+- `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`, `modulo`
+- lists: `for x in list return expr`, ranges `1..n` (FEEL: a range runs downwards when the start is larger), `sum`, `count`, `sublist`, `append`, `concatenate`, `reverse`, `index_of`, `list_contains`, `flatten` (deep, as in FEEL)
+- `null` propagates through arithmetic and comparisons; `and`/`or` use three-valued logic; `sum([])` is `null` (FEEL), so formulas append a 0 where a list may be empty
+- reference interpreter and conformance tests: `tools/feel.py`
 - OPO additions: trigonometry in degrees (`sin`, `cos`, `tan`, `atan2`); unit helpers returning canonical values (`mm()`, `cm()`, `m()`, `inch()`, `ft()`, `deg()`); curve queries (`length(curve)`, `point_at(curve, t)`…)
 
 Formulas only ever see canonical units (metres, degrees), so the same object gives the same result everywhere. Examples:
@@ -86,12 +91,14 @@ Names are `snake_case`. Every value in a recipe argument, derived value or check
 ### 4.5 Geometry recipe
 A chain of operations from a small, strictly specified vocabulary (a node graph stored as data):
 
-- **2D:** line, arc, polyline, rectangle, circle, profile, offset, fillet, boolean (2D)
-- **Curve queries:** length, point at, divide into N, perpendicular at, offset
-- **3D:** extrude, revolve, sweep, loft, boolean (union/difference/intersection)
-- **Patterning:** repeat/array (linear, along curve, grid), mirror
-- **Transform:** move, rotate, scale
-- **Placement:** nested OPO instance
+- **2D:** `line`, `arc`, `polyline`, `polygon`, `rectangle`, `circle`, `band` (region between two offsets of a path, mitred: wall layers, beams in plan), `difference`, `union`, `boundary_curves` (edges of a region), `text`; planned: fillet, offset of regions
+- **Curve queries:** length, point at, divide into N, perpendicular at, offset *(planned)*
+- **3D:** `extrude` (a region along its plane's normal), `sweep` (a profile drawn in its own u/v plane along a 3D path), `revolve`, `box`, `cylinder`, `path3` (3D axis curve); `union` of solids is a collection (no CSG needed for drawing); planned: loft, solid difference
+- **Patterning:** `for_each` (repeat a geometry expression over a list or range; each result keeps its item, so representations can use `each.material`), mirror
+- **Transform:** `move`, `rotate`, `mirror`
+- **Placement:** `instance(object_id, values, inputs)` places a nested OPO by id with values and drawn inputs; a packaged `.opo` embeds the nested objects it uses (§4.9)
+
+Planes: `xy`, `xz`, `yz`, and `profile` (the local plane of a swept profile: u across, to the left of the direction of travel; v up). Reference evaluator: `tools/recipe.py`.
 
 Keep this list short: every operation is a cost for other implementers.
 
@@ -112,6 +119,19 @@ Typical door:
 
 Aligns with IFC geometric representation sub-contexts (target view + target scale).
 
+**Materials, hatches and styles travel with the object.** An imported wall, slab or any other object keeps its look: OPO embeds the full definitions, not just names that the receiving file may not have.
+- `opo::hatches` — hatch pattern definitions, embedded in the file:
+  - `kind`: `solid` | `lines` | `none`.
+  - `lines`: a list of **line families**, each with `angle`, `origin` [x, y], `offset` [along, across] and optional `dashes` (positive = dash, negative = gap, 0 = dot, repeating from the line's origin; omitted = continuous). This is the model used by IFC (`IfcFillAreaStyleHatching`) and by common CAD pattern files, so patterns convert both ways without loss. Brick coursing, insulation zigzag (as short dashed families), concrete, timber grain and earth patterns are all expressible.
+  - `scale_mode`: `model` (sizes are real lengths, e.g. 65 mm brick courses that stay true at every scale) or `paper` (sizes in mm on the printed sheet, for symbolic patterns that keep the same density at every scale).
+  - optional `colour`, `background` (fill colour behind the lines), `line_weight` (otherwise from the line class).
+- `opo::materials` — material definitions: `name`, `category` (concrete, masonry, steel, timber, insulation, glass, finish, membrane, earth, other), IFC material name, render `colour`, `cut` (hatch used where the material is cut in plan and section), `surface` (optional pattern on surfaces seen in elevation or plan, e.g. tile or cladding joints) and data (density, thermal conductivity) for quantities.
+- Every layer of a layered element (walls, slabs, roofs, coverings) and every material slot points to a material. Plans and sections draw each cut layer with its material's cut hatch; layer boundaries are `cut` lines, the outer boundary a heavier `cut` line (weights from the drawing style).
+- **Joins merge by material, not by hatch:** where two walls or slabs meet, layers of the same material join without a line between them, others keep their boundary.
+- **Precedence** when drawing: (1) the project's drawing style, if it overrides a material or category; (2) the hatch embedded in the object's material; (3) the application's default for the category. The project chooses per import whether to keep the object's hatches (default) or map them onto the office standard by material category. Either way the embedded definitions stay in the object, so nothing is lost when it is passed on.
+- **Shared styles:** a wall or slab type (layer build-up + materials + hatches) is a variant of the wall or slab class template. Types are shared as a `.opo` with several variants (one file per office wall library) or as a layer file, like VisualARQ style libraries or Revit types, but readable by any OPO application. A package may also hold only materials and hatches (`opo::object.kind` = `styles`) to share an office's material and hatch standard.
+- **IFC export:** materials as `IfcMaterial` with `IfcMaterialLayerSet`; cut hatches as `IfcFillAreaStyle` with `IfcFillAreaStyleHatching` per line family (or a solid `IfcColourRgb`), and render colour as `IfcSurfaceStyle`, attached through `IfcMaterialDefinitionRepresentation`. IFCX alpha only stores a material name (`bsi::ifc::material` with a code), so in IFCX the definitions live in `opo::materials` / `opo::hatches` until IFCX gains presentation styles.
+
 **Line and hatch semantics.** 2D representations carry meaning, not pen styles: every line is classed as *cut*, *projected*, *hidden*, *overhead* or *annotation*, and every hatch names the material it cuts. The application's drawing style maps classes to line weights, line types and hatch patterns, so drawings stay consistent with the office standard across a project.
 
 ### 4.7 Host behaviour
@@ -124,6 +144,9 @@ Viewport handles mapped to parameters or input points (drag width, swing arc, si
 
 ### 4.9 Nested OPOs
 An OPO may place other OPOs (stair → railing → balusters; kitchen run → cabinets). Parameters can be passed down.
+
+### 4.9a Ports (distribution elements)
+`opo::ports` lists the connection points of distribution elements: `name`, `system_type` (IFC `IfcDistributionSystemEnum`), `flow_direction` (SOURCE / SINK / SOURCEANDSINK), `port_type` (PIPE / DUCT / CABLE…), and FEEL expressions for `nominal_size`, `position`, `direction` and an optional `when`. They export as `IfcDistributionPort` nested in the element. OPO does not route or size systems.
 
 ### 4.10 Data
 - IFC class and predefined type (e.g. IfcDoor / DOOR)
@@ -164,6 +187,7 @@ Every concrete IFC element class (150 in IFC 4.3) has an OPO **class template**,
 - Templates are **generated** from the pinned IFC schema, the IFC property and quantity set templates, the archetype definitions and one hand-written per-class table. They are regenerated when IFC changes.
 - **Library objects** refine a template with real construction logic and drawing conventions, keeping the same class, types, property sets and ports. Authors (firms, manufacturers) start from a template or a library object.
 - Details: `spec/objects/archetypes.md`; class list: `spec/objects/ifc-coverage.md`.
+- Built so far (one per archetype, plus IfcBeam): `library/templates/` — IfcWall, IfcSlab, IfcBeam, IfcMember, IfcBoiler, IfcPipeFitting, IfcOpeningElement, IfcStair, IfcElementAssembly. Generated by `tools/gen_templates.py`, checked by `tools/check_opo.py`.
 
 ## 5. Encoding and packaging
 
@@ -185,7 +209,7 @@ An IFCX file has a `header`, `imports` (schema URIs), `schemas` (new attribute d
 | Baked fallback | `usd::usdgeom::mesh` on part nodes (3D), `usd::usdgeom::basiscurves` on hidden 2D symbol nodes, both in metres |
 | IFC data | `opo::ifc` maps FEEL expressions to `bsi::ifc::prop::*` names, so every instance writes correct IFC properties (e.g. OverallWidth, OperationType) |
 
-`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file.
+`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::hatches`, `opo::ports`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file.
 
 IFCX alpha has only meshes and polylines, no exact solids. Exact geometry comes from the OPO recipe (used by OPO-aware tools and the IFC4.3 export); the baked mesh lets any IFC5 viewer display the object today.
 
@@ -260,6 +284,7 @@ The full list of planned objects (74 objects in eight families: openings, circul
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
 | — | Object catalogue | 74 objects in eight families, one sheet each, shared rule sets: `spec/objects/` |
+| — | Materials and hatches | Hatch patterns (line families, model or paper scale) and materials are embedded in the object (`opo::hatches`, `opo::materials`), so imported walls, slabs and other objects keep their hatches; project drawing styles may override; joins merge by material (§4.6). Decided 24 Nov 2026 |
 | — | IFC coverage | Every concrete IFC 4.3 element class gets an OPO class template built on one of eight archetypes; detailed library objects refine them (§4.16). Decided 24 Nov 2026 |
 | — | Norms by market | Europe: EN and ISO norms only, no national norms (DIN, NF, UNE…); where no EN/ISO norm exists, sizes are generic and labelled as such and rule sets stay empty. EU accessibility values from ISO 21542 until prEN 17210 is published. UK and US are separate markets. Decided 24 Nov 2026 |
 | — | Default door | O-01 default is a 900 × 2100 wall opening (nominal reference "opening") |

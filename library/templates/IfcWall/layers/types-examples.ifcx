@@ -1,0 +1,198 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcWall/layers/types-examples.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "b8863de1-0879-5118-acdd-49e4e3078da4",
+      "inherits": {
+        "type": "a41e731a-35e8-5a90-b59d-f64bbbcc63eb"
+      },
+      "attributes": {
+        "opo::values": {},
+        "bsi::ifc::prop::Name": "Example wall types (illustrative build-ups, not norm values)"
+      }
+    },
+    {
+      "path": "2363bd3f-dd78-5571-a3a9-0c61c5aba361",
+      "inherits": {
+        "system": "b8863de1-0879-5118-acdd-49e4e3078da4"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "reinforced_concrete",
+              "thickness": 0.2,
+              "function": "structure",
+              "core": true
+            }
+          ],
+          "load_bearing": true
+        },
+        "bsi::ifc::prop::TypeName": "Concrete 200"
+      }
+    },
+    {
+      "path": "09fa0d39-f2a8-5dc8-8b65-62e1cea37f58",
+      "inherits": {
+        "system": "b8863de1-0879-5118-acdd-49e4e3078da4"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "plaster",
+              "thickness": 0.015,
+              "function": "finish"
+            },
+            {
+              "material": "brick_masonry",
+              "thickness": 0.175,
+              "function": "structure",
+              "core": true
+            },
+            {
+              "material": "plaster",
+              "thickness": 0.015,
+              "function": "finish"
+            }
+          ]
+        },
+        "bsi::ifc::prop::TypeName": "Masonry 175, plastered both sides"
+      }
+    },
+    {
+      "path": "df995aad-a82b-5b14-bd0a-136699545d4f",
+      "inherits": {
+        "system": "b8863de1-0879-5118-acdd-49e4e3078da4"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "plasterboard",
+              "thickness": 0.0125,
+              "function": "finish"
+            },
+            {
+              "material": "plasterboard",
+              "thickness": 0.0125,
+              "function": "finish"
+            },
+            {
+              "material": "mineral_wool",
+              "thickness": 0.075,
+              "function": "insulation",
+              "core": true
+            },
+            {
+              "material": "plasterboard",
+              "thickness": 0.0125,
+              "function": "finish"
+            },
+            {
+              "material": "plasterboard",
+              "thickness": 0.0125,
+              "function": "finish"
+            }
+          ]
+        },
+        "bsi::ifc::prop::TypeName": "Partition, metal stud 75, 2 × 12.5 board each side",
+        "opo::note": "Studs are not modelled; the stud zone is drawn as its insulation."
+      }
+    },
+    {
+      "path": "54856632-cbea-5aa2-8a19-1505a41efe09",
+      "inherits": {
+        "system": "b8863de1-0879-5118-acdd-49e4e3078da4"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "render",
+              "thickness": 0.01,
+              "function": "finish"
+            },
+            {
+              "material": "rigid_insulation",
+              "thickness": 0.12,
+              "function": "insulation"
+            },
+            {
+              "material": "reinforced_concrete",
+              "thickness": 0.2,
+              "function": "structure",
+              "core": true
+            },
+            {
+              "material": "plaster",
+              "thickness": 0.015,
+              "function": "finish"
+            }
+          ],
+          "is_external": true,
+          "load_bearing": true,
+          "location_line": "core_centre"
+        },
+        "bsi::ifc::prop::TypeName": "External, concrete 200 + 120 insulation and render"
+      }
+    },
+    {
+      "path": "1a1adf6d-9ef0-593b-8033-16e5637d07fc",
+      "inherits": {
+        "system": "b8863de1-0879-5118-acdd-49e4e3078da4"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "brick_masonry",
+              "thickness": 0.1025,
+              "function": "finish"
+            },
+            {
+              "material": "mineral_wool",
+              "thickness": 0.1,
+              "function": "insulation"
+            },
+            {
+              "material": "concrete_block",
+              "thickness": 0.1,
+              "function": "structure",
+              "core": true
+            },
+            {
+              "material": "plaster",
+              "thickness": 0.013,
+              "function": "finish"
+            }
+          ],
+          "is_external": true,
+          "load_bearing": true
+        },
+        "bsi::ifc::prop::TypeName": "External cavity wall, brick / insulation / block"
+      }
+    }
+  ]
+}

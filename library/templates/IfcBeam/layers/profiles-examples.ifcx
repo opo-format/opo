@@ -1,0 +1,87 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcBeam/layers/profiles-examples.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "04ea2e21-df1a-5c3e-b69f-39c8eb9963f3",
+      "inherits": {
+        "type": "4a5ff81e-b460-53b4-a919-9ff39f183bc0"
+      },
+      "attributes": {
+        "opo::values": {},
+        "bsi::ifc::prop::Name": "Example profiles (values per row: see note)"
+      }
+    },
+    {
+      "path": "20cff060-d332-5508-b20a-5afebe1d6b53",
+      "inherits": {
+        "system": "04ea2e21-df1a-5c3e-b69f-39c8eb9963f3"
+      },
+      "attributes": {
+        "opo::values": {
+          "profile_kind": "i_section",
+          "profile_name": "IPE 270",
+          "width": 0.135,
+          "depth": 0.27,
+          "web_thickness": 0.0066,
+          "flange_thickness": 0.0102,
+          "material": "steel"
+        },
+        "bsi::ifc::prop::TypeName": "IPE 270",
+        "opo::note": "EN 10365:2017 table values (h 270, b 135, s 6.6, t 10.2 mm); root fillet not modelled. Full EN 10365 / AISC catalogue: to collect."
+      }
+    },
+    {
+      "path": "61061448-dee3-5c9b-bc8b-cde06ed1d3e0",
+      "inherits": {
+        "system": "04ea2e21-df1a-5c3e-b69f-39c8eb9963f3"
+      },
+      "attributes": {
+        "opo::values": {
+          "profile_kind": "rectangle",
+          "width": 0.25,
+          "depth": 0.5,
+          "material": "reinforced_concrete"
+        },
+        "bsi::ifc::prop::TypeName": "Concrete 250 × 500",
+        "opo::note": "Generic size, not a norm."
+      }
+    },
+    {
+      "path": "64c8cf7e-a885-5575-94f3-6ded495af0a6",
+      "inherits": {
+        "system": "04ea2e21-df1a-5c3e-b69f-39c8eb9963f3"
+      },
+      "attributes": {
+        "opo::values": {
+          "profile_kind": "rectangle",
+          "width": 0.14,
+          "depth": 0.4,
+          "material": "timber"
+        },
+        "bsi::ifc::prop::TypeName": "Glulam 140 × 400",
+        "opo::note": "Generic size; EN 14080 sizes to collect."
+      }
+    }
+  ]
+}

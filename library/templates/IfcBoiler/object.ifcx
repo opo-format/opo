@@ -1,0 +1,737 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcBoiler/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "47380cc6-e00f-577a-9c3a-7bbceaa200b0",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcBoiler",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBoiler"
+        },
+        "bsi::ifc::prop::Name": "Boiler (class template)",
+        "bsi::ifc::prop::TypeName": "Boiler (class template)",
+        "opo::object": {
+          "id": "opo-format.org/library/templates/IfcBoiler",
+          "name": "Boiler (class template)",
+          "kind": "class_template",
+          "archetype": "point",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Boiler as a cased body with its pipe and flue connections, wall-hung or floor-standing, with a service clearance zone.",
+          "tags": [
+            "IfcBoiler",
+            "point",
+            "class template"
+          ],
+          "references": [
+            {
+              "role": "IFC parameters",
+              "name": "IFC 4.3 ADD2 IfcBoiler, IfcBoilerTypeEnum and its property and quantity set templates",
+              "license": "buildingSMART",
+              "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBoiler",
+              "used": "Class, predefined types, property and quantity set names, property names, value types and enumerations (names only)."
+            },
+            {
+              "role": "generator",
+              "name": "tools/gen_templates.py",
+              "used": "Generated from the `point` archetype (spec/objects/archetypes.md)."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "predefined_type",
+            "type": "choice",
+            "default": "WATER",
+            "label": "Predefined type",
+            "group": "IFC",
+            "options": [
+              "STEAM",
+              "WATER",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ],
+            "description": "IFC 4.3 IfcBoilerTypeEnum. Property sets that apply only to some types follow this choice."
+          },
+          {
+            "name": "object_type",
+            "type": "text",
+            "default": "",
+            "label": "Object type (user-defined)",
+            "group": "IFC",
+            "visible": "predefined_type = \"USERDEFINED\""
+          },
+          {
+            "name": "mount",
+            "type": "choice",
+            "default": "wall",
+            "label": "Mounting",
+            "group": "Placement",
+            "options": [
+              "wall",
+              "floor"
+            ]
+          },
+          {
+            "name": "width",
+            "type": "length",
+            "default": 0.45,
+            "label": "Width",
+            "group": "Size",
+            "limits": {
+              "min": 0.1,
+              "max": 5
+            },
+            "description": "Typical wall-hung size; replace with maker data."
+          },
+          {
+            "name": "depth",
+            "type": "length",
+            "default": 0.35,
+            "label": "Depth",
+            "group": "Size",
+            "limits": {
+              "min": 0.1,
+              "max": 5
+            }
+          },
+          {
+            "name": "height",
+            "type": "length",
+            "default": 0.75,
+            "label": "Height",
+            "group": "Size",
+            "limits": {
+              "min": 0.1,
+              "max": 5
+            }
+          },
+          {
+            "name": "mount_height",
+            "type": "length",
+            "default": 1.2,
+            "label": "Underside above floor",
+            "group": "Placement",
+            "visible": "mount = \"wall\"",
+            "limits": {
+              "min": 0,
+              "max": 5
+            }
+          },
+          {
+            "name": "clearance_front",
+            "type": "length",
+            "default": 0.6,
+            "label": "Service clearance, front",
+            "group": "Clearance",
+            "limits": {
+              "min": 0,
+              "max": 3
+            },
+            "description": "Project or maker value."
+          },
+          {
+            "name": "clearance_side",
+            "type": "length",
+            "default": 0.05,
+            "label": "Service clearance, sides",
+            "group": "Clearance",
+            "limits": {
+              "min": 0,
+              "max": 1
+            }
+          },
+          {
+            "name": "pipe_size",
+            "type": "length",
+            "default": 0.022,
+            "label": "Water connection outside diameter",
+            "group": "Connections",
+            "limits": {
+              "min": 0.008,
+              "max": 0.3
+            }
+          },
+          {
+            "name": "gas_size",
+            "type": "length",
+            "default": 0.015,
+            "label": "Gas connection outside diameter",
+            "group": "Connections",
+            "limits": {
+              "min": 0.008,
+              "max": 0.2
+            }
+          },
+          {
+            "name": "flue_size",
+            "type": "length",
+            "default": 0.1,
+            "label": "Flue diameter",
+            "group": "Connections",
+            "limits": {
+              "min": 0.04,
+              "max": 0.6
+            }
+          },
+          {
+            "name": "symbol_code",
+            "type": "text",
+            "default": "BLR",
+            "label": "Plan symbol code",
+            "group": "Drawing"
+          },
+          {
+            "name": "casing_material",
+            "type": "material",
+            "default": "sheet_metal",
+            "label": "Casing",
+            "group": "Materials",
+            "options": "materials"
+          },
+          {
+            "name": "Pset_BoilerPHistory",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_BoilerPHistory",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "EnergySourceConsumption",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "OperationalEfficiency",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "CombustionEfficiency",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "WorkingPressureHistory",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "CombustionChamberTemperature",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "PartLoadRatio",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "Load",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "PrimaryEnergyConsumption",
+                "measure": "IfcTimeSeries"
+              },
+              {
+                "name": "AuxiliaryEnergyConsumption",
+                "measure": "IfcTimeSeries"
+              }
+            ],
+            "optional": false
+          },
+          {
+            "name": "Pset_BoilerTypeCommon",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_BoilerTypeCommon",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Reference",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "Status",
+                "measure": "IfcLabel",
+                "enum": [
+                  "DEMOLISH",
+                  "EXISTING",
+                  "NEW",
+                  "TEMPORARY",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "PressureRating",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "OperatingMode",
+                "measure": "IfcLabel",
+                "enum": [
+                  "FIXED",
+                  "MODULATING",
+                  "TWOSTEP",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "HeatTransferSurfaceArea",
+                "measure": "IfcAreaMeasure"
+              },
+              {
+                "name": "NominalPartLoadRatio",
+                "measure": "IfcReal"
+              },
+              {
+                "name": "WaterInletTemperatureRange",
+                "measure": "IfcThermodynamicTemperatureMeasure"
+              },
+              {
+                "name": "WaterStorageCapacity",
+                "measure": "IfcVolumeMeasure"
+              },
+              {
+                "name": "IsWaterStorageHeater",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "PartialLoadEfficiencyCurves",
+                "measure": "IfcPositiveRatioMeasure"
+              },
+              {
+                "name": "OutletTemperatureRange",
+                "measure": "IfcThermodynamicTemperatureMeasure"
+              },
+              {
+                "name": "NominalEnergyConsumption",
+                "measure": "IfcPowerMeasure"
+              },
+              {
+                "name": "EnergySource",
+                "measure": "IfcLabel",
+                "enum": [
+                  "COAL",
+                  "COAL_PULVERIZED",
+                  "ELECTRICITY",
+                  "GAS",
+                  "OIL",
+                  "PROPANE",
+                  "WOOD",
+                  "WOOD_CHIP",
+                  "WOOD_PELLET",
+                  "WOOD_PULVERIZED",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              }
+            ],
+            "optional": false
+          }
+        ],
+        "opo::slots": [],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "bottom",
+              "expr": "if mount = \"wall\" then mount_height else 0"
+            },
+            {
+              "name": "top",
+              "expr": "bottom + height"
+            },
+            {
+              "name": "port_x",
+              "expr": "[-width / 2 + 0.07, -width / 2 + 0.15, width / 2 - 0.15]",
+              "note": "Pipe connections along the underside (flow, return, gas). Typical layout."
+            }
+          ],
+          "checks": [
+            {
+              "id": "ports_fit",
+              "expr": "width >= 0.3",
+              "severity": "warning",
+              "message": "The body is narrower than the default connection layout; set port positions from maker data."
+            }
+          ],
+          "rulesets": []
+        },
+        "opo::recipe": [
+          {
+            "id": "body",
+            "op": "box",
+            "args": {
+              "min": "[-width / 2, 0, bottom]",
+              "max": "[width / 2, depth, top]"
+            }
+          },
+          {
+            "id": "stubs",
+            "op": "union",
+            "args": {
+              "items": "[cylinder([port_x[1], depth / 2, bottom], [port_x[1], depth / 2, bottom - 0.05], pipe_size / 2), cylinder([port_x[2], depth / 2, bottom], [port_x[2], depth / 2, bottom - 0.05], pipe_size / 2), cylinder([port_x[3], depth / 2, bottom], [port_x[3], depth / 2, bottom - 0.05], gas_size / 2), cylinder([0, depth / 2, top], [0, depth / 2, top + 0.1], flue_size / 2)]"
+            }
+          },
+          {
+            "id": "plan_body",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[-width / 2, 0]",
+              "max": "[width / 2, depth]"
+            }
+          },
+          {
+            "id": "plan_clearance",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[-width / 2 - clearance_side, depth]",
+              "max": "[width / 2 + clearance_side, depth + clearance_front]"
+            }
+          },
+          {
+            "id": "plan_code",
+            "op": "text",
+            "plane": "xy",
+            "args": {
+              "at": "[0, depth / 2]",
+              "value": "symbol_code",
+              "height": "0.0025"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "casing_material"
+              }
+            ]
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "casing_material"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "casing_material"
+              },
+              {
+                "geometry": "stubs",
+                "material": "\"copper\"",
+                "part": "Connections"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_body",
+                "class": "projected"
+              },
+              {
+                "geometry": "plan_code",
+                "class": "annotation"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_body",
+                "class": "projected"
+              },
+              {
+                "geometry": "plan_clearance",
+                "class": "annotation",
+                "role": "clearance"
+              },
+              {
+                "geometry": "plan_code",
+                "class": "annotation"
+              }
+            ]
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "derived",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "derive": {
+              "from": "model.high",
+              "method": "project"
+            },
+            "overlay": [
+              {
+                "geometry": "plan_clearance",
+                "class": "annotation",
+                "role": "clearance"
+              }
+            ]
+          },
+          {
+            "id": "elevation",
+            "context": "elevation",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "project"
+            }
+          },
+          {
+            "id": "section",
+            "context": "section",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "SECTION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "cut"
+            }
+          }
+        ],
+        "opo::host": {
+          "is_host": false,
+          "mounting": {
+            "wall": "on_face: back of the body on the wall face",
+            "floor": "free: on the floor"
+          },
+          "insertion": {
+            "point": "[0, 0, 0]",
+            "description": "Centre of the back edge at floor level; y points away from the wall."
+          },
+          "clearance": "plan_clearance (annotation zone, used for clash checks; not exported as geometry)"
+        },
+        "opo::handles": [],
+        "opo::materials": {
+          "copper": {
+            "label": "Copper",
+            "category": "metal",
+            "colour": "#b87333",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Copper"
+          },
+          "sheet_metal": {
+            "label": "Sheet metal, coated",
+            "category": "metal",
+            "colour": "#d9dbde",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Sheet metal, coated"
+          }
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcBoiler",
+          "predefinedType": "if predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\" then predefined_type else predefined_type",
+          "objectType": "if predefined_type = \"USERDEFINED\" then object_type else null",
+          "property_sets": "all parameters of type property_set, with the values set by `value` formulas",
+          "properties": {},
+          "quantities": {
+            "Qto_BoilerBaseQuantities": {
+              "values": {},
+              "from_geometry": [
+                "GrossWeight",
+                "NetWeight",
+                "TotalSurfaceArea"
+              ]
+            }
+          },
+          "parameter_pset": "OPO_Parameters"
+        },
+        "opo::ports": [
+          {
+            "name": "heating_flow",
+            "system_type": "HEATING",
+            "flow_direction": "SOURCE",
+            "port_type": "PIPE",
+            "nominal_size": "pipe_size",
+            "position": "[port_x[1], depth / 2, bottom - 0.05]",
+            "direction": "[0, 0, -1]"
+          },
+          {
+            "name": "heating_return",
+            "system_type": "HEATING",
+            "flow_direction": "SINK",
+            "port_type": "PIPE",
+            "nominal_size": "pipe_size",
+            "position": "[port_x[2], depth / 2, bottom - 0.05]",
+            "direction": "[0, 0, -1]"
+          },
+          {
+            "name": "gas",
+            "system_type": "GAS",
+            "flow_direction": "SINK",
+            "port_type": "PIPE",
+            "nominal_size": "gas_size",
+            "position": "[port_x[3], depth / 2, bottom - 0.05]",
+            "direction": "[0, 0, -1]"
+          },
+          {
+            "name": "flue",
+            "system_type": "EXHAUST",
+            "flow_direction": "SOURCE",
+            "port_type": "DUCT",
+            "nominal_size": "flue_size",
+            "position": "[0, depth / 2, top + 0.1]",
+            "direction": "[0, 0, 1]"
+          }
+        ]
+      },
+      "children": {
+        "Model_body_1": "a077eeba-6dd6-5fd5-924a-c641c752546c",
+        "Plan_plan_body_1": "0b85f0ee-4666-582e-a45a-58a4dc1a88bf",
+        "Plan_plan_clearance_1": "f51b57c9-224d-54cb-adf1-1eda3608bc7c"
+      }
+    },
+    {
+      "path": "a077eeba-6dd6-5fd5-924a-c641c752546c",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.225, 0.0, 1.2], [0.225, 0.0, 1.2], [0.225, 0.35, 1.2], [-0.225, 0.35, 1.2], [-0.225, 0.0, 1.95], [0.225, 0.0, 1.95], [0.225, 0.35, 1.95], [-0.225, 0.35, 1.95]],
+          "faceVertexIndices": [2, 0, 3, 2, 1, 0, 6, 7, 4, 6, 4, 5, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "sheet_metal",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "0b85f0ee-4666-582e-a45a-58a4dc1a88bf",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[-0.225, 0.0, 0.0], [0.225, 0.0, 0.0], [0.225, 0.35, 0.0], [-0.225, 0.35, 0.0], [-0.225, 0.0, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "f51b57c9-224d-54cb-adf1-1eda3608bc7c",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[-0.275, 0.35, 0.0], [0.275, 0.35, 0.0], [0.275, 0.95, 0.0], [-0.275, 0.95, 0.0], [-0.275, 0.35, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "annotation"
+      }
+    }
+  ]
+}

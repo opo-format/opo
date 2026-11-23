@@ -1,0 +1,723 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcElementAssembly/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "7fa861d7-f69a-5743-b868-67ceeea24481",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcElementAssembly",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcElementAssembly"
+        },
+        "bsi::ifc::prop::Name": "Element assembly (class template)",
+        "bsi::ifc::prop::TypeName": "Element assembly (class template)",
+        "opo::object": {
+          "id": "opo-format.org/library/templates/IfcElementAssembly",
+          "name": "Element assembly (class template)",
+          "kind": "class_template",
+          "archetype": "assembly",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Assembly that nests other OPO objects. The template builds a flat truss (Warren or Pratt) from nested IfcMember class templates.",
+          "tags": [
+            "IfcElementAssembly",
+            "assembly",
+            "class template"
+          ],
+          "references": [
+            {
+              "role": "IFC parameters",
+              "name": "IFC 4.3 ADD2 IfcElementAssembly, IfcElementAssemblyTypeEnum and its property and quantity set templates",
+              "license": "buildingSMART",
+              "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcElementAssembly",
+              "used": "Class, predefined types, property and quantity set names, property names, value types and enumerations (names only)."
+            },
+            {
+              "role": "generator",
+              "name": "tools/gen_templates.py",
+              "used": "Generated from the `assembly` archetype (spec/objects/archetypes.md)."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "predefined_type",
+            "type": "choice",
+            "default": "TRUSS",
+            "label": "Predefined type",
+            "group": "IFC",
+            "options": [
+              "ABUTMENT",
+              "ACCESSORY_ASSEMBLY",
+              "ARCH",
+              "BEAM_GRID",
+              "BRACED_FRAME",
+              "CROSS_BRACING",
+              "DECK",
+              "DILATATIONPANEL",
+              "ENTRANCEWORKS",
+              "GIRDER",
+              "GRID",
+              "MAST",
+              "PIER",
+              "PYLON",
+              "RAIL_MECHANICAL_EQUIPMENT_ASSEMBLY",
+              "REINFORCEMENT_UNIT",
+              "RIGID_FRAME",
+              "SHELTER",
+              "SIGNALASSEMBLY",
+              "SLAB_FIELD",
+              "SUMPBUSTER",
+              "SUPPORTINGASSEMBLY",
+              "SUSPENSIONASSEMBLY",
+              "TRACKPANEL",
+              "TRACTION_SWITCHING_ASSEMBLY",
+              "TRAFFIC_CALMING_DEVICE",
+              "TRUSS",
+              "TURNOUTPANEL",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ],
+            "description": "IFC 4.3 IfcElementAssemblyTypeEnum. Property sets that apply only to some types follow this choice."
+          },
+          {
+            "name": "object_type",
+            "type": "text",
+            "default": "",
+            "label": "Object type (user-defined)",
+            "group": "IFC",
+            "visible": "predefined_type = \"USERDEFINED\""
+          },
+          {
+            "name": "span",
+            "type": "length",
+            "default": 8.0,
+            "label": "Span",
+            "group": "Truss",
+            "limits": {
+              "min": 1,
+              "max": 100
+            }
+          },
+          {
+            "name": "truss_depth",
+            "type": "length",
+            "default": 1.0,
+            "label": "Depth (chord centres)",
+            "group": "Truss",
+            "limits": {
+              "min": 0.2,
+              "max": 10
+            }
+          },
+          {
+            "name": "panels",
+            "type": "integer",
+            "default": 8,
+            "label": "Panels",
+            "group": "Truss",
+            "limits": {
+              "min": 2,
+              "max": 60
+            }
+          },
+          {
+            "name": "pattern",
+            "type": "choice",
+            "default": "warren",
+            "label": "Pattern",
+            "group": "Truss",
+            "options": [
+              "warren",
+              "pratt"
+            ]
+          },
+          {
+            "name": "chord_width",
+            "type": "length",
+            "default": 0.12,
+            "label": "Chord section",
+            "group": "Members",
+            "limits": {
+              "min": 0.02,
+              "max": 1
+            },
+            "description": "Square hollow section, width = depth."
+          },
+          {
+            "name": "chord_wall",
+            "type": "length",
+            "default": 0.006,
+            "label": "Chord wall thickness",
+            "group": "Members",
+            "limits": {
+              "min": 0.002,
+              "max": 0.05
+            }
+          },
+          {
+            "name": "web_width",
+            "type": "length",
+            "default": 0.08,
+            "label": "Web member section",
+            "group": "Members",
+            "limits": {
+              "min": 0.02,
+              "max": 1
+            }
+          },
+          {
+            "name": "web_wall",
+            "type": "length",
+            "default": 0.005,
+            "label": "Web wall thickness",
+            "group": "Members",
+            "limits": {
+              "min": 0.002,
+              "max": 0.05
+            }
+          },
+          {
+            "name": "material",
+            "type": "material",
+            "default": "steel",
+            "label": "Material",
+            "group": "Materials",
+            "options": "materials"
+          },
+          {
+            "name": "Pset_ElementAssemblyCommon",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_ElementAssemblyCommon",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Reference",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "Status",
+                "measure": "IfcLabel",
+                "enum": [
+                  "DEMOLISH",
+                  "EXISTING",
+                  "NEW",
+                  "TEMPORARY",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              }
+            ],
+            "optional": false
+          }
+        ],
+        "opo::slots": [],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "panel",
+              "expr": "span / panels"
+            },
+            {
+              "name": "member_object",
+              "expr": "\"opo-format.org/library/templates/IfcMember\""
+            },
+            {
+              "name": "chord_values",
+              "expr": "{predefined_type: \"CHORD\", profile_kind: \"rect_hollow\", width: chord_width, depth: chord_width, wall_thickness: chord_wall, material: material}"
+            },
+            {
+              "name": "web_values",
+              "expr": "{predefined_type: \"MEMBER\", profile_kind: \"rect_hollow\", width: web_width, depth: web_width, wall_thickness: web_wall, material: material}"
+            },
+            {
+              "name": "diagonals",
+              "expr": "for k in 1..panels return if pattern = \"warren\" then (if modulo(k, 2) = 1 then [[(k - 1) * panel, 0, 0], [k * panel, 0, truss_depth]] else [[(k - 1) * panel, 0, truss_depth], [k * panel, 0, 0]]) else (if k <= panels / 2 then [[(k - 1) * panel, 0, truss_depth], [k * panel, 0, 0]] else [[(k - 1) * panel, 0, 0], [k * panel, 0, truss_depth]])",
+              "note": "Warren: alternating diagonals. Pratt: diagonals slope down towards the middle."
+            },
+            {
+              "name": "verticals",
+              "expr": "if pattern = \"pratt\" then for k in 0..panels return [[k * panel, 0, 0], [k * panel, 0, truss_depth]] else []"
+            },
+            {
+              "name": "member_count",
+              "expr": "2 + count(diagonals) + count(verticals)"
+            }
+          ],
+          "checks": [
+            {
+              "id": "panels_even",
+              "expr": "pattern != \"warren\" or modulo(panels, 2) = 0",
+              "severity": "warning",
+              "message": "A Warren truss with an odd number of panels ends on a different chord at each support."
+            }
+          ],
+          "rulesets": []
+        },
+        "opo::recipe": [
+          {
+            "id": "top_chord",
+            "op": "instance",
+            "args": {
+              "object": "member_object",
+              "values": "chord_values",
+              "inputs": "{path: [[0, 0, truss_depth], [span, 0, truss_depth]]}"
+            }
+          },
+          {
+            "id": "bottom_chord",
+            "op": "instance",
+            "args": {
+              "object": "member_object",
+              "values": "chord_values",
+              "inputs": "{path: [[0, 0, 0], [span, 0, 0]]}"
+            }
+          },
+          {
+            "id": "web_diagonals",
+            "op": "for_each",
+            "args": {
+              "items": "diagonals",
+              "as": "d",
+              "index": "i",
+              "do": "instance(member_object, web_values, {path: d})"
+            }
+          },
+          {
+            "id": "web_verticals",
+            "op": "for_each",
+            "args": {
+              "items": "verticals",
+              "as": "d",
+              "index": "i",
+              "do": "instance(member_object, web_values, {path: d})"
+            }
+          },
+          {
+            "id": "plan_line",
+            "op": "line",
+            "plane": "xy",
+            "args": {
+              "start": "[0, 0]",
+              "end": "[span, 0]"
+            }
+          },
+          {
+            "id": "plan_band",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[0, -chord_width / 2]",
+              "max": "[span, chord_width / 2]"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "top_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "bottom_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "web_diagonals",
+                "material": "material",
+                "part": "Web"
+              },
+              {
+                "geometry": "web_verticals",
+                "material": "material",
+                "part": "Web"
+              }
+            ]
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "top_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "bottom_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "web_diagonals",
+                "material": "material",
+                "part": "Web"
+              },
+              {
+                "geometry": "web_verticals",
+                "material": "material",
+                "part": "Web"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "top_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "bottom_chord",
+                "material": "material",
+                "part": "Chord"
+              },
+              {
+                "geometry": "web_diagonals",
+                "material": "material",
+                "part": "Web"
+              },
+              {
+                "geometry": "web_verticals",
+                "material": "material",
+                "part": "Web"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_line",
+                "class": "overhead"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_band",
+                "class": "overhead"
+              }
+            ]
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "derived",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "derive": {
+              "from": "model.high",
+              "method": "project"
+            }
+          },
+          {
+            "id": "elevation",
+            "context": "elevation",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "project"
+            }
+          }
+        ],
+        "opo::host": {
+          "is_host": false,
+          "nested": {
+            "objects": [
+              "opo-format.org/library/templates/IfcMember"
+            ],
+            "rule": "Nested objects are referenced by id and version; a packaged .opo embeds them (spec §4.9)."
+          }
+        },
+        "opo::handles": [],
+        "opo::materials": {
+          "steel": {
+            "label": "Steel",
+            "category": "steel",
+            "colour": "#7a8088",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "density": 7850,
+            "ifc_name": "Steel"
+          }
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcElementAssembly",
+          "predefinedType": "if predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\" then predefined_type else predefined_type",
+          "objectType": "if predefined_type = \"USERDEFINED\" then object_type else null",
+          "property_sets": "all parameters of type property_set, with the values set by `value` formulas",
+          "properties": {},
+          "quantities": {},
+          "parameter_pset": "OPO_Parameters",
+          "decomposition": "IfcElementAssembly aggregating the nested members (IfcRelAggregates); each nested instance exports as its own class (IfcMember CHORD / MEMBER)."
+        }
+      },
+      "children": {
+        "Model_top_chord_1": "82794eaa-dd5e-5df0-b370-a57d5173a46a",
+        "Model_bottom_chord_1": "1e3edeb2-f1ae-55f4-bb3d-6bdfe19856a6",
+        "Model_web_diagonals_1": "53f46a19-b059-559a-b2d7-f4ae420e541a",
+        "Model_web_diagonals_2": "e0d45de1-e07a-5de3-b15c-b799714bd95b",
+        "Model_web_diagonals_3": "277dfb1f-6cc8-578f-b528-50112dad3309",
+        "Model_web_diagonals_4": "75642755-e002-5449-9721-97e417f7cb63",
+        "Model_web_diagonals_5": "b6d8ea3a-4c60-5ae7-9ab1-16a27fe8ba50",
+        "Model_web_diagonals_6": "ebdefd28-a014-53f4-be12-3feda8b5c50e",
+        "Model_web_diagonals_7": "7d987011-6bc8-5a0d-8141-cc7dc2d86900",
+        "Model_web_diagonals_8": "9bc08851-0550-5171-a47e-c2684a03ca22",
+        "Plan_plan_band_1": "aa0b66b9-f324-5731-bdfa-985115c53615"
+      }
+    },
+    {
+      "path": "82794eaa-dd5e-5df0-b370-a57d5173a46a",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, -0.06, 1.06], [0.0, -0.06, 0.94], [0.0, 0.06, 0.94], [0.0, 0.06, 1.06], [0.0, 0.054, 0.946], [0.0, -0.054, 0.946], [0.0, -0.054, 1.054], [0.0, 0.054, 1.054], [8.0, -0.06, 1.06], [8.0, -0.06, 0.94], [8.0, 0.06, 0.94], [8.0, 0.06, 1.06], [8.0, 0.054, 0.946], [8.0, -0.054, 0.946], [8.0, -0.054, 1.054], [8.0, 0.054, 1.054]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "1e3edeb2-f1ae-55f4-bb3d-6bdfe19856a6",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, -0.06, 0.06], [0.0, -0.06, -0.06], [0.0, 0.06, -0.06], [0.0, 0.06, 0.06], [0.0, 0.054, -0.054], [0.0, -0.054, -0.054], [0.0, -0.054, 0.054], [0.0, 0.054, 0.054], [8.0, -0.06, 0.06], [8.0, -0.06, -0.06], [8.0, 0.06, -0.06], [8.0, 0.06, 0.06], [8.0, 0.054, -0.054], [8.0, -0.054, -0.054], [8.0, -0.054, 0.054], [8.0, 0.054, 0.054]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "53f46a19-b059-559a-b2d7-f4ae420e541a",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.028284271, -0.04, 0.028284271], [0.028284271, -0.04, -0.028284271], [0.028284271, 0.04, -0.028284271], [-0.028284271, 0.04, 0.028284271], [0.024748737, 0.035, -0.024748737], [0.024748737, -0.035, -0.024748737], [-0.024748737, -0.035, 0.024748737], [-0.024748737, 0.035, 0.024748737], [0.971715729, -0.04, 1.028284271], [1.028284271, -0.04, 0.971715729], [1.028284271, 0.04, 0.971715729], [0.971715729, 0.04, 1.028284271], [1.024748737, 0.035, 0.975251263], [1.024748737, -0.035, 0.975251263], [0.975251263, -0.035, 1.024748737], [0.975251263, 0.035, 1.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "e0d45de1-e07a-5de3-b15c-b799714bd95b",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.028284271, -0.04, 1.028284271], [0.971715729, -0.04, 0.971715729], [0.971715729, 0.04, 0.971715729], [1.028284271, 0.04, 1.028284271], [0.975251263, 0.035, 0.975251263], [0.975251263, -0.035, 0.975251263], [1.024748737, -0.035, 1.024748737], [1.024748737, 0.035, 1.024748737], [2.028284271, -0.04, 0.028284271], [1.971715729, -0.04, -0.028284271], [1.971715729, 0.04, -0.028284271], [2.028284271, 0.04, 0.028284271], [1.975251263, 0.035, -0.024748737], [1.975251263, -0.035, -0.024748737], [2.024748737, -0.035, 0.024748737], [2.024748737, 0.035, 0.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "277dfb1f-6cc8-578f-b528-50112dad3309",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.971715729, -0.04, 0.028284271], [2.028284271, -0.04, -0.028284271], [2.028284271, 0.04, -0.028284271], [1.971715729, 0.04, 0.028284271], [2.024748737, 0.035, -0.024748737], [2.024748737, -0.035, -0.024748737], [1.975251263, -0.035, 0.024748737], [1.975251263, 0.035, 0.024748737], [2.971715729, -0.04, 1.028284271], [3.028284271, -0.04, 0.971715729], [3.028284271, 0.04, 0.971715729], [2.971715729, 0.04, 1.028284271], [3.024748737, 0.035, 0.975251263], [3.024748737, -0.035, 0.975251263], [2.975251263, -0.035, 1.024748737], [2.975251263, 0.035, 1.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "75642755-e002-5449-9721-97e417f7cb63",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.028284271, -0.04, 1.028284271], [2.971715729, -0.04, 0.971715729], [2.971715729, 0.04, 0.971715729], [3.028284271, 0.04, 1.028284271], [2.975251263, 0.035, 0.975251263], [2.975251263, -0.035, 0.975251263], [3.024748737, -0.035, 1.024748737], [3.024748737, 0.035, 1.024748737], [4.028284271, -0.04, 0.028284271], [3.971715729, -0.04, -0.028284271], [3.971715729, 0.04, -0.028284271], [4.028284271, 0.04, 0.028284271], [3.975251263, 0.035, -0.024748737], [3.975251263, -0.035, -0.024748737], [4.024748737, -0.035, 0.024748737], [4.024748737, 0.035, 0.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "b6d8ea3a-4c60-5ae7-9ab1-16a27fe8ba50",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.971715729, -0.04, 0.028284271], [4.028284271, -0.04, -0.028284271], [4.028284271, 0.04, -0.028284271], [3.971715729, 0.04, 0.028284271], [4.024748737, 0.035, -0.024748737], [4.024748737, -0.035, -0.024748737], [3.975251263, -0.035, 0.024748737], [3.975251263, 0.035, 0.024748737], [4.971715729, -0.04, 1.028284271], [5.028284271, -0.04, 0.971715729], [5.028284271, 0.04, 0.971715729], [4.971715729, 0.04, 1.028284271], [5.024748737, 0.035, 0.975251263], [5.024748737, -0.035, 0.975251263], [4.975251263, -0.035, 1.024748737], [4.975251263, 0.035, 1.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "ebdefd28-a014-53f4-be12-3feda8b5c50e",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[5.028284271, -0.04, 1.028284271], [4.971715729, -0.04, 0.971715729], [4.971715729, 0.04, 0.971715729], [5.028284271, 0.04, 1.028284271], [4.975251263, 0.035, 0.975251263], [4.975251263, -0.035, 0.975251263], [5.024748737, -0.035, 1.024748737], [5.024748737, 0.035, 1.024748737], [6.028284271, -0.04, 0.028284271], [5.971715729, -0.04, -0.028284271], [5.971715729, 0.04, -0.028284271], [6.028284271, 0.04, 0.028284271], [5.975251263, 0.035, -0.024748737], [5.975251263, -0.035, -0.024748737], [6.024748737, -0.035, 0.024748737], [6.024748737, 0.035, 0.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "7d987011-6bc8-5a0d-8141-cc7dc2d86900",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[5.971715729, -0.04, 0.028284271], [6.028284271, -0.04, -0.028284271], [6.028284271, 0.04, -0.028284271], [5.971715729, 0.04, 0.028284271], [6.024748737, 0.035, -0.024748737], [6.024748737, -0.035, -0.024748737], [5.975251263, -0.035, 0.024748737], [5.975251263, 0.035, 0.024748737], [6.971715729, -0.04, 1.028284271], [7.028284271, -0.04, 0.971715729], [7.028284271, 0.04, 0.971715729], [6.971715729, 0.04, 1.028284271], [7.024748737, 0.035, 0.975251263], [7.024748737, -0.035, 0.975251263], [6.975251263, -0.035, 1.024748737], [6.975251263, 0.035, 1.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "9bc08851-0550-5171-a47e-c2684a03ca22",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[7.028284271, -0.04, 1.028284271], [6.971715729, -0.04, 0.971715729], [6.971715729, 0.04, 0.971715729], [7.028284271, 0.04, 1.028284271], [6.975251263, 0.035, 0.975251263], [6.975251263, -0.035, 0.975251263], [7.024748737, -0.035, 1.024748737], [7.024748737, 0.035, 1.024748737], [8.028284271, -0.04, 0.028284271], [7.971715729, -0.04, -0.028284271], [7.971715729, 0.04, -0.028284271], [8.028284271, 0.04, 0.028284271], [7.975251263, 0.035, -0.024748737], [7.975251263, -0.035, -0.024748737], [8.024748737, -0.035, 0.024748737], [8.024748737, 0.035, 0.024748737]],
+          "faceVertexIndices": [1, 6, 5, 4, 1, 5, 4, 2, 1, 4, 3, 2, 0, 6, 1, 0, 7, 6, 7, 3, 4, 7, 0, 3, 9, 13, 14, 12, 13, 9, 12, 9, 10, 12, 10, 11, 8, 9, 14, 8, 14, 15, 15, 12, 11, 15, 11, 8, 0, 1, 9, 0, 9, 8, 1, 2, 10, 1, 10, 9, 2, 3, 11, 2, 11, 10, 3, 0, 8, 3, 8, 11, 4, 5, 13, 4, 13, 12, 5, 6, 14, 5, 14, 13, 6, 7, 15, 6, 15, 14, 7, 4, 12, 7, 12, 15]
+        },
+        "bsi::ifc::material": {
+          "code": "steel",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "aa0b66b9-f324-5731-bdfa-985115c53615",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.0, -0.06, 0.0], [8.0, -0.06, 0.0], [8.0, 0.06, 0.0], [0.0, 0.06, 0.0], [0.0, -0.06, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "overhead"
+      }
+    }
+  ]
+}

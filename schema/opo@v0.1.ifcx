@@ -4,7 +4,7 @@
     "ifcxVersion": "ifcx_alpha",
     "dataVersion": "0.1.0",
     "author": "opo-format.org",
-    "timestamp": "2026-11-23"
+    "timestamp": "2026-11-24"
   },
   "imports": [],
   "schemas": {
@@ -82,6 +82,30 @@
     },
     "opo::representation": {
       "uri": "https://opo-format.org/schema/0.1/representation.json",
+      "value": {
+        "dataType": "String"
+      }
+    },
+    "opo::hatches": {
+      "uri": "https://opo-format.org/schema/0.1/hatches.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::ports": {
+      "uri": "https://opo-format.org/schema/0.1/ports.json",
+      "value": {
+        "dataType": "Array"
+      }
+    },
+    "opo::line_class": {
+      "uri": "https://opo-format.org/schema/0.1/line-class.json",
+      "value": {
+        "dataType": "String"
+      }
+    },
+    "opo::note": {
+      "uri": "https://opo-format.org/schema/0.1/note.json",
       "value": {
         "dataType": "String"
       }

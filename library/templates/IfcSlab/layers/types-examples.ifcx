@@ -1,0 +1,124 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcSlab/layers/types-examples.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "2ce1e45d-aacc-55bb-9e84-2269cd7c3a1e",
+      "inherits": {
+        "type": "a59eb128-22b6-54c1-89a6-ecbb9492c8a9"
+      },
+      "attributes": {
+        "opo::values": {},
+        "bsi::ifc::prop::Name": "Example slab types (illustrative build-ups, not norm values)"
+      }
+    },
+    {
+      "path": "07220330-08a1-5287-8459-789c075da134",
+      "inherits": {
+        "system": "2ce1e45d-aacc-55bb-9e84-2269cd7c3a1e"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "reinforced_concrete",
+              "thickness": 0.2,
+              "function": "structure",
+              "core": true
+            }
+          ]
+        },
+        "bsi::ifc::prop::TypeName": "Concrete 200"
+      }
+    },
+    {
+      "path": "0f77316d-268a-5cc2-9925-ef4aa87510e0",
+      "inherits": {
+        "system": "2ce1e45d-aacc-55bb-9e84-2269cd7c3a1e"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "ceramic_tile",
+              "thickness": 0.01,
+              "function": "finish"
+            },
+            {
+              "material": "cement_screed",
+              "thickness": 0.065,
+              "function": "finish"
+            },
+            {
+              "material": "rigid_insulation",
+              "thickness": 0.03,
+              "function": "insulation"
+            },
+            {
+              "material": "reinforced_concrete",
+              "thickness": 0.25,
+              "function": "structure",
+              "core": true
+            },
+            {
+              "material": "plaster",
+              "thickness": 0.01,
+              "function": "finish"
+            }
+          ]
+        },
+        "bsi::ifc::prop::TypeName": "Floor, tiles on screed, insulation, concrete 250"
+      }
+    },
+    {
+      "path": "e4c9b94f-2c55-5a36-84d3-d519ddaa6635",
+      "inherits": {
+        "system": "2ce1e45d-aacc-55bb-9e84-2269cd7c3a1e"
+      },
+      "attributes": {
+        "opo::values": {
+          "layers": [
+            {
+              "material": "timber",
+              "thickness": 0.022,
+              "function": "finish"
+            },
+            {
+              "material": "timber",
+              "thickness": 0.2,
+              "function": "structure",
+              "core": true
+            },
+            {
+              "material": "plasterboard",
+              "thickness": 0.0125,
+              "function": "finish"
+            }
+          ]
+        },
+        "bsi::ifc::prop::TypeName": "Timber floor, boards 22 on structure 200",
+        "opo::note": "Joists are not modelled; the joist zone is one timber layer."
+      }
+    }
+  ]
+}

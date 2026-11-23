@@ -1,0 +1,1279 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcStair/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "114b5848-dabf-5e56-9459-66be5518d117",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcStair",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcStair"
+        },
+        "bsi::ifc::prop::Name": "Stair (class template)",
+        "bsi::ifc::prop::TypeName": "Stair (class template)",
+        "opo::object": {
+          "id": "opo-format.org/library/templates/IfcStair",
+          "name": "Stair (class template)",
+          "kind": "class_template",
+          "archetype": "flight",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Straight-run stair between two storeys: riser count from the rise and the maximum riser, going, width, concrete waist or solid, plan symbol with cut line and walking line.",
+          "tags": [
+            "IfcStair",
+            "flight",
+            "class template"
+          ],
+          "references": [
+            {
+              "role": "IFC parameters",
+              "name": "IFC 4.3 ADD2 IfcStair, IfcStairTypeEnum and its property and quantity set templates",
+              "license": "buildingSMART",
+              "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcStair",
+              "used": "Class, predefined types, property and quantity set names, property names, value types and enumerations (names only)."
+            },
+            {
+              "role": "generator",
+              "name": "tools/gen_templates.py",
+              "used": "Generated from the `flight` archetype (spec/objects/archetypes.md)."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "predefined_type",
+            "type": "choice",
+            "default": "STRAIGHT_RUN_STAIR",
+            "label": "Predefined type",
+            "group": "IFC",
+            "options": [
+              "CURVED_RUN_STAIR",
+              "DOUBLE_RETURN_STAIR",
+              "HALF_TURN_STAIR",
+              "HALF_WINDING_STAIR",
+              "LADDER",
+              "QUARTER_TURN_STAIR",
+              "QUARTER_WINDING_STAIR",
+              "SPIRAL_STAIR",
+              "STRAIGHT_RUN_STAIR",
+              "THREE_QUARTER_TURN_STAIR",
+              "THREE_QUARTER_WINDING_STAIR",
+              "TWO_CURVED_RUN_STAIR",
+              "TWO_QUARTER_TURN_STAIR",
+              "TWO_QUARTER_WINDING_STAIR",
+              "TWO_STRAIGHT_RUN_STAIR",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ],
+            "description": "IFC 4.3 IfcStairTypeEnum. Property sets that apply only to some types follow this choice."
+          },
+          {
+            "name": "object_type",
+            "type": "text",
+            "default": "",
+            "label": "Object type (user-defined)",
+            "group": "IFC",
+            "visible": "predefined_type = \"USERDEFINED\""
+          },
+          {
+            "name": "rise_mode",
+            "type": "choice",
+            "default": "storey",
+            "label": "Total rise",
+            "group": "Rise",
+            "options": [
+              "storey",
+              "value"
+            ],
+            "option_labels": {
+              "storey": "Storey height",
+              "value": "Value"
+            }
+          },
+          {
+            "name": "rise_value",
+            "type": "length",
+            "default": 3.0,
+            "label": "Total rise",
+            "group": "Rise",
+            "visible": "rise_mode = \"value\"",
+            "limits": {
+              "min": 0.1,
+              "max": 10
+            }
+          },
+          {
+            "name": "max_riser",
+            "type": "length",
+            "default": 0.18,
+            "label": "Maximum riser",
+            "group": "Steps",
+            "limits": {
+              "min": 0.05,
+              "max": 0.3
+            },
+            "description": "Generic default (no EN/ISO stair geometry norm); a rule set layer sets regional limits."
+          },
+          {
+            "name": "going",
+            "type": "length",
+            "default": 0.28,
+            "label": "Going",
+            "group": "Steps",
+            "limits": {
+              "min": 0.1,
+              "max": 0.6
+            }
+          },
+          {
+            "name": "width",
+            "type": "length",
+            "default": 1.0,
+            "label": "Width",
+            "group": "Size",
+            "limits": {
+              "min": 0.4,
+              "max": 10
+            }
+          },
+          {
+            "name": "structure",
+            "type": "choice",
+            "default": "waist",
+            "label": "Structure",
+            "group": "Structure",
+            "options": [
+              "waist",
+              "solid"
+            ],
+            "option_labels": {
+              "waist": "Concrete waist slab",
+              "solid": "Solid (on fill or masonry)"
+            }
+          },
+          {
+            "name": "waist_thickness",
+            "type": "length",
+            "default": 0.15,
+            "label": "Waist thickness",
+            "group": "Structure",
+            "visible": "structure = \"waist\"",
+            "limits": {
+              "min": 0.05,
+              "max": 0.5
+            }
+          },
+          {
+            "name": "material",
+            "type": "material",
+            "default": "reinforced_concrete",
+            "label": "Material",
+            "group": "Materials",
+            "options": "materials"
+          },
+          {
+            "name": "arrow_label",
+            "type": "text",
+            "default": "UP",
+            "label": "Walking line label",
+            "group": "Drawing"
+          },
+          {
+            "name": "Pset_ConcreteElementGeneral",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_ConcreteElementGeneral",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "AssemblyPlace",
+                "measure": "IfcLabel",
+                "enum": [
+                  "FACTORY",
+                  "OFFSITE",
+                  "SITE",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "CastingMethod",
+                "measure": "IfcLabel",
+                "enum": [
+                  "INSITU",
+                  "MIXED",
+                  "PRECAST",
+                  "PRINTED",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "StructuralClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "StrengthClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ExposureClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ReinforcementVolumeRatio",
+                "measure": "IfcMassDensityMeasure"
+              },
+              {
+                "name": "ReinforcementAreaRatio",
+                "measure": "IfcAreaDensityMeasure"
+              },
+              {
+                "name": "DimensionalAccuracyClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ConstructionToleranceClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ConcreteCover",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ConcreteCoverAtMainBars",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ConcreteCoverAtLinks",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ReinforcementStrengthClass",
+                "measure": "IfcLabel"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_PrecastConcreteElementFabrication",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_PrecastConcreteElementFabrication",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "TypeDesignation",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ProductionLotId",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "SerialNumber",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "PieceMark",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "AsBuiltLocationNumber",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ActualProductionDate",
+                "measure": "IfcDateTime"
+              },
+              {
+                "name": "ActualErectionDate",
+                "measure": "IfcDateTime"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_PrecastConcreteElementGeneral",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_PrecastConcreteElementGeneral",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "TypeDesignation",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "CornerChamfer",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ManufacturingToleranceClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "FormStrippingStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "LiftingStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "ReleaseStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "MinimumAllowableSupportLength",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "InitialTension",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "TendonRelaxation",
+                "measure": "IfcPositiveRatioMeasure"
+              },
+              {
+                "name": "TransportationStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "SupportDuringTransportDescription",
+                "measure": "IfcText"
+              },
+              {
+                "name": "SupportDuringTransportDocReference",
+                "measure": "IfcExternalReference"
+              },
+              {
+                "name": "HollowCorePlugging",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "CamberAtMidspan",
+                "measure": "IfcRatioMeasure"
+              },
+              {
+                "name": "BatterAtStart",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "BatterAtEnd",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "Twisting",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "Shortening",
+                "measure": "IfcRatioMeasure"
+              },
+              {
+                "name": "PieceMark",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "DesignLocationNumber",
+                "measure": "IfcLabel"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_StairCommon",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_StairCommon",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Reference",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "Status",
+                "measure": "IfcLabel",
+                "enum": [
+                  "DEMOLISH",
+                  "EXISTING",
+                  "NEW",
+                  "TEMPORARY",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "NumberOfRiser",
+                "measure": "IfcCountMeasure",
+                "value": "risers"
+              },
+              {
+                "name": "NumberOfTreads",
+                "measure": "IfcCountMeasure",
+                "value": "treads"
+              },
+              {
+                "name": "RiserHeight",
+                "measure": "IfcPositiveLengthMeasure",
+                "value": "riser"
+              },
+              {
+                "name": "TreadLength",
+                "measure": "IfcPositiveLengthMeasure",
+                "value": "going"
+              },
+              {
+                "name": "NosingLength",
+                "measure": "IfcLengthMeasure"
+              },
+              {
+                "name": "WalkingLineOffset",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "TreadLengthAtOffset",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "TreadLengthAtInnerSide",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "WaistThickness",
+                "measure": "IfcPositiveLengthMeasure",
+                "value": "if structure = \"waist\" then waist_thickness else null"
+              },
+              {
+                "name": "RequiredHeadroom",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "HandicapAccessible",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "HasNonSkidSurface",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "IsExternal",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "ThermalTransmittance",
+                "measure": "IfcThermalTransmittanceMeasure"
+              },
+              {
+                "name": "LoadBearing",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "FireRating",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "FireExit",
+                "measure": "IfcBoolean"
+              }
+            ],
+            "optional": false
+          }
+        ],
+        "opo::slots": [],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "total_rise",
+              "expr": "if rise_mode = \"storey\" then level.height else rise_value"
+            },
+            {
+              "name": "risers",
+              "expr": "ceiling(total_rise / max_riser)"
+            },
+            {
+              "name": "riser",
+              "expr": "total_rise / risers"
+            },
+            {
+              "name": "treads",
+              "expr": "risers - 1"
+            },
+            {
+              "name": "run",
+              "expr": "treads * going"
+            },
+            {
+              "name": "pitch",
+              "expr": "atan2(riser, going)"
+            },
+            {
+              "name": "step_rule",
+              "expr": "2 * riser + going",
+              "note": "Shown for information (2R + G); checked only by a rule set."
+            },
+            {
+              "name": "waist_v",
+              "expr": "waist_thickness / cos(pitch)",
+              "note": "Waist thickness measured vertically."
+            },
+            {
+              "name": "under_x0",
+              "expr": "max(0, (waist_v - riser) * going / riser)"
+            },
+            {
+              "name": "under_z0",
+              "expr": "max(0, riser - waist_v)"
+            },
+            {
+              "name": "steps",
+              "expr": "for j in 1..2 * treads return if modulo(j, 2) = 1 then [(j - 1) / 2 * going, (j + 1) / 2 * riser] else [j / 2 * going, j / 2 * riser]",
+              "note": "Nosing and back of each tread (two points per tread)."
+            },
+            {
+              "name": "profile_points",
+              "expr": "if structure = \"waist\" then concatenate([[0, 0]], steps, [[run, total_rise], [run, total_rise - waist_v], [under_x0, under_z0]]) else concatenate([[0, 0]], steps, [[run, total_rise], [run, 0]])"
+            },
+            {
+              "name": "x_cut",
+              "expr": "min(run, max(0, (view.cut_height - riser) * going / riser))",
+              "note": "Where the plan cut height meets the stair."
+            },
+            {
+              "name": "hw",
+              "expr": "width / 2"
+            }
+          ],
+          "checks": [
+            {
+              "id": "min_risers",
+              "expr": "risers >= 2",
+              "severity": "error",
+              "message": "A stair needs at least two risers."
+            },
+            {
+              "id": "riser_range",
+              "expr": "rules.stairs = null or (riser >= rules.stairs.riser_min and riser <= rules.stairs.riser_max)",
+              "severity": "warning",
+              "message": "Riser is outside the active rule set."
+            },
+            {
+              "id": "going_range",
+              "expr": "rules.stairs = null or (going >= rules.stairs.going_min and going <= rules.stairs.going_max)",
+              "severity": "warning",
+              "message": "Going is outside the active rule set."
+            },
+            {
+              "id": "step_rule_range",
+              "expr": "rules.stairs = null or rules.stairs.rule_min = null or (step_rule >= rules.stairs.rule_min and step_rule <= rules.stairs.rule_max)",
+              "severity": "warning",
+              "message": "2R + G is outside the active rule set."
+            },
+            {
+              "id": "width_min",
+              "expr": "rules.stairs = null or rules.stairs.width_min = null or width >= rules.stairs.width_min",
+              "severity": "warning",
+              "message": "Width is below the active rule set."
+            },
+            {
+              "id": "straight_only",
+              "expr": "predefined_type = \"STRAIGHT_RUN_STAIR\" or predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\"",
+              "severity": "warning",
+              "message": "This class template draws a straight run; use the library objects (C-02…C-05) for other stair forms."
+            }
+          ],
+          "rulesets": [
+            {
+              "id": "stairs",
+              "default": null,
+              "note": "No stair rule set by default (no EN/ISO stair geometry norm). Layers add regional limits (spec/objects/rulesets.md).",
+              "fields": {
+                "riser_min": "length",
+                "riser_max": "length",
+                "going_min": "length",
+                "going_max": "length",
+                "rule_min": "length",
+                "rule_max": "length",
+                "width_min": "length"
+              }
+            }
+          ]
+        },
+        "opo::recipe": [
+          {
+            "id": "profile",
+            "op": "polygon",
+            "plane": "xz",
+            "args": {
+              "points": "profile_points"
+            }
+          },
+          {
+            "id": "body",
+            "op": "extrude",
+            "plane": "xz",
+            "args": {
+              "profile": "profile",
+              "from": "-hw",
+              "to": "hw"
+            }
+          },
+          {
+            "id": "outline_below",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[0, -hw]",
+              "max": "[x_cut, hw]"
+            }
+          },
+          {
+            "id": "outline_above",
+            "op": "rectangle",
+            "plane": "xy",
+            "when": "x_cut < run",
+            "args": {
+              "min": "[x_cut, -hw]",
+              "max": "[run, hw]"
+            }
+          },
+          {
+            "id": "treads_below",
+            "op": "for_each",
+            "plane": "xy",
+            "args": {
+              "items": "1..treads",
+              "as": "k",
+              "index": "i",
+              "do": "if k * going <= x_cut then line([k * going, -hw], [k * going, hw]) else null"
+            }
+          },
+          {
+            "id": "treads_above",
+            "op": "for_each",
+            "plane": "xy",
+            "args": {
+              "items": "1..treads",
+              "as": "k",
+              "index": "i",
+              "do": "if k * going > x_cut then line([k * going, -hw], [k * going, hw]) else null"
+            }
+          },
+          {
+            "id": "cut_line",
+            "op": "polyline",
+            "plane": "xy",
+            "when": "x_cut < run",
+            "args": {
+              "points": "[[x_cut - 0.15, -hw], [x_cut - 0.05, -0.1 * width], [x_cut + 0.05, 0.1 * width], [x_cut + 0.15, hw]]"
+            }
+          },
+          {
+            "id": "walk_line",
+            "op": "polyline",
+            "plane": "xy",
+            "args": {
+              "points": "[[going / 2, 0], [run, 0]]"
+            }
+          },
+          {
+            "id": "arrow",
+            "op": "polyline",
+            "plane": "xy",
+            "args": {
+              "points": "[[run - 0.15, -0.075], [run, 0], [run - 0.15, 0.075]]"
+            }
+          },
+          {
+            "id": "label",
+            "op": "text",
+            "plane": "xy",
+            "args": {
+              "at": "[going / 2, -0.12]",
+              "value": "arrow_label",
+              "height": "0.0025"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "material"
+              }
+            ]
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "material"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "material"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "outline_below",
+                "class": "projected"
+              },
+              {
+                "geometry": "outline_above",
+                "class": "overhead"
+              },
+              {
+                "geometry": "cut_line",
+                "class": "cut"
+              },
+              {
+                "geometry": "walk_line",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "arrow",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "label",
+                "class": "annotation"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "outline_below",
+                "class": "projected"
+              },
+              {
+                "geometry": "treads_below",
+                "class": "projected"
+              },
+              {
+                "geometry": "outline_above",
+                "class": "overhead"
+              },
+              {
+                "geometry": "treads_above",
+                "class": "overhead"
+              },
+              {
+                "geometry": "cut_line",
+                "class": "cut"
+              },
+              {
+                "geometry": "walk_line",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "arrow",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "label",
+                "class": "annotation"
+              }
+            ],
+            "note": "Treads below the cut drawn, above it dashed; break line at the cut; walking line with arrow and label."
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "outline_below",
+                "class": "projected"
+              },
+              {
+                "geometry": "treads_below",
+                "class": "projected"
+              },
+              {
+                "geometry": "outline_above",
+                "class": "overhead"
+              },
+              {
+                "geometry": "treads_above",
+                "class": "overhead"
+              },
+              {
+                "geometry": "cut_line",
+                "class": "cut"
+              },
+              {
+                "geometry": "walk_line",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "arrow",
+                "class": "annotation",
+                "role": "walking_line"
+              },
+              {
+                "geometry": "label",
+                "class": "annotation"
+              }
+            ]
+          },
+          {
+            "id": "section",
+            "context": "section",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "SECTION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "cut"
+            }
+          }
+        ],
+        "opo::host": {
+          "is_host": false,
+          "level": "Base on a storey, top at the next storey (or a set rise).",
+          "slab_opening": {
+            "note": "The application cuts the upper slab over the run plus headroom (detailed objects C-01…C-04 define this)."
+          },
+          "nested": "Railings (C-07) are nested by the library objects, not the class template."
+        },
+        "opo::handles": [
+          {
+            "parameter": "width",
+            "view": [
+              "plan"
+            ],
+            "at": "[run / 2, hw, 0]",
+            "axis": "y"
+          }
+        ],
+        "opo::materials": {
+          "reinforced_concrete": {
+            "label": "Reinforced concrete",
+            "category": "concrete",
+            "colour": "#a9a69c",
+            "cut": {
+              "hatch": "reinforced_concrete"
+            },
+            "density": 2500,
+            "ifc_name": "Reinforced concrete"
+          }
+        },
+        "opo::hatches": {
+          "reinforced_concrete": {
+            "label": "Reinforced concrete",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 45,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0024]
+              },
+              {
+                "angle": 0,
+                "origin": [0.0, 0.0],
+                "offset": [0.0011, 0.0019],
+                "dashes": [0, -0.0027]
+              }
+            ]
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcStair",
+          "predefinedType": "if predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\" then predefined_type else predefined_type",
+          "objectType": "if predefined_type = \"USERDEFINED\" then object_type else null",
+          "property_sets": "all parameters of type property_set, with the values set by `value` formulas",
+          "properties": {
+            "Pset_StairCommon.NumberOfRiser": "risers",
+            "Pset_StairCommon.NumberOfTreads": "treads",
+            "Pset_StairCommon.RiserHeight": "riser",
+            "Pset_StairCommon.TreadLength": "going",
+            "Pset_StairCommon.WaistThickness": "if structure = \"waist\" then waist_thickness else null"
+          },
+          "quantities": {},
+          "parameter_pset": "OPO_Parameters",
+          "decomposition": "IfcStair aggregating one IfcStairFlight (predefined STRAIGHT) in the template; landings and further flights in the library objects."
+        }
+      },
+      "children": {
+        "Model_body_1": "f484a906-c38c-5497-96ac-cdefe0d5c988",
+        "Plan_outline_below_1": "8d4b372f-2367-5157-85c8-63c6c84ba1a1",
+        "Plan_treads_below_1": "d789e7b0-05af-5e24-9fcb-982310310845",
+        "Plan_treads_below_2": "835a24e1-164b-5b5d-9961-52ba72353ce8",
+        "Plan_treads_below_3": "46ab6938-2450-54e7-8c20-236a7843018e",
+        "Plan_treads_below_4": "a8f6a5bb-2f09-5e59-93ff-39f6e5458f2c",
+        "Plan_treads_below_5": "27fc0f62-8ed4-56e9-b20c-189ec1d97a5e",
+        "Plan_outline_above_1": "223919de-1438-5d83-8119-d8184988101c",
+        "Plan_treads_above_1": "bc0c5338-f631-52bd-8eb0-9cd4b8a1bb72",
+        "Plan_treads_above_2": "5b8d32f4-99db-516b-a18c-358157f2ae00",
+        "Plan_treads_above_3": "b3509fcc-2274-534d-9257-b74989b769fa",
+        "Plan_treads_above_4": "441939c8-c4c2-5c5a-8f1e-cf37945e237b",
+        "Plan_treads_above_5": "7a3fb2b6-e471-5511-9e7c-939b88462598",
+        "Plan_treads_above_6": "d63b9b0f-f2e3-56c9-9d60-31aefc7b9505",
+        "Plan_treads_above_7": "7ef40a0b-fd79-56ff-93bd-ddb95ef1dd9a",
+        "Plan_treads_above_8": "b64a92bd-f2d5-56b1-b3a8-dbf79db2ec9a",
+        "Plan_treads_above_9": "dd7dc2bc-79d2-597d-82bb-98064a2c7d50",
+        "Plan_treads_above_10": "bfd5718c-bddf-533c-8c8d-13a5db05ebfe",
+        "Plan_treads_above_11": "9ec3bd72-b6c7-5b3b-b941-0a766a80b55f",
+        "Plan_cut_line_1": "f8523951-ef0b-5a28-b32a-c748665c7ec9",
+        "Plan_walk_line_1": "3f6d942c-c46b-5759-94b6-af45cf368341",
+        "Plan_arrow_1": "62d0b04b-dab3-5746-855a-c9f148bd9637"
+      }
+    },
+    {
+      "path": "f484a906-c38c-5497-96ac-cdefe0d5c988",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, -0.5, 0.0], [0.001325434, -0.5, 0.0], [4.48, -0.5, 2.822694054], [4.48, -0.5, 2.823529412], [4.2, -0.5, 2.823529412], [4.2, -0.5, 2.647058824], [3.92, -0.5, 2.647058824], [3.92, -0.5, 2.470588235], [3.64, -0.5, 2.470588235], [3.64, -0.5, 2.294117647], [3.36, -0.5, 2.294117647], [3.36, -0.5, 2.117647059], [3.08, -0.5, 2.117647059], [3.08, -0.5, 1.941176471], [2.8, -0.5, 1.941176471], [2.8, -0.5, 1.764705882], [2.52, -0.5, 1.764705882], [2.52, -0.5, 1.588235294], [2.24, -0.5, 1.588235294], [2.24, -0.5, 1.411764706], [1.96, -0.5, 1.411764706], [1.96, -0.5, 1.235294118], [1.68, -0.5, 1.235294118], [1.68, -0.5, 1.058823529], [1.4, -0.5, 1.058823529], [1.4, -0.5, 0.882352941], [1.12, -0.5, 0.882352941], [1.12, -0.5, 0.705882353], [0.84, -0.5, 0.705882353], [0.84, -0.5, 0.529411765], [0.56, -0.5, 0.529411765], [0.56, -0.5, 0.352941176], [0.28, -0.5, 0.352941176], [0.28, -0.5, 0.176470588], [0.0, -0.5, 0.176470588], [0.0, 0.5, 0.0], [0.001325434, 0.5, 0.0], [4.48, 0.5, 2.822694054], [4.48, 0.5, 2.823529412], [4.2, 0.5, 2.823529412], [4.2, 0.5, 2.647058824], [3.92, 0.5, 2.647058824], [3.92, 0.5, 2.470588235], [3.64, 0.5, 2.470588235], [3.64, 0.5, 2.294117647], [3.36, 0.5, 2.294117647], [3.36, 0.5, 2.117647059], [3.08, 0.5, 2.117647059], [3.08, 0.5, 1.941176471], [2.8, 0.5, 1.941176471], [2.8, 0.5, 1.764705882], [2.52, 0.5, 1.764705882], [2.52, 0.5, 1.588235294], [2.24, 0.5, 1.588235294], [2.24, 0.5, 1.411764706], [1.96, 0.5, 1.411764706], [1.96, 0.5, 1.235294118], [1.68, 0.5, 1.235294118], [1.68, 0.5, 1.058823529], [1.4, 0.5, 1.058823529], [1.4, 0.5, 0.882352941], [1.12, 0.5, 0.882352941], [1.12, 0.5, 0.705882353], [0.84, 0.5, 0.705882353], [0.84, 0.5, 0.529411765], [0.56, 0.5, 0.529411765], [0.56, 0.5, 0.352941176], [0.28, 0.5, 0.352941176], [0.28, 0.5, 0.176470588], [0.0, 0.5, 0.176470588]],
+          "faceVertexIndices": [33, 34, 0, 33, 0, 1, 33, 1, 2, 2, 3, 4, 2, 4, 5, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24, 25, 25, 26, 27, 27, 28, 29, 29, 30, 31, 31, 32, 33, 31, 33, 2, 2, 5, 7, 2, 7, 9, 2, 9, 11, 2, 11, 13, 2, 13, 15, 2, 15, 17, 2, 17, 19, 2, 19, 21, 2, 21, 23, 2, 23, 25, 2, 25, 27, 2, 27, 29, 2, 29, 31, 68, 35, 69, 68, 36, 35, 68, 37, 36, 37, 39, 38, 37, 40, 39, 40, 42, 41, 42, 44, 43, 44, 46, 45, 46, 48, 47, 48, 50, 49, 50, 52, 51, 52, 54, 53, 54, 56, 55, 56, 58, 57, 58, 60, 59, 60, 62, 61, 62, 64, 63, 64, 66, 65, 66, 68, 67, 66, 37, 68, 37, 42, 40, 37, 44, 42, 37, 46, 44, 37, 48, 46, 37, 50, 48, 37, 52, 50, 37, 54, 52, 37, 56, 54, 37, 58, 56, 37, 60, 58, 37, 62, 60, 37, 64, 62, 37, 66, 64, 0, 36, 1, 0, 35, 36, 1, 37, 2, 1, 36, 37, 2, 38, 3, 2, 37, 38, 3, 39, 4, 3, 38, 39, 4, 40, 5, 4, 39, 40, 5, 41, 6, 5, 40, 41, 6, 42, 7, 6, 41, 42, 7, 43, 8, 7, 42, 43, 8, 44, 9, 8, 43, 44, 9, 45, 10, 9, 44, 45, 10, 46, 11, 10, 45, 46, 11, 47, 12, 11, 46, 47, 12, 48, 13, 12, 47, 48, 13, 49, 14, 13, 48, 49, 14, 50, 15, 14, 49, 50, 15, 51, 16, 15, 50, 51, 16, 52, 17, 16, 51, 52, 17, 53, 18, 17, 52, 53, 18, 54, 19, 18, 53, 54, 19, 55, 20, 19, 54, 55, 20, 56, 21, 20, 55, 56, 21, 57, 22, 21, 56, 57, 22, 58, 23, 22, 57, 58, 23, 59, 24, 23, 58, 59, 24, 60, 25, 24, 59, 60, 25, 61, 26, 25, 60, 61, 26, 62, 27, 26, 61, 62, 27, 63, 28, 27, 62, 63, 28, 64, 29, 28, 63, 64, 29, 65, 30, 29, 64, 65, 30, 66, 31, 30, 65, 66, 31, 67, 32, 31, 66, 67, 32, 68, 33, 32, 67, 68, 33, 69, 34, 33, 68, 69, 34, 35, 0, 34, 69, 35]
+        },
+        "bsi::ifc::material": {
+          "code": "reinforced_concrete",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "8d4b372f-2367-5157-85c8-63c6c84ba1a1",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.0, -0.5, 0.0], [1.624, -0.5, 0.0], [1.624, 0.5, 0.0], [0.0, 0.5, 0.0], [0.0, -0.5, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "d789e7b0-05af-5e24-9fcb-982310310845",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.28, -0.5, 0.0], [0.28, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "835a24e1-164b-5b5d-9961-52ba72353ce8",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.56, -0.5, 0.0], [0.56, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "46ab6938-2450-54e7-8c20-236a7843018e",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.84, -0.5, 0.0], [0.84, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "a8f6a5bb-2f09-5e59-93ff-39f6e5458f2c",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.12, -0.5, 0.0], [1.12, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "27fc0f62-8ed4-56e9-b20c-189ec1d97a5e",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.4, -0.5, 0.0], [1.4, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "projected"
+      }
+    },
+    {
+      "path": "223919de-1438-5d83-8119-d8184988101c",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.624, -0.5, 0.0], [4.48, -0.5, 0.0], [4.48, 0.5, 0.0], [1.624, 0.5, 0.0], [1.624, -0.5, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "bc0c5338-f631-52bd-8eb0-9cd4b8a1bb72",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.68, -0.5, 0.0], [1.68, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "5b8d32f4-99db-516b-a18c-358157f2ae00",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.96, -0.5, 0.0], [1.96, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "b3509fcc-2274-534d-9257-b74989b769fa",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[2.24, -0.5, 0.0], [2.24, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "441939c8-c4c2-5c5a-8f1e-cf37945e237b",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[2.52, -0.5, 0.0], [2.52, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "7a3fb2b6-e471-5511-9e7c-939b88462598",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[2.8, -0.5, 0.0], [2.8, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "d63b9b0f-f2e3-56c9-9d60-31aefc7b9505",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[3.08, -0.5, 0.0], [3.08, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "7ef40a0b-fd79-56ff-93bd-ddb95ef1dd9a",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[3.36, -0.5, 0.0], [3.36, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "b64a92bd-f2d5-56b1-b3a8-dbf79db2ec9a",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[3.64, -0.5, 0.0], [3.64, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "dd7dc2bc-79d2-597d-82bb-98064a2c7d50",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[3.92, -0.5, 0.0], [3.92, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "bfd5718c-bddf-533c-8c8d-13a5db05ebfe",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[4.2, -0.5, 0.0], [4.2, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "9ec3bd72-b6c7-5b3b-b941-0a766a80b55f",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[4.48, -0.5, 0.0], [4.48, 0.5, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "overhead"
+      }
+    },
+    {
+      "path": "f8523951-ef0b-5a28-b32a-c748665c7ec9",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[1.474, -0.5, 0.0], [1.574, -0.1, 0.0], [1.674, 0.1, 0.0], [1.774, 0.5, 0.0]],
+          "curveVertexCounts": [4]
+        },
+        "opo::line_class": "cut"
+      }
+    },
+    {
+      "path": "3f6d942c-c46b-5759-94b6-af45cf368341",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.14, 0.0, 0.0], [4.48, 0.0, 0.0]],
+          "curveVertexCounts": [2]
+        },
+        "opo::line_class": "annotation"
+      }
+    },
+    {
+      "path": "62d0b04b-dab3-5746-855a-c9f148bd9637",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[4.33, -0.075, 0.0], [4.48, 0.0, 0.0], [4.33, 0.075, 0.0]],
+          "curveVertexCounts": [3]
+        },
+        "opo::line_class": "annotation"
+      }
+    }
+  ]
+}

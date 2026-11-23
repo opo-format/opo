@@ -1,0 +1,1098 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcSlab/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "a59eb128-22b6-54c1-89a6-ecbb9492c8a9",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcSlab",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSlab"
+        },
+        "bsi::ifc::prop::Name": "Slab (class template)",
+        "bsi::ifc::prop::TypeName": "Slab (class template)",
+        "opo::object": {
+          "id": "opo-format.org/library/templates/IfcSlab",
+          "name": "Slab (class template)",
+          "kind": "class_template",
+          "archetype": "area",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Layered slab from a boundary with holes: build-up from the top down with materials and hatches, reference face, offset from the storey.",
+          "tags": [
+            "IfcSlab",
+            "area",
+            "class template"
+          ],
+          "references": [
+            {
+              "role": "IFC parameters",
+              "name": "IFC 4.3 ADD2 IfcSlab, IfcSlabTypeEnum and its property and quantity set templates",
+              "license": "buildingSMART",
+              "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSlab",
+              "used": "Class, predefined types, property and quantity set names, property names, value types and enumerations (names only)."
+            },
+            {
+              "role": "generator",
+              "name": "tools/gen_templates.py",
+              "used": "Generated from the `area` archetype (spec/objects/archetypes.md)."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "predefined_type",
+            "type": "choice",
+            "default": "FLOOR",
+            "label": "Predefined type",
+            "group": "IFC",
+            "options": [
+              "APPROACH_SLAB",
+              "BASESLAB",
+              "FLOOR",
+              "LANDING",
+              "PAVING",
+              "ROOF",
+              "SIDEWALK",
+              "TRACKSLAB",
+              "WEARING",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ],
+            "description": "IFC 4.3 IfcSlabTypeEnum. Property sets that apply only to some types follow this choice."
+          },
+          {
+            "name": "object_type",
+            "type": "text",
+            "default": "",
+            "label": "Object type (user-defined)",
+            "group": "IFC",
+            "visible": "predefined_type = \"USERDEFINED\""
+          },
+          {
+            "name": "layers",
+            "type": "layers",
+            "default": [
+              {
+                "material": "cement_screed",
+                "thickness": 0.06,
+                "function": "finish"
+              },
+              {
+                "material": "rigid_insulation",
+                "thickness": 0.03,
+                "function": "insulation"
+              },
+              {
+                "material": "reinforced_concrete",
+                "thickness": 0.2,
+                "function": "structure",
+                "core": true
+              }
+            ],
+            "label": "Layers (top to bottom)",
+            "group": "Construction",
+            "description": "Layer build-up: list of {material, thickness, function, core}. Each material carries its cut hatch (opo::materials, opo::hatches), so the type keeps its look when shared.",
+            "limits": {
+              "thickness": {
+                "min": 0.001,
+                "max": 3.0
+              }
+            }
+          },
+          {
+            "name": "reference",
+            "type": "choice",
+            "default": "top",
+            "label": "Reference face at the offset",
+            "group": "Construction",
+            "options": [
+              "top",
+              "core_top",
+              "bottom"
+            ]
+          },
+          {
+            "name": "elevation_offset",
+            "type": "length",
+            "default": 0.0,
+            "label": "Offset from storey",
+            "group": "Construction",
+            "limits": {
+              "min": -20,
+              "max": 20
+            }
+          },
+          {
+            "name": "load_bearing",
+            "type": "boolean",
+            "default": true,
+            "label": "Load bearing",
+            "group": "Data"
+          },
+          {
+            "name": "is_external",
+            "type": "boolean",
+            "default": false,
+            "label": "External",
+            "group": "Data"
+          },
+          {
+            "name": "Pset_ConcreteElementGeneral",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_ConcreteElementGeneral",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "AssemblyPlace",
+                "measure": "IfcLabel",
+                "enum": [
+                  "FACTORY",
+                  "OFFSITE",
+                  "SITE",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "CastingMethod",
+                "measure": "IfcLabel",
+                "enum": [
+                  "INSITU",
+                  "MIXED",
+                  "PRECAST",
+                  "PRINTED",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "StructuralClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "StrengthClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ExposureClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ReinforcementVolumeRatio",
+                "measure": "IfcMassDensityMeasure"
+              },
+              {
+                "name": "ReinforcementAreaRatio",
+                "measure": "IfcAreaDensityMeasure"
+              },
+              {
+                "name": "DimensionalAccuracyClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ConstructionToleranceClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ConcreteCover",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ConcreteCoverAtMainBars",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ConcreteCoverAtLinks",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ReinforcementStrengthClass",
+                "measure": "IfcLabel"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_PrecastConcreteElementFabrication",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_PrecastConcreteElementFabrication",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "TypeDesignation",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ProductionLotId",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "SerialNumber",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "PieceMark",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "AsBuiltLocationNumber",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ActualProductionDate",
+                "measure": "IfcDateTime"
+              },
+              {
+                "name": "ActualErectionDate",
+                "measure": "IfcDateTime"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_PrecastConcreteElementGeneral",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_PrecastConcreteElementGeneral",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "TypeDesignation",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "CornerChamfer",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ManufacturingToleranceClass",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "FormStrippingStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "LiftingStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "ReleaseStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "MinimumAllowableSupportLength",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "InitialTension",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "TendonRelaxation",
+                "measure": "IfcPositiveRatioMeasure"
+              },
+              {
+                "name": "TransportationStrength",
+                "measure": "IfcPressureMeasure"
+              },
+              {
+                "name": "SupportDuringTransportDescription",
+                "measure": "IfcText"
+              },
+              {
+                "name": "SupportDuringTransportDocReference",
+                "measure": "IfcExternalReference"
+              },
+              {
+                "name": "HollowCorePlugging",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "CamberAtMidspan",
+                "measure": "IfcRatioMeasure"
+              },
+              {
+                "name": "BatterAtStart",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "BatterAtEnd",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "Twisting",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "Shortening",
+                "measure": "IfcRatioMeasure"
+              },
+              {
+                "name": "PieceMark",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "DesignLocationNumber",
+                "measure": "IfcLabel"
+              }
+            ],
+            "optional": true
+          },
+          {
+            "name": "Pset_PrecastSlab",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_PrecastSlab",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "TypeDesignation",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "ToppingType",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "EdgeDistanceToFirstAxis",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "DistanceBetweenComponentAxes",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "AngleToFirstAxis",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "AngleBetweenComponentAxes",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "NominalThickness",
+                "measure": "IfcNonNegativeLengthMeasure"
+              },
+              {
+                "name": "NominalToppingThickness",
+                "measure": "IfcPositiveLengthMeasure"
+              }
+            ],
+            "optional": false
+          },
+          {
+            "name": "Pset_ReinforcementBarPitchOfSlab",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_ReinforcementBarPitchOfSlab",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Description",
+                "measure": "IfcText"
+              },
+              {
+                "name": "Reference",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "LongOutsideTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "LongInsideCenterTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "LongInsideEndTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortOutsideTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortInsideCenterTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortInsideEndTopBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "LongOutsideLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "LongInsideCenterLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "LongInsideEndLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortOutsideLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortInsideCenterLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              },
+              {
+                "name": "ShortInsideEndLowerBarPitch",
+                "measure": "IfcPositiveLengthMeasure"
+              }
+            ],
+            "optional": false
+          },
+          {
+            "name": "Pset_SlabCommon",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_SlabCommon",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Reference",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "Status",
+                "measure": "IfcLabel",
+                "enum": [
+                  "DEMOLISH",
+                  "EXISTING",
+                  "NEW",
+                  "TEMPORARY",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "AcousticRating",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "FireRating",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "PitchAngle",
+                "measure": "IfcPlaneAngleMeasure"
+              },
+              {
+                "name": "Combustible",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "SurfaceSpreadOfFlame",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "Compartmentation",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "IsExternal",
+                "measure": "IfcBoolean",
+                "value": "is_external"
+              },
+              {
+                "name": "ThermalTransmittance",
+                "measure": "IfcThermalTransmittanceMeasure"
+              },
+              {
+                "name": "LoadBearing",
+                "measure": "IfcBoolean",
+                "value": "load_bearing"
+              }
+            ],
+            "optional": false
+          }
+        ],
+        "opo::slots": [
+          {
+            "name": "boundary",
+            "type": "polygon",
+            "plane": "xy",
+            "default": [[0.0, 0.0], [6.0, 0.0], [6.0, 4.0], [0.0, 4.0]],
+            "rules": {
+              "closed": true,
+              "non_self_intersecting": true
+            }
+          },
+          {
+            "name": "holes",
+            "type": "polygon_list",
+            "plane": "xy",
+            "default": [],
+            "rules": {
+              "inside": "boundary"
+            }
+          }
+        ],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "total_thickness",
+              "expr": "sum(layers.thickness)"
+            },
+            {
+              "name": "layer_start",
+              "expr": "for i in 1..count(layers) return sum(sublist(layers.thickness, 1, i)) - layers[i].thickness",
+              "note": "Depth of each layer's top face below the slab top."
+            },
+            {
+              "name": "core_index",
+              "expr": "if count(index_of(layers.core, true)) > 0 then index_of(layers.core, true)[1] else ceiling(count(layers) / 2)"
+            },
+            {
+              "name": "top_z",
+              "expr": "if reference = \"top\" then elevation_offset else if reference = \"core_top\" then elevation_offset + layer_start[core_index] else elevation_offset + total_thickness"
+            },
+            {
+              "name": "bottom_z",
+              "expr": "top_z - total_thickness"
+            },
+            {
+              "name": "gross_area",
+              "expr": "abs(sum(for i in 1..count(boundary) return boundary[i][1] * boundary[modulo(i, count(boundary)) + 1][2] - boundary[modulo(i, count(boundary)) + 1][1] * boundary[i][2])) / 2"
+            },
+            {
+              "name": "holes_area",
+              "expr": "sum(append(for h in holes return abs(sum(for i in 1..count(h) return h[i][1] * h[modulo(i, count(h)) + 1][2] - h[modulo(i, count(h)) + 1][1] * h[i][2])) / 2, 0))"
+            },
+            {
+              "name": "net_area",
+              "expr": "gross_area - holes_area"
+            },
+            {
+              "name": "closed_boundary",
+              "expr": "append(boundary, boundary[1])"
+            },
+            {
+              "name": "perimeter",
+              "expr": "sum(for i in 1..count(closed_boundary) - 1 return sqrt((closed_boundary[i + 1][1] - closed_boundary[i][1]) ** 2 + (closed_boundary[i + 1][2] - closed_boundary[i][2]) ** 2))"
+            }
+          ],
+          "checks": [
+            {
+              "id": "has_layers",
+              "expr": "count(layers) >= 1",
+              "severity": "error",
+              "message": "A slab needs at least one layer."
+            },
+            {
+              "id": "layer_thickness",
+              "expr": "min(layers.thickness) > 0",
+              "severity": "error",
+              "message": "Every layer needs a thickness above zero."
+            },
+            {
+              "id": "boundary_points",
+              "expr": "count(boundary) >= 3",
+              "severity": "error",
+              "message": "The boundary needs at least three points."
+            }
+          ],
+          "rulesets": []
+        },
+        "opo::recipe": [
+          {
+            "id": "region",
+            "op": "difference",
+            "plane": "xy",
+            "args": {
+              "a": "polygon(boundary)",
+              "b": "for h in holes return polygon(h)"
+            }
+          },
+          {
+            "id": "layer_solids",
+            "op": "for_each",
+            "plane": "xy",
+            "args": {
+              "items": "layers",
+              "as": "layer",
+              "index": "i",
+              "do": "extrude(region, top_z - layer_start[i] - layer.thickness, top_z - layer_start[i])"
+            }
+          },
+          {
+            "id": "body",
+            "op": "extrude",
+            "plane": "xy",
+            "args": {
+              "profile": "region",
+              "from": "bottom_z",
+              "to": "top_z"
+            }
+          },
+          {
+            "id": "edges",
+            "op": "boundary_curves",
+            "plane": "xy",
+            "args": {
+              "region": "region"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "layers[core_index].material"
+              }
+            ]
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "layer_solids",
+                "material": "each.material",
+                "part": "Layer"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "layer_solids",
+                "material": "each.material",
+                "part": "Layer"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "edges",
+                "class": "projected"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "edges",
+                "class": "projected"
+              }
+            ],
+            "note": "A floor slab lies below the plan cut: its edges and holes are drawn as projected lines. Cut slabs (e.g. in a section or a split-level plan) take the derived cut with layer hatches."
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "edges",
+                "class": "projected"
+              }
+            ]
+          },
+          {
+            "id": "section",
+            "context": "section",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "SECTION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "cut"
+            },
+            "note": "Each cut layer hatched with its material's cut hatch."
+          }
+        ],
+        "opo::host": {
+          "is_host": true,
+          "accepts": [
+            "IfcOpeningElement",
+            "IfcVoidingFeature",
+            "IfcStair",
+            "IfcRamp"
+          ],
+          "provides": {
+            "thickness": "total_thickness",
+            "top": "top_z",
+            "bottom": "bottom_z"
+          },
+          "joins": {
+            "by": "material",
+            "rule": "Layers of the same material join with walls and other slabs without a line."
+          },
+          "level": "Placed on a storey; z = 0 is the storey elevation."
+        },
+        "opo::handles": [
+          {
+            "slot": "boundary",
+            "kind": "points",
+            "view": [
+              "plan"
+            ]
+          },
+          {
+            "slot": "holes",
+            "kind": "points",
+            "view": [
+              "plan"
+            ]
+          }
+        ],
+        "opo::materials": {
+          "cement_screed": {
+            "label": "Cement screed",
+            "category": "finish",
+            "colour": "#c8c4bb",
+            "cut": {
+              "hatch": "screed"
+            },
+            "ifc_name": "Cement screed"
+          },
+          "ceramic_tile": {
+            "label": "Ceramic tile",
+            "category": "finish",
+            "colour": "#e8e4dc",
+            "cut": {
+              "hatch": "solid_light"
+            },
+            "ifc_name": "Ceramic tile"
+          },
+          "plaster": {
+            "label": "Gypsum plaster",
+            "category": "finish",
+            "colour": "#efece5",
+            "cut": {
+              "hatch": "plaster"
+            },
+            "ifc_name": "Gypsum plaster"
+          },
+          "plasterboard": {
+            "label": "Plasterboard",
+            "category": "finish",
+            "colour": "#f2f2f2",
+            "cut": {
+              "hatch": "solid_light"
+            },
+            "ifc_name": "Plasterboard"
+          },
+          "reinforced_concrete": {
+            "label": "Reinforced concrete",
+            "category": "concrete",
+            "colour": "#a9a69c",
+            "cut": {
+              "hatch": "reinforced_concrete"
+            },
+            "density": 2500,
+            "ifc_name": "Reinforced concrete"
+          },
+          "rigid_insulation": {
+            "label": "Rigid insulation board",
+            "category": "insulation",
+            "colour": "#e3e3e3",
+            "cut": {
+              "hatch": "insulation_rigid"
+            },
+            "ifc_name": "Rigid insulation board"
+          },
+          "timber": {
+            "label": "Timber",
+            "category": "timber",
+            "colour": "#c49a6c",
+            "cut": {
+              "hatch": "timber"
+            },
+            "ifc_name": "Timber"
+          }
+        },
+        "opo::hatches": {
+          "insulation_rigid": {
+            "label": "Insulation, rigid",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 45,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0035]
+              },
+              {
+                "angle": 135,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0035]
+              },
+              {
+                "angle": 0,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0035],
+                "dashes": [0.0005, -0.003]
+              }
+            ]
+          },
+          "plaster": {
+            "label": "Plaster / render",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 0,
+                "origin": [0.0, 0.0],
+                "offset": [0.0006, 0.0009],
+                "dashes": [0, -0.0013]
+              }
+            ]
+          },
+          "reinforced_concrete": {
+            "label": "Reinforced concrete",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 45,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0024]
+              },
+              {
+                "angle": 0,
+                "origin": [0.0, 0.0],
+                "offset": [0.0011, 0.0019],
+                "dashes": [0, -0.0027]
+              }
+            ]
+          },
+          "screed": {
+            "label": "Screed",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 0,
+                "origin": [0.0, 0.0],
+                "offset": [0.0009, 0.0013],
+                "dashes": [0, -0.0019]
+              },
+              {
+                "angle": 0,
+                "origin": [0.0004, 0.0006],
+                "offset": [0.0015, 0.0026],
+                "dashes": [0.0004, -0.0026]
+              }
+            ]
+          },
+          "solid_light": {
+            "label": "Solid, light grey",
+            "kind": "solid",
+            "colour": "#d4d4d4"
+          },
+          "timber": {
+            "label": "Timber (sawn, in section)",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 135,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0022],
+                "dashes": [0.006, -0.0012]
+              }
+            ]
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcSlab",
+          "predefinedType": "if predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\" then predefined_type else predefined_type",
+          "objectType": "if predefined_type = \"USERDEFINED\" then object_type else null",
+          "property_sets": "all parameters of type property_set, with the values set by `value` formulas",
+          "properties": {
+            "Pset_SlabCommon.LoadBearing": "load_bearing",
+            "Pset_SlabCommon.IsExternal": "is_external"
+          },
+          "quantities": {
+            "Qto_SlabBaseQuantities": {
+              "values": {
+                "Width": "total_thickness",
+                "Depth": "total_thickness",
+                "Perimeter": "perimeter",
+                "GrossArea": "gross_area",
+                "NetArea": "net_area",
+                "GrossVolume": "gross_area * total_thickness",
+                "NetVolume": "net_area * total_thickness"
+              },
+              "from_geometry": [
+                "Length",
+                "GrossWeight",
+                "NetWeight"
+              ]
+            }
+          },
+          "parameter_pset": "OPO_Parameters",
+          "material_layer_set": {
+            "layers": "layers",
+            "LayerSetDirection": "\"AXIS3\"",
+            "DirectionSense": "\"NEGATIVE\"",
+            "OffsetFromReferenceLine": "top_z",
+            "note": "First layer = top."
+          }
+        }
+      },
+      "children": {
+        "Model_layer_solids_1": "2a7b0ab9-99ee-5c72-a311-f1c835561b8a",
+        "Model_layer_solids_2": "de461a8e-180d-50cd-af1c-27984888495d",
+        "Model_layer_solids_3": "1f40c2c6-c624-5b74-a4a6-f4a813eb162f",
+        "Plan_edges_1": "ffc1c0e1-c709-569d-8368-0e3fe54b6d9d"
+      }
+    },
+    {
+      "path": "2a7b0ab9-99ee-5c72-a311-f1c835561b8a",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, 0.0, -0.06], [6.0, 0.0, -0.06], [6.0, 4.0, -0.06], [0.0, 4.0, -0.06], [0.0, 0.0, 0.0], [6.0, 0.0, 0.0], [6.0, 4.0, 0.0], [0.0, 4.0, 0.0]],
+          "faceVertexIndices": [2, 0, 3, 2, 1, 0, 6, 7, 4, 6, 4, 5, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "cement_screed",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "de461a8e-180d-50cd-af1c-27984888495d",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, 0.0, -0.09], [6.0, 0.0, -0.09], [6.0, 4.0, -0.09], [0.0, 4.0, -0.09], [0.0, 0.0, -0.06], [6.0, 0.0, -0.06], [6.0, 4.0, -0.06], [0.0, 4.0, -0.06]],
+          "faceVertexIndices": [2, 0, 3, 2, 1, 0, 6, 7, 4, 6, 4, 5, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "rigid_insulation",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "1f40c2c6-c624-5b74-a4a6-f4a813eb162f",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, 0.0, -0.29], [6.0, 0.0, -0.29], [6.0, 4.0, -0.29], [0.0, 4.0, -0.29], [0.0, 0.0, -0.09], [6.0, 0.0, -0.09], [6.0, 4.0, -0.09], [0.0, 4.0, -0.09]],
+          "faceVertexIndices": [2, 0, 3, 2, 1, 0, 6, 7, 4, 6, 4, 5, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "reinforced_concrete",
+          "uri": ""
+        }
+      }
+    },
+    {
+      "path": "ffc1c0e1-c709-569d-8368-0e3fe54b6d9d",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.0, 0.0, 0.0], [0.0, 4.0, 0.0], [6.0, 4.0, 0.0], [6.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
+          "curveVertexCounts": [5]
+        },
+        "opo::line_class": "projected"
+      }
+    }
+  ]
+}

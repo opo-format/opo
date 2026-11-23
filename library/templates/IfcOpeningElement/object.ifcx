@@ -1,0 +1,657 @@
+{
+  "header": {
+    "id": "opo-format.org/library/templates/IfcOpeningElement/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-24"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "f99d0360-3e60-5f6d-8608-6b815d355269",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcOpeningElement",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcOpeningElement"
+        },
+        "bsi::ifc::prop::Name": "Opening (class template)",
+        "bsi::ifc::prop::TypeName": "Opening (class template)",
+        "opo::object": {
+          "id": "opo-format.org/library/templates/IfcOpeningElement",
+          "name": "Opening (class template)",
+          "kind": "class_template",
+          "archetype": "hosted",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Opening or recess in a wall or slab, from a width × height rectangle or an edited outline; cuts its host.",
+          "tags": [
+            "IfcOpeningElement",
+            "hosted",
+            "class template"
+          ],
+          "references": [
+            {
+              "role": "IFC parameters",
+              "name": "IFC 4.3 ADD2 IfcOpeningElement, IfcOpeningElementTypeEnum and its property and quantity set templates",
+              "license": "buildingSMART",
+              "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcOpeningElement",
+              "used": "Class, predefined types, property and quantity set names, property names, value types and enumerations (names only)."
+            },
+            {
+              "role": "generator",
+              "name": "tools/gen_templates.py",
+              "used": "Generated from the `hosted` archetype (spec/objects/archetypes.md)."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "predefined_type",
+            "type": "choice",
+            "default": "OPENING",
+            "label": "Predefined type",
+            "group": "IFC",
+            "options": [
+              "OPENING",
+              "RECESS",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ],
+            "description": "IFC 4.3 IfcOpeningElementTypeEnum. Property sets that apply only to some types follow this choice."
+          },
+          {
+            "name": "object_type",
+            "type": "text",
+            "default": "",
+            "label": "Object type (user-defined)",
+            "group": "IFC",
+            "visible": "predefined_type = \"USERDEFINED\""
+          },
+          {
+            "name": "outline_mode",
+            "type": "choice",
+            "default": "rectangle",
+            "label": "Shape",
+            "group": "Size",
+            "options": [
+              "rectangle",
+              "custom"
+            ],
+            "option_labels": {
+              "rectangle": "Rectangle (width × height drive)",
+              "custom": "Custom outline (outline drives, width and height read-only)"
+            }
+          },
+          {
+            "name": "width",
+            "type": "length",
+            "default": 1.0,
+            "label": "Width",
+            "group": "Size",
+            "visible": "outline_mode = \"rectangle\"",
+            "limits": {
+              "min": 0.01,
+              "max": 50
+            }
+          },
+          {
+            "name": "height",
+            "type": "length",
+            "default": 1.0,
+            "label": "Height",
+            "group": "Size",
+            "visible": "outline_mode = \"rectangle\"",
+            "limits": {
+              "min": 0.01,
+              "max": 50
+            }
+          },
+          {
+            "name": "sill_height",
+            "type": "length",
+            "default": 0.9,
+            "label": "Bottom above host base",
+            "group": "Placement",
+            "limits": {
+              "min": -5,
+              "max": 50
+            }
+          },
+          {
+            "name": "host_kind",
+            "type": "choice",
+            "default": "wall",
+            "label": "Host",
+            "group": "Placement",
+            "options": [
+              "wall",
+              "slab"
+            ],
+            "description": "Set by the application from the host; slab openings use the plan plane."
+          },
+          {
+            "name": "recess_depth",
+            "type": "length",
+            "default": 0.1,
+            "label": "Recess depth",
+            "group": "Size",
+            "visible": "predefined_type = \"RECESS\"",
+            "limits": {
+              "min": 0.001,
+              "max": 5
+            }
+          },
+          {
+            "name": "recess_side",
+            "type": "choice",
+            "default": "front",
+            "label": "Recess from",
+            "group": "Size",
+            "visible": "predefined_type = \"RECESS\"",
+            "options": [
+              "front",
+              "back"
+            ]
+          },
+          {
+            "name": "Pset_OpeningElementCommon",
+            "type": "property_set",
+            "default": {},
+            "label": "Pset_OpeningElementCommon",
+            "group": "IFC data",
+            "properties": [
+              {
+                "name": "Reference",
+                "measure": "IfcIdentifier"
+              },
+              {
+                "name": "Status",
+                "measure": "IfcLabel",
+                "enum": [
+                  "DEMOLISH",
+                  "EXISTING",
+                  "NEW",
+                  "TEMPORARY",
+                  "OTHER",
+                  "NOTKNOWN",
+                  "UNSET"
+                ]
+              },
+              {
+                "name": "Purpose",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "FireExit",
+                "measure": "IfcBoolean"
+              },
+              {
+                "name": "FireRating",
+                "measure": "IfcLabel"
+              },
+              {
+                "name": "AcousticRating",
+                "measure": "IfcLabel"
+              }
+            ],
+            "optional": false
+          }
+        ],
+        "opo::slots": [
+          {
+            "name": "outline",
+            "type": "polygon",
+            "plane": "xz",
+            "default": null,
+            "optional": true,
+            "rules": {
+              "closed": true,
+              "fits_host": true
+            },
+            "description": "Custom outline in the host plane (custom outline mode)."
+          }
+        ],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "profile_points",
+              "expr": "if outline_mode = \"custom\" and outline != null then outline else [[-width / 2, sill_height], [width / 2, sill_height], [width / 2, sill_height + height], [-width / 2, sill_height + height]]"
+            },
+            {
+              "name": "is_recess",
+              "expr": "predefined_type = \"RECESS\""
+            },
+            {
+              "name": "y_from",
+              "expr": "if is_recess and recess_side = \"front\" then host.y_max - recess_depth else host.y_min - 0.01"
+            },
+            {
+              "name": "y_to",
+              "expr": "if is_recess and recess_side = \"back\" then host.y_min + recess_depth else host.y_max + 0.01"
+            },
+            {
+              "name": "z_from",
+              "expr": "if is_recess and recess_side = \"front\" then host.top - recess_depth else host.bottom - 0.01"
+            },
+            {
+              "name": "z_to",
+              "expr": "if is_recess and recess_side = \"back\" then host.bottom + recess_depth else host.top + 0.01"
+            },
+            {
+              "name": "open_width",
+              "expr": "max(for p in profile_points return p[1]) - min(for p in profile_points return p[1])"
+            },
+            {
+              "name": "open_height",
+              "expr": "max(for p in profile_points return p[2]) - min(for p in profile_points return p[2])"
+            },
+            {
+              "name": "depth",
+              "expr": "if is_recess then recess_depth else host.thickness"
+            },
+            {
+              "name": "area",
+              "expr": "abs(sum(for i in 1..count(profile_points) return profile_points[i][1] * profile_points[modulo(i, count(profile_points)) + 1][2] - profile_points[modulo(i, count(profile_points)) + 1][1] * profile_points[i][2])) / 2"
+            },
+            {
+              "name": "above_cut",
+              "expr": "min(for p in profile_points return p[2]) > view.cut_height",
+              "note": "Opening starts above the plan cut: drawn dashed."
+            }
+          ],
+          "checks": [
+            {
+              "id": "outline_given",
+              "expr": "outline_mode = \"rectangle\" or outline != null",
+              "severity": "error",
+              "message": "Custom outline mode needs an outline."
+            },
+            {
+              "id": "recess_fits",
+              "expr": "not(is_recess) or recess_depth < host.thickness",
+              "severity": "error",
+              "message": "A recess must be shallower than its host."
+            }
+          ],
+          "rulesets": []
+        },
+        "opo::recipe": [
+          {
+            "id": "profile",
+            "op": "polygon",
+            "plane": "xz",
+            "args": {
+              "points": "profile_points"
+            }
+          },
+          {
+            "id": "void_wall",
+            "op": "extrude",
+            "plane": "xz",
+            "when": "host_kind = \"wall\"",
+            "args": {
+              "profile": "profile",
+              "from": "y_from",
+              "to": "y_to"
+            }
+          },
+          {
+            "id": "profile_plan",
+            "op": "polygon",
+            "plane": "xy",
+            "args": {
+              "points": "profile_points"
+            }
+          },
+          {
+            "id": "void_slab",
+            "op": "extrude",
+            "plane": "xy",
+            "when": "host_kind = \"slab\"",
+            "args": {
+              "profile": "profile_plan",
+              "from": "z_from",
+              "to": "z_to"
+            }
+          },
+          {
+            "id": "void",
+            "op": "union",
+            "args": {
+              "items": "[void_wall, void_slab]"
+            }
+          },
+          {
+            "id": "plan_wall",
+            "op": "rectangle",
+            "plane": "xy",
+            "when": "host_kind = \"wall\" and above_cut",
+            "args": {
+              "min": "[min(for p in profile_points return p[1]), host.y_min]",
+              "max": "[max(for p in profile_points return p[1]), host.y_max]"
+            }
+          },
+          {
+            "id": "plan_wall_cross",
+            "op": "union",
+            "plane": "xy",
+            "when": "host_kind = \"wall\" and above_cut",
+            "args": {
+              "items": "[line([min(for p in profile_points return p[1]), host.y_min], [max(for p in profile_points return p[1]), host.y_max]), line([min(for p in profile_points return p[1]), host.y_max], [max(for p in profile_points return p[1]), host.y_min])]"
+            }
+          },
+          {
+            "id": "plan_slab_cross",
+            "op": "union",
+            "plane": "xy",
+            "when": "host_kind = \"slab\" and outline_mode = \"rectangle\"",
+            "args": {
+              "items": "[boundary_curves(profile_plan), line(profile_points[1], profile_points[3]), line(profile_points[2], profile_points[4])]"
+            }
+          },
+          {
+            "id": "elev_outline",
+            "op": "boundary_curves",
+            "plane": "xz",
+            "args": {
+              "region": "profile"
+            }
+          },
+          {
+            "id": "elev_cross",
+            "op": "union",
+            "plane": "xz",
+            "when": "outline_mode = \"rectangle\"",
+            "args": {
+              "items": "[line(profile_points[1], profile_points[3]), line(profile_points[2], profile_points[4])]"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "void",
+                "role": "void"
+              }
+            ],
+            "note": "The void is not drawn; it cuts the host."
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "void",
+                "role": "void"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "void",
+                "role": "void"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_wall",
+                "class": "overhead"
+              },
+              {
+                "geometry": "plan_slab_cross",
+                "class": "projected"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_wall",
+                "class": "overhead"
+              },
+              {
+                "geometry": "plan_wall_cross",
+                "class": "overhead"
+              },
+              {
+                "geometry": "plan_slab_cross",
+                "class": "projected"
+              }
+            ],
+            "note": "Wall openings below the cut show as a gap in the host's cut; openings above the cut are drawn dashed with a cross. Slab openings: outline with a cross."
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "plan_wall",
+                "class": "overhead"
+              },
+              {
+                "geometry": "plan_wall_cross",
+                "class": "overhead"
+              },
+              {
+                "geometry": "plan_slab_cross",
+                "class": "projected"
+              }
+            ]
+          },
+          {
+            "id": "elevation",
+            "context": "elevation",
+            "lod": "all",
+            "source": "authored",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "elev_outline",
+                "class": "projected"
+              },
+              {
+                "geometry": "elev_cross",
+                "class": "annotation"
+              }
+            ]
+          }
+        ],
+        "opo::host": {
+          "hosts": [
+            "IfcWall",
+            "IfcSlab",
+            "IfcRoof",
+            "IfcCovering",
+            "IfcPlate",
+            "IfcCurtainWall",
+            "IfcBeam",
+            "IfcColumn",
+            "IfcMember"
+          ],
+          "inputs": {
+            "thickness": {
+              "type": "length",
+              "default": 0.2
+            },
+            "y_min": {
+              "type": "length",
+              "default": -0.1
+            },
+            "y_max": {
+              "type": "length",
+              "default": 0.1
+            },
+            "bottom": {
+              "type": "length",
+              "default": 0.0
+            },
+            "top": {
+              "type": "length",
+              "default": 3.0
+            }
+          },
+          "void": {
+            "geometry": "void",
+            "ifc": "this element (IfcRelVoidsElement to the host)"
+          },
+          "insertion": {
+            "point": "[0, 0, 0]",
+            "description": "Wall: centre of the width on the host axis at the host base. Slab: the outline's own coordinates on the slab."
+          }
+        },
+        "opo::handles": [
+          {
+            "parameter": "width",
+            "view": [
+              "elevation",
+              "model"
+            ],
+            "at": "[width / 2, 0, sill_height + height / 2]",
+            "axis": "x",
+            "symmetric": true
+          },
+          {
+            "parameter": "height",
+            "view": [
+              "elevation",
+              "model"
+            ],
+            "at": "[0, 0, sill_height + height]",
+            "axis": "z"
+          },
+          {
+            "slot": "outline",
+            "kind": "points",
+            "view": [
+              "elevation"
+            ],
+            "visible": "outline_mode = \"custom\""
+          }
+        ],
+        "opo::materials": {},
+        "opo::hatches": {},
+        "opo::ifc": {
+          "class": "IfcOpeningElement",
+          "predefinedType": "if predefined_type = \"USERDEFINED\" or predefined_type = \"NOTDEFINED\" then predefined_type else predefined_type",
+          "objectType": "if predefined_type = \"USERDEFINED\" then object_type else null",
+          "property_sets": "all parameters of type property_set, with the values set by `value` formulas",
+          "properties": {},
+          "quantities": {
+            "Qto_OpeningElementBaseQuantities": {
+              "values": {
+                "Width": "open_width",
+                "Height": "open_height",
+                "Depth": "depth",
+                "Area": "area",
+                "Volume": "area * depth"
+              },
+              "from_geometry": []
+            }
+          },
+          "parameter_pset": "OPO_Parameters"
+        }
+      },
+      "children": {
+        "Model_void_1": "c70b07ef-ac08-542e-8122-e02cce80f469"
+      }
+    },
+    {
+      "path": "c70b07ef-ac08-542e-8122-e02cce80f469",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.5, -0.11, 0.9], [0.5, -0.11, 0.9], [0.5, -0.11, 1.9], [-0.5, -0.11, 1.9], [-0.5, 0.11, 0.9], [0.5, 0.11, 0.9], [0.5, 0.11, 1.9], [-0.5, 0.11, 1.9]],
+          "faceVertexIndices": [2, 3, 0, 2, 0, 1, 6, 4, 7, 6, 5, 4, 0, 5, 1, 0, 4, 5, 1, 6, 2, 1, 5, 6, 2, 7, 3, 2, 6, 7, 3, 4, 0, 3, 7, 4]
+        }
+      }
+    }
+  ]
+}
