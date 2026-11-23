@@ -3,6 +3,7 @@
 Shared rules for this family:
 - **Doors** reuse the O-01 dimension chain (wall opening → frame outside → rebate → clear passage, leaf by rebate ± lap/gap) with a selectable nominal reference, IFC `Pset_DoorLiningProperties` / `Pset_DoorPanelProperties`, the same frame types (wrap-around, block, lining, hollow metal) and the same handle and hinge components. Only what differs is listed below.
 - **Windows** use one chain: wall opening → (fitting gap) → frame outside → frame (IFC `LiningThickness`) → sash outer → sash (`FrameThickness` in `Pset_WindowPanelProperties`) → glass. Nominal reference: opening, frame outside, or (US) rough opening. IFC `Pset_WindowLiningProperties` (LiningDepth, LiningThickness, TransomThickness, MullionThickness, First/SecondTransomOffset, First/SecondMullionOffset, LiningOffset) and `Pset_WindowPanelProperties` (OperationType, PanelPosition, FrameDepth, FrameThickness). Panel operation values from `IfcWindowPanelOperationEnum` (SIDEHUNGLEFTHAND, TILTANDTURNRIGHTHAND, TOPHUNG, BOTTOMHUNG, PIVOTHORIZONTAL, SLIDINGHORIZONTAL, SLIDINGVERTICAL, FIXEDCASEMENT…).
+- **Every window has an editable outline.** All window objects (O-08…O-12, O-14) have an input slot `outline` (closed flat profile in the window plane: arch, circle, triangle, trapezoid, free polygon), edited in the app's sketch mode. **Driving/driven modes:** in rectangle mode width/height drive the outline; in custom mode the outline drives read-only width/height. Frame and sash follow the outline (2D offset), glazing bars are clipped to it, and opening sashes are limited to regions the operation can work in (e.g. a side-hung sash needs a straight hinge edge; otherwise the panel falls back to fixed). Validity: closed, non-self-intersecting, min edge 0.1 m, fits host.
 - **Window components** shared by O-08…O-14: frame, sash, glazing (single/double/triple, given as total unit thickness), glazing bars (none / grid / custom), sill (interior board, exterior sill), handle (European espagnolette handle or US crank/latch), opening symbols.
 - **Rule sets:** `accessibility` (doors), `escape_windows` (windows), `guards` (low sills / full-height glazing: a sill below the guard height raises a check that a guard or safety glazing is needed).
 
@@ -216,25 +217,9 @@ See `examples/door/`. Reference for all doors.
 
 ---
 
-## O-13 Shaped window (custom outline) — reference test object #2
+## O-13 — merged into all windows
 
-**IFC** IfcWindow · WINDOW · PartitioningType USERDEFINED · panel operations per region · **P1**
-
-**Scope** Any closed flat outline (arch, circle, triangle, trapezoid, free polygon) edited in the app's sketch mode; frame follows the outline, optional fixed or opening sash inside, glazing grid clipped to the outline. **Driving/driven** modes: rectangle mode (width/height drive the outline) or custom mode (outline drives read-only width/height).
-
-**Based on** — · spec §4.3 input slots · IFC.
-
-**Inputs** Input slot `outline` (closed profile in the object plane, default = rectangle from width × height; validity: closed, non-self-intersecting, min edge 0.1 m, fits host) · host wall.
-
-**Parameters** `mode` rectangle | custom · `width`, `height` (driven in custom mode) · `sill_height` · frame and sash as O-08 · `sash_region` (none | inset outline | lower rectangle) · `grid` (rows × cols, clipped) · `sash_operation`.
-
-**Rules** Outline fits the host; arcs in outline approximated within 2 mm in baked mesh; sash minimum size.
-
-**Size catalogues** None (shape-driven); presets: round 600 / 24", half-round over 900 / 36", gothic arch, gable triangle.
-
-**LOD** As O-08; frame offset of the outline by frame width (2D offset op); glazing bars clipped by boolean intersection.
-
-**Open** Curved frame members in IFCX (no exact curves in alpha → recipe + baked polyline mesh).
+There is no separate shaped-window object: custom outlines are a feature of every window (see shared rules above). Reference test object #2 is therefore **O-08 with a custom outline** (arched top, round, gable). ID O-13 stays unused so other IDs don't change.
 
 ---
 
@@ -281,7 +266,7 @@ See `examples/door/`. Reference for all doors.
 Curtain walls are a key element for high-rise and complex façades, so they get their own sub-family.
 
 - **IFC:** `IfcCurtainWall` (PredefinedType only USERDEFINED / NOTDEFINED → `ObjectType` STICK, UNITISED, STRUCTURAL_GLASS) aggregating `IfcMember` · MULLION (used for vertical mullions *and* horizontal transoms; IFC has no separate transom type), `IfcPlate` · CURTAIN_PANEL (glazed and opaque panels), glass fins as `IfcMember` · USERDEFINED (GLASS_FIN), fixings (spider fittings, clamps, brackets) as discrete accessories / fasteners *(exact IFC class to decide)*, nested windows and doors (O-08, O-12, O-02, O-03) in grid cells. `Pset_CurtainWallCommon` (IsExternal, etc.).
-- **Input:** slot `surface` — either a `baseline` (polyline or curve in plan) + bottom/top levels, or a planar / single-curved face; sloping parts allowed up to the limits of EN 13830 (vertical ± 15°); steeper → roof glazing (later object).
+- **Input:** slot `surface` — either a `baseline` (polyline or curve in plan) + bottom/top levels, or a planar / single-curved face (vertical or sloped).
 - **Grid:** U (along) and V (up) divisions, each by count, fixed spacing, list of positions, or **levels** (transoms follow storeys: sill, vision, spandrel zones per floor). Grid lines can be added/removed per bay. Corners: outside / inside, mitred or butt-glazed.
 - **Panel types per cell:** vision glass (IGU, thickness and make-up as data), spandrel (opaque glass, metal, stone), shadow box, operable vent (nested O-08 / O-12), door (nested O-02 / O-03), louvre, open.
 - **Joint types per grid line** (the key difference between systems): `captured` (pressure plate + cover cap), `butt_joint` (silicone joint, no outside cap), `ssg` (structural silicone glazing, 2- or 4-sided, outside flush glass), `open_joint`. Vertical and horizontal lines can differ (e.g. butt-jointed verticals with captured horizontals).

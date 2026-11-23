@@ -20,7 +20,7 @@ An `.opo` is an IFCX (IFC5) document with an `opo::` extension, packaged as a zi
 | Path | Contents |
 |---|---|
 | [`spec/OUTLINE.md`](spec/OUTLINE.md) | Draft spec outline (v0.1), with recorded decisions in §11 |
-| [`spec/objects/`](spec/objects/README.md) | Object catalogue: 48 planned objects with one specification sheet each, and shared rule sets (stairs, guards, accessibility, escape windows, kitchens) |
+| [`spec/objects/`](spec/objects/README.md) | Object catalogue: 47 planned objects with one specification sheet each, and shared rule sets (stairs, guards, accessibility, escape windows, kitchens) |
 | [`schema/`](schema/) | `opo@v0.1.ifcx`: IFCX declaration of the `opo::` attributes (draft). Will be published at `https://opo-format.org/schema/<version>/` |
 | [`examples/door/`](examples/door/) | Reference test object #1: single swing door as IFCX, based on dormakaba bim-all-doors (CC0), with DIN, UK and US size catalogues and accessibility rule sets |
 | `crates/` *(planned)* | Rust reference reader and validator CLI |

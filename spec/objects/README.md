@@ -25,12 +25,12 @@ Priority: **P1** reference test objects that shape the spec (spec §10) · **P2*
 | O-05 | Folding door | IfcDoor · DOOR | P3 | — | planned |
 | O-06 | Entrance door assembly (sidelights, fanlight) | IfcDoor · DOOR (nested) | P2 | bim-all-doors sidelight/fanlight (CC0) | planned |
 | O-07 | Garage door | IfcDoor · DOOR | P3 | — | planned |
-| **O-08** | Casement / tilt-turn window | IfcWindow · WINDOW | P1 | FreeCAD window presets (LGPL, reference only) | planned |
+| **O-08** | Casement / tilt-turn window (test object #2 with a custom outline) | IfcWindow · WINDOW | P1 | FreeCAD window presets (LGPL, reference only) | planned |
 | O-09 | Hung window (single / double hung) | IfcWindow · WINDOW | P2 | FreeCAD Sash 2-pane preset (reference) | planned |
 | O-10 | Sliding window | IfcWindow · WINDOW | P2 | FreeCAD Sliding 2/4-pane presets (reference) | planned |
 | O-11 | Fixed window | IfcWindow · WINDOW | P2 | FreeCAD Fixed preset (reference) | planned |
 | O-12 | Top / bottom hung window | IfcWindow · WINDOW | P3 | FreeCAD Awning preset (reference) | planned |
-| **O-13** | Shaped window (custom outline) | IfcWindow · WINDOW | P1 | — (test object #2) | planned |
+| O-13 | *(merged: every window has an editable outline)* | — | — | — | merged into O-08…O-14 |
 | O-14 | Roof window | IfcWindow · SKYLIGHT | P2 | — | planned |
 | O-15 | Opening / niche | IfcOpeningElement · OPENING / RECESS | P2 | — | planned |
 | **O-16** | Stick curtain wall (captured, butt-joint, SSG) | IfcCurtainWall · USERDEFINED (+ IfcMember MULLION, IfcPlate CURTAIN_PANEL) | P1 | FreeCAD CurtainWall (LGPL, reference only) | planned |

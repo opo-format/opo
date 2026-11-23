@@ -232,12 +232,12 @@ Rules: community contributions to the free library stay free. Contributors sign 
 ## 10. Reference test objects (drive the spec)
 
 1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, DIN/UK/US size catalogues *(written: `examples/door/`)*
-2. **Window with custom outline** — closed-profile input slot, driving/driven modes, clipped glazing grid
+2. **Window with custom outline** — closed-profile input slot, driving/driven modes, clipped glazing grid (any window: outlines are editable on all windows)
 3. **Straight / L / U stair** — level attachment, repeat, slab opening, nested railing, regional rule set
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
-The full list of planned objects (48 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-13, C-01…C-03 and C-04 there.
+The full list of planned objects (47 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.
 
 ## 11. Decisions (23 Nov 2026)
 
@@ -251,7 +251,7 @@ The full list of planned objects (48 objects in four families: openings, circula
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
-| — | Object catalogue | 48 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
+| — | Object catalogue | 47 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions
