@@ -1,4 +1,4 @@
-# Openings — object sheets O-01 … O-16
+# Openings — object sheets O-01 … O-18
 
 Shared rules for this family:
 - **Doors** reuse the O-01 dimension chain (wall opening → frame outside → rebate → clear passage, leaf by rebate ± lap/gap) with a selectable nominal reference, IFC `Pset_DoorLiningProperties` / `Pset_DoorPanelProperties`, the same frame types (wrap-around, block, lining, hollow metal) and the same handle and hinge components. Only what differs is listed below.
@@ -276,27 +276,71 @@ See `examples/door/`. Reference for all doors.
 
 ---
 
-## O-16 Curtain wall
+## Curtain walls — shared rules (O-16, O-17, O-18)
 
-**IFC** IfcCurtainWall · aggregates IfcMember (MULLION, TRANSOM) and IfcPlate (CURTAIN_PANEL) · **P3**
+Curtain walls are a key element for high-rise and complex façades, so they get their own sub-family.
 
-**Scope** Stick curtain wall on a straight or polyline base: grid of mullions and transoms, panels glazed or opaque, doors/windows inserted into grid cells (nested O-08/O-11/O-02). *Not:* unitised system detailing.
+- **IFC:** `IfcCurtainWall` (PredefinedType only USERDEFINED / NOTDEFINED → `ObjectType` STICK, UNITISED, STRUCTURAL_GLASS) aggregating `IfcMember` · MULLION (used for vertical mullions *and* horizontal transoms; IFC has no separate transom type), `IfcPlate` · CURTAIN_PANEL (glazed and opaque panels), glass fins as `IfcMember` · USERDEFINED (GLASS_FIN), fixings (spider fittings, clamps, brackets) as discrete accessories / fasteners *(exact IFC class to decide)*, nested windows and doors (O-08, O-12, O-02, O-03) in grid cells. `Pset_CurtainWallCommon` (IsExternal, etc.).
+- **Input:** slot `surface` — either a `baseline` (polyline or curve in plan) + bottom/top levels, or a planar / single-curved face; sloping parts allowed up to the limits of EN 13830 (vertical ± 15°); steeper → roof glazing (later object).
+- **Grid:** U (along) and V (up) divisions, each by count, fixed spacing, list of positions, or **levels** (transoms follow storeys: sill, vision, spandrel zones per floor). Grid lines can be added/removed per bay. Corners: outside / inside, mitred or butt-glazed.
+- **Panel types per cell:** vision glass (IGU, thickness and make-up as data), spandrel (opaque glass, metal, stone), shadow box, operable vent (nested O-08 / O-12), door (nested O-02 / O-03), louvre, open.
+- **Joint types per grid line** (the key difference between systems): `captured` (pressure plate + cover cap), `butt_joint` (silicone joint, no outside cap), `ssg` (structural silicone glazing, 2- or 4-sided, outside flush glass), `open_joint`. Vertical and horizontal lines can differ (e.g. butt-jointed verticals with captured horizontals).
+- **Slab edges:** fire-stop / smoke seal line and anchor brackets at each floor slab (high LOD), so the façade reads correctly in section.
+- **Rules (all three):** panel size within maker glass limits (data, warning) · mullion depth vs. span (simple rule-of-thumb check; real structural design is out of scope) · joint widths ≥ min · operable vent sizes · `guards` where vision glass reaches the floor (barrier / safety glazing check) · deflection and wind loads are **data only**, not calculated.
+- **Based on:** FreeCAD BIM CurtainWall tool (LGPL, reference only: subdivides a base face into panels with vertical, horizontal and diagonal mullions, profiles per direction, glass/solid panels from a multi-material) · IFC · EN 13830 (curtain walling product standard) · structural sealant glazing: ETAG 002 / EN 15434 (bonded glass) · glass design: DIN 18008 (DE), ASTM E1300 (US) *(values to add)*.
+- **Size catalogues:** none (grid-driven). Presets per system type with typical module widths and profile families *(to collect from public maker data)*.
+- **LOD (all three):** low — glass surface with grid lines · medium — mullion/transom sections, glass, spandrels, panel types, nested windows/doors · high — profiles with pressure plates/caps or SSG joints, fins, fixings, slab edge details. Plan: mullion sections cut (hatched) + glass lines; elevation: grid with panel types and opening symbols.
 
-**Based on** — · IFC.
+---
 
-**Inputs** Slot `baseline` (polyline in plan) + height; or host wall replacement.
+## O-16 Stick curtain wall
 
-**Parameters** `grid_x` (spacing or count), `grid_z` · `mullion_profile` (width × depth), `transom_profile` · `panel_type` per cell (glass | opaque | door | window) · `offset`.
+**IFC** IfcCurtainWall · USERDEFINED (STICK) · **P1** (high-rise core element; also exercises surface/grid inputs and nesting)
 
-**Rules** Panel max size (glass, maker data) warning.
+**Scope** Mullion-and-transom system assembled on site: continuous mullions anchored to slabs, transoms between them, glazing **captured** with pressure plates and caps, or **butt-jointed** (silicone joints, no caps) on one or both directions, or **SSG** (glass bonded, flush outside). Spandrel zones, shadow boxes, vents and doors in cells. Corners outside/inside. *Not:* thermal/structural analysis, bracket design.
 
-**LOD** Plan: mullion sections + glass lines (medium), cut (high). Elevation: grid.
+**Parameters** grid U/V (see shared rules) · `mullion_profile` (face width × depth, default 0.05 × 0.15 m / 2" × 6") · `transom_profile` · `joint_vertical`, `joint_horizontal` captured | butt_joint | ssg · `cap_profile` (captured: depth, shape) · `butt_joint_width` (default 0.015–0.02 m) · `glass_thickness` (IGU, default 0.032 m) · `glass_offset` (glass plane vs. mullion face) · `spandrel_zone` per floor (height from slab) · `slab_edge` (fire stop line, bracket type).
+
+**Rules** Shared rules + mullion span between anchors (floor-to-floor) vs. depth.
+
+---
+
+## O-17 Unitised curtain wall
+
+**IFC** IfcCurtainWall · USERDEFINED (UNITISED) · each unit an `IfcElementAssembly` *(to decide)* · **P2**
+
+**Scope** Factory-built units, typically one floor high and one module wide, hung from slab-edge brackets: split (male/female) mullions, stack joint at each floor (with the horizontal split transom), integrated spandrel and vision areas inside each unit, interlocking joints visible in plan/section at high LOD. The usual system for high-rise. Same joint options on the glass (captured, SSG).
+
+**Parameters** `module_width` · `unit_height` (= floor-to-floor, from levels) · `stack_joint_height` (above slab) · `split_mullion` (profile pair) · unit types per cell (vision / spandrel split heights) · joint types as O-16.
+
+**Rules** Units align with slab levels (error if a level falls inside a unit without a stack joint) · module width × height within transport/handling limits *(data)*.
+
+---
+
+## O-18 Structural glass façade (all-glass)
+
+**IFC** IfcCurtainWall · USERDEFINED (STRUCTURAL_GLASS) · glass panels IfcPlate CURTAIN_PANEL · fins IfcMember USERDEFINED (GLASS_FIN) · **P2**
+
+**Scope** Frameless, Apple-store-style glass walls: large laminated glass panes with **butt joints** (silicone), stabilised by **glass fins** (perpendicular glass beams) and/or a cable net or steel structure, fixed by **point fittings** (spider brackets, countersunk or clamp bolts), **linear clamps** or **structural bonding**. Floor and head channels (shoes), fin-to-pane connections, corner butt-glazing. Very tall single panes and laminated fin splices.
+
+**Support types** `glass_fins` | `cable_net` | `steel_mullions` | `spider_on_steel` · **Fixing types** `point_fixed` (spider: 1-, 2-, 4-arm) | `clamped` | `bonded` | `channel` (top/bottom shoe only).
+
+**Parameters** grid U (pane widths) and V (pane heights, may be a single pane floor-to-ceiling) · `pane_build_up` (laminated layers, e.g. 3 × 12 mm + interlayers; IGU optional) · `fin_depth`, `fin_thickness` (laminated plies), `fin_side` inside | outside · `fin_splice` (heights over max pane length: spliced fins with steel plates) · `fitting_type`, `fitting_spacing` (edge distance of point fixings) · `butt_joint_width` · `base_shoe` / `head_channel` (depth, recess into floor/ceiling).
+
+**Rules** Shared rules + pane size within maker maximums *(data, warning)* · point fixing edge distances ≥ min *(values to add)* · fin depth vs. height rule of thumb (warning only; structural glass design under DIN 18008 / ASTM E1300 is the engineer's job).
+
+**LOD** medium: panes, fins, simple fitting blocks · high: spider arms and bolt heads, shoe channels, splice plates · plan: pane lines + fins (cut, hatched as glass) + fittings symbols.
+
+**Open** Exact IFC classes for spiders and clamps; whether cable-net façades become their own object.
 
 ---
 
 ## Sources
 
 - bim-all-doors: github.com/dormakaba/bim-all-doors (CC0), parameters in `Source/Module/01 BAD main/…/90_Parameters.xml`
+- FreeCAD BIM CurtainWall: wiki.freecad.org/Arch_CurtainWall (LGPL)
+- IFC 4.3: IfcCurtainWallTypeEnum (USERDEFINED, NOTDEFINED), IfcMemberTypeEnum (MULLION…), IfcPlateTypeEnum (CURTAIN_PANEL…)
+- EN 13830 scope: din.de, intertek.com; ETAG 002 (EOTA, structural sealant glazing kits); EN 15434 / EN 13022 (bonding) via BSI catalogue
 - FreeCAD window presets: wiki.freecad.org/Arch_Window (Fixed, Open 1-pane, Open 2-pane, Sash 2-pane, Sliding 2-pane, Simple door, Glass door, Sliding 4-pane, Awning, Opening only, Sliding door); ArchWindow.py (opening modes)
 - Bonsai/IfcOpenShell parametric features and licences: IfcOpenShell repository README (Bonsai GPL-3.0-or-later; libraries LGPL-3.0-or-later)
 - US window sizes: angi.com, modernize.com, hansons.com, rustica.com, lowes.com, homeguide.com standard window size guides

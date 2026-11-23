@@ -237,7 +237,7 @@ Rules: community contributions to the free library stay free. Contributors sign 
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
-The full list of planned objects (46 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-13, C-01…C-03 and C-04 there.
+The full list of planned objects (48 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-13, C-01…C-03 and C-04 there.
 
 ## 11. Decisions (23 Nov 2026)
 
@@ -251,7 +251,7 @@ The full list of planned objects (46 objects in four families: openings, circula
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
-| — | Object catalogue | 46 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
+| — | Object catalogue | 48 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions

@@ -101,7 +101,7 @@ Shared rules for this family:
 
 ## C-06 Ramp
 
-**IFC** IfcRamp · STRAIGHT_RUN_RAMP / TWO_STRAIGHT_RUN_RAMP / QUARTER_TURN_RAMP / HALF_TURN_RAMP · IfcRampFlight + landings · `Pset_RampCommon` · **P2**
+**IFC** IfcRamp · STRAIGHT_RUN_RAMP / TWO_STRAIGHT_RUN_RAMP / QUARTER_TURN_RAMP / TWO_QUARTER_TURN_RAMP / HALF_TURN_RAMP / SPIRAL_RAMP · aggregates IfcRampFlight (STRAIGHT / SPIRAL) + landings (IfcSlab · LANDING) · `Pset_RampCommon` · **P2**
 
 **Scope** Ramp along a path with automatic intermediate landings, level landings at top/bottom, edge protection (kerbs / wheel guards), nested handrails both sides.
 

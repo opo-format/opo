@@ -7,7 +7,7 @@ This is the list of objects the OPO project intends to build, with one specifica
 | File | Contents |
 |---|---|
 | [`rulesets.md`](rulesets.md) | Shared rule sets used by many objects: stairs, guards, accessibility, escape windows, kitchens. Values with sources, metric and imperial. |
-| [`openings.md`](openings.md) | O-01…O-16: doors, windows, openings, curtain wall |
+| [`openings.md`](openings.md) | O-01…O-18: doors, windows, openings, curtain walls (stick, unitised, structural glass) |
 | [`circulation.md`](circulation.md) | C-01…C-08: stairs, ramps, railings, handrails |
 | [`fixtures.md`](fixtures.md) | F-01…F-14: sanitary, kitchen, appliances, built-in storage |
 | [`furniture.md`](furniture.md) | E-01…E-08: furniture and lighting |
@@ -33,7 +33,9 @@ Priority: **P1** reference test objects that shape the spec (spec §10) · **P2*
 | **O-13** | Shaped window (custom outline) | IfcWindow · WINDOW | P1 | — (test object #2) | planned |
 | O-14 | Roof window | IfcWindow · SKYLIGHT | P2 | — | planned |
 | O-15 | Opening / niche | IfcOpeningElement · OPENING / RECESS | P2 | — | planned |
-| O-16 | Curtain wall | IfcCurtainWall (+ IfcMember, IfcPlate) | P3 | — | planned |
+| **O-16** | Stick curtain wall (captured, butt-joint, SSG) | IfcCurtainWall · USERDEFINED (+ IfcMember MULLION, IfcPlate CURTAIN_PANEL) | P1 | FreeCAD CurtainWall (LGPL, reference only) | planned |
+| O-17 | Unitised curtain wall | IfcCurtainWall · USERDEFINED | P2 | FreeCAD CurtainWall (reference) | planned |
+| O-18 | Structural glass façade (glass fins, point-fixed) | IfcCurtainWall · USERDEFINED (+ glass fins IfcMember) | P2 | — | planned |
 | **C-01** | Straight stair | IfcStair · STRAIGHT_RUN_STAIR | P1 | Bonsai stair generator (GPL, reference only) | planned |
 | **C-02** | L-shaped stair | IfcStair · QUARTER_TURN_STAIR / QUARTER_WINDING_STAIR | P1 | Bonsai (reference) | planned |
 | **C-03** | U-shaped stair | IfcStair · HALF_TURN_STAIR / HALF_WINDING_STAIR | P1 | Bonsai (reference) | planned |
