@@ -157,6 +157,14 @@ For generators too complex for the recipe (e.g. balanced winder stairs):
 - **Inputs:** parameters + input slots. **Output:** an ordinary OPO recipe and representations — never raw drawing commands.
 - Tools without a WASM runtime use the baked fallback.
 
+### 4.16 Class templates (every IFC class)
+Every concrete IFC element class (150 in IFC 4.3) has an OPO **class template**, so any IFC element can be created parametrically and shared as a file, like a Revit family. This includes elements that other tools treat as non-shareable system types (walls, slabs, roofs, stairs, pipes, ducts).
+- A class template is built on one of eight **archetypes**: point, linear, area, wall, hosted, flight, fitting, assembly. The archetype fixes inputs, base geometry, host behaviour and representations.
+- The template adds the IFC class, every predefined type as a choice, the applicable IFC property sets as data parameters (they follow the chosen predefined type), base quantities as derived values, ports for distribution elements, and per-class defaults.
+- Templates are **generated** from the pinned IFC schema, the IFC property and quantity set templates, the archetype definitions and one hand-written per-class table. They are regenerated when IFC changes.
+- **Library objects** refine a template with real construction logic and drawing conventions, keeping the same class, types, property sets and ports. Authors (firms, manufacturers) start from a template or a library object.
+- Details: `spec/objects/archetypes.md`; class list: `spec/objects/ifc-coverage.md`.
+
 ## 5. Encoding and packaging
 
 - **Structure: IFCX.** The object definition is an IFCX document. OPO's parametric content (parameters, input slots, rules, recipe, representations metadata, handles) lives in components under an `opo::` namespace, the way IFCX extensions work. Variants and product bindings are IFCX layers over the base. Goal: an `.opo` is instantly readable by IFC5 tools, and `opo::` can later be proposed to buildingSMART as an official extension.
@@ -252,6 +260,7 @@ The full list of planned objects (74 objects in eight families: openings, circul
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
 | — | Object catalogue | 74 objects in eight families, one sheet each, shared rule sets: `spec/objects/` |
+| — | IFC coverage | Every concrete IFC 4.3 element class gets an OPO class template built on one of eight archetypes; detailed library objects refine them (§4.16). Decided 24 Nov 2026 |
 | — | Norms by market | Europe: EN and ISO norms only, no national norms (DIN, NF, UNE…); where no EN/ISO norm exists, sizes are generic and labelled as such and rule sets stay empty. EU accessibility values from ISO 21542 until prEN 17210 is published. UK and US are separate markets. Decided 24 Nov 2026 |
 | — | Default door | O-01 default is a 900 × 2100 wall opening (nominal reference "opening") |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |

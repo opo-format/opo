@@ -2,10 +2,12 @@
 
 **Draft v0.2 · 24 Nov 2026** · 74 objects in eight families
 
-This is the list of objects the OPO project intends to build, with one specification sheet per object. Every object is built from its sheet; the sheet is updated first when something changes. Spec §4.14 (references) applies to all of them.
+Every IFC 4.3 element class gets a generated **class template** (`archetypes.md`, `ifc-coverage.md`). On top of those, this is the list of detailed **library objects** the OPO project intends to build, with one specification sheet per object. Every object is built from its sheet; the sheet is updated first when something changes. Spec §4.14 (references) applies to all of them.
 
 | File | Contents |
 |---|---|
+| [`archetypes.md`](archetypes.md) | The eight archetypes and what every IFC class template contains (the OPO equivalent of family templates) |
+| [`ifc-coverage.md`](ifc-coverage.md) | All 150 IFC 4.3 element classes with their predefined types, archetype and detailed sheets (generated) |
 | [`rulesets.md`](rulesets.md) | Shared rule sets used by many objects: stairs, guards, handrails, accessibility, escape windows, kitchens (lifts in `transport.md`). EU values from EN/ISO only; UK and US columns. Values with sources, metric and imperial. |
 | [`openings.md`](openings.md) | O-01…O-18: doors, windows, openings, curtain walls (stick, unitised, structural glass) |
 | [`circulation.md`](circulation.md) | C-01…C-08: stairs, ramps, railings, handrails |

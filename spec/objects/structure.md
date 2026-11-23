@@ -1,7 +1,7 @@
 # Structure and coverings — object sheets K-01 … K-08
 
 Shared rules for this family:
-- **Architectural, not structural.** These objects place and size structural members and finishes for drawings, coordination and quantities. Loads, analysis and design are out of scope; members carry their profile and material so a structural tool can take over. Walls, slabs and roofs stay with the app's own tools (they are not OPO objects).
+- **Architectural, not structural.** These objects place and size structural members and finishes for drawings, coordination and quantities. Loads, analysis and design are out of scope; members carry their profile and material so a structural tool can take over. Walls, slabs and roofs are OPO class templates too (archetypes `wall` and `area`, see `archetypes.md`); their detailed library sheets are still to write.
 - **Profiles** (K-01…K-03) come from one shared profile library, stored as IFC profile definitions (`IfcIShapeProfileDef`, `IfcUShapeProfileDef`, `IfcLShapeProfileDef`, `IfcTShapeProfileDef`, `IfcRectangleHollowProfileDef`, `IfcCircleHollowProfileDef`, `IfcRectangleProfileDef`, `IfcCircleProfileDef`) so IFC export keeps the exact section:
   - **EU steel:** EN 10365 (hot rolled I, H and U sections: IPE, HE A/B/M, HL, HD, HP, UB, UC, IPN, UPE, PFC, UPN), EN 10210-2 / EN 10219-2 (hollow sections). Designation tables *(to collect from openly published maker section tables; check the licence of each source before it goes into the CC0 library)*.
   - **UK steel:** UB, UC, PFC (in EN 10365).
