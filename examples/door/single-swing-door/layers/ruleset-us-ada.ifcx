@@ -2,7 +2,7 @@
   "header": {
     "id": "opo-format.org/examples/door/single-swing-door/layers/ruleset-us-ada.ifcx",
     "ifcxVersion": "ifcx_alpha",
-    "dataVersion": "0.1.0",
+    "dataVersion": "0.2.0",
     "author": "opo-format.org",
     "timestamp": "2026-11-23"
   },
@@ -23,16 +23,20 @@
   "schemas": {},
   "data": [
     {
-      "path": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448",
+      "path": "2498acc0-df0f-547b-a8ac-27e7f70b36d8",
       "attributes": {
         "opo::rules": {
           "rulesets": [
             {
               "id": "accessibility",
-              "uri": "https://opo-format.org/rulesets/accessibility/us-ada@0.1",
-              "defaults": {
-                "min_clear_width": "inch(32)"
-              }
+              "uri": "https://opo-format.org/rulesets/accessibility/us-ada-2010@0.1",
+              "values": {
+                "min_clear_width": "inch(32)",
+                "measure": "\"usable_clear_width\"",
+                "handle_min": "inch(34)",
+                "handle_max": "inch(48)"
+              },
+              "source": "2010 ADA Standards §404.2.3 (32 in clear, door open 90°) and §404.2.7 (hardware 34–48 in above floor)."
             }
           ]
         }

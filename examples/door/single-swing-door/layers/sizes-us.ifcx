@@ -1,0 +1,178 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/sizes-us.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.2.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "2713b898-e024-5a2d-ac2a-af00b85dbe82",
+      "inherits": {
+        "type": "2498acc0-df0f-547b-a8ac-27e7f70b36d8"
+      }
+    },
+    {
+      "path": "2713b898-e024-5a2d-ac2a-af00b85dbe82",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US doors (prehung, flush leaf 1-3/8 in)",
+        "opo::values": {
+          "nominal_reference": "leaf",
+          "frame_type": "lining",
+          "leaf_type": "flush",
+          "lining_thickness": 0.01905,
+          "casing_width": 0.05715,
+          "casing_depth": 0.0174625,
+          "stop_width": 0.0111125,
+          "stop_depth": 0.034925,
+          "leaf_gap": 0.003175,
+          "fit_gap": 0.003175,
+          "fit_gap_top": 0.028575,
+          "floor_gap": 0.0127,
+          "modular_offset_width": 0.0,
+          "modular_offset_height": 0.0,
+          "leaf_thickness": 0.034925,
+          "handle_height": 0.9144,
+          "backset": 0.060325,
+          "key_rose": false
+        }
+      }
+    },
+    {
+      "path": "cfdc80ab-e3d2-5848-8974-61695301266c",
+      "inherits": {
+        "system": "2713b898-e024-5a2d-ac2a-af00b85dbe82"
+      }
+    },
+    {
+      "path": "cfdc80ab-e3d2-5848-8974-61695301266c",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US 2'0\" × 6'8\" leaf",
+        "bsi::ifc::prop::OverallWidth": 0.65405,
+        "bsi::ifc::prop::OverallHeight": 2.066925,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.01905,
+        "bsi::ifc::prop::CasingThickness": 0.05715,
+        "bsi::ifc::prop::CasingDepth": 0.0174625,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.034925,
+        "opo::values": {
+          "nominal_width": 0.6096,
+          "nominal_height": 2.032
+        }
+      }
+    },
+    {
+      "path": "15022351-2901-5fb9-ab04-7ee454d1e79b",
+      "inherits": {
+        "system": "2713b898-e024-5a2d-ac2a-af00b85dbe82"
+      }
+    },
+    {
+      "path": "15022351-2901-5fb9-ab04-7ee454d1e79b",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US 2'4\" × 6'8\" leaf",
+        "bsi::ifc::prop::OverallWidth": 0.75565,
+        "bsi::ifc::prop::OverallHeight": 2.066925,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.01905,
+        "bsi::ifc::prop::CasingThickness": 0.05715,
+        "bsi::ifc::prop::CasingDepth": 0.0174625,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.034925,
+        "opo::values": {
+          "nominal_width": 0.7112,
+          "nominal_height": 2.032
+        }
+      }
+    },
+    {
+      "path": "858872af-b146-5bf4-b3b8-b9dd40b96b36",
+      "inherits": {
+        "system": "2713b898-e024-5a2d-ac2a-af00b85dbe82"
+      }
+    },
+    {
+      "path": "858872af-b146-5bf4-b3b8-b9dd40b96b36",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US 2'6\" × 6'8\" leaf",
+        "bsi::ifc::prop::OverallWidth": 0.80645,
+        "bsi::ifc::prop::OverallHeight": 2.066925,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.01905,
+        "bsi::ifc::prop::CasingThickness": 0.05715,
+        "bsi::ifc::prop::CasingDepth": 0.0174625,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.034925,
+        "opo::values": {
+          "nominal_width": 0.762,
+          "nominal_height": 2.032
+        }
+      }
+    },
+    {
+      "path": "d08a23de-5176-551d-b6f1-7be819221868",
+      "inherits": {
+        "system": "2713b898-e024-5a2d-ac2a-af00b85dbe82"
+      }
+    },
+    {
+      "path": "d08a23de-5176-551d-b6f1-7be819221868",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US 2'8\" × 6'8\" leaf",
+        "bsi::ifc::prop::OverallWidth": 0.85725,
+        "bsi::ifc::prop::OverallHeight": 2.066925,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.01905,
+        "bsi::ifc::prop::CasingThickness": 0.05715,
+        "bsi::ifc::prop::CasingDepth": 0.0174625,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.034925,
+        "opo::values": {
+          "nominal_width": 0.8128,
+          "nominal_height": 2.032
+        }
+      }
+    },
+    {
+      "path": "5b1ca2b1-5ccc-5247-a9f2-e42c7ad4edfb",
+      "inherits": {
+        "system": "2713b898-e024-5a2d-ac2a-af00b85dbe82"
+      }
+    },
+    {
+      "path": "5b1ca2b1-5ccc-5247-a9f2-e42c7ad4edfb",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "US 3'0\" × 6'8\" leaf",
+        "bsi::ifc::prop::OverallWidth": 0.95885,
+        "bsi::ifc::prop::OverallHeight": 2.066925,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.01905,
+        "bsi::ifc::prop::CasingThickness": 0.05715,
+        "bsi::ifc::prop::CasingDepth": 0.0174625,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.034925,
+        "opo::values": {
+          "nominal_width": 0.9144,
+          "nominal_height": 2.032
+        }
+      }
+    }
+  ]
+}

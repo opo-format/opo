@@ -2,7 +2,7 @@
   "header": {
     "id": "opo-format.org/examples/door/project-snippet.ifcx",
     "ifcxVersion": "ifcx_alpha",
-    "dataVersion": "0.1.0",
+    "dataVersion": "0.2.0",
     "author": "opo-format.org",
     "timestamp": "2026-11-23"
   },
@@ -40,7 +40,7 @@
     {
       "path": "e14408e0-6d91-5cc3-afe9-086e511802d0",
       "inherits": {
-        "type": "3e46ebfb-d9e0-5579-8490-d2b4edba2c02"
+        "type": "36927027-263f-5c24-8a67-78a3feed2b36"
       }
     },
     {
@@ -48,13 +48,12 @@
       "attributes": {
         "bsi::ifc::prop::Name": "D-001",
         "opo::values": {
-          "width": 0.95,
           "flip": {
             "x": "right",
             "y": "front"
-          }
+          },
+          "threshold": true
         },
-        "bsi::ifc::prop::OverallWidth": 0.95,
         "bsi::ifc::prop::OperationType": "SINGLE_SWING_RIGHT",
         "usd::xformop": {
           "transform": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [2.5, 0, 0, 1]]

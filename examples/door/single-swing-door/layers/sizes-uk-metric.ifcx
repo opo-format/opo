@@ -1,0 +1,178 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/sizes-uk-metric.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.2.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "6679f0a4-1c1c-5bdb-8b62-56b19465d672",
+      "inherits": {
+        "type": "2498acc0-df0f-547b-a8ac-27e7f70b36d8"
+      }
+    },
+    {
+      "path": "6679f0a4-1c1c-5bdb-8b62-56b19465d672",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK metric doors, BS 4787 (lining, flush leaf 40 mm)",
+        "opo::values": {
+          "nominal_reference": "leaf",
+          "frame_type": "lining",
+          "leaf_type": "flush",
+          "lining_thickness": 0.032,
+          "casing_width": 0.069,
+          "casing_depth": 0.015,
+          "stop_width": 0.012,
+          "stop_depth": 0.038,
+          "fit_gap": 0.005,
+          "fit_gap_top": 0.005,
+          "modular_offset_width": 0.0,
+          "modular_offset_height": 0.0,
+          "leaf_gap": 0.003,
+          "floor_gap": 0.008,
+          "handle_height": 1.0,
+          "backset": 0.044,
+          "key_rose": false,
+          "leaf_thickness": 0.04
+        }
+      }
+    },
+    {
+      "path": "c1724800-98a3-5691-be48-00f616140523",
+      "inherits": {
+        "system": "6679f0a4-1c1c-5bdb-8b62-56b19465d672"
+      }
+    },
+    {
+      "path": "c1724800-98a3-5691-be48-00f616140523",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK 2040 × 526 leaf",
+        "bsi::ifc::prop::OverallWidth": 0.596,
+        "bsi::ifc::prop::OverallHeight": 2.083,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.032,
+        "bsi::ifc::prop::CasingThickness": 0.069,
+        "bsi::ifc::prop::CasingDepth": 0.015,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.526,
+          "nominal_height": 2.04
+        }
+      }
+    },
+    {
+      "path": "2659c919-5c7e-55b9-a344-52a55471867e",
+      "inherits": {
+        "system": "6679f0a4-1c1c-5bdb-8b62-56b19465d672"
+      }
+    },
+    {
+      "path": "2659c919-5c7e-55b9-a344-52a55471867e",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK 2040 × 626 leaf",
+        "bsi::ifc::prop::OverallWidth": 0.696,
+        "bsi::ifc::prop::OverallHeight": 2.083,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.032,
+        "bsi::ifc::prop::CasingThickness": 0.069,
+        "bsi::ifc::prop::CasingDepth": 0.015,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.626,
+          "nominal_height": 2.04
+        }
+      }
+    },
+    {
+      "path": "039a2b4e-7158-5d80-9501-ebab5aa6ee41",
+      "inherits": {
+        "system": "6679f0a4-1c1c-5bdb-8b62-56b19465d672"
+      }
+    },
+    {
+      "path": "039a2b4e-7158-5d80-9501-ebab5aa6ee41",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK 2040 × 726 leaf",
+        "bsi::ifc::prop::OverallWidth": 0.796,
+        "bsi::ifc::prop::OverallHeight": 2.083,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.032,
+        "bsi::ifc::prop::CasingThickness": 0.069,
+        "bsi::ifc::prop::CasingDepth": 0.015,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.726,
+          "nominal_height": 2.04
+        }
+      }
+    },
+    {
+      "path": "a58a7a3e-ab11-56f6-beb6-724f2b1bba6c",
+      "inherits": {
+        "system": "6679f0a4-1c1c-5bdb-8b62-56b19465d672"
+      }
+    },
+    {
+      "path": "a58a7a3e-ab11-56f6-beb6-724f2b1bba6c",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK 2040 × 826 leaf",
+        "bsi::ifc::prop::OverallWidth": 0.896,
+        "bsi::ifc::prop::OverallHeight": 2.083,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.032,
+        "bsi::ifc::prop::CasingThickness": 0.069,
+        "bsi::ifc::prop::CasingDepth": 0.015,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.826,
+          "nominal_height": 2.04
+        }
+      }
+    },
+    {
+      "path": "3188bd94-0a11-5dbb-851d-261570fc56de",
+      "inherits": {
+        "system": "6679f0a4-1c1c-5bdb-8b62-56b19465d672"
+      }
+    },
+    {
+      "path": "3188bd94-0a11-5dbb-851d-261570fc56de",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "UK 2040 × 926 leaf",
+        "bsi::ifc::prop::OverallWidth": 0.996,
+        "bsi::ifc::prop::OverallHeight": 2.083,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.032,
+        "bsi::ifc::prop::CasingThickness": 0.069,
+        "bsi::ifc::prop::CasingDepth": 0.015,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.926,
+          "nominal_height": 2.04
+        }
+      }
+    }
+  ]
+}

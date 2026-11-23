@@ -95,7 +95,7 @@ A chain of operations from a small, strictly specified vocabulary (a node graph 
 
 Keep this list short: every operation is a cost for other implementers.
 
-Each recipe step is `{ "id", "op", "plane"?, "args" }`. Arguments are FEEL expressions over parameters, derived values, host inputs and the ids of earlier steps. Planes: `xy` (plan, normal +z), `xz` (object face, normal +y), `yz`. Object axes: x along the host (wall), y through the host (positive = swing/front side), z up.
+Each recipe step is `{ "id", "op", "plane"?, "when"?, "args" }`. Arguments are FEEL expressions over parameters, derived values, host inputs and the ids of earlier steps. Operations may also be called inline inside an argument (`extrude(profile, from, to)`, `circle(center, radius)`), so small helper shapes need no step of their own. `when` is a FEEL condition: a step whose condition is false produces nothing, and unions skip it (e.g. a threshold, or a key rose that is switched off). Planes: `xy` (plan, normal +z), `xz` (object face, normal +y), `yz`. Object axes: x along the host (wall), y through the host (positive = swing/front side), z up.
 
 ### 4.6 Representations
 Each representation is tagged with:
@@ -140,7 +140,18 @@ Manufacturer, product code, link, the sizes actually sold (constrains parameters
 ### 4.13 Baked fallback
 Ready-built geometry and plan symbols for the default variant, so viewers and tools that don't run the recipe can still show and export the object.
 
-### 4.14 Script step (optional, rare)
+### 4.14 References (required for library objects)
+OPO objects are not invented from scratch. Every object in an OPO library states, in `opo::object.references`:
+1. **Parametric basis**: an established, openly licensed parametric object it is modelled on (e.g. dormakaba's CC0 *bim-all-doors* for doors), and what was taken from it. Only licences compatible with the target library (CC0, CC-BY) may be used; proprietary manufacturer objects can inform dimensions but not be copied.
+2. **IFC parameters**: the IFC classes, property sets and properties its parameters map to, using IFC names wherever IFC has them.
+3. **Norms for standard sizes**: the national or industry standards its size catalogues come from, for both metric and imperial markets (e.g. DIN 18100/18101, BS 4787, US industry sizes).
+4. **Rule sources**: the regulations behind its rule sets (e.g. DIN 18040, ADA).
+
+Values that are typical practice rather than taken from a norm (e.g. hinge positions) are marked as such in a `note`.
+
+**Size catalogues.** Standard sizes ship as layer files, one per norm or market. Each catalogue has one *system* node (inheriting the type) carrying that market's construction values (frame type, lining, gaps, leaf thickness, handle height…), and one variant node per standard size inheriting the system node. All markets use the same object; only the values differ.
+
+### 4.15 Script step (optional, rare)
 For generators too complex for the recipe (e.g. balanced winder stairs):
 - Compiled to **WebAssembly**, run sandboxed (no files, network or system access, time and memory limits).
 - **Inputs:** parameters + input slots. **Output:** an ordinary OPO recipe and representations — never raw drawing commands.
@@ -220,7 +231,7 @@ Rules: community contributions to the free library stay free. Contributors sign 
 
 ## 10. Reference test objects (drive the spec)
 
-1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping
+1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, DIN/UK/US size catalogues *(written: `examples/door/`)*
 2. **Window with custom outline** — closed-profile input slot, driving/driven modes, clipped glazing grid
 3. **Straight / L / U stair** — level attachment, repeat, slab opening, nested railing, regional rule set
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
@@ -237,6 +248,7 @@ Rules: community contributions to the free library stay free. Contributors sign 
 | 5 | Sketch constraints | Solved by the application; OPO stores resolved geometry and validity rules (§4.3) |
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
+| — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions

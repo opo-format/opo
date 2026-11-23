@@ -1,0 +1,46 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/ruleset-de-din18040.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.2.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "2498acc0-df0f-547b-a8ac-27e7f70b36d8",
+      "attributes": {
+        "opo::rules": {
+          "rulesets": [
+            {
+              "id": "accessibility",
+              "uri": "https://opo-format.org/rulesets/accessibility/de-din18040-1@0.1",
+              "values": {
+                "min_clear_width": "mm(900)",
+                "measure": "\"clear_passage\"",
+                "handle_min": "null",
+                "handle_max": "null"
+              },
+              "source": "DIN 18040-1: clear passage width of doors at least 90 cm."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
