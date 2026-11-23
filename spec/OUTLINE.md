@@ -237,6 +237,8 @@ Rules: community contributions to the free library stay free. Contributors sign 
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
+The full list of planned objects (46 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-13, C-01…C-03 and C-04 there.
+
 ## 11. Decisions (23 Nov 2026)
 
 | # | Question | Decision |
@@ -249,6 +251,7 @@ Rules: community contributions to the free library stay free. Contributors sign 
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
+| — | Object catalogue | 46 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions
@@ -258,3 +261,4 @@ Rules: community contributions to the free library stay free. Contributors sign 
 3. Full JSON Schema for each `opo::` attribute (the door example in `examples/door/` is the working draft).
 4. Should variants always carry their own baked geometry, so plain IFC5 viewers show them at the right size?
 5. 2D symbols in IFCX: hidden basiscurves tagged with `opo::representation` for now, until IFCX gains drawing contexts.
+6. Portugal market (RGEU, DL 163/2006 accessibility) values for the size catalogues and rule sets.
