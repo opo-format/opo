@@ -1,7 +1,7 @@
 # OPO — Open Parametric Object
 
-**Draft spec outline · v0.0 · 23 Nov 2026**
-Status: strategy draft, not yet a specification. Nothing here is final.
+**Draft spec outline · v0.1 · 23 Nov 2026**
+Status: strategy draft, not yet a specification. Decisions recorded in §11; everything else may still change.
 
 OPO is an open, vendor-neutral file format for parametric architectural objects: doors, windows, stairs, railings, furniture and more. One OPO file is a *generator*: it describes how to build an object from parameters, with 3D at several levels of detail and proper 2D plan, elevation and section symbols at several scales.
 
@@ -20,7 +20,7 @@ Curva is the first application to implement OPO, but the format belongs to no si
 2. **Real architectural drawings.** Plan and elevation symbols follow drawing conventions by scale, not just slices of the 3D.
 3. **Three levels of detail.** A door is a line and an arc at 1:200 and every layer of frame and leaf at 1:5.
 4. **Adoptable by other software.** Small, strictly specified, text-based, openly licensed.
-5. **IFC-native.** Every object carries its IFC class and properties and exports clean IFC geometry (no meshes where exact geometry is possible). Structure aligned with IFC5 / IFCX ideas.
+5. **IFC-native.** OPO complements the IFC family. An `.opo` is an IFCX document with an `opo::` extension: IFC vocabulary (classes, predefined types, property sets, representation contexts) used exactly, plus the recipe to rebuild the object. Exports clean IFC geometry (no meshes where exact geometry is possible). IFC5's first version leaves out parametric geometry; OPO fills that gap.
 6. **Safe to open from anyone.** No object can touch files, the network or the computer.
 
 ## 2. Non-goals
@@ -48,6 +48,8 @@ Name, unique ID, object version, author, licence, OPO spec version, description,
 Typed values: length, angle, number, integer, boolean, choice (enum), text, material slot, colour.
 Each has: unit, default, limits (min/max/step or allowed list), UI label and group, visibility conditions.
 
+**Units.** Values are always *stored* in canonical units: lengths in millimetres, angles in degrees. Applications *display* and accept any unit (mm, m, ft-in…). Stored numbers are full precision and never rounded on save (1/16" = 1.5875 mm must round-trip exactly). Limits and steps may be given per unit system (e.g. step 10 mm metric, ½" imperial), so sliders and snapping feel native in both.
+
 ### 4.3 Input slots
 Drawn geometry the object is built from. Examples:
 - Window/door: `outline` (closed flat profile in the object's plane), default = rectangle from width × height
@@ -60,12 +62,26 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 
 **Driving vs driven:** an object may switch between parameters driving the input (rectangle mode) and the input driving read-only parameters (custom outline mode).
 
+**Constraints:** sketch constraints (dimensions, parallel, tangent) are solved by the application. OPO stores only the resolved geometry and the slot's validity rules. Optional constraint hints may be added in a later version.
+
 ### 4.4 Rules
 - **Derived values:** formulas from parameters and inputs (leaf width = width − 2 × frame; riser count = ceil(height ÷ max riser)).
 - **Checks:** conditions with messages ("double leaf needs width ≥ 1200 mm").
-- **Regional rule sets:** referenced, swappable sets of limits (stair riser/going, guard heights) per country or code.
+- **Regional rule sets:** referenced, swappable sets of limits (stair riser/going, guard heights) per country or code. Rule sets and variants carry each market's standard sizes (a US door is 36"×80", not a converted 900×2100).
 
-Formula language: small, side-effect-free expression language (arithmetic, comparisons, conditionals, min/max/round, curve queries). To be specified.
+**Formula language: FEEL subset.** Formulas use FEEL (Friendly Enough Expression Language) from the OMG DMN standard: an open standard by a neutral body, readable by non-programmers, with several open implementations. OPO allows a listed subset only:
+- arithmetic, comparisons, `and`/`or`/`not`, `if … then … else`
+- `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`, trigonometry (degrees)
+- OPO unit helpers returning canonical values: `mm()`, `m()`, `inch()`, `ft()`, `deg()`
+- OPO curve queries: `length(curve)`, `point_at(curve, t)`, etc.
+
+Formulas only ever see canonical units, so the same object gives the same result everywhere. Examples:
+```
+leaf_width = width - 2 * frame
+risers     = ceiling(height / max_riser)
+leaves     = if width >= mm(1200) then 2 else 1
+```
+The exact subset and its conformance tests are defined in the spec; implementations may use any FEEL engine or OPO's own evaluator.
 
 ### 4.5 Geometry recipe
 A chain of operations from a small, strictly specified vocabulary (a node graph stored as data):
@@ -93,6 +109,8 @@ Typical door:
 | Elevation | Outline | Outline + frame | Projected from 3D |
 
 Aligns with IFC geometric representation sub-contexts (target view + target scale).
+
+**Line and hatch semantics.** 2D representations carry meaning, not pen styles: every line is classed as *cut*, *projected*, *hidden*, *overhead* or *annotation*, and every hatch names the material it cuts. The application's drawing style maps classes to line weights, line types and hatch patterns, so drawings stay consistent with the office standard across a project.
 
 ### 4.7 Host behaviour
 - Hosted objects (door, window, opening) declare the void they cut in their host (wall, slab, roof).
@@ -128,10 +146,11 @@ For generators too complex for the recipe (e.g. balanced winder stairs):
 
 ## 5. Encoding and packaging
 
+- **Structure: IFCX.** The object definition is an IFCX document. OPO's parametric content (parameters, input slots, rules, recipe, representations metadata, handles) lives in components under an `opo::` namespace, the way IFCX extensions work. Variants and product bindings are IFCX layers over the base. Goal: an `.opo` is instantly readable by IFC5 tools, and `opo::` can later be proposed to buildingSMART as an official extension.
+- **IFCX tracking.** IFC5/IFCX is still alpha with no release date. Each OPO spec version pins a named IFCX snapshot, so upstream changes never break existing files. OPO follows each new IFCX release with a matching OPO update.
 - **Canonical encoding:** JSON, validated by a published JSON Schema at `https://opo-format.org/schema/<version>/`.
-- **Single file** for simple objects. **Package** (zip container, still `.opo`) when it includes textures, previews, manufacturer geometry or a WASM module. *(To decide.)*
-- Units explicit (SI, millimetres default for lengths).
-- Layered/composable structure inspired by IFCX (variants and product bindings as layers over a base). *(To explore.)*
+- **Packaging: always a zip.** Every `.opo` is a zip container (like `.3mf` or `.docx`) holding the IFCX/JSON document plus any previews, textures, manufacturer geometry or WASM module. One code path for all readers. For version control, the reference CLI packs and unpacks `.opo` files, and source repositories store objects unpacked as folders.
+- Units: canonical millimetres and degrees (see §4.2).
 
 ## 6. Versioning and compatibility
 
@@ -141,6 +160,8 @@ For generators too complex for the recipe (e.g. balanced winder stairs):
 - Long-term rule: files made today must still open in ten years.
 
 ## 7. IFC mapping
+
+Because an `.opo` is already IFCX, IFC5 tools read its IFC data directly. For IFC4.3 (the current ISO standard, STEP files), OPO defines an export mapping:
 
 - Instance → IfcProduct of the declared class (IfcDoor, IfcWindow, IfcStair…), with its type object from the variant.
 - Representations → IFC shape representations with matching contexts (Body, Plan/Annotation, target scale).
@@ -174,11 +195,20 @@ Rules: community contributions to the free library stay free. Contributors sign 
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
-## 11. Open questions
+## 11. Decisions (23 Nov 2026)
 
-1. Formula language: write our own minimal one or adopt an existing expression syntax?
-2. Single file vs package: when is a zip needed?
-3. How far to align the internal structure with IFCX now, given IFC5 is still alpha?
-4. Plan-symbol styling: line weights, hatches, and how much is left to the application's drawing style.
-5. Constraint solving in sketch inputs (dimensions, parallel, tangent) — in OPO or left to the application?
-6. Governance: when to invite other maintainers; trademark search before public launch.
+| # | Question | Decision |
+|---|---|---|
+| 1 | Formula language | FEEL (OMG DMN) subset with OPO unit helpers and curve queries (§4.4) |
+| 2 | Single file vs package | Always a zip container; CLI pack/unpack for version control (§5) |
+| 3 | IFCX alignment | `.opo` is an IFCX document with an `opo::` extension; each OPO version pins an IFCX snapshot and follows IFCX releases (§5) |
+| 4 | Plan-symbol styling | Semantic line classes and hatch materials; the application's drawing style chooses weights and patterns (§4.6) |
+| 5 | Sketch constraints | Solved by the application; OPO stores resolved geometry and validity rules (§4.3) |
+| 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
+| — | Units | Stored in mm and degrees at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4) |
+
+## 12. Open questions
+
+1. Which IFCX snapshot to pin first, and how the `opo::` components map onto it in detail.
+2. Exact FEEL subset and the OPO function list (curve queries).
+3. Zip layout: file names, manifest, compression, signing.

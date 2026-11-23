@@ -9,7 +9,7 @@ One `.opo` file is a *generator*. It describes how to build an object from param
 - IFC class, property sets and clean IFC export,
 - baked fallback geometry, so simple tools can display objects without running the recipe.
 
-Objects are data (JSON), with an optional sandboxed WebAssembly step for rare, complex generators. No object can touch files, the network or the computer.
+An `.opo` is an IFCX (IFC5) document with an `opo::` extension, packaged as a zip. It uses IFC vocabulary exactly and adds the recipe to rebuild the object, filling the parametric gap IFC leaves open. Formulas use a subset of FEEL (OMG DMN). An optional sandboxed WebAssembly step covers rare, complex generators. No object can touch files, the network or the computer.
 
 [Curva](https://github.com/curva3d) is the first application to implement OPO, but the format belongs to no single application. Anyone is welcome to implement it.
 
@@ -19,7 +19,7 @@ Objects are data (JSON), with an optional sandboxed WebAssembly step for rare, c
 
 | Path | Contents |
 |---|---|
-| [`spec/OUTLINE.md`](spec/OUTLINE.md) | Draft spec outline (v0.0) |
+| [`spec/OUTLINE.md`](spec/OUTLINE.md) | Draft spec outline (v0.1), with recorded decisions in §11 |
 | `schema/` *(planned)* | JSON Schema, published at `https://opo-format.org/schema/<version>/` |
 | `crates/` *(planned)* | Rust reference reader and validator CLI |
 | `examples/` *(planned)* | Reference test objects: door, window, stairs, branded product |
