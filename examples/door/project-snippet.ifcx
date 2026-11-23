@@ -1,0 +1,65 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/project-snippet.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "8428aeee-c829-5780-af57-a1cce37fe21e",
+      "children": {
+        "Door_001": "e14408e0-6d91-5cc3-afe9-086e511802d0"
+      }
+    },
+    {
+      "path": "8428aeee-c829-5780-af57-a1cce37fe21e",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcWall",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall"
+        }
+      }
+    },
+    {
+      "path": "e14408e0-6d91-5cc3-afe9-086e511802d0",
+      "inherits": {
+        "type": "3e46ebfb-d9e0-5579-8490-d2b4edba2c02"
+      }
+    },
+    {
+      "path": "e14408e0-6d91-5cc3-afe9-086e511802d0",
+      "attributes": {
+        "bsi::ifc::prop::Name": "D-001",
+        "opo::values": {
+          "width": 0.95,
+          "flip": {
+            "x": "right",
+            "y": "front"
+          }
+        },
+        "bsi::ifc::prop::OverallWidth": 0.95,
+        "bsi::ifc::prop::OperationType": "SINGLE_SWING_RIGHT",
+        "usd::xformop": {
+          "transform": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [2.5, 0, 0, 1]]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "header": {
+    "id": "opo-format.org/schema/0.1/opo@v0.1.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [],
+  "schemas": {
+    "opo::object": {
+      "uri": "https://opo-format.org/schema/0.1/object.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::parameters": {
+      "uri": "https://opo-format.org/schema/0.1/parameters.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::slots": {
+      "uri": "https://opo-format.org/schema/0.1/slots.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::rules": {
+      "uri": "https://opo-format.org/schema/0.1/rules.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::recipe": {
+      "uri": "https://opo-format.org/schema/0.1/recipe.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::representations": {
+      "uri": "https://opo-format.org/schema/0.1/representations.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::host": {
+      "uri": "https://opo-format.org/schema/0.1/host.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::handles": {
+      "uri": "https://opo-format.org/schema/0.1/handles.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::materials": {
+      "uri": "https://opo-format.org/schema/0.1/materials.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::ifc": {
+      "uri": "https://opo-format.org/schema/0.1/ifc.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::values": {
+      "uri": "https://opo-format.org/schema/0.1/values.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::inputs": {
+      "uri": "https://opo-format.org/schema/0.1/inputs.json",
+      "value": {
+        "dataType": "Object"
+      }
+    },
+    "opo::representation": {
+      "uri": "https://opo-format.org/schema/0.1/representation.json",
+      "value": {
+        "dataType": "String"
+      }
+    }
+  },
+  "data": []
+}

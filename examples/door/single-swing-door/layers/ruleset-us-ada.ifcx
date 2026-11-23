@@ -1,0 +1,42 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/ruleset-us-ada.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448",
+      "attributes": {
+        "opo::rules": {
+          "rulesets": [
+            {
+              "id": "accessibility",
+              "uri": "https://opo-format.org/rulesets/accessibility/us-ada@0.1",
+              "defaults": {
+                "min_clear_width": "inch(32)"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

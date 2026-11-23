@@ -48,7 +48,7 @@ Name, unique ID, object version, author, licence, OPO spec version, description,
 Typed values: length, angle, number, integer, boolean, choice (enum), text, material slot, colour.
 Each has: unit, default, limits (min/max/step or allowed list), UI label and group, visibility conditions.
 
-**Units.** Values are always *stored* in canonical units: lengths in millimetres, angles in degrees. Applications *display* and accept any unit (mm, m, ft-in…). Stored numbers are full precision and never rounded on save (1/16" = 1.5875 mm must round-trip exactly). Limits and steps may be given per unit system (e.g. step 10 mm metric, ½" imperial), so sliders and snapping feel native in both.
+**Units.** Values are always *stored* in IFCX's default units: lengths in **metres**, angles in degrees (IFCX alpha still lists radians vs degrees as undecided; OPO follows whatever IFCX settles on). Applications *display* and accept any unit (mm, m, ft-in…). Stored numbers are full double precision and never rounded on save (1/16" = 0.0015875 m must round-trip exactly). Limits and steps may be given per unit system (e.g. step 10 mm metric, ½" imperial), so sliders and snapping feel native in both.
 
 ### 4.3 Input slots
 Drawn geometry the object is built from. Examples:
@@ -70,18 +70,18 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 - **Regional rule sets:** referenced, swappable sets of limits (stair riser/going, guard heights) per country or code. Rule sets and variants carry each market's standard sizes (a US door is 36"×80", not a converted 900×2100).
 
 **Formula language: FEEL subset.** Formulas use FEEL (Friendly Enough Expression Language) from the OMG DMN standard: an open standard by a neutral body, readable by non-programmers, with several open implementations. OPO allows a listed subset only:
-- arithmetic, comparisons, `and`/`or`/`not`, `if … then … else`
-- `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`, trigonometry (degrees)
-- OPO unit helpers returning canonical values: `mm()`, `m()`, `inch()`, `ft()`, `deg()`
-- OPO curve queries: `length(curve)`, `point_at(curve, t)`, etc.
+- numbers, strings, booleans, lists (`[x, y]` for points; FEEL indexes from 1, so `p[1]` is x), context access (`host.thickness`)
+- arithmetic, comparisons (`=`, `!=`, `<`, `<=`, `>`, `>=`), `and`/`or`/`not`, `if … then … else`
+- `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`
+- OPO additions: trigonometry in degrees (`sin`, `cos`, `tan`, `atan2`); unit helpers returning canonical values (`mm()`, `cm()`, `m()`, `inch()`, `ft()`, `deg()`); curve queries (`length(curve)`, `point_at(curve, t)`…)
 
-Formulas only ever see canonical units, so the same object gives the same result everywhere. Examples:
+Formulas only ever see canonical units (metres, degrees), so the same object gives the same result everywhere. Examples:
 ```
-leaf_width = width - 2 * frame
+leaf_width = width - 2 * frame_width
 risers     = ceiling(height / max_riser)
 leaves     = if width >= mm(1200) then 2 else 1
 ```
-The exact subset and its conformance tests are defined in the spec; implementations may use any FEEL engine or OPO's own evaluator.
+Names are `snake_case`. Every value in a recipe argument, derived value or check is a FEEL expression string; text literals are FEEL strings (`"left"`). The exact subset and its conformance tests are defined in the spec; implementations may use any FEEL engine or OPO's own evaluator.
 
 ### 4.5 Geometry recipe
 A chain of operations from a small, strictly specified vocabulary (a node graph stored as data):
@@ -94,6 +94,8 @@ A chain of operations from a small, strictly specified vocabulary (a node graph 
 - **Placement:** nested OPO instance
 
 Keep this list short: every operation is a cost for other implementers.
+
+Each recipe step is `{ "id", "op", "plane"?, "args" }`. Arguments are FEEL expressions over parameters, derived values, host inputs and the ids of earlier steps. Planes: `xy` (plan, normal +z), `xz` (object face, normal +y), `yz`. Object axes: x along the host (wall), y through the host (positive = swing/front side), z up.
 
 ### 4.6 Representations
 Each representation is tagged with:
@@ -148,9 +150,38 @@ For generators too complex for the recipe (e.g. balanced winder stairs):
 
 - **Structure: IFCX.** The object definition is an IFCX document. OPO's parametric content (parameters, input slots, rules, recipe, representations metadata, handles) lives in components under an `opo::` namespace, the way IFCX extensions work. Variants and product bindings are IFCX layers over the base. Goal: an `.opo` is instantly readable by IFC5 tools, and `opo::` can later be proposed to buildingSMART as an official extension.
 - **IFCX tracking.** IFC5/IFCX is still alpha with no release date. Each OPO spec version pins a named IFCX snapshot, so upstream changes never break existing files. OPO follows each new IFCX release with a matching OPO update.
+  - OPO 0.1 pins **IFCX alpha** (`ifcxVersion: "ifcx_alpha"`), as in buildingSMART/IFC5-development commit `1a63082` (8 Sep 2026), importing `ifc@v5a`, `prop@v5a` and `usd@v1`.
+
+### 5.1 IFCX mapping
+
+An IFCX file has a `header`, `imports` (schema URIs), `schemas` (new attribute definitions) and `data` (a flat list of nodes with `path`, `children`, `inherits`, `attributes`). Nodes with the same path in several layers are composed into one. OPO maps onto this as follows:
+
+| OPO concept | IFCX |
+|---|---|
+| Definition | One **type node** with `bsi::ifc::class` (e.g. `IfcDoor`), plain `bsi::ifc::prop::*` values for the default variant, and all `opo::*` attributes |
+| Parts (frame, leaf, void…) | `children` of the type node, carrying baked geometry |
+| Variant | A node that `inherits` the type node and sets `opo::values` and its own `bsi::ifc::prop::TypeName` |
+| Instance (in a project file) | A node that `inherits` a variant (or the type), with its own `opo::values`, `opo::inputs` (drawn geometry) and `usd::xformop` placement |
+| Product binding, regional values | Layer files adding attributes to existing paths |
+| Baked fallback | `usd::usdgeom::mesh` on part nodes (3D), `usd::usdgeom::basiscurves` on hidden 2D symbol nodes, both in metres |
+| IFC data | `opo::ifc` maps FEEL expressions to `bsi::ifc::prop::*` names, so every instance writes correct IFC properties (e.g. OverallWidth, OperationType) |
+
+`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file.
+
+IFCX alpha has only meshes and polylines, no exact solids. Exact geometry comes from the OPO recipe (used by OPO-aware tools and the IFC4.3 export); the baked mesh lets any IFC5 viewer display the object today.
+
+### 5.2 Package layout (draft)
+
+```
+door.opo                (zip)
+├── object.ifcx         base document: type node, opo:: definition, baked fallback
+├── layers/*.ifcx       optional layers: variants, product bindings, regional values
+└── assets/             optional: previews, textures, manufacturer geometry, WASM
+```
+Source repositories store the same structure unpacked as a folder.
 - **Canonical encoding:** JSON, validated by a published JSON Schema at `https://opo-format.org/schema/<version>/`.
 - **Packaging: always a zip.** Every `.opo` is a zip container (like `.3mf` or `.docx`) holding the IFCX/JSON document plus any previews, textures, manufacturer geometry or WASM module. One code path for all readers. For version control, the reference CLI packs and unpacks `.opo` files, and source repositories store objects unpacked as folders.
-- Units: canonical millimetres and degrees (see §4.2).
+- Units: metres and degrees, as IFCX (see §4.2).
 
 ## 6. Versioning and compatibility
 
@@ -205,10 +236,13 @@ Rules: community contributions to the free library stay free. Contributors sign 
 | 4 | Plan-symbol styling | Semantic line classes and hatch materials; the application's drawing style chooses weights and patterns (§4.6) |
 | 5 | Sketch constraints | Solved by the application; OPO stores resolved geometry and validity rules (§4.3) |
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
-| — | Units | Stored in mm and degrees at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4) |
+| — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
+| — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions
 
-1. Which IFCX snapshot to pin first, and how the `opo::` components map onto it in detail.
-2. Exact FEEL subset and the OPO function list (curve queries).
-3. Zip layout: file names, manifest, compression, signing.
+1. Exact FEEL subset and the OPO function list (curve queries).
+2. Zip details: manifest, compression, signing.
+3. Full JSON Schema for each `opo::` attribute (the door example in `examples/door/` is the working draft).
+4. Should variants always carry their own baked geometry, so plain IFC5 viewers show them at the right size?
+5. 2D symbols in IFCX: hidden basiscurves tagged with `opo::representation` for now, until IFCX gains drawing contexts.

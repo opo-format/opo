@@ -1,0 +1,957 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448",
+      "children": {
+        "Frame": "497d4176-3c43-5aa9-a312-59ec5c806d56",
+        "Leaf": "cdf1fa76-9823-5bb0-b74a-1b786d33c09c",
+        "Void": "97b26c21-1651-5aa7-a5e3-0e95489fde91",
+        "PlanMedium": "686071f2-32c9-5c5f-a822-9e03fc618feb"
+      }
+    },
+    {
+      "path": "686071f2-32c9-5c5f-a822-9e03fc618feb",
+      "children": {
+        "jamb_left": "fcf794f2-4293-51c8-bf27-4803bb146419",
+        "jamb_right": "ab804c23-c0f8-5234-af50-94cd8f89f38a",
+        "leaf_open": "753673a7-22c4-5826-b4d2-d6ec60a113e2",
+        "swing_arc": "43a5bb40-0bd3-5363-ac23-83725270ba15"
+      }
+    },
+    {
+      "path": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcDoor",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDoor"
+        },
+        "bsi::ifc::prop::Name": "Single swing door",
+        "bsi::ifc::prop::TypeName": "Single swing door",
+        "bsi::ifc::prop::OverallWidth": 0.9,
+        "bsi::ifc::prop::OverallHeight": 2.1,
+        "bsi::ifc::prop::OperationType": "SINGLE_SWING_LEFT",
+        "bsi::ifc::prop::IsExternal": false,
+        "opo::object": {
+          "id": "opo-format.org/examples/door/single-swing-door",
+          "name": "Single swing door",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "Generic single swing door: frame, leaf, three levels of detail, plan and elevation symbols, host void.",
+          "tags": [
+            "door",
+            "single swing",
+            "generic"
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "width",
+            "type": "length",
+            "default": 0.9,
+            "label": "Width",
+            "group": "Size",
+            "limits": {
+              "min": 0.6,
+              "max": 1.2,
+              "step": {
+                "metric": 0.01,
+                "imperial": 0.0127
+              }
+            },
+            "description": "Overall width, outside of frame (IfcDoor OverallWidth)."
+          },
+          {
+            "name": "height",
+            "type": "length",
+            "default": 2.1,
+            "label": "Height",
+            "group": "Size",
+            "limits": {
+              "min": 1.8,
+              "max": 3.0,
+              "step": {
+                "metric": 0.01,
+                "imperial": 0.0127
+              }
+            },
+            "description": "Overall height, floor to top of frame (IfcDoor OverallHeight)."
+          },
+          {
+            "name": "frame_width",
+            "type": "length",
+            "default": 0.05,
+            "label": "Frame width",
+            "group": "Frame",
+            "limits": {
+              "min": 0.02,
+              "max": 0.15,
+              "step": {
+                "metric": 0.005,
+                "imperial": 0.003175
+              }
+            }
+          },
+          {
+            "name": "frame_follows_wall",
+            "type": "boolean",
+            "default": false,
+            "label": "Frame depth = wall thickness",
+            "group": "Frame"
+          },
+          {
+            "name": "frame_depth",
+            "type": "length",
+            "default": 0.1,
+            "label": "Frame depth",
+            "group": "Frame",
+            "limits": {
+              "min": 0.04,
+              "max": 0.5,
+              "step": {
+                "metric": 0.005,
+                "imperial": 0.003175
+              }
+            },
+            "visible": "not(frame_follows_wall)"
+          },
+          {
+            "name": "leaf_thickness",
+            "type": "length",
+            "default": 0.04,
+            "label": "Leaf thickness",
+            "group": "Leaf",
+            "limits": {
+              "min": 0.03,
+              "max": 0.08,
+              "step": {
+                "metric": 0.001,
+                "imperial": 0.0015875
+              }
+            }
+          },
+          {
+            "name": "gap",
+            "type": "length",
+            "default": 0.003,
+            "label": "Leaf gap",
+            "group": "Leaf",
+            "limits": {
+              "min": 0.0,
+              "max": 0.01
+            }
+          },
+          {
+            "name": "undercut",
+            "type": "length",
+            "default": 0.01,
+            "label": "Undercut",
+            "group": "Leaf",
+            "limits": {
+              "min": 0.0,
+              "max": 0.03
+            }
+          },
+          {
+            "name": "opening_angle",
+            "type": "angle",
+            "default": 90.0,
+            "label": "Plan opening angle",
+            "group": "Drawing",
+            "limits": {
+              "min": 30.0,
+              "max": 180.0,
+              "step": {
+                "metric": 15.0,
+                "imperial": 15.0
+              }
+            }
+          },
+          {
+            "name": "handle_height",
+            "type": "length",
+            "default": 1.05,
+            "label": "Handle height",
+            "group": "Hardware",
+            "limits": {
+              "min": 0.8,
+              "max": 1.2,
+              "step": {
+                "metric": 0.01,
+                "imperial": 0.0127
+              }
+            }
+          },
+          {
+            "name": "frame_material",
+            "type": "material",
+            "default": "frame",
+            "label": "Frame material",
+            "group": "Materials"
+          },
+          {
+            "name": "leaf_material",
+            "type": "material",
+            "default": "leaf",
+            "label": "Leaf material",
+            "group": "Materials"
+          }
+        ],
+        "opo::slots": [],
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "depth",
+              "expr": "if frame_follows_wall then host.thickness else frame_depth"
+            },
+            {
+              "name": "leaf_width",
+              "expr": "width - 2 * frame_width - 2 * gap"
+            },
+            {
+              "name": "leaf_height",
+              "expr": "height - frame_width - gap - undercut"
+            },
+            {
+              "name": "clear_width",
+              "expr": "width - 2 * frame_width - leaf_thickness"
+            },
+            {
+              "name": "hinge",
+              "expr": "[-width / 2 + frame_width + gap, depth / 2]"
+            },
+            {
+              "name": "leaf_tip",
+              "expr": "[hinge[1] + leaf_width * cos(opening_angle), hinge[2] + leaf_width * sin(opening_angle)]"
+            }
+          ],
+          "checks": [
+            {
+              "id": "leaf_min",
+              "expr": "leaf_width >= mm(500)",
+              "severity": "error",
+              "message": "Door leaf is narrower than 500 mm."
+            },
+            {
+              "id": "single_leaf_max",
+              "expr": "width <= mm(1200)",
+              "severity": "warning",
+              "message": "Single leaf above 1200 mm: consider a double door."
+            },
+            {
+              "id": "clear_width",
+              "expr": "clear_width >= rules.accessibility.min_clear_width",
+              "severity": "warning",
+              "message": "Clear opening width is below the accessibility minimum of the active rule set."
+            },
+            {
+              "id": "frame_fits_wall",
+              "expr": "depth <= host.thickness + mm(50)",
+              "severity": "warning",
+              "message": "Frame is much deeper than the wall."
+            }
+          ],
+          "rulesets": [
+            {
+              "id": "accessibility",
+              "uri": "https://opo-format.org/rulesets/accessibility/generic@0.1",
+              "defaults": {
+                "min_clear_width": "mm(800)"
+              },
+              "note": "Regional layers replace these values, e.g. US ADA 32 in (inch(32))."
+            }
+          ]
+        },
+        "opo::recipe": [
+          {
+            "id": "opening",
+            "op": "rectangle",
+            "plane": "xz",
+            "args": {
+              "min": "[-width / 2, 0]",
+              "max": "[width / 2, height]"
+            }
+          },
+          {
+            "id": "frame_inner",
+            "op": "rectangle",
+            "plane": "xz",
+            "args": {
+              "min": "[-width / 2 + frame_width, -mm(1)]",
+              "max": "[width / 2 - frame_width, height - frame_width]"
+            }
+          },
+          {
+            "id": "frame_profile",
+            "op": "difference",
+            "args": {
+              "a": "opening",
+              "b": "frame_inner"
+            }
+          },
+          {
+            "id": "leaf_profile",
+            "op": "rectangle",
+            "plane": "xz",
+            "args": {
+              "min": "[hinge[1], undercut]",
+              "max": "[hinge[1] + leaf_width, undercut + leaf_height]"
+            }
+          },
+          {
+            "id": "frame",
+            "op": "extrude",
+            "args": {
+              "profile": "frame_profile",
+              "from": "-depth / 2",
+              "to": "depth / 2"
+            }
+          },
+          {
+            "id": "leaf",
+            "op": "extrude",
+            "args": {
+              "profile": "leaf_profile",
+              "from": "depth / 2 - leaf_thickness",
+              "to": "depth / 2"
+            }
+          },
+          {
+            "id": "panel_low",
+            "op": "extrude",
+            "args": {
+              "profile": "opening",
+              "from": "depth / 2 - leaf_thickness",
+              "to": "depth / 2"
+            }
+          },
+          {
+            "id": "stop_inner",
+            "op": "rectangle",
+            "plane": "xz",
+            "args": {
+              "min": "[-width / 2 + frame_width + mm(12), -mm(2)]",
+              "max": "[width / 2 - frame_width - mm(12), height - frame_width - mm(12)]"
+            }
+          },
+          {
+            "id": "stop_profile",
+            "op": "difference",
+            "args": {
+              "a": "frame_inner",
+              "b": "stop_inner"
+            }
+          },
+          {
+            "id": "stop",
+            "op": "extrude",
+            "args": {
+              "profile": "stop_profile",
+              "from": "depth / 2 - leaf_thickness - mm(15)",
+              "to": "depth / 2 - leaf_thickness"
+            }
+          },
+          {
+            "id": "lever_profile",
+            "op": "rectangle",
+            "plane": "xz",
+            "args": {
+              "min": "[hinge[1] + leaf_width - mm(190), handle_height - mm(10)]",
+              "max": "[hinge[1] + leaf_width - mm(60), handle_height + mm(10)]"
+            }
+          },
+          {
+            "id": "lever_front",
+            "op": "extrude",
+            "args": {
+              "profile": "lever_profile",
+              "from": "depth / 2",
+              "to": "depth / 2 + mm(60)"
+            }
+          },
+          {
+            "id": "lever_back",
+            "op": "extrude",
+            "args": {
+              "profile": "lever_profile",
+              "from": "depth / 2 - leaf_thickness - mm(60)",
+              "to": "depth / 2 - leaf_thickness"
+            }
+          },
+          {
+            "id": "void",
+            "op": "extrude",
+            "args": {
+              "profile": "opening",
+              "from": "-host.thickness / 2 - mm(10)",
+              "to": "host.thickness / 2 + mm(10)"
+            }
+          },
+          {
+            "id": "jamb_left_plan",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[-width / 2, -depth / 2]",
+              "max": "[-width / 2 + frame_width, depth / 2]"
+            }
+          },
+          {
+            "id": "jamb_right_plan",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[width / 2 - frame_width, -depth / 2]",
+              "max": "[width / 2, depth / 2]"
+            }
+          },
+          {
+            "id": "leaf_closed_plan",
+            "op": "rectangle",
+            "plane": "xy",
+            "args": {
+              "min": "[hinge[1], depth / 2 - leaf_thickness]",
+              "max": "[hinge[1] + leaf_width, depth / 2]"
+            }
+          },
+          {
+            "id": "leaf_open_plan",
+            "op": "rotate",
+            "args": {
+              "geometry": "leaf_closed_plan",
+              "center": "hinge",
+              "angle": "opening_angle"
+            }
+          },
+          {
+            "id": "leaf_line_plan",
+            "op": "line",
+            "plane": "xy",
+            "args": {
+              "from": "hinge",
+              "to": "leaf_tip"
+            }
+          },
+          {
+            "id": "swing_arc_plan",
+            "op": "arc",
+            "plane": "xy",
+            "args": {
+              "center": "hinge",
+              "radius": "leaf_width",
+              "start_angle": "0",
+              "end_angle": "opening_angle"
+            }
+          },
+          {
+            "id": "swing_indicator",
+            "op": "polyline",
+            "plane": "xz",
+            "args": {
+              "points": "[[hinge[1] + leaf_width, undercut], [hinge[1], undercut + leaf_height / 2], [hinge[1] + leaf_width, undercut + leaf_height]]"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.low",
+            "context": "model",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "panel_low",
+                "material": "leaf_material"
+              }
+            ]
+          },
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "frame",
+                "material": "frame_material",
+                "part": "Frame"
+              },
+              {
+                "geometry": "leaf",
+                "material": "leaf_material",
+                "part": "Leaf"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "frame",
+                "material": "frame_material",
+                "part": "Frame"
+              },
+              {
+                "geometry": "stop",
+                "material": "frame_material",
+                "part": "Frame"
+              },
+              {
+                "geometry": "leaf",
+                "material": "leaf_material",
+                "part": "Leaf"
+              },
+              {
+                "geometry": "lever_front",
+                "material": "hardware",
+                "part": "Hardware"
+              },
+              {
+                "geometry": "lever_back",
+                "material": "hardware",
+                "part": "Hardware"
+              }
+            ]
+          },
+          {
+            "id": "plan.low",
+            "context": "plan",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "leaf_line_plan",
+                "class": "cut"
+              },
+              {
+                "geometry": "swing_arc_plan",
+                "class": "annotation",
+                "role": "swing"
+              }
+            ]
+          },
+          {
+            "id": "plan.medium",
+            "context": "plan",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "jamb_left_plan",
+                "class": "cut",
+                "hatch": "frame_material"
+              },
+              {
+                "geometry": "jamb_right_plan",
+                "class": "cut",
+                "hatch": "frame_material"
+              },
+              {
+                "geometry": "leaf_open_plan",
+                "class": "cut",
+                "hatch": "leaf_material"
+              },
+              {
+                "geometry": "swing_arc_plan",
+                "class": "annotation",
+                "role": "swing"
+              }
+            ]
+          },
+          {
+            "id": "plan.high",
+            "context": "plan",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "derived",
+            "ifc": {
+              "context": "Plan",
+              "targetView": "PLAN_VIEW"
+            },
+            "derive": {
+              "from": "model.high",
+              "method": "cut"
+            },
+            "overlay": [
+              {
+                "geometry": "leaf_open_plan",
+                "class": "cut",
+                "hatch": "leaf_material"
+              },
+              {
+                "geometry": "swing_arc_plan",
+                "class": "annotation",
+                "role": "swing"
+              }
+            ],
+            "note": "Frame is cut from the 3D at the view's cut height; the open leaf and arc are drawn on top."
+          },
+          {
+            "id": "elevation.low",
+            "context": "elevation",
+            "lod": "low",
+            "scale": {
+              "min_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "opening",
+                "class": "projected"
+              }
+            ]
+          },
+          {
+            "id": "elevation.medium",
+            "context": "elevation",
+            "lod": "medium",
+            "scale": {
+              "min_scale": 50,
+              "max_scale": 200
+            },
+            "source": "authored",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "opening",
+                "class": "projected"
+              },
+              {
+                "geometry": "frame_inner",
+                "class": "projected"
+              },
+              {
+                "geometry": "swing_indicator",
+                "class": "annotation",
+                "role": "swing"
+              }
+            ]
+          },
+          {
+            "id": "elevation.high",
+            "context": "elevation",
+            "lod": "high",
+            "scale": {
+              "max_scale": 50
+            },
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "ELEVATION_VIEW"
+            },
+            "derive": {
+              "from": "model.high",
+              "method": "project"
+            },
+            "overlay": [
+              {
+                "geometry": "swing_indicator",
+                "class": "annotation",
+                "role": "swing"
+              }
+            ]
+          },
+          {
+            "id": "section",
+            "context": "section",
+            "lod": "all",
+            "source": "derived",
+            "ifc": {
+              "context": "Profile",
+              "targetView": "SECTION_VIEW"
+            },
+            "derive": {
+              "from": "model.{lod}",
+              "method": "cut"
+            }
+          }
+        ],
+        "opo::host": {
+          "hosts": [
+            "IfcWall"
+          ],
+          "inputs": {
+            "thickness": {
+              "type": "length",
+              "from": "host thickness at the insertion point",
+              "default": 0.2
+            }
+          },
+          "void": {
+            "geometry": "void",
+            "ifc": "IfcOpeningElement"
+          },
+          "insertion": {
+            "point": "[0, 0, 0]",
+            "description": "Centre of the opening width, at floor level, on the host's axis. x along the wall, y through it (front = swing side), z up."
+          },
+          "flip": {
+            "x": {
+              "label": "Hinge side",
+              "values": [
+                "left",
+                "right"
+              ]
+            },
+            "y": {
+              "label": "Swing side",
+              "values": [
+                "front",
+                "back"
+              ]
+            }
+          },
+          "snap_points": [
+            {
+              "name": "left_jamb",
+              "point": "[-width / 2, 0, 0]"
+            },
+            {
+              "name": "right_jamb",
+              "point": "[width / 2, 0, 0]"
+            },
+            {
+              "name": "head",
+              "point": "[0, 0, height]"
+            }
+          ]
+        },
+        "opo::handles": [
+          {
+            "parameter": "width",
+            "view": [
+              "elevation",
+              "model"
+            ],
+            "at": "[width / 2, 0, height / 2]",
+            "axis": "x",
+            "symmetric": true
+          },
+          {
+            "parameter": "height",
+            "view": [
+              "elevation",
+              "model"
+            ],
+            "at": "[0, 0, height]",
+            "axis": "z"
+          },
+          {
+            "parameter": "opening_angle",
+            "view": [
+              "plan"
+            ],
+            "at": "leaf_tip",
+            "kind": "angle",
+            "center": "hinge"
+          }
+        ],
+        "opo::materials": {
+          "frame": {
+            "label": "Frame",
+            "default": "painted timber",
+            "classification": null
+          },
+          "leaf": {
+            "label": "Leaf",
+            "default": "painted timber",
+            "classification": null
+          },
+          "hardware": {
+            "label": "Hardware",
+            "default": "stainless steel",
+            "classification": null
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcDoor",
+          "predefinedType": "DOOR",
+          "properties": {
+            "bsi::ifc::prop::OverallWidth": "width",
+            "bsi::ifc::prop::OverallHeight": "height",
+            "bsi::ifc::prop::OperationType": "if flip.x = \"right\" then \"SINGLE_SWING_RIGHT\" else \"SINGLE_SWING_LEFT\"",
+            "bsi::ifc::prop::IsExternal": "false"
+          },
+          "parameter_pset": "OPO_Parameters",
+          "note": "All parameter values are also written to the OPO_Parameters property set so other tools see them and OPO tools can rebuild on re-import."
+        }
+      }
+    },
+    {
+      "path": "634b8fee-f567-5798-826e-96fe02196691",
+      "attributes": {
+        "bsi::ifc::presentation::diffuseColor": [0.92, 0.91, 0.88],
+        "bsi::ifc::presentation::opacity": 1
+      }
+    },
+    {
+      "path": "d3fca2e1-669f-5d91-a021-baf91cb9c144",
+      "attributes": {
+        "bsi::ifc::presentation::diffuseColor": [0.96, 0.96, 0.94],
+        "bsi::ifc::presentation::opacity": 1
+      }
+    },
+    {
+      "path": "497d4176-3c43-5aa9-a312-59ec5c806d56",
+      "inherits": {
+        "material": "634b8fee-f567-5798-826e-96fe02196691"
+      }
+    },
+    {
+      "path": "497d4176-3c43-5aa9-a312-59ec5c806d56",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "faceVertexIndices": [0, 3, 2, 0, 2, 1, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7, 8, 11, 10, 8, 10, 9, 12, 13, 14, 12, 14, 15, 8, 9, 13, 8, 13, 12, 9, 10, 14, 9, 14, 13, 10, 11, 15, 10, 15, 14, 11, 8, 12, 11, 12, 15, 16, 19, 18, 16, 18, 17, 20, 21, 22, 20, 22, 23, 16, 17, 21, 16, 21, 20, 17, 18, 22, 17, 22, 21, 18, 19, 23, 18, 23, 22, 19, 16, 20, 19, 20, 23],
+          "points": [[-0.45, -0.05, 0.0], [-0.4, -0.05, 0.0], [-0.4, 0.05, 0.0], [-0.45, 0.05, 0.0], [-0.45, -0.05, 2.1], [-0.4, -0.05, 2.1], [-0.4, 0.05, 2.1], [-0.45, 0.05, 2.1], [0.4, -0.05, 0.0], [0.45, -0.05, 0.0], [0.45, 0.05, 0.0], [0.4, 0.05, 0.0], [0.4, -0.05, 2.1], [0.45, -0.05, 2.1], [0.45, 0.05, 2.1], [0.4, 0.05, 2.1], [-0.4, -0.05, 2.05], [0.4, -0.05, 2.05], [0.4, 0.05, 2.05], [-0.4, 0.05, 2.05], [-0.4, -0.05, 2.1], [0.4, -0.05, 2.1], [0.4, 0.05, 2.1], [-0.4, 0.05, 2.1]]
+        }
+      }
+    },
+    {
+      "path": "cdf1fa76-9823-5bb0-b74a-1b786d33c09c",
+      "inherits": {
+        "material": "d3fca2e1-669f-5d91-a021-baf91cb9c144"
+      }
+    },
+    {
+      "path": "cdf1fa76-9823-5bb0-b74a-1b786d33c09c",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "faceVertexIndices": [0, 3, 2, 0, 2, 1, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7],
+          "points": [[-0.397, 0.01, 0.01], [0.397, 0.01, 0.01], [0.397, 0.05, 0.01], [-0.397, 0.05, 0.01], [-0.397, 0.01, 2.047], [0.397, 0.01, 2.047], [0.397, 0.05, 2.047], [-0.397, 0.05, 2.047]]
+        }
+      }
+    },
+    {
+      "path": "97b26c21-1651-5aa7-a5e3-0e95489fde91",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcOpeningElement",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcOpeningElement"
+        },
+        "opo::representation": "void",
+        "usd::usdgeom::mesh": {
+          "faceVertexIndices": [0, 3, 2, 0, 2, 1, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7],
+          "points": [[-0.45, -0.1, 0.0], [0.45, -0.1, 0.0], [0.45, 0.1, 0.0], [-0.45, 0.1, 0.0], [-0.45, -0.1, 2.1], [0.45, -0.1, 2.1], [0.45, 0.1, 2.1], [-0.45, 0.1, 2.1]]
+        },
+        "usd::usdgeom::visibility": {
+          "visibility": "invisible"
+        }
+      }
+    },
+    {
+      "path": "686071f2-32c9-5c5f-a822-9e03fc618feb",
+      "attributes": {
+        "opo::representation": "plan.medium",
+        "usd::usdgeom::visibility": {
+          "visibility": "invisible"
+        }
+      }
+    },
+    {
+      "path": "fcf794f2-4293-51c8-bf27-4803bb146419",
+      "attributes": {
+        "usd::usdgeom::basiscurves": {
+          "points": [[-0.45, -0.05, 0], [-0.4, -0.05, 0], [-0.4, 0.05, 0], [-0.45, 0.05, 0], [-0.45, -0.05, 0]]
+        }
+      }
+    },
+    {
+      "path": "ab804c23-c0f8-5234-af50-94cd8f89f38a",
+      "attributes": {
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.4, -0.05, 0], [0.45, -0.05, 0], [0.45, 0.05, 0], [0.4, 0.05, 0], [0.4, -0.05, 0]]
+        }
+      }
+    },
+    {
+      "path": "753673a7-22c4-5826-b4d2-d6ec60a113e2",
+      "attributes": {
+        "usd::usdgeom::basiscurves": {
+          "points": [[-0.397, 0.05, 0], [-0.357, 0.05, 0], [-0.357, 0.844, 0], [-0.397, 0.844, 0], [-0.397, 0.05, 0]]
+        }
+      }
+    },
+    {
+      "path": "43a5bb40-0bd3-5363-ac23-83725270ba15",
+      "attributes": {
+        "usd::usdgeom::basiscurves": {
+          "points": [[0.397, 0.05, 0], [0.395299985, 0.101930085, 0], [0.39020722, 0.153637797, 0], [0.381743513, 0.204901716, 0], [0.369945106, 0.255502322, 0], [0.354862523, 0.305222935, 0], [0.336560349, 0.353850645, 0], [0.315116957, 0.40117722, 0], [0.290624171, 0.447, 0], [0.263186872, 0.491122765, 0], [0.232922552, 0.533356575, 0], [0.199960807, 0.573520577, 0], [0.164442784, 0.611442784, 0], [0.126520577, 0.646960807, 0], [0.086356575, 0.679922552, 0], [0.044122765, 0.710186872, 0], [0.0, 0.737624171, 0], [-0.04582278, 0.762116957, 0], [-0.093149355, 0.783560349, 0], [-0.141777065, 0.801862523, 0], [-0.191497678, 0.816945106, 0], [-0.242098284, 0.828743513, 0], [-0.293362203, 0.83720722, 0], [-0.345069915, 0.842299985, 0], [-0.397, 0.844, 0]]
+        }
+      }
+    }
+  ]
+}

@@ -20,9 +20,9 @@ An `.opo` is an IFCX (IFC5) document with an `opo::` extension, packaged as a zi
 | Path | Contents |
 |---|---|
 | [`spec/OUTLINE.md`](spec/OUTLINE.md) | Draft spec outline (v0.1), with recorded decisions in §11 |
-| `schema/` *(planned)* | JSON Schema, published at `https://opo-format.org/schema/<version>/` |
+| [`schema/`](schema/) | `opo@v0.1.ifcx`: IFCX declaration of the `opo::` attributes (draft). Will be published at `https://opo-format.org/schema/<version>/` |
+| [`examples/door/`](examples/door/) | Reference test object #1: single swing door, as IFCX with variants, rule set layer and a project snippet |
 | `crates/` *(planned)* | Rust reference reader and validator CLI |
-| `examples/` *(planned)* | Reference test objects: door, window, stairs, branded product |
 
 ## Licences
 

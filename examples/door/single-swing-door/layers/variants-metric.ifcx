@@ -1,0 +1,81 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/variants-metric.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "316930ba-d442-5a76-986b-d3b25c4a15d4",
+      "inherits": {
+        "type": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448"
+      }
+    },
+    {
+      "path": "316930ba-d442-5a76-986b-d3b25c4a15d4",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Door 80×210 (overall)",
+        "bsi::ifc::prop::OverallWidth": 0.8,
+        "bsi::ifc::prop::OverallHeight": 2.1,
+        "opo::values": {
+          "width": 0.8,
+          "height": 2.1
+        }
+      }
+    },
+    {
+      "path": "3e46ebfb-d9e0-5579-8490-d2b4edba2c02",
+      "inherits": {
+        "type": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448"
+      }
+    },
+    {
+      "path": "3e46ebfb-d9e0-5579-8490-d2b4edba2c02",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Door 90×210 (overall)",
+        "bsi::ifc::prop::OverallWidth": 0.9,
+        "bsi::ifc::prop::OverallHeight": 2.1,
+        "opo::values": {
+          "width": 0.9,
+          "height": 2.1
+        }
+      }
+    },
+    {
+      "path": "4c834979-0903-59d8-ae61-37d3e7dbe67e",
+      "inherits": {
+        "type": "9b6b341d-7dcc-54cc-b8dd-83fe16fca448"
+      }
+    },
+    {
+      "path": "4c834979-0903-59d8-ae61-37d3e7dbe67e",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Door 100×210 (overall), frame to wall",
+        "bsi::ifc::prop::OverallWidth": 1.0,
+        "bsi::ifc::prop::OverallHeight": 2.1,
+        "opo::values": {
+          "width": 1.0,
+          "height": 2.1,
+          "frame_follows_wall": true
+        }
+      }
+    }
+  ]
+}

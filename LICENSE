@@ -17,8 +17,14 @@ under either of
 
 at your option.
 
+Example objects
+---------------
+The example objects in the `examples/` directory are dedicated to the public
+domain under CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/),
+as stated in each object's `opo::object.license`.
+
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in this repository shall be licensed as above, without any
 additional terms or conditions.
 
-SPDX-License-Identifier: CC-BY-4.0 AND (MIT OR Apache-2.0)
+SPDX-License-Identifier: CC-BY-4.0 AND (MIT OR Apache-2.0) AND CC0-1.0
