@@ -1,6 +1,6 @@
 {
   "header": {
-    "id": "opo-format.org/examples/door/single-swing-door/layers/ruleset-de-din18040.ifcx",
+    "id": "opo-format.org/examples/door/single-swing-door/layers/ruleset-iso-21542.ifcx",
     "ifcxVersion": "ifcx_alpha",
     "dataVersion": "0.2.0",
     "author": "opo-format.org",
@@ -29,14 +29,14 @@
           "rulesets": [
             {
               "id": "accessibility",
-              "uri": "https://opo-format.org/rulesets/accessibility/de-din18040-1@0.1",
+              "uri": "https://opo-format.org/rulesets/accessibility/iso-21542-2021@0.1",
               "values": {
-                "min_clear_width": "mm(900)",
-                "measure": "\"clear_passage\"",
-                "handle_min": "null",
-                "handle_max": "null"
+                "min_clear_width": "mm(800)",
+                "measure": "\"usable_clear_width\"",
+                "handle_min": "mm(800)",
+                "handle_max": "mm(1000)"
               },
-              "source": "DIN 18040-1: clear passage width of doors at least 90 cm."
+              "source": "ISO 21542:2021 door criteria: clear opening width >= 800 mm (850 mm recommended), handle height 800-1000 mm. EN 17210 (EU) states the functional requirement."
             }
           ]
         }

@@ -1,0 +1,163 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/door/single-swing-door/layers/sizes-generic-metric.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.2.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-23"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "36f75935-4ec3-572d-836a-e61f1814fb87",
+      "inherits": {
+        "type": "2498acc0-df0f-547b-a8ac-27e7f70b36d8"
+      }
+    },
+    {
+      "path": "36f75935-4ec3-572d-836a-e61f1814fb87",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Generic metric doors, opening sizes (not a norm)",
+        "opo::values": {
+          "nominal_reference": "opening",
+          "frame_type": "wrap_around",
+          "leaf_type": "rebated"
+        }
+      }
+    },
+    {
+      "path": "f1598c52-7e15-5e26-af78-8eb1d3b524db",
+      "inherits": {
+        "system": "36f75935-4ec3-572d-836a-e61f1814fb87"
+      }
+    },
+    {
+      "path": "f1598c52-7e15-5e26-af78-8eb1d3b524db",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Opening 700 × 2100",
+        "bsi::ifc::prop::OverallWidth": 0.69,
+        "bsi::ifc::prop::OverallHeight": 2.095,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.017,
+        "bsi::ifc::prop::CasingThickness": 0.06,
+        "bsi::ifc::prop::CasingDepth": 0.01,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.7,
+          "nominal_height": 2.1
+        }
+      }
+    },
+    {
+      "path": "e40b89fd-2c64-5ce5-9518-a08d78932615",
+      "inherits": {
+        "system": "36f75935-4ec3-572d-836a-e61f1814fb87"
+      }
+    },
+    {
+      "path": "e40b89fd-2c64-5ce5-9518-a08d78932615",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Opening 800 × 2100",
+        "bsi::ifc::prop::OverallWidth": 0.79,
+        "bsi::ifc::prop::OverallHeight": 2.095,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.017,
+        "bsi::ifc::prop::CasingThickness": 0.06,
+        "bsi::ifc::prop::CasingDepth": 0.01,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.8,
+          "nominal_height": 2.1
+        }
+      }
+    },
+    {
+      "path": "a7583bf9-5bd7-5576-90fe-4b54f43c3666",
+      "inherits": {
+        "system": "36f75935-4ec3-572d-836a-e61f1814fb87"
+      }
+    },
+    {
+      "path": "a7583bf9-5bd7-5576-90fe-4b54f43c3666",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Opening 900 × 2100",
+        "bsi::ifc::prop::OverallWidth": 0.89,
+        "bsi::ifc::prop::OverallHeight": 2.095,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.017,
+        "bsi::ifc::prop::CasingThickness": 0.06,
+        "bsi::ifc::prop::CasingDepth": 0.01,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 0.9,
+          "nominal_height": 2.1
+        }
+      }
+    },
+    {
+      "path": "ada45df6-680a-5101-bb75-2d91da75aa76",
+      "inherits": {
+        "system": "36f75935-4ec3-572d-836a-e61f1814fb87"
+      }
+    },
+    {
+      "path": "ada45df6-680a-5101-bb75-2d91da75aa76",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Opening 1000 × 2100",
+        "bsi::ifc::prop::OverallWidth": 0.99,
+        "bsi::ifc::prop::OverallHeight": 2.095,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.017,
+        "bsi::ifc::prop::CasingThickness": 0.06,
+        "bsi::ifc::prop::CasingDepth": 0.01,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 1.0,
+          "nominal_height": 2.1
+        }
+      }
+    },
+    {
+      "path": "5516a8c9-1d0b-53cc-823c-aac2b05ed904",
+      "inherits": {
+        "system": "36f75935-4ec3-572d-836a-e61f1814fb87"
+      }
+    },
+    {
+      "path": "5516a8c9-1d0b-53cc-823c-aac2b05ed904",
+      "attributes": {
+        "bsi::ifc::prop::TypeName": "Opening 1100 × 2100",
+        "bsi::ifc::prop::OverallWidth": 1.09,
+        "bsi::ifc::prop::OverallHeight": 2.095,
+        "bsi::ifc::prop::LiningDepth": 0.115,
+        "bsi::ifc::prop::LiningThickness": 0.017,
+        "bsi::ifc::prop::CasingThickness": 0.06,
+        "bsi::ifc::prop::CasingDepth": 0.01,
+        "bsi::ifc::prop::ThresholdThickness": 0,
+        "bsi::ifc::prop::PanelDepth": 0.04,
+        "opo::values": {
+          "nominal_width": 1.1,
+          "nominal_height": 2.1
+        }
+      }
+    }
+  ]
+}

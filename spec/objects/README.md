@@ -1,16 +1,20 @@
 # OPO object catalogue
 
-**Draft v0.1 · 23 Nov 2026**
+**Draft v0.2 · 24 Nov 2026** · 74 objects in eight families
 
 This is the list of objects the OPO project intends to build, with one specification sheet per object. Every object is built from its sheet; the sheet is updated first when something changes. Spec §4.14 (references) applies to all of them.
 
 | File | Contents |
 |---|---|
-| [`rulesets.md`](rulesets.md) | Shared rule sets used by many objects: stairs, guards, accessibility, escape windows, kitchens. Values with sources, metric and imperial. |
+| [`rulesets.md`](rulesets.md) | Shared rule sets used by many objects: stairs, guards, handrails, accessibility, escape windows, kitchens (lifts in `transport.md`). EU values from EN/ISO only; UK and US columns. Values with sources, metric and imperial. |
 | [`openings.md`](openings.md) | O-01…O-18: doors, windows, openings, curtain walls (stick, unitised, structural glass) |
 | [`circulation.md`](circulation.md) | C-01…C-08: stairs, ramps, railings, handrails |
 | [`fixtures.md`](fixtures.md) | F-01…F-14: sanitary, kitchen, appliances, built-in storage |
 | [`furniture.md`](furniture.md) | E-01…E-08: furniture and lighting |
+| [`shading.md`](shading.md) | S-01…S-07: louvres, fins, external blinds, shutters, awnings, screens |
+| [`transport.md`](transport.md) | T-01…T-03: lifts, escalators, moving walkways |
+| [`structure.md`](structure.md) | K-01…K-08: columns, beams, members, ceilings, raised floors, cladding, trims, chimneys |
+| [`mep-site.md`](mep-site.md) | M-01…M-06, G-01…G-03: radiators, air terminals, outlets, switches, sprinklers, hose reels; trees, site furniture, signs |
 
 ## Catalogue
 
@@ -66,10 +70,37 @@ Priority: **P1** reference test objects that shape the spec (spec §10) · **P2*
 | E-06 | Shelving / bookcase | IfcFurniture · SHELF | P3 | — | planned |
 | E-07 | Freestanding storage (sideboard, chest) | IfcFurniture · USERDEFINED | P3 | — | planned |
 | E-08 | Light fixture | IfcLightFixture · POINTSOURCE / DIRECTIONSOURCE | P3 | — | planned |
+| S-01 | Louvres / brise-soleil | IfcShadingDevice · USERDEFINED (LOUVRE) | P2 | — | planned |
+| S-02 | Façade fins | IfcShadingDevice · USERDEFINED (FIN) | P2 | — | planned |
+| S-03 | External venetian blind | IfcShadingDevice · JALOUSIE | P2 | — | planned |
+| S-04 | Roller shutter | IfcShadingDevice · SHUTTER | P2 | — | planned |
+| S-05 | Hinged / sliding shutters | IfcShadingDevice · SHUTTER | P3 | — | planned |
+| S-06 | Awning | IfcShadingDevice · AWNING | P3 | — | planned |
+| S-07 | External screen | IfcShadingDevice · USERDEFINED (SCREEN) | P3 | — | planned |
+| T-01 | Lift (elevator) | IfcTransportElement · ELEVATOR | P2 | — | planned |
+| T-02 | Escalator | IfcTransportElement · ESCALATOR | P2 | — | planned |
+| T-03 | Moving walkway | IfcTransportElement · MOVINGWALKWAY | P3 | — | planned |
+| K-01 | Column | IfcColumn · COLUMN / PILASTER | P2 | — | planned |
+| K-02 | Beam | IfcBeam · BEAM / JOIST / LINTEL | P2 | — | planned |
+| K-03 | Member (brace, post, purlin, rafter, stud) | IfcMember · BRACE / POST / PURLIN / RAFTER / STUD … | P3 | — | planned |
+| K-04 | Suspended ceiling | IfcCovering · CEILING | P2 | — | planned |
+| K-05 | Raised access floor | IfcCovering · FLOORING | P3 | — | planned |
+| K-06 | Cladding | IfcCovering · CLADDING | P2 | — | planned |
+| K-07 | Profile trim (skirting, coping, moulding) | IfcCovering · SKIRTINGBOARD / COPING / MOLDING | P3 | — | planned |
+| K-08 | Chimney / fireplace | IfcChimney · USERDEFINED | P3 | — | planned |
+| M-01 | Radiator / convector | IfcSpaceHeater · RADIATOR / CONVECTOR | P3 | — | planned |
+| M-02 | Air terminal | IfcAirTerminal · DIFFUSER / GRILLE / LOUVRE / REGISTER | P3 | — | planned |
+| M-03 | Socket outlet | IfcOutlet · POWEROUTLET / DATAOUTLET … | P3 | — | planned |
+| M-04 | Switch | IfcSwitchingDevice · TOGGLESWITCH / DIMMERSWITCH … | P3 | — | planned |
+| M-05 | Sprinkler head | IfcFireSuppressionTerminal · SPRINKLER | P3 | — | planned |
+| M-06 | Fire hose reel / cabinet | IfcFireSuppressionTerminal · HOSEREEL | P3 | — | planned |
+| G-01 | Tree / planting | IfcGeographicElement · VEGETATION | P2 | — | planned |
+| G-02 | Site furniture (bench, bike rack, bollard, bin) | IfcFurniture · USERDEFINED | P3 | — | planned |
+| G-03 | Sign | IfcSign · PICTORAL / MARKER | P3 | — | planned |
 
 "Reference only" means the source's licence (GPL/LGPL) is not compatible with copying code or data into OPO's MIT/Apache crate or CC0 library: we study how it parametrises the object, we do not copy it. "—" means no openly licensed parametric basis was found; those sheets are based on IFC and the norms alone, and a basis should be looked for again before building.
 
-**Parametric bases searched (Nov 2026):** dormakaba bim-all-doors (CC0, doors only); Bonsai/IfcOpenShell parametric door, window, stair, railing, roof (Bonsai GPL-3.0, IfcOpenShell LGPL-3.0); FreeCAD BIM window/door presets (LGPL); OSArch door/window generator discussion (CC-BY 4.0, spec stage). For kitchens, sanitary and furniture only commercial Revit families were found.
+**Parametric bases searched (Nov 2026):** dormakaba bim-all-doors (CC0, doors only); Bonsai/IfcOpenShell parametric door, window, stair, railing, roof (Bonsai GPL-3.0, IfcOpenShell LGPL-3.0); FreeCAD BIM window/door presets (LGPL); OSArch door/window generator discussion (CC-BY 4.0, spec stage). For kitchens, sanitary, furniture, shading, lifts and MEP terminals only commercial maker families were found.
 
 ## Markets and unit systems
 
@@ -77,11 +108,11 @@ Every object ships size catalogues for these markets unless the sheet says other
 
 | Market | Units | Main sources |
 |---|---|---|
-| **EU / DE** | metric | DIN and EN norms (DIN 18101, DIN 18065, DIN 18040, EN 1116…) |
+| **EU** | metric | EN and ISO norms only (ISO 21542, EN 1116, EN 527, EN 81-70, EN 115-1, EN 13830…). National norms are not used; where no EN/ISO norm exists, sizes are generic and labelled as such |
 | **UK** | metric and imperial | Approved Documents K and M, BS 4787, UK imperial sizes |
 | **US** | imperial | IRC / IBC, 2010 ADA Standards, US industry sizes |
 
-Portugal (RGEU, DL 163/2006 accessibility) and other markets are planned; their values are not in the sheets yet and must not be guessed.
+National rules (e.g. Portugal's RGEU and DL 163/2006, Germany's DIN) are not part of OPO; a project can add them as its own rule set layer.
 
 ## Sheet template
 

@@ -20,7 +20,7 @@ Shared rules for this family:
 
 **Parameters** `mounting` floor | wall_hung · `cistern` concealed | close_coupled | high_level · `projection` (wall to front of pan; default 0.52 m / 28" floor-standing US) · `pan_width` (0.36 m / 14½") · `seat_height` (0.40–0.42 m standard; 0.46–0.48 m accessible / 17"–19" ADA) · `frame_depth` (concealed cistern, default 0.15 m) · `flush_plate_height`.
 
-**Rules** `accessibility`: seat height range, centreline to side wall (ADA 16"–18"), free space beside (DIN 18040 90 × 70 cm), clearance zone (ADA 60" × 56" wall-hung / 59" floor-standing).
+**Rules** `accessibility`: seat height range, centreline to side wall (ADA 16"–18"), free space beside (ISO 21542 *(to verify)*), clearance zone (ADA 60" × 56" wall-hung / 59" floor-standing).
 
 **Size catalogues** EU wall-hung projections about 0.48–0.56 m, extended accessible pans about 0.70 m *(from maker data, typical)* · US elongated / round bowls: projection about 28"–30" *(to verify)*; seat heights standard 15" and "comfort height" 17"–19".
 
@@ -58,7 +58,7 @@ Shared rules for this family:
 
 **Scope** Wall-hung, pedestal, semi-pedestal, countertop / undercounter / vessel basin; tap holes; optional vanity unit (nested F-08 base unit variant); mirror zone above (annotation).
 
-**Based on** — · `accessibility` (DIN 18040 height 80 cm + knee space 90 × 55 cm; ADA rim ≤ 34", knee ≥ 27").
+**Based on** — · `accessibility` (ISO 21542 *(to verify)*; ADA rim ≤ 34", knee ≥ 27").
 
 **Inputs** Host wall; or host worktop for countertop types.
 
@@ -232,8 +232,8 @@ Shared rules for this family:
 
 ## Sources
 
-- EN 33, EN 997, EN 80 scope: BSI / DIN catalogue pages; WC dimensions examples from maker data sheets (Laufen, Vitra, Armitage Shanks via NBS) — typical values only
-- ADA and DIN 18040: see `rulesets.md`
+- EN 33, EN 997, EN 80 scope: CEN / BSI catalogue pages; WC dimensions examples from maker data sheets (Laufen, Vitra, Armitage Shanks via NBS) — typical values only
+- ISO 21542 and ADA: see `rulesets.md`
 - Shower trays: less.co.uk (sizes made by all of Mira, MX, Coram and Merlyn); screwfix.com; US: wayfair.com shower size guides
 - Baths: screwfix.com, homebase.co.uk, bathroommountain.co.uk; US: homedepot.com, thisoldhouse.com, aquaticausa.com
 - EN 1116 and US kitchen cabinets: see `rulesets.md`

@@ -144,8 +144,8 @@ Ready-built geometry and plan symbols for the default variant, so viewers and to
 OPO objects are not invented from scratch. Every object in an OPO library states, in `opo::object.references`:
 1. **Parametric basis**: an established, openly licensed parametric object it is modelled on (e.g. dormakaba's CC0 *bim-all-doors* for doors), and what was taken from it. Only licences compatible with the target library (CC0, CC-BY) may be used; proprietary manufacturer objects can inform dimensions but not be copied.
 2. **IFC parameters**: the IFC classes, property sets and properties its parameters map to, using IFC names wherever IFC has them.
-3. **Norms for standard sizes**: the national or industry standards its size catalogues come from, for both metric and imperial markets (e.g. DIN 18100/18101, BS 4787, US industry sizes).
-4. **Rule sources**: the regulations behind its rule sets (e.g. DIN 18040, ADA).
+3. **Norms for standard sizes**: the national or industry standards its size catalogues come from, for both metric and imperial markets (e.g. EN/ISO norms in Europe, BS 4787, US industry sizes; national norms of EU countries are not used).
+4. **Rule sources**: the regulations behind its rule sets (e.g. ISO 21542, ADA).
 
 Values that are typical practice rather than taken from a norm (e.g. hinge positions) are marked as such in a `note`.
 
@@ -231,13 +231,13 @@ Rules: community contributions to the free library stay free. Contributors sign 
 
 ## 10. Reference test objects (drive the spec)
 
-1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, DIN/UK/US size catalogues *(written: `examples/door/`)*
+1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, generic metric / UK / US size catalogues *(written: `examples/door/`)*
 2. **Window with custom outline** — closed-profile input slot, driving/driven modes, clipped glazing grid (any window: outlines are editable on all windows)
 3. **Straight / L / U stair** — level attachment, repeat, slab opening, nested railing, regional rule set
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
-The full list of planned objects (47 objects in four families: openings, circulation, fixtures, furniture & equipment), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.
+The full list of planned objects (74 objects in eight families: openings, circulation, fixtures, furniture & equipment, shading devices, lifts & escalators, structure & coverings, MEP terminals & site), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.
 
 ## 11. Decisions (23 Nov 2026)
 
@@ -251,7 +251,9 @@ The full list of planned objects (47 objects in four families: openings, circula
 | 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
 | — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
 | — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
-| — | Object catalogue | 47 objects in four families, one sheet each, shared rule sets: `spec/objects/` |
+| — | Object catalogue | 74 objects in eight families, one sheet each, shared rule sets: `spec/objects/` |
+| — | Norms by market | Europe: EN and ISO norms only, no national norms (DIN, NF, UNE…); where no EN/ISO norm exists, sizes are generic and labelled as such and rule sets stay empty. EU accessibility values from ISO 21542 until prEN 17210 is published. UK and US are separate markets. Decided 24 Nov 2026 |
+| — | Default door | O-01 default is a 900 × 2100 wall opening (nominal reference "opening") |
 | — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
 
 ## 12. Open questions
@@ -261,4 +263,4 @@ The full list of planned objects (47 objects in four families: openings, circula
 3. Full JSON Schema for each `opo::` attribute (the door example in `examples/door/` is the working draft).
 4. Should variants always carry their own baked geometry, so plain IFC5 viewers show them at the right size?
 5. 2D symbols in IFCX: hidden basiscurves tagged with `opo::representation` for now, until IFCX gains drawing contexts.
-6. Portugal market (RGEU, DL 163/2006 accessibility) values for the size catalogues and rule sets.
+6. Values still marked *(to verify)* or *(to collect)* in the object sheets, mainly ISO 21542 ramp, WC and turning-space values (full text not yet reviewed) and maker size ranges.

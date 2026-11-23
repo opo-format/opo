@@ -43,8 +43,6 @@
           "stop_depth": 0.038,
           "fit_gap": 0.005,
           "fit_gap_top": 0.005,
-          "modular_offset_width": 0.0,
-          "modular_offset_height": 0.0,
           "leaf_gap": 0.003,
           "floor_gap": 0.008,
           "handle_height": 1.0,

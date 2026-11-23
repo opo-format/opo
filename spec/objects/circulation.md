@@ -17,15 +17,15 @@ Shared rules for this family:
 
 **Scope** One straight flight between two levels; optional landings part-way (makes TWO_STRAIGHT_RUN_STAIR). Treads, risers, stringers or concrete waist, nosing, nested railing(s) and handrail(s). *Not:* structural design of stringers.
 
-**Based on** Bonsai stair generator (reference: types CONCRETE / WOOD-STEEL / GENERIC, tread and riser parameters) · IFC `Pset_StairFlightCommon` · DIN 18065, AD K, IRC/IBC (via `stairs`).
+**Based on** Bonsai stair generator (reference: types CONCRETE / WOOD-STEEL / GENERIC, tread and riser parameters) · IFC `Pset_StairFlightCommon` · AD K, IRC/IBC (via `stairs`; no EN/ISO stair norm exists).
 
 **Inputs** Bottom and top level (or `total_rise`) · host slab for the opening · optional `start_point` + direction (placement).
 
 **Parameters** `total_rise` · `max_riser` (from rule set; default 0.18 m / 7½") · `target_step` (2R+G; default 0.63 m / 25") · `going` (derived, overridable) · `width` (default 1.0 m / 36") · `nosing` (default 0.03 m / 1") · `riser_type` closed | open · `structure` timber_stringers | steel_stringers | concrete · `tread_thickness`, `stringer_width` / `waist_thickness` · `landing_after` (riser number or none) + `landing_depth` · `railing_left/right` (none | guard | handrail; nested C-07 / C-08) · `first_riser_offset`, `last_tread_flush` (bool).
 
-**Rules** Riser within rule set min/max · going within min/max · step rule · pitch ≤ max · width ≥ min · headroom ≥ min (checked against the slab opening edge: opening length derived so headroom is met) · uniform risers (computed) · landing depth ≥ factor × going (DIN) · guard required where fall height > threshold.
+**Rules** Riser within rule set min/max · going within min/max · step rule · pitch ≤ max · width ≥ min · headroom ≥ min (checked against the slab opening edge: opening length derived so headroom is met) · uniform risers (computed) · landing depth ≥ min (from rule set) · guard required where fall height > threshold.
 
-**Size catalogues** None (rise-driven). Presets per market: DE residential 17/29 cm, 1.0 m wide; UK private 200/250 mm, 0.9 m; US residential 7½"/10½", 36".
+**Size catalogues** None (rise-driven). Presets per market: EU generic 175/280 mm, 1.0 m wide (not a norm); UK private 200/250 mm, 0.9 m; US residential 7½"/10½", 36".
 
 **LOD** 3D: low solid wedge per flight · medium treads, risers, stringers/waist, landing, simple railing · high + nosing profile, railing details. Plan: low outline + walkline + arrow · medium treads, cut line, overhead dashed, walkline, UP/DN · high + nosings, handrails. Section: cut from 3D (all LODs).
 
@@ -57,7 +57,7 @@ Shared rules for this family:
 
 **Parameters** (beyond C-02) `well_width` (default 0.1 m / 4"; 0 = no well) · landing depth ≥ flight width.
 
-**Rules** as C-02 + well width affects guard requirement (DE: guard height rules depend on stairwell width, see `guards`).
+**Rules** as C-02 + well width affects the guard requirement (see `guards`).
 
 ---
 
@@ -85,13 +85,13 @@ Shared rules for this family:
 
 **Scope** Centre column with fan-shaped treads around it, optional outer stringer, helical handrail, landing at top. *Not:* helical stairs without a column (later).
 
-**Based on** — · IRC spiral rules; DIN 18065 spiral (Spindeltreppe) walking-zone rules.
+**Based on** — · IRC spiral rules.
 
 **Inputs** Levels · centre point.
 
 **Parameters** `outer_diameter` (default 1.6 m / 5'), `column_diameter` (default 0.1 m / 4") · `rotation` (total angle, derived from risers × tread angle) · `direction` cw | ccw · `tread_angle` · `top_landing` (angle) · balusters per tread.
 
-**Rules** IRC: clear width ≥ 26", rise ≤ 9½", tread ≥ 7½" at 12" from the narrow edge, headroom ≥ 6'6" · DE: walking zone rules for Spindeltreppen (to add).
+**Rules** IRC: clear width ≥ 26", rise ≤ 9½", tread ≥ 7½" at 12" from the narrow edge, headroom ≥ 6'6" · EU: no EN/ISO rule; project values.
 
 **Size catalogues** Makers' standard diameters *(to collect, metric and imperial)*.
 
@@ -105,11 +105,11 @@ Shared rules for this family:
 
 **Scope** Ramp along a path with automatic intermediate landings, level landings at top/bottom, edge protection (kerbs / wheel guards), nested handrails both sides.
 
-**Based on** — · `accessibility` (DIN 18040, ADA, AD M).
+**Based on** — · `accessibility` (ISO 21542, ADA, AD M).
 
 **Inputs** Slot `path` (polyline centreline) or straight start + direction · bottom/top levels.
 
-**Parameters** `slope` (default from rule set: 6 % DE, 1:12 US) · `width` (default 1.2 m / 36" clear) · `max_run` (from rule set: 6 m DE, 30" rise US) · `landing_length` (1.5 m / 60") · `edge_protection` none | kerb | rail (height 0.1 m) · `handrails` both | left | right | none.
+**Parameters** `slope` (default from rule set: ISO 21542 *(to verify)*, 1:12 US; 5 % (1:20) when no rule set) · `width` (default 1.2 m / 36" clear; ISO 21542 ≥ 1.0 m between handrails) · `max_run` (from rule set: ISO 21542 *(to verify)*, 30" rise US) · `landing_length` (1.5 m / 60") · `edge_protection` none | kerb | rail (height 0.1 m) · `handrails` both | left | right | none.
 
 **Rules** Slope ≤ max · run between landings ≤ max (landings inserted automatically) · width ≥ min · turning landings ≥ 1.5 × 1.5 m / 60" × 60" · handrails both sides when required.
 
@@ -127,7 +127,7 @@ Shared rules for this family:
 
 **Inputs** Slot `path` (polyline / curve in plan; on stairs the host stair supplies the 3D pitch path) · host: slab edge, stair flight, ramp.
 
-**Parameters** `height` (default from rule set: 0.9 m DE, 42" IBC / 36" IRC) · `infill` balusters | rails | glass | mesh · `baluster_spacing` (max clear gap from rule set: 0.12 m DE, 4" US, 0.1 m UK where required) · `post_spacing` (default 1.2 m / 4') · profiles: top rail, posts, balusters (preset sections) · `mount` top | side (fascia) · `glass_thickness`, `clamp_type`.
+**Parameters** `height` (default from rule set: 42" IBC / 36" IRC; EU no EN/ISO value, default 1.0 m (project value)) · `infill` balusters | rails | glass | mesh · `baluster_spacing` (max clear gap from rule set: 4" US, 0.1 m UK where required; EU project value, default 0.1 m) · `post_spacing` (default 1.2 m / 4') · profiles: top rail, posts, balusters (preset sections) · `mount` top | side (fascia) · `glass_thickness`, `clamp_type`.
 
 **Rules** Height ≥ rule set (on stairs measured from the pitch line) · clear gap ≤ rule set (computed from spacing and baluster width) · if top rail is the handrail: height within handrail range.
 
@@ -155,6 +155,6 @@ Shared rules for this family:
 
 ## Sources
 
-- See `rulesets.md` for DIN 18065, AD K, IRC, IBC, DIN 18040, ADA, AD M values and their sources.
+- See `rulesets.md` for ISO 21542, AD K, IRC, IBC, ADA, AD M values and their sources.
 - Bonsai parametric stair/railing: IfcOpenShell repository (Bonsai GPL-3.0-or-later); railing types FRAMELESS_PANEL and WALL_MOUNTED_HANDRAIL in Bonsai's railing gizmo commits.
 - IFC 4.3 documentation: IfcStair, IfcStairFlight, IfcRamp, IfcRailing and their property sets (ifc43-docs.standards.buildingsmart.org).

@@ -63,7 +63,7 @@ Shared rules for this family:
 
 **Parameters** `mattress_size` (catalogue entry) · `frame_margin` (frame beyond mattress) · `mattress_height`, `bed_height` · `headboard` (height, thickness) · `footboard` (bool) · `base` legs | divan | platform.
 
-**Rules** Access zone beside the bed (annotation; DIN 18040-2 wheelchair space to add in `accessibility`).
+**Rules** Access zone beside the bed (annotation; wheelchair space from `accessibility`, ISO 21542 *(to verify)*).
 
 **Size catalogues** (mattress W × L)
 - EU: 90 × 200, 140 × 200, 160 × 200, 180 × 200, 200 × 200 cm

@@ -45,8 +45,6 @@
           "fit_gap": 0.003175,
           "fit_gap_top": 0.028575,
           "floor_gap": 0.0127,
-          "modular_offset_width": 0.0,
-          "modular_offset_height": 0.0,
           "leaf_thickness": 0.034925,
           "handle_height": 0.9144,
           "backset": 0.060325,

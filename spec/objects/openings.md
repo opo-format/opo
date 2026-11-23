@@ -21,15 +21,15 @@ See `examples/door/`. Reference for all doors.
 
 **Scope** Two leaves in one frame: equal pair, or unequal (active leaf + fixed/standing leaf). Rebated meeting stiles, flush bolts on the standing leaf (medium/high), handle on the active leaf, optional pull handle or second lever on the standing leaf. *Not:* panic hardware details, automatic operators.
 
-**Based on** bim-all-doors (two-leaf configuration, standing-leaf width `gs_SecondLeaf_w`, meeting-stile rebate) · IFC as above · DIN 18101 two-leaf sizes, US pair sizes.
+**Based on** bim-all-doors (two-leaf configuration, standing-leaf width `gs_SecondLeaf_w`, meeting-stile rebate) · IFC as above · generic metric pair openings, UK and US pair sizes.
 
 **Inputs** Host wall. No drawn input.
 
 **Parameters** (beyond O-01) `leaf_split`: equal | unequal · `standing_leaf_width` (unequal; default 0.375 m / 12") · `meeting_rebate` · `double_acting` (bool; no stop, both swings drawn) · `standing_leaf_bolts` (bool).
 
-**Rules** Active leaf ≥ 0.6 m (check) · `accessibility` measures the active leaf only (ADA, DIN 18040 practice).
+**Rules** Active leaf ≥ 0.6 m (check) · `accessibility` measures the active leaf only (ADA, ISO 21542 practice).
 
-**Size catalogues** DIN 18101 two-leaf sizes *(to verify against the norm table)* · UK pairs 1981 × 1067 / 1168 / 1220 mm (6'6" × 3'6" / 3'10" / 4'0") · US pairs from two standard leaves, e.g. 2 × 24", 2 × 30", 2 × 36" × 80" *(typical, to verify)*.
+**Size catalogues** Generic metric pair openings 1250–2000 × 2100 mm (not a norm) · UK pairs 1981 × 1067 / 1168 / 1220 mm (6'6" × 3'6" / 3'10" / 4'0") · US pairs from two standard leaves, e.g. 2 × 24", 2 × 30", 2 × 36" × 80" *(typical, to verify)*.
 
 **LOD** 3D: low slab · medium frame, two leaves, levers · high + bolts, hinges, meeting stile rebate. Plan: low two lines + two arcs · medium jambs + leaves + arcs · high cut. Elevation: swing indicators on both leaves.
 
@@ -51,7 +51,7 @@ See `examples/door/`. Reference for all doors.
 
 **Rules** Free wall length beside the opening ≥ leaf width (check against host) · `accessibility` uses clear width with the leaf fully open.
 
-**Size catalogues** Same leaf sizes as O-01 per market (DIN 18101, UK, US); US closet bypass sizes *(to collect)*.
+**Size catalogues** Same leaf sizes as O-01 per market (generic metric, UK, US); US closet bypass sizes *(to collect)*.
 
 **LOD** 3D: low slab · medium leaf, track box, pulls · high + track profile, floor guide, handle recesses. Plan: low leaf line + arrow · medium leaf in open/closed position + track line (overhead class) · high cut. Elevation: leaf, track, arrow (annotation).
 
@@ -115,11 +115,11 @@ See `examples/door/`. Reference for all doors.
 
 ## O-07 Garage door
 
-**IFC** IfcDoor · DOOR · OperationType ROLLINGUP or USERDEFINED (SECTIONAL, UP_AND_OVER) — verify enum · **P3**
+**IFC** IfcDoor · DOOR · OperationType ROLLINGUP (roller) · LIFTING_HORIZONTAL / LIFTING_VERTICAL_LEFT / _RIGHT exist in IFC 4.3 `IfcDoorTypeOperationEnum`; sectional and up-and-over use USERDEFINED (`ObjectType` SECTIONAL / UP_AND_OVER) unless the IFC definitions of the LIFTING_* values are confirmed to fit · **P3**
 
 **Scope** Sectional, up-and-over or roller door: closed panel face with section joints, guide rails, headroom box. Open position drawn as overhead (dashed) in plan. *Not:* opener mechanics.
 
-**Based on** — · market standard sizes.
+**Based on** — · EN 13241 (industrial, commercial and garage doors: product standard, no sizes) · market standard sizes.
 
 **Parameters** `type` sectional | up_and_over | roller · `sections` (derived from height) · `headroom` (lintel space required) · `side_room`.
 
@@ -145,7 +145,7 @@ See `examples/door/`. Reference for all doors.
 
 **Rules** Side-hung sash width limit from hardware data (warning; value to confirm) · net clear opening for `escape_windows` (US) · sill below guard height → guard check · total U-value not modelled (data only).
 
-**Size catalogues** EU/DE: openings on the 125 mm modular grid of DIN 4172 *(catalogue to be drawn up; check for a current window-opening norm)* · UK: makers' sizes *(to collect)* · US casement: widths about 16"–48", heights 24"–84"; sizes typically step 2" in width and 6" in height.
+**Size catalogues** EU: no EN/ISO window size norm; generic openings in 100 mm steps (not a norm) · UK: makers' sizes *(to collect)* · US casement: widths about 16"–48", heights 24"–84"; sizes typically step 2" in width and 6" in height.
 
 **LOD** 3D: low pane in opening · medium frame, sash, glass, sills · high + glazing beads, handles, hinges. Plan: low frame lines + glass line · medium frame/sash cut (hatched) + glass + sills · high cut. Elevation: medium frame, sash outlines, opening triangles (annotation, apex at hinge side; tilt shown as triangle pointing down).
 
@@ -272,7 +272,7 @@ Curtain walls are a key element for high-rise and complex façades, so they get 
 - **Joint types per grid line** (the key difference between systems): `captured` (pressure plate + cover cap), `butt_joint` (silicone joint, no outside cap), `ssg` (structural silicone glazing, 2- or 4-sided, outside flush glass), `open_joint`. Vertical and horizontal lines can differ (e.g. butt-jointed verticals with captured horizontals).
 - **Slab edges:** fire-stop / smoke seal line and anchor brackets at each floor slab (high LOD), so the façade reads correctly in section.
 - **Rules (all three):** panel size within maker glass limits (data, warning) · mullion depth vs. span (simple rule-of-thumb check; real structural design is out of scope) · joint widths ≥ min · operable vent sizes · `guards` where vision glass reaches the floor (barrier / safety glazing check) · deflection and wind loads are **data only**, not calculated.
-- **Based on:** FreeCAD BIM CurtainWall tool (LGPL, reference only: subdivides a base face into panels with vertical, horizontal and diagonal mullions, profiles per direction, glass/solid panels from a multi-material) · IFC · EN 13830 (curtain walling product standard) · structural sealant glazing: ETAG 002 / EN 15434 (bonded glass) · glass design: DIN 18008 (DE), ASTM E1300 (US) *(values to add)*.
+- **Based on:** FreeCAD BIM CurtainWall tool (LGPL, reference only: subdivides a base face into panels with vertical, horizontal and diagonal mullions, profiles per direction, glass/solid panels from a multi-material) · IFC · EN 13830 (curtain walling product standard) · structural sealant glazing: ETAG 002 / EN 15434 (bonded glass) · glass design: CEN/TS 19100 (EU, future Eurocode EN 1990-series for glass), ASTM E1300 (US) *(values to add)*.
 - **Size catalogues:** none (grid-driven). Presets per system type with typical module widths and profile families *(to collect from public maker data)*.
 - **LOD (all three):** low — glass surface with grid lines · medium — mullion/transom sections, glass, spandrels, panel types, nested windows/doors · high — profiles with pressure plates/caps or SSG joints, fins, fixings, slab edge details. Plan: mullion sections cut (hatched) + glass lines; elevation: grid with panel types and opening symbols.
 
@@ -312,11 +312,13 @@ Curtain walls are a key element for high-rise and complex façades, so they get 
 
 **Parameters** grid U (pane widths) and V (pane heights, may be a single pane floor-to-ceiling) · `pane_build_up` (laminated layers, e.g. 3 × 12 mm + interlayers; IGU optional) · `fin_depth`, `fin_thickness` (laminated plies), `fin_side` inside | outside · `fin_splice` (heights over max pane length: spliced fins with steel plates) · `fitting_type`, `fitting_spacing` (edge distance of point fixings) · `butt_joint_width` · `base_shoe` / `head_channel` (depth, recess into floor/ceiling).
 
-**Rules** Shared rules + pane size within maker maximums *(data, warning)* · point fixing edge distances ≥ min *(values to add)* · fin depth vs. height rule of thumb (warning only; structural glass design under DIN 18008 / ASTM E1300 is the engineer's job).
+**Rules** Shared rules + pane size within maker maximums *(data, warning)* · point fixing edge distances ≥ min *(values to add)* · fin depth vs. height rule of thumb (warning only; structural glass design under CEN/TS 19100 / ASTM E1300 is the engineer's job).
 
 **LOD** medium: panes, fins, simple fitting blocks · high: spider arms and bolt heads, shoe channels, splice plates · plan: pane lines + fins (cut, hatched as glass) + fittings symbols.
 
-**Open** Exact IFC classes for spiders and clamps; whether cable-net façades become their own object.
+**Fixings in IFC** spider fittings, clamps and slab brackets as `IfcDiscreteAccessory` (BRACKET for slab anchors and spiders, SHOE for floor and head channels; clamps USERDEFINED `ObjectType` CLAMP), bolts as `IfcMechanicalFastener` · BOLT / ANCHORBOLT.
+
+**Open** Whether cable-net façades become their own object.
 
 ---
 
@@ -332,4 +334,4 @@ Curtain walls are a key element for high-rise and complex façades, so they get 
 - IRC R310: see `rulesets.md`
 - Roof windows: velux.co.uk size guide; FAKRO flashing table; DAKEA technical data (shared size range)
 - Garage doors: normstahl.com standard sizes; doorsuperstore.co.uk; homedepot.com, clopaydoor.com; garagedoorsonline.co.uk (125 mm steps)
-- DIN 18101 / UK / US door sizes: see `examples/door/README.md`
+- Generic metric / UK / US door sizes: see `examples/door/README.md`
