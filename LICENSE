@@ -1,0 +1,24 @@
+This repository uses different licences for different kinds of material.
+
+Specification
+-------------
+The OPO specification text, the spec outline, and the documentation in the
+`spec/` directory are licensed under the Creative Commons Attribution 4.0
+International licence (CC-BY-4.0). See LICENSE-CC-BY-4.0.
+
+Code
+----
+All source code in this repository (including the reference implementation,
+validator, tooling and the machine-readable JSON Schema files) is dual-licensed
+under either of
+
+  * MIT licence (LICENSE-MIT), or
+  * Apache License, Version 2.0 (LICENSE-APACHE)
+
+at your option.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in this repository shall be licensed as above, without any
+additional terms or conditions.
+
+SPDX-License-Identifier: CC-BY-4.0 AND (MIT OR Apache-2.0)
