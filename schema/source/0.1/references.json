@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/references.json",
+  "title": "references.yaml",
+  "description": "The references registry (proposal 0002 §3).",
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "pattern": "^[a-z0-9][a-z0-9.-]*$"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "title",
+      "kind",
+      "licence"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "kind": {
+        "enum": [
+          "norm",
+          "regulation",
+          "maker",
+          "parametric_basis",
+          "ifc",
+          "data",
+          "other"
+        ]
+      },
+      "edition": {
+        "type": [
+          "string",
+          "integer"
+        ]
+      },
+      "version": {
+        "type": "string"
+      },
+      "licence": {
+        "type": "string",
+        "minLength": 1
+      },
+      "url": {
+        "type": "string"
+      },
+      "note": {
+        "type": "string"
+      }
+    }
+  }
+}

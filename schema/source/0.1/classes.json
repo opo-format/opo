@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/classes.json",
+  "title": "templates/classes.yaml",
+  "description": "The per-class table (proposal 0002 §4): IFC class → class entry.",
+  "type": "object",
+  "propertyNames": {
+    "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "archetype",
+      "name",
+      "description",
+      "default_type"
+    ],
+    "additionalProperties": false,
+    "allOf": [
+      {
+        "$ref": "common.json#/$defs/body"
+      }
+    ],
+    "properties": {
+      "parameters": true,
+      "slots": true,
+      "rules": true,
+      "recipe": true,
+      "representations": true,
+      "host": true,
+      "handles": true,
+      "ports": true,
+      "materials": true,
+      "ifc": true,
+      "archetype": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "default_type": {
+        "type": "string"
+      },
+      "references": {
+        "type": "array",
+        "items": {
+          "$ref": "common.json#/$defs/reference"
+        }
+      },
+      "layers": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "layer.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/materials.json",
+  "title": "styles/materials.yaml",
+  "description": "The materials registry: id → opo::materials entry.",
+  "type": "object",
+  "propertyNames": {
+    "$ref": "common.json#/$defs/key"
+  },
+  "additionalProperties": {
+    "$ref": "https://opo-format.org/schema/0.1/materials.json#/additionalProperties"
+  }
+}

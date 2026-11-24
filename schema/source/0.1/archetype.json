@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/archetype.json",
+  "title": "templates/archetypes/<name>.yaml",
+  "description": "An archetype: the body shared by every class template on it (proposal 0002 §4).",
+  "type": "object",
+  "required": [
+    "archetype",
+    "description"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "common.json#/$defs/body"
+    }
+  ],
+  "properties": {
+    "parameters": true,
+    "slots": true,
+    "rules": true,
+    "recipe": true,
+    "representations": true,
+    "host": true,
+    "handles": true,
+    "ports": true,
+    "materials": true,
+    "ifc": true,
+    "archetype": {
+      "enum": [
+        "point",
+        "linear",
+        "area",
+        "wall",
+        "hosted",
+        "flight",
+        "fitting",
+        "assembly",
+        "any"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/reference"
+      }
+    }
+  }
+}
