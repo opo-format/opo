@@ -456,23 +456,26 @@
           {
             "name": "frame_material",
             "type": "material",
-            "default": "frame",
+            "default": "painted_timber",
             "label": "Frame material",
-            "group": "Materials"
+            "group": "Materials",
+            "options": "materials"
           },
           {
             "name": "leaf_material",
             "type": "material",
-            "default": "leaf",
+            "default": "painted_timber",
             "label": "Leaf material",
-            "group": "Materials"
+            "group": "Materials",
+            "options": "materials"
           },
           {
             "name": "hardware_material",
             "type": "material",
-            "default": "hardware",
+            "default": "stainless_steel",
             "label": "Hardware material",
-            "group": "Materials"
+            "group": "Materials",
+            "options": "materials"
           }
         ],
         "opo::slots": [],
@@ -1422,17 +1425,23 @@
           }
         ],
         "opo::materials": {
-          "frame": {
-            "label": "Frame",
-            "default": "painted timber"
+          "painted_timber": {
+            "label": "Timber, painted",
+            "category": "timber",
+            "colour": "#f1efe9",
+            "cut": {
+              "hatch": "timber"
+            },
+            "ifc_name": "Timber, painted"
           },
-          "leaf": {
-            "label": "Leaf",
-            "default": "painted timber"
-          },
-          "hardware": {
-            "label": "Hardware",
-            "default": "stainless steel"
+          "stainless_steel": {
+            "label": "Stainless steel",
+            "category": "steel",
+            "colour": "#b8bcc2",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Stainless steel"
           }
         },
         "opo::ifc": {
@@ -1471,6 +1480,26 @@
           },
           "parameter_pset": "OPO_Parameters",
           "note": "IFC4.3 deprecates IfcDoorLiningProperties/IfcDoorPanelProperties in favour of these property sets. All parameters are also written to OPO_Parameters."
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          },
+          "timber": {
+            "label": "Timber (sawn, in section)",
+            "kind": "lines",
+            "scale_mode": "paper",
+            "lines": [
+              {
+                "angle": 135,
+                "origin": [0.0, 0.0],
+                "offset": [0, 0.0022],
+                "dashes": [0.006, -0.0012]
+              }
+            ]
+          }
         }
       }
     },

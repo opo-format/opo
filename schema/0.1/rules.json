@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/rules.json",
+  "title": "opo::rules",
+  "description": "Derived values, checks and rule sets (spec §4.4).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "derived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "expr"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+          },
+          "expr": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "expr",
+          "severity",
+          "message"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+          },
+          "expr": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning",
+              "info"
+            ]
+          },
+          "message": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+          }
+        }
+      }
+    },
+    "rulesets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+          },
+          "default": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "note": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "description": "A FEEL expression (string) or a literal JSON value.",
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

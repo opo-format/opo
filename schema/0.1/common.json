@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/common.json",
+  "title": "OPO common definitions",
+  "description": "Definitions shared by the opo:: attribute schemas.",
+  "$defs": {
+    "expr": {
+      "type": "string",
+      "minLength": 1,
+      "description": "An expression in the OPO FEEL subset (spec §4.4). Lengths in metres, angles in degrees."
+    },
+    "exprOrValue": {
+      "description": "A FEEL expression (string) or a literal JSON value.",
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "snake_case identifier, unique in its scope."
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "colour": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "point2": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "point3": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "ifcClass": {
+      "type": "string",
+      "pattern": "^Ifc[A-Z][A-Za-z0-9]*$"
+    },
+    "plane": {
+      "enum": [
+        "xy",
+        "xz",
+        "yz",
+        "profile"
+      ],
+      "description": "xy plan (+z), xz object face (+y), yz side (+x), profile: local u/v plane of a swept profile."
+    },
+    "lineClass": {
+      "enum": [
+        "cut",
+        "projected",
+        "hidden",
+        "overhead",
+        "annotation"
+      ]
+    },
+    "lod": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "all"
+      ]
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$"
+    }
+  }
+}

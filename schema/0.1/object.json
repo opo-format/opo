@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/object.json",
+  "title": "opo::object",
+  "description": "Identity of an object (spec §4.1, §4.14).",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "version",
+    "opo",
+    "license",
+    "author",
+    "description",
+    "references"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+    },
+    "kind": {
+      "enum": [
+        "object",
+        "class_template",
+        "styles"
+      ]
+    },
+    "archetype": {
+      "enum": [
+        "point",
+        "linear",
+        "area",
+        "wall",
+        "hosted",
+        "flight",
+        "fitting",
+        "assembly",
+        "any"
+      ]
+    },
+    "version": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/semver"
+    },
+    "opo": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "license": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+    },
+    "author": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+    },
+    "description": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "name",
+          "used"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+          },
+          "name": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+          },
+          "used": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+          },
+          "license": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

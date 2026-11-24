@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/representations.json",
+  "title": "opo::representations",
+  "description": "Drawable versions per view and level of detail (spec §4.6).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "context",
+      "lod",
+      "source",
+      "ifc"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^(model|plan|rcp|elevation|section|axis)(\\.(low|medium|high))?$"
+      },
+      "context": {
+        "enum": [
+          "model",
+          "plan",
+          "rcp",
+          "elevation",
+          "section",
+          "axis"
+        ]
+      },
+      "lod": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/lod"
+      },
+      "scale": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "min_scale": {
+            "type": "number"
+          },
+          "max_scale": {
+            "type": "number"
+          }
+        }
+      },
+      "source": {
+        "enum": [
+          "authored",
+          "derived"
+        ]
+      },
+      "ifc": {
+        "type": "object",
+        "required": [
+          "context",
+          "targetView"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "context": {
+            "enum": [
+              "Body",
+              "Plan",
+              "Profile",
+              "Axis",
+              "Annotation",
+              "Box",
+              "FootPrint"
+            ]
+          },
+          "targetView": {
+            "enum": [
+              "MODEL_VIEW",
+              "PLAN_VIEW",
+              "REFLECTED_PLAN_VIEW",
+              "ELEVATION_VIEW",
+              "SECTION_VIEW",
+              "GRAPH_VIEW",
+              "SKETCH_VIEW",
+              "USERDEFINED",
+              "NOTDEFINED"
+            ]
+          }
+        }
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "geometry"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "geometry": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+            },
+            "material": {
+              "type": "string"
+            },
+            "hatch": {
+              "type": "string"
+            },
+            "class": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/lineClass"
+            },
+            "role": {
+              "type": "string"
+            },
+            "part": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "overlay": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "geometry"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "geometry": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+            },
+            "material": {
+              "type": "string"
+            },
+            "hatch": {
+              "type": "string"
+            },
+            "class": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/lineClass"
+            },
+            "role": {
+              "type": "string"
+            },
+            "part": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "derive": {
+        "type": "object",
+        "required": [
+          "from",
+          "method"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "method": {
+            "enum": [
+              "cut",
+              "project",
+              "cut_or_project"
+            ]
+          },
+          "exclude_parts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "note": {
+        "type": "string"
+      },
+      "surface": {
+        "type": "string"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "source": {
+              "const": "authored"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "items"
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "source": {
+              "const": "derived"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "derive"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/ports.json",
+  "title": "opo::ports",
+  "description": "Connection points of distribution elements (spec §4.9a).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "system_type",
+      "flow_direction",
+      "port_type",
+      "nominal_size",
+      "position",
+      "direction"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "system_type": {
+        "type": "string",
+        "pattern": "^[A-Z_]+$",
+        "description": "IfcDistributionSystemEnum value."
+      },
+      "flow_direction": {
+        "enum": [
+          "SOURCE",
+          "SINK",
+          "SOURCEANDSINK",
+          "NOTDEFINED"
+        ]
+      },
+      "port_type": {
+        "enum": [
+          "CABLE",
+          "CABLECARRIER",
+          "DUCT",
+          "PIPE",
+          "WIRELESS",
+          "USERDEFINED",
+          "NOTDEFINED"
+        ]
+      },
+      "nominal_size": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "position": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "direction": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "when": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      }
+    }
+  }
+}

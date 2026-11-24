@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/note.json",
+  "title": "opo::note",
+  "description": "Free-text note.",
+  "type": "string"
+}

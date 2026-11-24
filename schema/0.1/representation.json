@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/representation.json",
+  "title": "opo::representation",
+  "description": "Representation id a baked node belongs to, or void for baked geometry that cuts the host.",
+  "type": "string",
+  "pattern": "^(void|(model|plan|rcp|elevation|section|axis)(\\.(low|medium|high))?)$"
+}

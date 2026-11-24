@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/ifc.json",
+  "title": "opo::ifc",
+  "description": "How instances are written to IFC (spec §5.1, §7).",
+  "type": "object",
+  "required": [
+    "class"
+  ],
+  "properties": {
+    "class": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+    },
+    "predefinedType": {
+      "description": "A FEEL expression (string) or a literal JSON value.",
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "objectType": {
+      "description": "A FEEL expression (string) or a literal JSON value.",
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "property_sets": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "description": "Either a note, or property set name → property names written from parameters of the same name."
+    },
+    "parameter_pset": {
+      "type": "string"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A FEEL expression (string) or a literal JSON value.",
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "array",
+          "object",
+          "null"
+        ]
+      },
+      "description": "Property name (Pset.Prop or bsi::ifc::prop::Name) → expression."
+    },
+    "quantities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "values"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+            }
+          },
+          "from_geometry": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "material_layer_set": {
+      "type": "object"
+    },
+    "profile_def": {
+      "type": "object"
+    },
+    "decomposition": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

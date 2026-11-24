@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/slots.json",
+  "title": "opo::slots",
+  "description": "Drawn inputs (spec §4.3).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "type",
+      "default"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "type": {
+        "enum": [
+          "point",
+          "polyline",
+          "polyline3",
+          "polygon",
+          "polygon_list",
+          "curve",
+          "region"
+        ]
+      },
+      "plane": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/plane"
+      },
+      "default": {
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "optional": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": "string"
+      },
+      "rules": {
+        "type": "object",
+        "properties": {
+          "open": {
+            "type": "boolean"
+          },
+          "closed": {
+            "type": "boolean"
+          },
+          "non_self_intersecting": {
+            "type": "boolean"
+          },
+          "min_segment_length": {
+            "type": "number"
+          },
+          "inside": {
+            "type": "string"
+          },
+          "fits_host": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

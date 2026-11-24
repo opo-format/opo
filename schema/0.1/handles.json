@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/handles.json",
+  "title": "opo::handles",
+  "description": "Viewport handles mapped to parameters or slots (spec §4.8).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "parameter": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "slot": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "kind": {
+        "enum": [
+          "points",
+          "linear",
+          "angle",
+          "arc"
+        ]
+      },
+      "view": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "model",
+            "plan",
+            "elevation",
+            "section"
+          ]
+        }
+      },
+      "at": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "center": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "axis": {
+        "enum": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      "visible": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "symmetric": {
+        "type": "boolean"
+      }
+    },
+    "oneOf": [
+      {
+        "required": [
+          "parameter"
+        ]
+      },
+      {
+        "required": [
+          "slot"
+        ]
+      }
+    ]
+  }
+}

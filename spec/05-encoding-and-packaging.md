@@ -18,7 +18,7 @@ An IFCX file has a `header`, `imports` (schema URIs), `schemas` (new attribute d
 | Baked fallback | `usd::usdgeom::mesh` on part nodes (3D), `usd::usdgeom::basiscurves` on hidden 2D symbol nodes, both in metres |
 | IFC data | `opo::ifc` maps FEEL expressions to `bsi::ifc::prop::*` names, so every instance writes correct IFC properties (e.g. OverallWidth, OperationType) |
 
-`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::hatches`, `opo::ports`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file.
+`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::hatches`, `opo::ports`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file. The structure of each attribute is defined by a JSON Schema (draft 2020-12) at the URI given in that declaration, e.g. `https://opo-format.org/schema/0.1/parameters.json`; the files live in `schema/<version>/` of the standard repository. A file is valid only if every `opo::` attribute validates against its schema.
 
 IFCX alpha has only meshes and polylines, no exact solids. Exact geometry comes from the OPO recipe (used by OPO-aware tools and the IFC4.3 export); the baked mesh lets any IFC5 viewer display the object today.
 

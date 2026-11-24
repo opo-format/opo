@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/host.json",
+  "title": "opo::host",
+  "description": "Host behaviour: what the object cuts, provides, attaches to (spec §4.7).",
+  "type": "object",
+  "properties": {
+    "is_host": {
+      "type": "boolean"
+    },
+    "accepts": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+      }
+    },
+    "hosts": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+      }
+    },
+    "provides": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "length",
+              "angle",
+              "number",
+              "integer",
+              "boolean",
+              "choice",
+              "text",
+              "material",
+              "colour",
+              "layers",
+              "property_set"
+            ]
+          },
+          "default": {},
+          "from": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "void": {
+      "type": "object",
+      "required": [
+        "geometry"
+      ],
+      "properties": {
+        "geometry": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+        },
+        "ifc": {
+          "type": "string"
+        }
+      }
+    },
+    "joins": {
+      "type": "object",
+      "properties": {
+        "by": {
+          "enum": [
+            "material",
+            "layer",
+            "none"
+          ]
+        },
+        "rule": {
+          "type": "string"
+        }
+      }
+    },
+    "insertion": {
+      "type": "object",
+      "properties": {
+        "point": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "flip": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "snap_points": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "point"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "point": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+          }
+        }
+      }
+    },
+    "level": {
+      "type": "string"
+    },
+    "placement": {
+      "type": "string"
+    },
+    "clearance": {
+      "type": "string"
+    },
+    "mounting": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "nested": {},
+    "slab_opening": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/inputs.json",
+  "title": "opo::inputs",
+  "description": "Drawn input geometry of an instance, by slot name.",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[a-z][a-z0-9_]*$"
+  },
+  "additionalProperties": {
+    "type": [
+      "array",
+      "null"
+    ]
+  }
+}

@@ -65,6 +65,8 @@ MATERIALS = {
     "cement_screed": mat("Cement screed", "finish", "#c8c4bb", "screed"),
     "timber": mat("Timber", "timber", "#c49a6c", "timber"),
     "steel": mat("Steel", "steel", "#7a8088", "solid_dark", density=7850),
+    "stainless_steel": mat("Stainless steel", "steel", "#b8bcc2", "solid_dark"),
+    "painted_timber": mat("Timber, painted", "timber", "#f1efe9", "timber"),
     "cast_iron": mat("Cast iron", "steel", "#4b4e52", "solid_dark"),
     "copper": mat("Copper", "metal", "#b87333", "solid_dark"),
     "sheet_metal": mat("Sheet metal, coated", "metal", "#d9dbde", "solid_dark"),

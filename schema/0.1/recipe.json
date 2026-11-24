@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/recipe.json",
+  "title": "opo::recipe",
+  "description": "Ordered geometry steps (spec §4.5).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "op",
+      "args"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "op": {
+        "enum": [
+          "rectangle",
+          "polygon",
+          "circle",
+          "polyline",
+          "line",
+          "arc",
+          "band",
+          "difference",
+          "union",
+          "boundary_curves",
+          "text",
+          "extrude",
+          "sweep",
+          "revolve",
+          "box",
+          "cylinder",
+          "path3",
+          "move",
+          "rotate",
+          "mirror",
+          "for_each",
+          "instance"
+        ]
+      },
+      "plane": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/plane"
+      },
+      "when": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+      },
+      "note": {
+        "type": "string"
+      },
+      "args": {
+        "type": "object",
+        "additionalProperties": {
+          "description": "A FEEL expression (string) or a literal JSON value.",
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "array",
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "for_each"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "items",
+                "do"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "instance"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "object"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

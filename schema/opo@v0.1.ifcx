@@ -17,13 +17,23 @@
     "opo::parameters": {
       "uri": "https://opo-format.org/schema/0.1/parameters.json",
       "value": {
-        "dataType": "Object"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::slots": {
       "uri": "https://opo-format.org/schema/0.1/slots.json",
       "value": {
-        "dataType": "Object"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::rules": {
@@ -35,13 +45,23 @@
     "opo::recipe": {
       "uri": "https://opo-format.org/schema/0.1/recipe.json",
       "value": {
-        "dataType": "Object"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::representations": {
       "uri": "https://opo-format.org/schema/0.1/representations.json",
       "value": {
-        "dataType": "Object"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::host": {
@@ -53,7 +73,12 @@
     "opo::handles": {
       "uri": "https://opo-format.org/schema/0.1/handles.json",
       "value": {
-        "dataType": "Object"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::materials": {
@@ -95,7 +120,12 @@
     "opo::ports": {
       "uri": "https://opo-format.org/schema/0.1/ports.json",
       "value": {
-        "dataType": "Array"
+        "dataType": "Array",
+        "arrayRestrictions": {
+          "value": {
+            "dataType": "Object"
+          }
+        }
       }
     },
     "opo::line_class": {

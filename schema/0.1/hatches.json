@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/hatches.json",
+  "title": "opo::hatches",
+  "description": "Embedded hatch pattern definitions, keyed by hatch id (spec §4.6). Lengths in metres; real size when scale_mode is model, printed size when paper.",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[a-z][a-z0-9_]*$"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "label",
+      "kind"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+      },
+      "kind": {
+        "enum": [
+          "solid",
+          "lines",
+          "none"
+        ]
+      },
+      "scale_mode": {
+        "enum": [
+          "model",
+          "paper"
+        ]
+      },
+      "lines": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "angle",
+            "offset"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "angle": {
+              "type": "number"
+            },
+            "origin": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/point2"
+            },
+            "offset": {
+              "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/point2"
+            },
+            "dashes": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Positive = dash, negative = gap, 0 = dot; repeats from the line origin."
+            }
+          }
+        },
+        "minItems": 1
+      },
+      "colour": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/colour"
+      },
+      "background": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/colour"
+      },
+      "line_weight": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "note": {
+        "type": "string"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "lines"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "lines",
+            "scale_mode"
+          ]
+        }
+      }
+    ]
+  },
+  "$defs": {
+    "family": {
+      "type": "object",
+      "required": [
+        "angle",
+        "offset"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "angle": {
+          "type": "number"
+        },
+        "origin": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/point2"
+        },
+        "offset": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/point2"
+        },
+        "dashes": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Positive = dash, negative = gap, 0 = dot; repeats from the line origin."
+        }
+      }
+    }
+  }
+}

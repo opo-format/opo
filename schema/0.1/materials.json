@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/materials.json",
+  "title": "opo::materials",
+  "description": "Embedded material definitions, keyed by material id (spec §4.6, decision 0011).",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[a-z][a-z0-9_]*$"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "label",
+      "category",
+      "cut"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+      },
+      "category": {
+        "enum": [
+          "concrete",
+          "masonry",
+          "steel",
+          "metal",
+          "timber",
+          "insulation",
+          "glass",
+          "finish",
+          "membrane",
+          "earth",
+          "plastic",
+          "other"
+        ]
+      },
+      "colour": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/colour"
+      },
+      "cut": {
+        "$ref": "#/$defs/hatchRef"
+      },
+      "surface": {
+        "$ref": "#/$defs/hatchRef"
+      },
+      "density": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "thermal_conductivity": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "ifc_name": {
+        "type": "string"
+      },
+      "note": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "hatchRef": {
+      "type": "object",
+      "required": [
+        "hatch"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "hatch": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/key"
+        }
+      }
+    }
+  }
+}

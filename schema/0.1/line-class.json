@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/line-class.json",
+  "title": "opo::line_class",
+  "description": "Semantic line class of baked 2D curves.",
+  "enum": [
+    "cut",
+    "projected",
+    "hidden",
+    "overhead",
+    "annotation"
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/parameters.json",
+  "title": "opo::parameters",
+  "description": "Typed inputs of an object (spec §4.2).",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/parameter"
+  },
+  "$defs": {
+    "parameter": {
+      "type": "object",
+      "required": [
+        "name",
+        "type",
+        "default",
+        "label",
+        "group"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_]*$",
+          "description": "snake_case; property_set parameters use the IFC property set name (e.g. Pset_WallCommon)."
+        },
+        "type": {
+          "enum": [
+            "length",
+            "angle",
+            "number",
+            "integer",
+            "boolean",
+            "choice",
+            "text",
+            "material",
+            "colour",
+            "layers",
+            "property_set"
+          ]
+        },
+        "default": {},
+        "label": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+        },
+        "group": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text"
+        },
+        "description": {
+          "type": "string"
+        },
+        "visible": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "options": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            {
+              "const": "materials"
+            }
+          ]
+        },
+        "option_labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "step": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "metric",
+                    "imperial"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "metric": {
+                      "type": "number"
+                    },
+                    "imperial": {
+                      "type": "number"
+                    }
+                  }
+                }
+              ]
+            },
+            "thickness": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "type": "number"
+                },
+                "max": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "measure"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "measure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "enum": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "value": {
+                "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "length",
+                  "angle",
+                  "number"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "default": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "integer"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "default": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "boolean"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "default": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "text",
+                  "material",
+                  "colour"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "default": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "choice"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "options"
+            ],
+            "properties": {
+              "default": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "layers"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "default": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "material",
+                    "thickness"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "material": {
+                      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/key"
+                    },
+                    "thickness": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "function": {
+                      "enum": [
+                        "structure",
+                        "finish",
+                        "insulation",
+                        "membrane",
+                        "air",
+                        "substrate",
+                        "other"
+                      ]
+                    },
+                    "core": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "property_set"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "properties"
+            ],
+            "properties": {
+              "default": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "name": {
+                "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "layer": {
+      "type": "object",
+      "required": [
+        "material",
+        "thickness"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "material": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/key"
+        },
+        "thickness": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "function": {
+          "enum": [
+            "structure",
+            "finish",
+            "insulation",
+            "membrane",
+            "air",
+            "substrate",
+            "other"
+          ]
+        },
+        "core": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
