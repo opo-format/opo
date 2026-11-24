@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/common.json",
+  "title": "Source definitions",
+  "description": "Definitions shared by the YAML source schemas (proposal 0002).",
+  "$defs": {
+    "key": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "value",
+        "status"
+      ],
+      "additionalProperties": false,
+      "description": "A value with where it comes from (decision 0017). Compiles to the plain value plus an opo::provenance entry.",
+      "properties": {
+        "value": {},
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "norm",
+            "maker",
+            "typical",
+            "illustrative",
+            "to_verify"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "norm",
+                  "maker"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "typical",
+                  "illustrative",
+                  "to_verify"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "note"
+            ]
+          }
+        }
+      ]
+    },
+    "value": {
+      "description": "A plain value or a provenance object.",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/provenance"
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "value",
+              "status"
+            ]
+          }
+        }
+      ]
+    },
+    "values": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/key"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/value"
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": [
+        "ref",
+        "role",
+        "used"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "used": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "named": {
+      "description": "A map by name or id, in file order; the key becomes the entry's name or id.",
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "derived": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/key"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object",
+            "required": [
+              "expr"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "expr": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "body": {
+      "description": "The parts of an object source that archetypes, class entries and objects share.",
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/parameters"
+        },
+        "slots": {
+          "$ref": "#/$defs/named"
+        },
+        "rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "derived": {
+              "$ref": "#/$defs/derived"
+            },
+            "checks": {
+              "$ref": "#/$defs/named"
+            },
+            "rulesets": {
+              "$ref": "#/$defs/named"
+            }
+          }
+        },
+        "recipe": {
+          "$ref": "#/$defs/named"
+        },
+        "representations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "host": {
+          "$ref": "https://opo-format.org/schema/0.1/host.json"
+        },
+        "handles": {
+          "$ref": "https://opo-format.org/schema/0.1/handles.json"
+        },
+        "ports": {
+          "$ref": "https://opo-format.org/schema/0.1/ports.json"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/key"
+          },
+          "uniqueItems": true
+        },
+        "ifc": {
+          "type": "object"
+        }
+      }
+    },
+    "parameters": {
+      "description": "Parameters by name, in file order. Defaults and limits may be provenance objects.",
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "$ref": "#/$defs/value"
+          }
+        }
+      }
+    }
+  }
+}

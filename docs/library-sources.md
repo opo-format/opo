@@ -1,6 +1,8 @@
-# Library source format (draft)
+# Library source format
 
-Objects are written in YAML and compiled by `opo build` into `.opo` packages (decision 0014). The JSON Schema for this format will live in `schema/source/`; this page is the working draft it is written from.
+> The format is fixed by proposal 0002 (`proposals/0002-yaml-source-format.md`) and checked by `schema/source/0.1/`. This page is the readable introduction; where they differ, the proposal and the schema win.
+
+Objects are written in YAML and compiled by `opo build` into `.opo` packages (decision 0014). The JSON Schema for this format is in `schema/source/0.1/`.
 
 ## One folder per object
 

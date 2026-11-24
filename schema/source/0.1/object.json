@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/object.json",
+  "title": "object.yaml",
+  "description": "An object source (proposal 0002 §1). Compiled by opo build into object.ifcx; each compiled attribute must then validate against schema/0.1.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "version",
+    "description",
+    "references",
+    "parameters",
+    "recipe",
+    "representations",
+    "ifc"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "common.json#/$defs/body"
+    }
+  ],
+  "properties": {
+    "parameters": true,
+    "slots": true,
+    "rules": true,
+    "recipe": true,
+    "representations": true,
+    "host": true,
+    "handles": true,
+    "ports": true,
+    "materials": true,
+    "ifc": {
+      "type": "object",
+      "required": [
+        "class"
+      ],
+      "properties": {
+        "class": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+        }
+      }
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "The folder name."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/semver"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "candidate",
+        "stable",
+        "deprecated"
+      ]
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "archetype": {
+      "enum": [
+        "point",
+        "linear",
+        "area",
+        "wall",
+        "hosted",
+        "flight",
+        "fitting",
+        "assembly",
+        "any"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "object",
+        "class_template",
+        "styles"
+      ]
+    },
+    "template": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/ifcClass"
+    },
+    "sheet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "not_in_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/reference"
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/layer.json",
+  "title": "layers/<name>.yaml",
+  "description": "A layer source (proposal 0002 §1).",
+  "type": "object",
+  "required": [
+    "kind"
+  ],
+  "oneOf": [
+    {
+      "properties": {
+        "kind": {
+          "enum": [
+            "sizes",
+            "types"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "system": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "values": {
+              "$ref": "common.json#/$defs/values"
+            },
+            "ifc": {
+              "type": "object",
+              "description": "Plain bsi::ifc::prop values (attribute name → value).",
+              "additionalProperties": {
+                "$ref": "common.json#/$defs/value"
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "values": {
+                "$ref": "common.json#/$defs/values"
+              },
+              "ifc": {
+                "type": "object",
+                "description": "Plain bsi::ifc::prop values (attribute name → value).",
+                "additionalProperties": {
+                  "$ref": "common.json#/$defs/value"
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "kind",
+        "variants"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "kind": {
+          "const": "ruleset"
+        },
+        "id": {
+          "$ref": "common.json#/$defs/key"
+        },
+        "label": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string"
+        },
+        "values": {
+          "$ref": "common.json#/$defs/values"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "source",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "kind": {
+          "const": "binding"
+        },
+        "note": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "attributes"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/source/0.1/hatches.json",
+  "title": "styles/hatches.yaml",
+  "description": "The hatches registry: id → opo::hatches entry.",
+  "type": "object",
+  "propertyNames": {
+    "$ref": "common.json#/$defs/key"
+  },
+  "additionalProperties": {
+    "$ref": "https://opo-format.org/schema/0.1/hatches.json#/additionalProperties"
+  }
+}
