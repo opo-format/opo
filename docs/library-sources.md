@@ -19,7 +19,8 @@ objects/door-single-swing/
 ```
 
 - The folder name is the object id: lower case, words joined by hyphens, never reused.
-- The **sheet** (scope, what the object is and is not, open questions) is part of `object.yaml`, so the catalogue and documentation are generated from it. There is no separate sheet file to keep in sync.
+- The **sheet** (scope, what is not in scope, IFC details, parametric basis, inputs, planned parameters, rules, size catalogues, levels of detail, open questions) is part of `object.yaml`, so the catalogue and documentation are generated from it. There is no separate sheet file to keep in sync.
+- A **planned** object (`status: planned`) is only a catalogue entry: `id`, `name`, `priority`, `catalogue_id`, `ifc.class` and the sheet. It is not built until it becomes `draft`.
 - Materials and hatches are referenced by id from `styles/`; `opo build` embeds them (decision 0011).
 
 ## Safe YAML

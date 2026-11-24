@@ -40,8 +40,8 @@ objects/<id>/
 
 | Source key | Compiles to | Simplification |
 |---|---|---|
-| `id`, `name`, `version`, `status`, `license`, `authors`, `description`, `tags`, `archetype`, `kind` | `opo::object` | `id` is the folder name; the package id is `opo-format.org/<repository path>`; `license` defaults to `CC0-1.0`; `status` (draft, candidate, stable, decision 0018) is source-only |
-| `sheet: {scope, not_in_scope, open_questions}` | nothing | source-only; the catalogue and docs are generated from it |
+| `id`, `name`, `version`, `status`, `license`, `authors`, `description`, `tags`, `archetype`, `kind` | `opo::object` | `id` is the folder name; the package id is `opo-format.org/<repository path>`; `license` defaults to `CC0-1.0`; `status` (planned, draft, review, stable, deprecated; decision 0018), `priority`, `catalogue_id` and `replaced_by` are source-only; a `planned` object is a catalogue entry and is not built |
+| `sheet: {scope, not_in_scope, ifc, based_on, inputs, parameters, rules, sizes, lod, open_questions}` | nothing | source-only; the catalogue and docs are generated from it |
 | `references: [{ref, role, used}]` | `opo::object.references` | `ref` is an id in `references.yaml`; its name, licence, URI and version are filled in |
 | `parameters: {<name>: {...}}` | `opo::parameters` | **a map by name**, in file order; the name is the key |
 | `slots`, `rules.derived`, `rules.checks`, `rules.rulesets`, `recipe`, `representations` | the matching attributes | **maps by name or id**, in file order; `derived: {name: "expr"}` or `{name: {expr, note}}` |

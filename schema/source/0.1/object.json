@@ -6,19 +6,67 @@
   "type": "object",
   "required": [
     "id",
-    "name",
-    "version",
-    "description",
-    "references",
-    "parameters",
-    "recipe",
-    "representations",
-    "ifc"
+    "name"
   ],
   "additionalProperties": false,
   "allOf": [
     {
       "$ref": "common.json#/$defs/body"
+    },
+    {
+      "if": {
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "const": "planned"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "status",
+          "priority",
+          "ifc",
+          "sheet"
+        ],
+        "properties": {
+          "sheet": {
+            "required": [
+              "scope"
+            ]
+          }
+        }
+      },
+      "else": {
+        "required": [
+          "version",
+          "description",
+          "references",
+          "parameters",
+          "recipe",
+          "representations",
+          "ifc"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "const": "deprecated"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "replaced_by"
+        ]
+      }
     }
   ],
   "properties": {
@@ -56,11 +104,31 @@
     },
     "status": {
       "enum": [
+        "planned",
         "draft",
-        "candidate",
+        "review",
         "stable",
         "deprecated"
-      ]
+      ],
+      "description": "Object lifecycle (decision 0018, docs/workflow.md). A planned object is a catalogue entry: it needs id, name, priority, ifc.class and sheet.scope, and is not built. Default: draft."
+    },
+    "priority": {
+      "enum": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "description": "P1 reference test objects that shape the spec, P2 core library for a first release, P3 later."
+    },
+    "catalogue_id": {
+      "type": "string",
+      "pattern": "^[A-Z]-[0-9]{2}$",
+      "description": "Number in the object catalogue, e.g. O-02."
+    },
+    "replaced_by": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Id of the object that replaces a deprecated one."
     },
     "license": {
       "type": "string",
@@ -111,7 +179,9 @@
       "additionalProperties": false,
       "properties": {
         "scope": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "description": "What the object is, in one or a few sentences."
         },
         "not_in_scope": {
           "type": "array",
@@ -119,13 +189,49 @@
             "type": "string"
           }
         },
+        "ifc": {
+          "type": "string",
+          "minLength": 1,
+          "description": "IFC class, predefined types, operation types and property sets the object uses, beyond ifc.class."
+        },
+        "based_on": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Parametric basis and sources the object will draw on (reference ids where they exist)."
+        },
+        "inputs": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Host and drawn inputs."
+        },
+        "parameters": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Planned parameters, before they are written as parameters."
+        },
+        "rules": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Planned checks, derived values and rule sets."
+        },
+        "sizes": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Planned size catalogues per market."
+        },
+        "lod": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What each level of detail and representation shows."
+        },
         "open_questions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         }
-      }
+      },
+      "description": "The object's specification sheet: what it is and how it is to be built. Source-only; the catalogue and documentation are generated from it."
     },
     "references": {
       "type": "array",
