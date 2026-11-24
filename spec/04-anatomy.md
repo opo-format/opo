@@ -36,10 +36,10 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 - `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`, `modulo`
 - lists: `for x in list return expr`, ranges `1..n` (FEEL: a range runs downwards when the start is larger), `sum`, `count`, `sublist`, `append`, `concatenate`, `reverse`, `index_of`, `list_contains`, `flatten` (deep, as in FEEL)
 - `null` propagates through arithmetic and comparisons; `and`/`or` use three-valued logic; `sum([])` is `null` (FEEL), so formulas append a 0 where a list may be empty
-- numbers are IEEE 754 double precision (not FEEL's 34-digit decimals); `=` and `!=` treat numbers within 1e-9 of each other as equal, so formulas on lengths compare reliably
+- numbers are IEEE 754 double precision (not FEEL's 34-digit decimals); `=` and `!=` treat numbers within 1e-9 of each other as equal, so formulas on lengths compare reliably; `<`, `<=`, `>` and `>=` use the same tolerance, so numbers that are equal are never also less or greater
 - ranges (`1..n`) are only used as the source of a `for` loop, as in FEEL
 - FEEL functions whose names contain spaces are spelled with underscores: `index_of`, `list_contains` (FEEL: `index of`, `list contains`)
-- `round(n)` / `round(n, scale)` rounds half to even, like FEEL `decimal(n, scale)`
+- `round(n)` / `round(n, scale)` rounds half to even, like FEEL `decimal(n, scale)`; a value within 1e-9 of a half (after scaling) counts as a half, so `round(2.675, 2)` is 2.68 as with decimals, although the double 2.675 is slightly below it
 - conformance cases: `conformance/feel/` in this repository (reference interpreter used to create them: `tools/feel.py`)
 - OPO additions: trigonometry in degrees (`sin`, `cos`, `tan`, `atan2`); unit helpers returning canonical values (`mm()`, `cm()`, `m()`, `inch()`, `ft()`, `deg()`); curve queries (`length(curve)`, `point_at(curve, t)`…)
 

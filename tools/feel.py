@@ -172,6 +172,12 @@ def _sublist(lst, start, length=None):
     s = start - 1 if start > 0 else len(lst) + start
     return lst[s:] if length is None else lst[s:s + int(length)]
 
+def _round_half_even(v, d):
+    f = 10.0 ** d; y = v * f; lo = math.floor(y); frac = y - lo
+    if abs(frac - 0.5) < 1e-9: r = lo if lo % 2 == 0 else lo + 1
+    else: r = lo + 1 if frac > 0.5 else lo
+    return float(r / f)
+
 def _flatten(lst):
     out = []
     for x in lst:
@@ -185,7 +191,7 @@ BUILTINS = {
     # numbers
     "min": lambda *a: min(_num_list(a)), "max": lambda *a: max(_num_list(a)), "abs": abs, "sqrt": math.sqrt,
     "ceiling": lambda v: float(math.ceil(v - 1e-9)), "floor": lambda v: float(math.floor(v + 1e-9)),
-    "round": lambda v, d=0: float(round(v, int(d))), "modulo": lambda a, b: a - b * math.floor(a / b),
+    "round": lambda v, d=0: _round_half_even(v, int(d)), "modulo": lambda a, b: a - b * math.floor(a / b),
     "sin": lambda a: math.sin(math.radians(a)), "cos": lambda a: math.cos(math.radians(a)),
     "tan": lambda a: math.tan(math.radians(a)), "atan2": lambda y, x: math.degrees(math.atan2(y, x)),
     # lists
@@ -239,7 +245,8 @@ def evaluate(node, env):
         if op == "=": return a == b if not (isinstance(a, float) and isinstance(b, float)) else abs(a - b) < 1e-9
         if op == "!=": return not (a == b if not (isinstance(a, float) and isinstance(b, float)) else abs(a - b) < 1e-9)
         if a is None or b is None: return None
-        return {"<": a < b - 1e-12, "<=": a <= b + 1e-12, ">": a > b + 1e-12, ">=": a >= b - 1e-12}[op]
+        if isinstance(a, float) and isinstance(b, float) and abs(a - b) < 1e-9: a = b
+        return {"<": a < b, "<=": a <= b, ">": a > b, ">=": a >= b}[op]
     if k == "and":
         a = evaluate(node[1], env)
         if a is False: return False
