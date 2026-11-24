@@ -25,28 +25,46 @@ jobs:
         with:
           python-version: "3.13"
           cache: pip
-          cache-dependency-path: tools/requirements.txt
-      - run: pip install -r tools/requirements.txt
-      - name: "Every opo:: attribute validates against schema/0.1"
-        run: python3 tools/validate_schemas.py .
-      - name: "Class templates build and check"
-        run: python3 tools/check_opo.py .
+          cache-dependency-path: ci/requirements.txt
+      - run: pip install -r ci/requirements.txt
+      - name: "Every schema is valid; every opo:: attribute of the fixtures validates against schema/0.1"
+        run: python3 ci/validate_schemas.py .
 
+  # The job keeps the name of the required check; it now runs the reference implementation.
   conformance:
     name: Conformance suite (prototypes)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
-          cache: pip
-          cache-dependency-path: tools/requirements.txt
-      - run: pip install -r tools/requirements.txt
-      - name: "FEEL interpreter self-test"
-        run: python3 tools/feel.py
-      - name: "Conformance cases"
-        run: python3 tools/run_conformance.py .
+          path: spec
+      - id: rs
+        run: echo "rev=$(cat spec/opo-rs-version)" >> "$GITHUB_OUTPUT"
+      - name: "opo-rs at the commit in opo-rs-version"
+        uses: actions/checkout@v5
+        with:
+          repository: opo-format/opo-rs
+          ref: ${{ steps.rs.outputs.rev }}
+          path: opo-rs
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: opo-rs
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just
+      - name: "Cache the IFC sources"
+        uses: actions/cache@v4
+        with:
+          path: opo-rs/target/ifc-src
+          key: ifc-${{ hashFiles('opo-rs/ifc-version') }}
+      - name: "opo-rs integration and conformance tests against this checkout"
+        working-directory: opo-rs
+        env:
+          OPO_SPEC_DIR: ${{ github.workspace }}/spec
+        run: |
+          just ifc
+          cargo test --workspace --tests
 
   links:
     name: Links

@@ -1,6 +1,6 @@
 # IFC coverage — every IFC 4.3 element class has an OPO
 
-**Draft v0.1 · 24 Nov 2026** · generated from the IFC 4.3 schema (ifcopenshell `IFC4X3_ADD2`) by `tools/gen_coverage.py`; do not edit the tables by hand.
+**Draft v0.1 · 24 Nov 2026** · generated from the IFC 4.3 schema (`IFC4X3_ADD2`) by the retired prototype generator; frozen until the library generates it with `opo` (opo-format/library#14). Do not edit the tables by hand.
 
 **Goal.** Every IFC element type can be created parametrically in an OPO application and shared as a file, the way a Revit family is shared. That includes elements that Revit handles as non-shareable "system families" (walls, slabs, roofs, stairs, pipes, ducts): in OPO they are ordinary objects.
 

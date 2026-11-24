@@ -9,7 +9,7 @@ SPDX-License-Identifier = "CC-BY-4.0"
 
 # Schemas, conformance suite and tools
 [[annotations]]
-path = ["schema/**", "conformance/**", "tools/**", ".github/**", "REUSE.toml", ".gitignore"]
+path = ["schema/**", "conformance/**", "ci/**", "opo-rs-version", ".github/**", "REUSE.toml", ".gitignore"]
 precedence = "override"
 SPDX-FileCopyrightText = "OPO format contributors"
 SPDX-License-Identifier = "MIT OR Apache-2.0"

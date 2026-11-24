@@ -2,7 +2,7 @@
 
 Inputs and expected results that every OPO implementation must reproduce. `opo-rs` runs this suite at the spec version it supports; a second implementation passing it is required for OPO 1.0 (decision 0018).
 
-The expected results were created once from the prototype interpreter and evaluator (`tools/feel.py`, `tools/recipe.py`), reviewed, and are now the reference. They are not regenerated: if an implementation disagrees, the case is examined and either the implementation or the case is fixed by a pull request labelled `conformance` and `normative`.
+The expected results were created once from the prototype interpreter and evaluator (retired in migration phase 5), reviewed, and are now the reference. CI runs the opo-rs tests at the commit in `opo-rs-version` against this suite. They are not regenerated: if an implementation disagrees, the case is examined and either the implementation or the case is fixed by a pull request labelled `conformance` and `normative`.
 
 ## FEEL — `feel/cases.json`
 
