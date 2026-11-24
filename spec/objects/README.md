@@ -7,7 +7,7 @@ Every IFC 4.3 element class gets a generated **class template** (`archetypes.md`
 | File | Contents |
 |---|---|
 | [`archetypes.md`](archetypes.md) | The eight archetypes and what every IFC class template contains (the OPO equivalent of family templates) |
-| [`ifc-coverage.md`](ifc-coverage.md) | All 150 IFC 4.3 element classes with their predefined types, archetype and detailed sheets (generated) |
+| [`ifc-coverage.md`](ifc-coverage.md) | Points to the coverage table generated in the library (all 150 IFC 4.3 element classes with archetype, template, predefined types and library objects) |
 | [`rulesets.md`](rulesets.md) | Shared rule sets used by many objects: stairs, guards, handrails, accessibility, escape windows, kitchens (lifts in `transport.md`). EU values from EN/ISO only; UK and US columns. Values with sources, metric and imperial. |
 | [`openings.md`](openings.md) | O-01…O-18: doors, windows, openings, curtain walls (stick, unitised, structural glass) |
 | [`circulation.md`](circulation.md) | C-01…C-08: stairs, ramps, railings, handrails |
