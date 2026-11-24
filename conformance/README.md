@@ -37,9 +37,11 @@ Cases cover: the defaults, every predefined type, every option of every choice p
 
 ## Fixtures
 
+The fixture objects live in `fixtures/`, at the paths their ids name (`opo-format.org/<path>` resolves to `fixtures/<path>`). They are frozen copies of the prototype door and class templates; the maintained objects are in the library repository.
+
 | File | Object | Cases |
 |---|---|---|
-| `door-single-swing.json` | `examples/door/single-swing-door` | sizes for four markets × ISO 21542 / ADA rule sets |
-| `template-*.json` | `library/templates/<IfcClass>` | the nine class templates |
+| `door-single-swing.json` | `fixtures/examples/door/single-swing-door` | sizes for four markets × ISO 21542 / ADA rule sets |
+| `template-*.json` | `fixtures/library/templates/<IfcClass>` | the nine class templates |
 
 When objects move to the library repository (migration phase 4), the fixtures stay here as copies under `conformance/fixtures/`.

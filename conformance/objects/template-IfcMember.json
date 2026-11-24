@@ -1,7 +1,7 @@
 {
  "suite": "objects",
  "spec": "0.1",
- "object": "../../library/templates/IfcMember",
+ "object": "../fixtures/library/templates/IfcMember",
  "label": "Class template IfcMember",
  "cases": [
   {

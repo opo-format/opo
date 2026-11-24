@@ -1,6 +1,6 @@
 # 10. Reference test objects (drive the spec)
 
-1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, generic metric / UK / US size catalogues *(written: `examples/door/`)*
+1. **Door** — parameters, rules, 3 LODs, plan symbols, host void, IFC mapping, references, generic metric / UK / US size catalogues *(written: library `objects/door-single-swing`; fixture `conformance/fixtures/examples/door/`)*
 2. **Window with custom outline** — closed-profile input slot, driving/driven modes, clipped glazing grid (any window: outlines are editable on all windows)
 3. **Straight / L / U stair** — level attachment, repeat, slab opening, nested railing, regional rule set
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step

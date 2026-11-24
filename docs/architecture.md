@@ -32,7 +32,7 @@ Dependency direction is one way: **library → opo-rs → opo**. Each repository
 | FEEL behaviour | `opo/conformance/feel/` | — (opo-rs must pass) |
 | Why something is as it is | `opo/decisions/` | decisions index |
 | Proposed changes | `opo/proposals/` | proposals index with stages |
-| IFC classes, predefined types, property sets | extracted from the pinned IFC release into `library/ifc/` | class templates, coverage table |
+| IFC classes, predefined types, property sets | read at build time from buildingSMART's UML sources at the commit in library `ifc-version` (`opo ifc`; IFC is CC BY-ND 4.0, so nothing is committed) | class templates, coverage table |
 | An object | `library/objects/<id>/` | `.opo` package, catalogue row, preview images, docs page |
 | A class template | `library/templates/archetypes/*.yaml` + `library/templates/classes.yaml` | 150 template packages |
 | Materials and hatches | `library/styles/` | embedded into each object at build |

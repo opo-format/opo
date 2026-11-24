@@ -1,5 +1,7 @@
 # Door — reference test object #1 (v0.3)
 
+> Frozen fixture of the conformance suite. The maintained door is the library object `objects/door-single-swing` (YAML sources).
+
 A single swing door written as a real IFCX document with the `opo::` extension. Detailed enough for 1:20 drawings and schedules, deliberately not a door configurator: frame, rebated or flush leaf, threshold, hinges and a lever handle with roses, nothing more.
 
 ```

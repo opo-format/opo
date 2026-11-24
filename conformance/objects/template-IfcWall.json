@@ -1,7 +1,7 @@
 {
  "suite": "objects",
  "spec": "0.1",
- "object": "../../library/templates/IfcWall",
+ "object": "../fixtures/library/templates/IfcWall",
  "label": "Class template IfcWall",
  "cases": [
   {

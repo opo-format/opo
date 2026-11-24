@@ -1,6 +1,6 @@
 """Check OPO objects: schema, composition, names, FEEL evaluation of defaults, every predefined type and every
 variant, recipe execution, IFC mapping, quantities against mesh volumes, materials/hatches, baked geometry.
-Usage: python3 tools/check_opo.py [repo root] [object folder ...]   (default: every folder in library/templates)
+Usage: python3 tools/check_opo.py [repo root] [object folder ...]   (default: every folder in conformance/fixtures/library/templates)
 """
 import json, math, sys
 from pathlib import Path
@@ -17,7 +17,7 @@ CONTEXT_ROOTS = {"host", "level", "view", "rules", "flip"}
 
 def resolver(object_id):
     p = "opo-format.org/"
-    return ROOT / object_id[len(p):] if object_id.startswith(p) else None
+    return ROOT / "conformance/fixtures" / object_id[len(p):] if object_id.startswith(p) else None
 
 def mesh_volume(g):
     P = np.asarray(g["points"], float); F = np.asarray(g["faces"], int)
@@ -192,7 +192,7 @@ def check_folder(folder):
     return errs, results, len(cases)
 
 if __name__ == "__main__":
-    folders = [Path(a) for a in sys.argv[2:]] or sorted(p for p in (ROOT / "library/templates").iterdir() if (p / "object.ifcx").exists())
+    folders = [Path(a) for a in sys.argv[2:]] or sorted(p for p in (ROOT / "conformance/fixtures/library/templates").iterdir() if (p / "object.ifcx").exists())
     total = 0
     for f in folders:
         errs, results, n = check_folder(f)

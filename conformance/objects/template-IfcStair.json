@@ -1,7 +1,7 @@
 {
  "suite": "objects",
  "spec": "0.1",
- "object": "../../library/templates/IfcStair",
+ "object": "../fixtures/library/templates/IfcStair",
  "label": "Class template IfcStair",
  "cases": [
   {

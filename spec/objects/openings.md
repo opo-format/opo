@@ -11,7 +11,7 @@ Shared rules for this family:
 
 ## O-01 Single swing door — ✅ written
 
-See `examples/door/`. Reference for all doors.
+See the library object `door-single-swing` (fixture: `conformance/fixtures/examples/door/`). Reference for all doors.
 
 ---
 
@@ -334,4 +334,4 @@ Curtain walls are a key element for high-rise and complex façades, so they get 
 - IRC R310: see `rulesets.md`
 - Roof windows: velux.co.uk size guide; FAKRO flashing table; DAKEA technical data (shared size range)
 - Garage doors: normstahl.com standard sizes; doorsuperstore.co.uk; homedepot.com, clopaydoor.com; garagedoorsonline.co.uk (125 mm steps)
-- Generic metric / UK / US door sizes: see `examples/door/README.md`
+- Generic metric / UK / US door sizes: see `conformance/fixtures/examples/door/README.md`
