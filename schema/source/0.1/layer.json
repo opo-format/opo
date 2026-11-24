@@ -42,6 +42,11 @@
             },
             "note": {
               "type": "string"
+            },
+            "node": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "description": "Explicit node id, used instead of the generated one (published ids never change)."
             }
           }
         },
@@ -70,6 +75,11 @@
               },
               "note": {
                 "type": "string"
+              },
+              "node": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                "description": "Explicit node id, used instead of the generated one (published ids never change)."
               }
             }
           },
@@ -105,6 +115,11 @@
         },
         "values": {
           "$ref": "common.json#/$defs/values"
+        },
+        "node": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "description": "Explicit node id, used instead of the generated one (published ids never change)."
         }
       },
       "required": [
