@@ -13,7 +13,7 @@ An `.opo` is an IFCX (IFC5) document with an `opo::` extension, packaged as a zi
 
 [Curva](https://github.com/curva3d) is the first application to implement OPO, but the format belongs to no single application. Anyone is welcome to implement it.
 
-> **Status:** early draft. Nothing is final yet. See the [spec outline](spec/OUTLINE.md).
+> **Status:** early draft. Nothing is final yet. See the [draft specification](spec/00-index.md).
 
 ## How the project is organised
 
@@ -23,7 +23,7 @@ One source of truth, everything else generated, everything checked: see [`docs/a
 
 | Path | Contents |
 |---|---|
-| [`spec/OUTLINE.md`](spec/OUTLINE.md) | Draft spec outline (v0.1), with recorded decisions in §11 |
+| [`spec/`](spec/00-index.md) | Draft specification (v0.1), one file per chapter |
 | [`spec/objects/`](spec/objects/README.md) | Object catalogue: a class template for every IFC 4.3 element class (150, on eight archetypes), and 74 planned detailed objects in eight families with one specification sheet each, and shared rule sets (stairs, guards, accessibility, escape windows, kitchens) |
 | [`schema/`](schema/) | `opo@v0.1.ifcx`: IFCX declaration of the `opo::` attributes (draft). Will be published at `https://opo-format.org/schema/<version>/` |
 | [`library/templates/`](library/templates/) | Class templates (one per IFC class; 9 built so far, one per archetype), generated and checked by the scripts in `tools/` |

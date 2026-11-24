@@ -16,7 +16,7 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [ ] Milestones, once the phases become issues.
 
 ## Phase 2 — Standard repository cleaned up
-- [ ] Split `spec/OUTLINE.md` into numbered chapters in `spec/`; decisions table replaced by links to `decisions/`.
+- [x] `spec/OUTLINE.md` split into numbered chapters (`spec/00-index.md` …); decisions table replaced by links to `decisions/` (#1).
 - [ ] JSON Schemas for every `opo::` attribute (`schema/`), drafted from the working examples.
 - [ ] Conformance suite: FEEL cases (from `tools/feel.py` tests and the template formulas), recipe cases (inputs + expected volumes, curves), object cases (door and the nine templates as fixtures with expected outputs).
 - [ ] REUSE licence metadata; CI: lint, schema validation, links.
