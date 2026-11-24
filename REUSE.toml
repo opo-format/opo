@@ -1,0 +1,22 @@
+version = 1
+
+# Default: specification and documentation text
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "OPO format contributors"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Schemas, conformance suite and tools
+[[annotations]]
+path = ["schema/**", "conformance/**", "tools/**", ".github/**", "REUSE.toml", ".gitignore"]
+precedence = "override"
+SPDX-FileCopyrightText = "OPO format contributors"
+SPDX-License-Identifier = "MIT OR Apache-2.0"
+
+# Example and template objects (prototypes; move to opo-format/library)
+[[annotations]]
+path = ["examples/**", "library/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "OPO format contributors"
+SPDX-License-Identifier = "CC0-1.0"
