@@ -1,5 +1,6 @@
-"""Validate every opo:: attribute in the repository against schema/0.1 (JSON Schema 2020-12). Prototype until `opo check` in opo-rs.
-Usage: python3 tools/validate_schemas.py [repo root]"""
+"""Validate every opo:: attribute in the repository (the conformance fixtures) against schema/0.1
+(JSON Schema 2020-12), and every schema against the meta-schema. Used by CI.
+Usage: python3 ci/validate_schemas.py [repo root]"""
 import json, sys, pathlib
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource

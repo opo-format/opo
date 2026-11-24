@@ -36,7 +36,7 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] CI builds, checks, renders previews and publishes packages on release (library#7, #11).
 
 ## Phase 5 — Retire the prototypes
-- [ ] Delete `tools/*.py`, `library/` and `examples/` from the standard repository (kept as conformance fixtures where useful).
+- [x] Delete `tools/*.py`, `library/` and `examples/` from the standard repository (kept as conformance fixtures where useful): fixtures in `conformance/fixtures/` (#22); prototypes deleted, CI runs opo-rs and `ci/validate_schemas.py` (#21).
 - [ ] Chat-project notes reduced to links into the repositories.
 
 ## Phase 6 — Scale
