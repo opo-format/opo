@@ -23,22 +23,19 @@
   "schemas": {},
   "data": [
     {
-      "path": "2498acc0-df0f-547b-a8ac-27e7f70b36d8",
+      "path": "f5107809-48bd-5407-82f5-98a158a1c95b",
       "attributes": {
-        "opo::rules": {
-          "rulesets": [
-            {
-              "id": "accessibility",
-              "uri": "https://opo-format.org/rulesets/accessibility/us-ada-2010@0.1",
-              "values": {
-                "min_clear_width": "inch(32)",
-                "measure": "\"usable_clear_width\"",
-                "handle_min": "inch(34)",
-                "handle_max": "inch(48)"
-              },
-              "source": "2010 ADA Standards §404.2.3 (32 in clear, door open 90°) and §404.2.7 (hardware 34–48 in above floor)."
-            }
-          ]
+        "opo::ruleset": {
+          "id": "accessibility",
+          "label": "2010 ADA Standards",
+          "uri": "https://opo-format.org/rulesets/accessibility/us-ada-2010@0.1",
+          "source": "2010 ADA Standards §404.2.3 (32 in clear, door open 90°) and §404.2.7 (hardware 34–48 in above floor).",
+          "values": {
+            "min_clear_width": "inch(32)",
+            "measure": "\"usable_clear_width\"",
+            "handle_min": "inch(34)",
+            "handle_max": "inch(48)"
+          }
         }
       }
     }

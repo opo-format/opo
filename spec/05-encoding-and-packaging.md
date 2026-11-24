@@ -14,11 +14,12 @@ An IFCX file has a `header`, `imports` (schema URIs), `schemas` (new attribute d
 | Parts (frame, leaf, void…) | `children` of the type node, carrying baked geometry |
 | Variant | A node that `inherits` the type node and sets `opo::values` and its own `bsi::ifc::prop::TypeName` |
 | Instance (in a project file) | A node that `inherits` a variant (or the type), with its own `opo::values`, `opo::inputs` (drawn geometry) and `usd::xformop` placement |
-| Product binding, regional values | Layer files adding attributes to existing paths |
+| Product binding | Layer files adding attributes to existing paths |
+| Regional rule set | A node with `opo::ruleset`, in a layer file (§4.4) |
 | Baked fallback | `usd::usdgeom::mesh` on part nodes (3D), `usd::usdgeom::basiscurves` on hidden 2D symbol nodes, both in metres |
 | IFC data | `opo::ifc` maps FEEL expressions to `bsi::ifc::prop::*` names, so every instance writes correct IFC properties (e.g. OverallWidth, OperationType) |
 
-`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::hatches`, `opo::ports`, `opo::ifc`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file. The structure of each attribute is defined by a JSON Schema (draft 2020-12) at the URI given in that declaration, e.g. `https://opo-format.org/schema/0.1/parameters.json`; the files live in `schema/<version>/` of the standard repository. A file is valid only if every `opo::` attribute validates against its schema.
+`opo::*` attributes on the type node: `opo::object` (identity), `opo::parameters`, `opo::slots`, `opo::rules`, `opo::recipe`, `opo::representations`, `opo::host`, `opo::handles`, `opo::materials`, `opo::hatches`, `opo::ports`, `opo::ifc`. Other nodes carry `opo::values`, `opo::inputs`, `opo::ruleset`, `opo::representation`, `opo::line_class` and `opo::note`. They are declared in `schema/opo@v<version>.ifcx`, imported by every OPO file. The structure of each attribute is defined by a JSON Schema (draft 2020-12) at the URI given in that declaration, e.g. `https://opo-format.org/schema/0.1/parameters.json`; the files live in `schema/<version>/` of the standard repository. A file is valid only if every `opo::` attribute validates against its schema.
 
 IFCX alpha has only meshes and polylines, no exact solids. Exact geometry comes from the OPO recipe (used by OPO-aware tools and the IFC4.3 export); the baked mesh lets any IFC5 viewer display the object today.
 
@@ -31,6 +32,7 @@ door.opo                (zip)
 └── assets/             optional: previews, textures, manufacturer geometry, WASM
 ```
 Source repositories store the same structure unpacked as a folder.
+- **Composition.** Layers compose over the base as IFCX layers do: for the same node, a layer's attribute replaces the base's whole attribute, and `null` removes it; `opo::values` is the exception and merges key by key through `inherits` (§4.14). The layers of a package are **independent**: two layers must not set the same attribute of the same node. They may add nodes and add entries to `children` and `inherits`. Checking tools report overlaps (decision 0020).
 - **Canonical encoding:** JSON, validated by a published JSON Schema at `https://opo-format.org/schema/<version>/`.
 - **Packaging: always a zip.** Every `.opo` is a zip container (like `.3mf` or `.docx`) holding the IFCX/JSON document plus any previews, textures, manufacturer geometry or WASM module. One code path for all readers. For version control, the reference CLI packs and unpacks `.opo` files, and source repositories store objects unpacked as folders.
 - Units: metres and degrees, as IFCX (see §4.2).

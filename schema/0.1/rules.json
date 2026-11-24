@@ -79,34 +79,15 @@
           "note": {
             "type": "string"
           },
-          "uri": {
-            "type": "string",
-            "format": "uri"
-          },
-          "source": {
-            "type": "string"
-          },
           "fields": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
             }
-          },
-          "values": {
-            "type": "object",
-            "additionalProperties": {
-              "description": "A FEEL expression (string) or a literal JSON value.",
-              "type": [
-                "string",
-                "number",
-                "boolean",
-                "array",
-                "object",
-                "null"
-              ]
-            }
           }
-        }
+        },
+        "additionalProperties": false,
+        "description": "Declares a rule set the object reads. The values come from a rule-set node (opo::ruleset, decision 0020)."
       }
     }
   }

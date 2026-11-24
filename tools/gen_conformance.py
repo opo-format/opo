@@ -142,8 +142,8 @@ def object_cases(folder, extra_cases, label):
             cases.append((slug, vals, {}, {}))
     for f in sorted(folder.glob("layers/*.ifcx")):
         for n in json.loads(f.read_text())["data"]:
-            for rs in (n.get("attributes", {}).get("opo::rules") or {}).get("rulesets", []):
-                if "values" in rs: rulesets[(f.stem, rs["id"])] = {k: feel(v, {}) for k, v in rs["values"].items()}
+            rs = n.get("attributes", {}).get("opo::ruleset")
+            if rs: rulesets[(f.stem, rs["id"])] = {k: feel(v, {}) for k, v in rs["values"].items()}
     variant_cases = [c for c in cases if c[0].startswith("sizes-") or c[0].startswith("types-") or c[0].startswith("profiles-")]
     for (stem, rid), rvals in sorted(rulesets.items()):
         cases.append((stem, {}, {}, {"rules": {rid: rvals}}))

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/ruleset.json",
+  "title": "opo::ruleset",
+  "description": "One regional rule set: the values an object's declared rule set takes under a regulation (spec §4.4, decision 0020). Lives on its own node, usually in a layer.",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "values"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name",
+      "description": "The rule-set id declared in the object's opo::rules.rulesets (e.g. accessibility)."
+    },
+    "label": {
+      "type": "string",
+      "description": "Display name, e.g. ISO 21542:2021."
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/text",
+      "description": "The regulation and clauses the values come from."
+    },
+    "note": {
+      "type": "string"
+    },
+    "values": {
+      "type": "object",
+      "description": "Field name to FEEL expression or literal.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "array",
+          "object",
+          "null"
+        ]
+      }
+    }
+  }
+}

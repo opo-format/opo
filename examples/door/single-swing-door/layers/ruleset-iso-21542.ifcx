@@ -23,22 +23,19 @@
   "schemas": {},
   "data": [
     {
-      "path": "2498acc0-df0f-547b-a8ac-27e7f70b36d8",
+      "path": "1a6c4f3a-1758-5f38-8b06-f4eaa5b91e2b",
       "attributes": {
-        "opo::rules": {
-          "rulesets": [
-            {
-              "id": "accessibility",
-              "uri": "https://opo-format.org/rulesets/accessibility/iso-21542-2021@0.1",
-              "values": {
-                "min_clear_width": "mm(800)",
-                "measure": "\"usable_clear_width\"",
-                "handle_min": "mm(800)",
-                "handle_max": "mm(1000)"
-              },
-              "source": "ISO 21542:2021 door criteria: clear opening width >= 800 mm (850 mm recommended), handle height 800-1000 mm. EN 17210 (EU) states the functional requirement."
-            }
-          ]
+        "opo::ruleset": {
+          "id": "accessibility",
+          "label": "ISO 21542:2021",
+          "uri": "https://opo-format.org/rulesets/accessibility/iso-21542-2021@0.1",
+          "source": "ISO 21542:2021 door criteria: clear opening width >= 800 mm (850 mm recommended), handle height 800-1000 mm. EN 17210 (EU) states the functional requirement.",
+          "values": {
+            "min_clear_width": "mm(800)",
+            "measure": "\"usable_clear_width\"",
+            "handle_min": "mm(800)",
+            "handle_max": "mm(1000)"
+          }
         }
       }
     }
