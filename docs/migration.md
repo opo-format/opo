@@ -27,7 +27,7 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] `opo-model` (types for every `opo::` attribute, serde), `opo-ifcx` (read, write, compose layers) (opo-rs#9).
 - [x] `opo-recipe` (kernel: 2D regions, extrude, sweep, revolve, for_each, instance) passes the recipe cases (265/265, opo-rs#11).
 - [x] `opo-check` reproduces `tools/check_opo.py` (opo-rs#12); `opo-build` bakes, packs and unpacks (opo-rs#13; YAML compilation waits for the source schema); `opo-render` draws SVG plans and 3D views with hatches (opo-rs#15).
-- [ ] Template generator in Rust reproduces the nine templates.
+- [x] Template generator in Rust reproduces the nine templates (`opo generate`, opo-rs#17, #18; `opo compare`: same).
 
 ## Phase 4 — Library repository
 - [ ] YAML source schema (Phase 2) applied: door and nine templates converted to YAML; `opo build` output equals today's files (golden comparison).
