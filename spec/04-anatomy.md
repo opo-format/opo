@@ -165,6 +165,8 @@ OPO objects are not invented from scratch. Every object in an OPO library states
 
 Values that are typical practice rather than taken from a norm (e.g. hinge positions) are marked as such in a `note`.
 
+**Provenance.** A node may carry `opo::provenance`: a map from the path of one of its values (`parameters.handle_height.default`, `values.nominal_width`, `ruleset.values.min_clear_width`) to `{source, status, note}`. `status` is `norm`, `maker`, `typical`, `illustrative` or `to_verify`; `norm` and `maker` need a `source`, the others a `note`. Applications may show the status next to a value; library objects marked stable have no `to_verify` value (decision 0017, proposal 0002).
+
 **Size catalogues.** Standard sizes ship as layer files, one per norm or market. Each catalogue has one *system* node (inheriting the type) carrying that market's construction values (frame type, lining, gaps, leaf thickness, handle height…), and one variant node per standard size inheriting the system node. All markets use the same object; only the values differ. `opo::values` merges key by key along `inherits`: a variant's own values win over its system node's, a `null` value removes an inherited one, and of several inherited nodes the later one in `inherits` wins (decision 0020).
 
 ## 4.15 Script step (optional, rare)

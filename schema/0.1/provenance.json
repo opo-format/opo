@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/provenance.json",
+  "title": "opo::provenance",
+  "description": "Where the values on this node come from (decision 0017, proposal 0002): value path → source, status and note. Paths name a value of an attribute on the same node, e.g. parameters.handle_height.default, values.nominal_width, ruleset.values.min_clear_width.",
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "pattern": "^[a-z][a-z_]*(\\.[A-Za-z0-9_]+)+$"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "source": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Id of the source in the library's references registry, or a citation."
+      },
+      "status": {
+        "enum": [
+          "norm",
+          "maker",
+          "typical",
+          "illustrative",
+          "to_verify"
+        ]
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "norm",
+                "maker"
+              ]
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "source"
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "typical",
+                "illustrative",
+                "to_verify"
+              ]
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "note"
+          ]
+        }
+      }
+    ]
+  }
+}
