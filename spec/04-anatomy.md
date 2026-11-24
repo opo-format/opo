@@ -181,5 +181,5 @@ Every concrete IFC element class (150 in IFC 4.3) has an OPO **class template**,
 - The template adds the IFC class, every predefined type as a choice, the applicable IFC property sets as data parameters (they follow the chosen predefined type), base quantities as derived values, ports for distribution elements, and per-class defaults.
 - Templates are **generated** from the pinned IFC schema, the IFC property and quantity set templates, the archetype definitions and one hand-written per-class table. They are regenerated when IFC changes.
 - **Library objects** refine a template with real construction logic and drawing conventions, keeping the same class, types, property sets and ports. Authors (firms, manufacturers) start from a template or a library object.
-- Details: `spec/objects/archetypes.md`; class list: `spec/objects/ifc-coverage.md`.
-- Built so far (one per archetype, plus IfcBeam): IfcWall, IfcSlab, IfcBeam, IfcMember, IfcBoiler, IfcPipeFitting, IfcOpeningElement, IfcStair, IfcElementAssembly. Their sources are in the library repository (`templates/`); `opo generate` builds them. Frozen copies are conformance fixtures (`conformance/fixtures/library/templates/`).
+- Details: `spec/objects/archetypes.md`; class list: the coverage table generated in the library repository (`opo coverage`).
+- Built: all 150 IFC 4.3 element classes. Their sources are in the library repository (`templates/`); `opo generate` builds them. Frozen copies of the first nine are conformance fixtures (`conformance/fixtures/library/templates/`).

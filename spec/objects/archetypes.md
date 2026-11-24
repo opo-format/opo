@@ -4,7 +4,7 @@
 
 Every IFC 4.3 element class gets a **class template**: a working OPO that a user can place, edit and share, and that authors start from when they make a detailed object (like a Revit family template). Templates are built on eight **archetypes**. An archetype fixes the inputs, the base geometry, the host behaviour and the representations; the class template adds the IFC class, its predefined types, its property sets, its ports and its defaults.
 
-The full class list with the archetype of each class is in `ifc-coverage.md`.
+The archetype of each class is set in the library's per-class table (`templates/classes.yaml`); the generated coverage table lists them (`ifc-coverage.md` points there).
 
 ---
 
@@ -124,7 +124,11 @@ The full class list with the archetype of each class is in `ifc-coverage.md`.
 
 **IFC export** `IfcElementAssembly` with its parts by `IfcRelAggregates`.
 
-`any` — for generic classes (`IfcBuildingElementProxy`, `IfcBuiltElement`, `IfcCivilElement`) the user picks the archetype.
+### any — the user picks the form
+
+**Used by** the generic classes `IfcBuiltElement`, `IfcBuildingElementProxy` and `IfcCivilElement`.
+
+**Inputs** a `form` choice: a box at a point, a rectangular section along a plan path, or a slab from a plan outline; width, depth, height (or thickness), an offset from the storey and a material.
 
 ---
 
@@ -140,15 +144,15 @@ Many IFC classes (sensors, valves, dampers, alarms, plant) have no single intern
 
 ---
 
-## 5. Per-class defaults table (`templates/classes.csv`)
+## 5. Per-class defaults table (library `templates/classes.yaml`)
 
-One row per class (and optionally per predefined type) with: archetype, default shape and size (metric / imperial), mount mode, clearance zone, ports, symbol code, default material, and whether the class is a host. The first version fills sizes as "typical" values only where they are obvious (furniture, sanitary, doors); for the rest the default is a neutral size the user changes, and the row is marked *(to collect)* until real maker or norm sizes are added. Rows never invent precise norm values.
+One entry per class (and optionally per predefined type) with: archetype, default shape and size (metric / imperial), mount mode, clearance zone, ports, symbol code, default material, and whether the class is a host. The first version fills sizes as "typical" values only where they are obvious (furniture, sanitary, doors); for the rest the default is a neutral size the user changes, and the row is marked *(to collect)* until real maker or norm sizes are added. Rows never invent precise norm values.
 
 ---
 
-## 6. Status (24 Nov 2026)
+## 6. Status (25 Nov 2026)
 
-One class template per archetype is built (sources in the library repository, `templates/`; built and checked by `opo generate` and `opo check`; frozen copies in `conformance/fixtures/library/templates/`):
+Every IFC 4.3 element class (150) has a class template, generated from the library's archetypes and per-class table by `opo generate` and checked by `opo check`. A ninth archetype, `any`, covers the three generic classes (IfcBuiltElement, IfcBuildingElementProxy, IfcCivilElement): the user picks a box, a section along a path or a slab from an outline. The first template of each archetype, below, proved the archetype; frozen copies are conformance fixtures (`conformance/fixtures/library/templates/`):
 
 | Archetype | Template | What it proves |
 |---|---|---|
@@ -166,5 +170,5 @@ Every template is checked for: declared attributes, resolvable names, evaluation
 ## 7. Order of work
 
 1. ✅ One template per archetype (above).
-2. The per-class table for all classes, then the generator → all class templates in the library repository.
+2. ✅ The per-class table for all classes, then the generator → all class templates in the library repository.
 3. Detailed library objects from the sheets, by priority, starting with the P1 objects.
