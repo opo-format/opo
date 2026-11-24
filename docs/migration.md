@@ -37,7 +37,7 @@ From one mixed repository with Python prototypes to the structure in `architectu
 
 ## Phase 5 — Retire the prototypes
 - [x] Delete `tools/*.py`, `library/` and `examples/` from the standard repository (kept as conformance fixtures where useful): fixtures in `conformance/fixtures/` (#22); prototypes deleted, CI runs opo-rs and `ci/validate_schemas.py` (#21).
-- [ ] Chat-project notes reduced to links into the repositories.
+- [x] Chat-project notes reduced to links into the repositories (HANDOFF, SPEC-OUTLINE, OBJECT-CATALOGUE).
 
 ## Phase 6 — Scale
 - [ ] Per-class table for all 150 IFC classes → all class templates.
