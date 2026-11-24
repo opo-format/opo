@@ -8,7 +8,7 @@ spec_version: "0.2"
 
 ## Summary
 
-Some building elements are not one shape built from one drawn input. They are **systems**: a generator (a baseline with a height, a path, a face) is divided by rules into a grid, and member objects are placed on the grid's lines, nodes and cells. Curtain walls (mullions, transoms, panels, spandrels, junctions), railings (posts, rails, balusters, infill panels) and sloped glazing all work this way. Archicad and Revit both model them like this.
+Some building elements are not one shape built from one drawn input. They are **systems**: a generator (a baseline with a height, a path, a face) is divided by rules into a grid, and member objects are placed on the grid's lines, nodes and cells. Curtain walls (mullions, transoms, panels, spandrels, junctions), railings (posts, rails, balusters, infill panels) and sloped glazing all work this way.
 
 This proposal adds five things to OPO:
 
@@ -20,27 +20,13 @@ This proposal adds five things to OPO:
 
 ## Motivation
 
-### How other tools generate parametric objects
-
-OPO's goal is objects that can be shared like a Revit family or an Archicad GDL object (spec §1). Both tools separate *simple objects* from *systems*.
-
-**Archicad GDL objects.** A GDL library part has a master script (shared variables and calculations), a parameter script (value lists and limits), a 2D script (plan symbol), a 3D script (model) and hotspots for graphical editing. A library part belongs to a **subtype** (door, window, curtain wall frame, curtain wall panel, railing post…), which fixes the parameters the host tool passes to it. One part calls another with `CALL` (a macro).
-
-**Archicad system tools.** Walls are drawn from a polyline. The curtain wall tool is different: its **scheme** holds the reference line, a base surface and a **scheme grid** of rows and columns. Frames (classes Boundary, Mullion, Transom, or user-defined) are attached to grid lines; panels (classes Main and Distinct, or user-defined) fill the cells between frames; optional junctions sit at grid points; accessories attach to frames. Frames, panels, junctions and accessories are GDL objects. The grid pattern is set per row and column with three distributions: fixed size (repeated from a pattern origin, the leftover filled by a chosen panel class or cut off), best division (flexible sizes stretched to fill the length exactly, keeping their ratios, with an "end with" entry) and a number of divisions. Members can be edited one by one without breaking the system. The railing tool is built the same way along a polyline: nodes with posts, segments with a pattern of inner posts, rails, balusters and panels, and pattern distribution settings.
-
-**Revit families.** A family starts from a template that fixes its hosting: wall-, floor-, ceiling-, roof- or face-based, line-based (two picks), level-based, two-level-based (columns) or adaptive (placed by a set of points). Geometry is constrained to reference planes by labelled dimensions; type and instance parameters drive it; nested families can be swapped through family-type parameters. Curtain walls are a *system* family: a type sets a vertical and horizontal grid layout (fixed distance with a justification, fixed number, or maximum spacing), the mullion family for interior and border lines, the default curtain panel family, and a join condition (which direction runs continuous). Grid segments can be removed one by one, which merges panels; panels can be swapped individually, including for a curtain wall door.
-
-**IFC.** An `IfcCurtainWall` is an assembly that aggregates its parts: mullions and transoms as `IfcMember` (MULLION), panels as `IfcPlate` (CURTAIN_PANEL), and windows and doors where cells hold them.
-
-### What OPO 0.1 can and cannot do
-
-OPO 0.1 covers the simple-object side: parameters (≈ the parameter script), derived values (≈ the master script), recipe (≈ the 3D script), representations (≈ the 2D script), handles (≈ hotspots), class templates on archetypes (≈ subtypes and Revit templates), nested objects (≈ `CALL` and nested families) and host modes (≈ Revit hosting).
+OPO 0.1 builds an object from parameters, drawn inputs, formulas and a geometry recipe, and can nest other objects. That covers simple objects: a door, a beam, a boiler, a slab.
 
 A stick curtain wall (catalogue O-16) shows what is missing:
 
-- **No rule-based division.** `for` and `for_each` can repeat things at a computed spacing, but each object would re-implement "fixed size with leftover", "best division" or "maximum spacing" in FEEL, and two applications would round differently. These rules are what users expect from Archicad and Revit.
+- **No rule-based division.** `for` and `for_each` can repeat things at a computed spacing, but each object would re-implement "fixed size with leftover", "best division" or "maximum spacing" in FEEL, and two applications would round differently. Users expect these rules from the design tools they already use.
 - **No grid topology.** A curtain wall needs to know which segment lies between which nodes, which cells it bounds, which segments are on the border, and which cell is in which row and column, so that a transom stops at a mullion and a spandrel row gets spandrel panels.
-- **Nested objects are fixed.** `instance(object, …)` names one object id. Users must be able to choose which mullion or panel object a class uses, and swap one cell to a door, as in Revit and Archicad. A swapped object needs a contract: what inputs it receives and what it reports back (a mullion's face width, so panels can shrink to fit).
+- **Nested objects are fixed.** `instance(object, …)` names one object id. Users must be able to choose which mullion or panel object a class uses, and swap one cell to a door. A swapped object needs a contract: what inputs it receives and what it reports back (a mullion's face width, so panels can shrink to fit).
 - **No per-instance edits.** Removing one transom to make a tall panel is an edit to one placed curtain wall, not a new type.
 - **No surface or point-set input.** Slots are curves and closed profiles; a curtain wall needs a baseline with a height, and a panel object needs its four corners.
 
@@ -77,10 +63,10 @@ The result is a context:
 
 Distributions:
 
-- **`fixed`.** The pattern repeats at its given sizes; flexible flags are ignored. `origin: start` starts the first entry at 0; `end` lays the pattern backwards from `length`; `center` puts the midpoint of the repeated sequence at `length / 2` with whole patterns placed outwards from it. The pattern is cut at the ends. With `infill: "partial"` a cut bay keeps its entry's class; with a class name, every bay that is shorter than its entry's size gets that class. (Archicad fixed size with pattern origin and infill; Revit fixed distance with justification beginning, end or center.)
-- **`best_division`.** At least one entry must be flexible. The sequence is the pattern repeated *k* times, followed by entries 1..`end_with` of one more repetition when `end_with` is smaller than the number of entries. Fixed entries keep their size; flexible entries are scaled by one factor *s* so the sequence fills `length` exactly. *k* is the whole number ≥ 1 with *s* > 0 for which |*s* − 1| is smallest; on a tie, the larger *k*. If no *k* gives *s* > 0, the layout is invalid and a check fails. (Archicad best division with end with; flexible sizes keep their ratios.)
-- **`count`.** `pattern` holds one entry; its `size` is read as the number of equal bays (a whole number ≥ 1). (Revit fixed number; Archicad number of divisions.)
-- **`max_spacing`.** `pattern` holds one entry; the fewest equal bays whose size is ≤ the entry's `size`. (Revit maximum spacing.)
+- **`fixed`.** The pattern repeats at its given sizes; flexible flags are ignored. `origin: start` starts the first entry at 0; `end` lays the pattern backwards from `length`; `center` puts the midpoint of the repeated sequence at `length / 2` with whole patterns placed outwards from it. The pattern is cut at the ends. With `infill: "partial"` a cut bay keeps its entry's class; with a class name, every bay that is shorter than its entry's size gets that class.
+- **`best_division`.** At least one entry must be flexible. The sequence is the pattern repeated *k* times, followed by entries 1..`end_with` of one more repetition when `end_with` is smaller than the number of entries. Fixed entries keep their size; flexible entries are all scaled by one factor *s* (so they keep their ratios) so the sequence fills `length` exactly. *k* is the whole number ≥ 1 with *s* > 0 for which |*s* − 1| is smallest; on a tie, the larger *k*. If no *k* gives *s* > 0, the layout is invalid and a check fails.
+- **`count`.** `pattern` holds one entry; its `size` is read as the number of equal bays (a whole number ≥ 1).
+- **`max_spacing`.** `pattern` holds one entry; the fewest equal bays whose size is ≤ the entry's `size`.
 - **`positions`.** `pattern` is a list of numbers in (0, `length`), sorted ascending: the division positions. Classes are `"main"`. (Lines at levels, or lines drawn by the user.)
 
 With `within`, each interval is laid out on its own with the same arguments, and bay and line indices run on across intervals. This is how a curtain wall gets a spandrel zone and a vision zone in every storey even when storey heights differ: `within` is the list of level heights.
@@ -100,7 +86,7 @@ grid(surface, u, v, [join, classes, overrides])
 | `join` | `u_continuous` (default: vertical members run through, like stick-system mullions) or `v_continuous`. Decides which segments break at a node. |
 | `overrides` | The instance `overrides` input (§5), or empty. |
 
-**Baseline with several segments.** Each baseline segment is laid out on its own with `u`; baseline vertices become grid lines of class `"corner"`. *(Open question 1: an option to run the pattern continuously round corners.)*
+**Baseline with several segments.** Each baseline segment is laid out on its own with `u`; the pattern restarts on every straight run, and baseline vertices become grid lines of class `"corner"`.
 
 **Result.** A context with three lists:
 
@@ -110,7 +96,7 @@ grid(surface, u, v, [join, classes, overrides])
 
 **Ids** are stable for a given layout: lines are numbered from 0 along u and v; a cell is `"c{column}.{row}"`; a u-direction segment on line *j* between columns is `"h{j}.{column}"`, a v-direction segment on line *i* between rows is `"v{i}.{row}"`; a node is `"n{i}.{j}"`. (u-direction segments run horizontally on a vertical wall: transoms; v-direction segments run vertically: mullions.)
 
-**Member classes.** By default a segment's `cls` is `"boundary"` on the surface outline, `"corner"` on corner lines, `"mullion"` for other v-direction segments and `"transom"` for other u-direction segments (Archicad's frame classes). A cell's `cls` is its row's class when that is not `"main"`, otherwise its column's class (so a spandrel row of the v-pattern makes spandrel cells). Objects may replace both rules with FEEL expressions in the grid's optional `classes` argument: `{segment: <expr over segment>, cell: <expr over cell>}`.
+**Member classes.** By default a segment's `cls` is `"boundary"` on the surface outline, `"corner"` on corner lines, `"mullion"` for other v-direction segments and `"transom"` for other u-direction segments. A cell's `cls` is its row's class when that is not `"main"`, otherwise its column's class (so a spandrel row of the v-pattern makes spandrel cells). Objects may replace both rules with FEEL expressions in the grid's optional `classes` argument: `{segment: <expr over segment>, cell: <expr over cell>}`.
 
 **Join.** With `u_continuous`, v-direction segments (mullions) run from node to node unbroken through every intersection and u-direction segments (transoms) are trimmed between them; `v_continuous` is the reverse. The trimming itself is done by the members, from the `trim_start` and `trim_end` widths the grid passes them (§3).
 
@@ -163,7 +149,7 @@ panel_classes:
     default: opo:library/glazed-panel-igu
 ```
 
-`instance(object, …)` accepts a component value wherever it accepts an object id. A packaged `.opo` embeds every object a component parameter's default and classes name (spec §4.9); objects the user picks later travel with the project (as Revit loads a family into a project).
+`instance(object, …)` accepts a component value wherever it accepts an object id. A packaged `.opo` embeds every object a component parameter's default and classes name (spec §4.9); objects the user picks later travel with the project.
 
 **Interface.** A nested object that can fill a component slot declares `opo::interface`: its name, the inputs it accepts from the parent and the derived values it reports back. The spec defines the first four standard interfaces:
 
@@ -174,14 +160,14 @@ panel_classes:
 | `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember`, `IfcDiscreteAccessory` *(to decide)* |
 | `post` | `point`, `direction` (along the path), `height`, `normal` | `face_width` | `IfcMember` |
 
-The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. This is Revit's "adjust for mullion size" made explicit, and it lets a door object sit in a cell of any mullion system.
+The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. It lets a door object sit in a cell of any mullion system.
 
 A check fails if an object placed in a component slot does not declare the slot's interface, or if a required interface input is not passed.
 
 ### 4. Input slot types `surface` and `points`
 
 - **`surface`**: either `{baseline, base, top}`, where `baseline` is a polyline or arc in plan and `base` and `top` are heights (or level references resolved by the application to heights), or `{face}`, a flat closed polygon in 3D (sloped glazing, a sloped roof light). The surface's u direction runs along the baseline (or the face's first edge), v runs up (or across). Validity: baseline not self-intersecting; `top` > `base`; face planar within 1e-6 m.
-- **`points`**: an ordered list of a fixed number of 3D points (`count` in the slot declaration), like Revit adaptive placement points. Used by panel-type objects placed on four corners and by line-based objects (two points).
+- **`points`**: an ordered list of a fixed number of 3D points (`count` in the slot declaration). Used by panel-type objects placed on four corners and by line-based objects (two points).
 
 ### 5. Instance `overrides`
 
@@ -204,7 +190,7 @@ The element that owns the grid exports as the assembly it is in IFC (`IfcCurtain
 
 No new archetype. The `grid` operation is a recipe capability that any archetype may use:
 
-- **wall** archetype: curtain walls (`IfcCurtainWall`) keep the wall archetype's base and top constraints, location line, joins and hosting, with a grid in place of layers. *(Open question 2.)*
+- **wall** archetype: curtain walls (`IfcCurtainWall`) keep the wall archetype's base and top constraints, location line, joins and hosting, with a grid in place of layers.
 - **area** archetype: sloped glazing and roof lights on a `face` surface; cladding and ceiling grids.
 - **linear** archetype: railings use `layout` per path segment with `post` components at nodes and in the pattern.
 
@@ -221,9 +207,9 @@ Parameters: `module` (u size, flexible), `spandrel_height`, `frame_classes` (`bo
 ## Alternatives considered
 
 - **Do it all in FEEL.** Each object writes its own division and cell logic with `for` loops. Rejected: results would differ between objects and between applications, and every curtain wall author would rewrite the same logic.
-- **A dedicated curtain wall attribute** (`opo::curtain_wall` with fixed fields, as Revit's type properties). Rejected: it fits curtain walls only, and the same machinery is needed for railings, cladding, ceilings and louvres.
+- **A dedicated curtain wall attribute** (`opo::curtain_wall` with fixed fields). Rejected: it fits curtain walls only, and the same machinery is needed for railings, cladding, ceilings and louvres.
 - **Script step (WebAssembly, spec §4.15).** Rejected for this: grids are common, must be editable member by member, and must work in tools without a WebAssembly runtime.
-- **Revit-style reference planes and labelled dimensions.** Rejected by decision 0007: applications solve constraints; OPO stores rules and resolved geometry.
+- **Constraint-driven geometry** (reference planes and labelled dimensions, as some family editors use). Rejected by decision 0007: applications solve constraints; OPO stores rules and resolved geometry.
 
 ## Conformance tests
 
@@ -235,10 +221,28 @@ Parameters: `module` (u size, flexible), `spandrel_height`, `frame_classes` (`bo
 
 ## Open questions
 
-1. **Corners.** Lay out each baseline segment on its own (proposed, as Revit does per wall), or offer an option to run the pattern continuously round corners (as Archicad's pattern continuity for railings)?
-2. **Curtain wall archetype.** Keep curtain walls on the wall archetype with a grid instead of layers (proposed), or give systems their own archetype?
-3. **Junction class.** Which IFC class do junctions and fixings (spider fittings, clamps, brackets) export as: `IfcMember`, `IfcDiscreteAccessory` or `IfcMechanicalFastener`?
-4. **Non-rectangular grids.** Diagonal grid lines (Revit allows angled lines on flat curtain walls; FreeCAD's curtain wall has diagonal mullions) are left out of this version. Add later as a third grid direction?
+1. **Junction class.** Which IFC class do junctions and fixings (spider fittings, clamps, brackets) export as: `IfcMember`, `IfcDiscreteAccessory` or `IfcMechanicalFastener`?
+2. **Non-rectangular grids.** Diagonal grid lines are left out of this version. Add later as a third grid direction?
+
+## Resolved
+
+- **Corners** (maintainer, 24 Nov 2026): the pattern restarts on each straight run of the baseline; corners get their own `corner` lines.
+- **Archetype** (maintainer, 24 Nov 2026): curtain walls stay on the wall archetype, with a grid in place of layers.
+
+## Prior art
+
+OPO is vendor-neutral: nothing in this design depends on another tool. The design is checked against the tools architects already use, so that objects behave as users expect and can be mapped on import and export.
+
+| This proposal | Archicad (GDL) | Revit | IFC 4.3 |
+|---|---|---|---|
+| `layout` distributions | Scheme grid: fixed size with pattern origin and infill, best division with "end with", number of divisions | Grid layout: fixed distance with justification, fixed number, maximum spacing | — |
+| `grid` nodes, segments, cells | Curtain wall scheme grid | Curtain grid: lines, segments, cells | — |
+| Segment and cell classes | Frame classes (boundary, mullion, transom), panel classes (main, distinct) | Border and interior mullion types; panel type | — |
+| `component` parameters, `opo::interface` | GDL subtypes (curtain wall frame, panel, junction, accessory; railing post, panel) | Family-type parameters; mullion profile and curtain panel families | `IfcMember` MULLION, `IfcPlate` CURTAIN_PANEL |
+| `join` | Frame junction settings | Join condition | — |
+| `overrides` | Editing members in curtain wall edit mode | Removing grid segments; swapping panels | — |
+| `points` slot | — | Adaptive placement points | — |
+| Railing via `layout` along a path | Railing tool: nodes, segments, pattern | Railing type | `IfcRailing` |
 
 ## Sources
 
