@@ -1,0 +1,535 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcPipeFitting",
+ "label": "Class template IfcPipeFitting",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": true,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": false,
+     "length": 0.11780972451
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.11780972451,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.05,
+      "position": [0.075, 0.075, 0.0],
+      "direction": [0.0, 1.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.00022872788,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.00022872788,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-connector",
+   "values": {
+    "predefined_type": "CONNECTOR"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": true,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.05,
+      "position": [0.1, 0.0, 0.0],
+      "direction": [1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-entry",
+   "values": {
+    "predefined_type": "ENTRY"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": true,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-exit",
+   "values": {
+    "predefined_type": "EXIT"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": true,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-junction",
+   "values": {
+    "predefined_type": "JUNCTION"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": true,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": false,
+     "length": 0.15
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.15,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.05,
+      "position": [0.15, 0.0, 0.0],
+      "direction": [1.0, 0.0, 0.0]
+     },
+     "branch": {
+      "nominal_size": 0.05,
+      "position": [0.075, 0.075, 0.0],
+      "direction": [0.0, 1.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 2,
+       "volume": 0.000436757139,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 2,
+       "volume": 0.000436757139,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-obstruction",
+   "values": {
+    "predefined_type": "OBSTRUCTION"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": true,
+     "is_straight": false,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-transition",
+   "values": {
+    "predefined_type": "TRANSITION"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": true,
+     "is_cap": false,
+     "is_straight": false,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.04,
+      "position": [0.1, 0.0, 0.0],
+      "direction": [1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000158021699,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000158021699,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": true,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.05,
+      "position": [0.1, 0.0, 0.0],
+      "direction": [1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "r": 0.025,
+     "bend_radius": 0.075,
+     "bend_end": [0.075, 0.075, 0.0],
+     "run_length": 0.15,
+     "socket_d": 0.056,
+     "is_bend": false,
+     "is_junction": false,
+     "is_transition": false,
+     "is_cap": false,
+     "is_straight": true,
+     "length": 0.1
+    },
+    "checks": {
+     "bend_radius_ok": true,
+     "branch_ok": true
+    },
+    "quantities": {
+     "Qto_PipeFittingBaseQuantities.Length": 0.1,
+     "Qto_PipeFittingBaseQuantities.GrossCrossSectionArea": 0.001963495408,
+     "Qto_PipeFittingBaseQuantities.NetCrossSectionArea": 0.000442964564
+    },
+    "ports": {
+     "port_1": {
+      "nominal_size": 0.05,
+      "position": [0.0, 0.0, 0.0],
+      "direction": [-1.0, 0.0, 0.0]
+     },
+     "port_2": {
+      "nominal_size": 0.05,
+      "position": [0.1, 0.0, 0.0],
+      "direction": [1.0, 0.0, 0.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.000243496958,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

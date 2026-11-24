@@ -728,9 +728,9 @@ def stair():
     t.step("body", "extrude", {"profile": "profile", "from": "-hw", "to": "hw"}, "xz")
     t.step("outline_below", "rectangle", {"min": "[0, -hw]", "max": "[x_cut, hw]"}, "xy")
     t.step("outline_above", "rectangle", {"min": "[x_cut, -hw]", "max": "[run, hw]"}, "xy", when="x_cut < run")
-    t.step("treads_below", "for_each", {"items": "1..treads", "as": "k", "index": "i",
+    t.step("treads_below", "for_each", {"items": "for k in 1..treads return k", "as": "k", "index": "i",
                                         "do": "if k * going <= x_cut then line([k * going, -hw], [k * going, hw]) else null"}, "xy")
-    t.step("treads_above", "for_each", {"items": "1..treads", "as": "k", "index": "i",
+    t.step("treads_above", "for_each", {"items": "for k in 1..treads return k", "as": "k", "index": "i",
                                         "do": "if k * going > x_cut then line([k * going, -hw], [k * going, hw]) else null"}, "xy")
     t.step("cut_line", "polyline", {"points": "[[x_cut - 0.15, -hw], [x_cut - 0.05, -0.1 * width], [x_cut + 0.05, 0.1 * width], [x_cut + 0.15, hw]]"}, "xy",
            when="x_cut < run")

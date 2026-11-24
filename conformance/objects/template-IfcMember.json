@@ -1,0 +1,2021 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcMember",
+ "label": "Class template IfcMember",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-arch_segment",
+   "values": {
+    "predefined_type": "ARCH_SEGMENT"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-brace",
+   "values": {
+    "predefined_type": "BRACE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-chord",
+   "values": {
+    "predefined_type": "CHORD"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-collar",
+   "values": {
+    "predefined_type": "COLLAR"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-mullion",
+   "values": {
+    "predefined_type": "MULLION"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-plate",
+   "values": {
+    "predefined_type": "PLATE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-post",
+   "values": {
+    "predefined_type": "POST"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-purlin",
+   "values": {
+    "predefined_type": "PURLIN"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-rafter",
+   "values": {
+    "predefined_type": "RAFTER"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-stay_cable",
+   "values": {
+    "predefined_type": "STAY_CABLE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-stiffening_rib",
+   "values": {
+    "predefined_type": "STIFFENING_RIB"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-stringer",
+   "values": {
+    "predefined_type": "STRINGER"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-structuralcable",
+   "values": {
+    "predefined_type": "STRUCTURALCABLE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-strut",
+   "values": {
+    "predefined_type": "STRUT"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-stud",
+   "values": {
+    "predefined_type": "STUD"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-suspender",
+   "values": {
+    "predefined_type": "SUSPENDER"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-suspension_cable",
+   "values": {
+    "predefined_type": "SUSPENSION_CABLE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-tiebar",
+   "values": {
+    "predefined_type": "TIEBAR"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-rectangle",
+   "values": {
+    "profile_kind": "rectangle"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.01,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.01,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.03,
+     "Qto_MemberBaseQuantities.NetVolume": 0.03,
+     "Qto_MemberBaseQuantities.GrossWeight": 235.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.03,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.03,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-i-section",
+   "values": {
+    "profile_kind": "i_section"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.003008,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.003008,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.009024,
+     "Qto_MemberBaseQuantities.NetVolume": 0.009024,
+     "Qto_MemberBaseQuantities.GrossWeight": 70.8384
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.009024,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.009024,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-circle",
+   "values": {
+    "profile_kind": "circle"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.007853981634,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.007853981634,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.023561944902,
+     "Qto_MemberBaseQuantities.NetVolume": 0.023561944902,
+     "Qto_MemberBaseQuantities.GrossWeight": 184.961267480099
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0234947146,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0234947146,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-circ-hollow",
+   "values": {
+    "profile_kind": "circ_hollow"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.00149225651,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.00149225651,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.004476769531,
+     "Qto_MemberBaseQuantities.NetVolume": 0.004476769531,
+     "Qto_MemberBaseQuantities.GrossWeight": 35.142640821219
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.004463995774,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.004463995774,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-channel",
+   "values": {
+    "profile_kind": "channel"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.003008,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.003008,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.009024,
+     "Qto_MemberBaseQuantities.NetVolume": 0.009024,
+     "Qto_MemberBaseQuantities.GrossWeight": 70.8384
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.009024,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.009024,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-angle",
+   "values": {
+    "profile_kind": "angle"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.000975,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.000975,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.002925,
+     "Qto_MemberBaseQuantities.NetVolume": 0.002925,
+     "Qto_MemberBaseQuantities.GrossWeight": 22.96125
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.002925,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.002925,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-h-left",
+   "values": {
+    "justification_h": "left"
+   },
+   "expected": {
+    "derived": {
+     "cu": -0.05,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-h-right",
+   "values": {
+    "justification_h": "right"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.05,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-v-top",
+   "values": {
+    "justification_v": "top"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": -0.05,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-v-bottom",
+   "values": {
+    "justification_v": "bottom"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.05,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "load-bearing-false",
+   "values": {
+    "load_bearing": false
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.1,
+     "cv": 0.0,
+     "seg_start": [3.0, 0.0, 0.0],
+     "seg_end": [3.0, 0.0, 0.0],
+     "len_start": 3.0,
+     "len_end": 3.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [3.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [3.0, 0.0, 0.0]
+     ],
+     "length": 3.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [3.0, 0.0]
+     ],
+     "area": 0.0019,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_MemberCommon.LoadBearing": false
+    },
+    "quantities": {
+     "Qto_MemberBaseQuantities.Length": 3.0,
+     "Qto_MemberBaseQuantities.CrossSectionArea": 0.0019,
+     "Qto_MemberBaseQuantities.GrossVolume": 0.0057,
+     "Qto_MemberBaseQuantities.NetVolume": 0.0057,
+     "Qto_MemberBaseQuantities.GrossWeight": 44.745
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0057,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

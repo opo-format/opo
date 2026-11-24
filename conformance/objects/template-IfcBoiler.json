@@ -1,0 +1,315 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcBoiler",
+ "label": "Class template IfcBoiler",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "bottom": 1.2,
+     "top": 1.95,
+     "port_x": [-0.155, -0.075, 0.075]
+    },
+    "checks": {
+     "ports_fit": true
+    },
+    "ports": {
+     "heating_flow": {
+      "nominal_size": 0.022,
+      "position": [-0.155, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "heating_return": {
+      "nominal_size": 0.022,
+      "position": [-0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "gas": {
+      "nominal_size": 0.015,
+      "position": [0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "flue": {
+      "nominal_size": 0.1,
+      "position": [0.0, 0.175, 2.05],
+      "direction": [0.0, 0.0, 1.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "stubs",
+       "solids": 4,
+       "volume": 0.000822772803,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-steam",
+   "values": {
+    "predefined_type": "STEAM"
+   },
+   "expected": {
+    "derived": {
+     "bottom": 1.2,
+     "top": 1.95,
+     "port_x": [-0.155, -0.075, 0.075]
+    },
+    "checks": {
+     "ports_fit": true
+    },
+    "ports": {
+     "heating_flow": {
+      "nominal_size": 0.022,
+      "position": [-0.155, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "heating_return": {
+      "nominal_size": 0.022,
+      "position": [-0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "gas": {
+      "nominal_size": 0.015,
+      "position": [0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "flue": {
+      "nominal_size": 0.1,
+      "position": [0.0, 0.175, 2.05],
+      "direction": [0.0, 0.0, 1.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "stubs",
+       "solids": 4,
+       "volume": 0.000822772803,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "bottom": 1.2,
+     "top": 1.95,
+     "port_x": [-0.155, -0.075, 0.075]
+    },
+    "checks": {
+     "ports_fit": true
+    },
+    "ports": {
+     "heating_flow": {
+      "nominal_size": 0.022,
+      "position": [-0.155, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "heating_return": {
+      "nominal_size": 0.022,
+      "position": [-0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "gas": {
+      "nominal_size": 0.015,
+      "position": [0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "flue": {
+      "nominal_size": 0.1,
+      "position": [0.0, 0.175, 2.05],
+      "direction": [0.0, 0.0, 1.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "stubs",
+       "solids": 4,
+       "volume": 0.000822772803,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "bottom": 1.2,
+     "top": 1.95,
+     "port_x": [-0.155, -0.075, 0.075]
+    },
+    "checks": {
+     "ports_fit": true
+    },
+    "ports": {
+     "heating_flow": {
+      "nominal_size": 0.022,
+      "position": [-0.155, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "heating_return": {
+      "nominal_size": 0.022,
+      "position": [-0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "gas": {
+      "nominal_size": 0.015,
+      "position": [0.075, 0.175, 1.15],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "flue": {
+      "nominal_size": 0.1,
+      "position": [0.0, 0.175, 2.05],
+      "direction": [0.0, 0.0, 1.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "stubs",
+       "solids": 4,
+       "volume": 0.000822772803,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "mount-floor",
+   "values": {
+    "mount": "floor"
+   },
+   "expected": {
+    "derived": {
+     "bottom": 0.0,
+     "top": 0.75,
+     "port_x": [-0.155, -0.075, 0.075]
+    },
+    "checks": {
+     "ports_fit": true
+    },
+    "ports": {
+     "heating_flow": {
+      "nominal_size": 0.022,
+      "position": [-0.155, 0.175, -0.05],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "heating_return": {
+      "nominal_size": 0.022,
+      "position": [-0.075, 0.175, -0.05],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "gas": {
+      "nominal_size": 0.015,
+      "position": [0.075, 0.175, -0.05],
+      "direction": [0.0, 0.0, -1.0]
+     },
+     "flue": {
+      "nominal_size": 0.1,
+      "position": [0.0, 0.175, 0.85],
+      "direction": [0.0, 0.0, 1.0]
+     }
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.118125,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "stubs",
+       "solids": 4,
+       "volume": 0.000822772803,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

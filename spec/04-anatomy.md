@@ -36,7 +36,11 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 - `min`, `max`, `abs`, `round`, `ceiling`, `floor`, `sqrt`, `modulo`
 - lists: `for x in list return expr`, ranges `1..n` (FEEL: a range runs downwards when the start is larger), `sum`, `count`, `sublist`, `append`, `concatenate`, `reverse`, `index_of`, `list_contains`, `flatten` (deep, as in FEEL)
 - `null` propagates through arithmetic and comparisons; `and`/`or` use three-valued logic; `sum([])` is `null` (FEEL), so formulas append a 0 where a list may be empty
-- reference interpreter and conformance tests: `tools/feel.py`
+- numbers are IEEE 754 double precision (not FEEL's 34-digit decimals); `=` and `!=` treat numbers within 1e-9 of each other as equal, so formulas on lengths compare reliably
+- ranges (`1..n`) are only used as the source of a `for` loop, as in FEEL
+- FEEL functions whose names contain spaces are spelled with underscores: `index_of`, `list_contains` (FEEL: `index of`, `list contains`)
+- `round(n)` / `round(n, scale)` rounds half to even, like FEEL `decimal(n, scale)`
+- conformance cases: `conformance/feel/` in this repository (reference interpreter used to create them: `tools/feel.py`)
 - OPO additions: trigonometry in degrees (`sin`, `cos`, `tan`, `atan2`); unit helpers returning canonical values (`mm()`, `cm()`, `m()`, `inch()`, `ft()`, `deg()`); curve queries (`length(curve)`, `point_at(curve, t)`…)
 
 Formulas only ever see canonical units (metres, degrees), so the same object gives the same result everywhere. Examples:
@@ -56,6 +60,35 @@ A chain of operations from a small, strictly specified vocabulary (a node graph 
 - **Patterning:** `for_each` (repeat a geometry expression over a list or range; each result keeps its item, so representations can use `each.material`), mirror
 - **Transform:** `move`, `rotate`, `mirror`
 - **Placement:** `instance(object_id, values, inputs)` places a nested OPO by id with values and drawn inputs; a packaged `.opo` embeds the nested objects it uses (§4.9)
+
+**Operations and their arguments.** Argument names are fixed; optional arguments in brackets. Every argument is a FEEL expression (or a literal). Points are `[x, y]` in the step's plane or `[x, y, z]` in object space.
+
+| Operation | Arguments | Result |
+|---|---|---|
+| `rectangle` | `min`, `max` | 2D region, axis-aligned |
+| `polygon` | `points` | 2D region from a closed point list |
+| `circle` | `center`, `radius`, [`segments`] | 2D region |
+| `polyline` | `points` | 2D open curve |
+| `line` | `start`, `end` | 2D curve |
+| `arc` | `center`, `radius`, `start_angle`, `end_angle`, [`segments`] | 2D curve, angles in degrees, counter-clockwise |
+| `band` | `path`, `left`, `right` | 2D region between two offsets of a path (positive = left of travel), mitred joins |
+| `difference` | `a`, `b` | 2D region `a` minus `b` (either may be a list) |
+| `union` | `items` | regions on one plane: exact union; anything else: a collection |
+| `boundary_curves` | `region` | the boundary curves of a region |
+| `text` | `at`, `value`, [`height`] | annotation text; height in printed metres (default 0.0025) |
+| `extrude` | `profile`, `from`, `to` | solid: the region moved along its plane's normal from `from` to `to` |
+| `sweep` | `profile`, `path`, [`roll`] | solid: a `profile`-plane region along a 3D path; `roll` in degrees about the path |
+| `revolve` | `profile`, `center`, `axis`, `angle`, [`segments`] | solid: region revolved about an axis through `center` |
+| `box` | `min`, `max` | solid, axis-aligned, 3D corners |
+| `cylinder` | `start`, `end`, `radius`, [`segments`] | solid between two 3D points |
+| `path3` | `points` | 3D curve (axes, paths) |
+| `move` | `geometry`, `by` | translated copy (2D or 3D vector) |
+| `rotate` | `geometry`, `center`, `angle` | rotated copy about `center` (2D) or the z axis through `center` (3D), degrees |
+| `mirror` | `geometry`, `axis` | mirrored copy across the object's x or y axis (`"x"` or `"y"`) |
+| `for_each` | `items`, `do`, [`as`, `index`] | `do` evaluated per item (`as` default `item`, `index` from 1); each result keeps its item as `each` |
+| `instance` | `object`, [`values`, `inputs`, `representation`] | a nested object's geometry (default representation `model.medium`) |
+
+`segments` is a hint for tessellation; implementations may use more. Conformance checks volumes of curved solids with a tolerance (see `conformance/README.md`).
 
 Planes: `xy`, `xz`, `yz`, and `profile` (the local plane of a swept profile: u across, to the left of the direction of travel; v up). Reference evaluator: `tools/recipe.py`.
 

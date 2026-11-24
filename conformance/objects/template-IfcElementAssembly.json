@@ -1,0 +1,3793 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcElementAssembly",
+ "label": "Class template IfcElementAssembly",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-abutment",
+   "values": {
+    "predefined_type": "ABUTMENT"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-accessory_assembly",
+   "values": {
+    "predefined_type": "ACCESSORY_ASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-arch",
+   "values": {
+    "predefined_type": "ARCH"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-beam_grid",
+   "values": {
+    "predefined_type": "BEAM_GRID"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-braced_frame",
+   "values": {
+    "predefined_type": "BRACED_FRAME"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-cross_bracing",
+   "values": {
+    "predefined_type": "CROSS_BRACING"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-deck",
+   "values": {
+    "predefined_type": "DECK"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-dilatationpanel",
+   "values": {
+    "predefined_type": "DILATATIONPANEL"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-entranceworks",
+   "values": {
+    "predefined_type": "ENTRANCEWORKS"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-girder",
+   "values": {
+    "predefined_type": "GIRDER"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-grid",
+   "values": {
+    "predefined_type": "GRID"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-mast",
+   "values": {
+    "predefined_type": "MAST"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-pier",
+   "values": {
+    "predefined_type": "PIER"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-pylon",
+   "values": {
+    "predefined_type": "PYLON"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-rail_mechanical_equipment_assembly",
+   "values": {
+    "predefined_type": "RAIL_MECHANICAL_EQUIPMENT_ASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-reinforcement_unit",
+   "values": {
+    "predefined_type": "REINFORCEMENT_UNIT"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-rigid_frame",
+   "values": {
+    "predefined_type": "RIGID_FRAME"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-shelter",
+   "values": {
+    "predefined_type": "SHELTER"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-signalassembly",
+   "values": {
+    "predefined_type": "SIGNALASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-slab_field",
+   "values": {
+    "predefined_type": "SLAB_FIELD"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-sumpbuster",
+   "values": {
+    "predefined_type": "SUMPBUSTER"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-supportingassembly",
+   "values": {
+    "predefined_type": "SUPPORTINGASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-suspensionassembly",
+   "values": {
+    "predefined_type": "SUSPENSIONASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-trackpanel",
+   "values": {
+    "predefined_type": "TRACKPANEL"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-traction_switching_assembly",
+   "values": {
+    "predefined_type": "TRACTION_SWITCHING_ASSEMBLY"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-traffic_calming_device",
+   "values": {
+    "predefined_type": "TRAFFIC_CALMING_DEVICE"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-turnoutpanel",
+   "values": {
+    "predefined_type": "TURNOUTPANEL"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 1.0],
+       [6.0, 0.0, 0.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 1.0],
+       [8.0, 0.0, 0.0]
+      ]
+     ],
+     "verticals": [],
+     "member_count": 10.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 0,
+       "volume": 0,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "pattern-pratt",
+   "values": {
+    "pattern": "pratt"
+   },
+   "expected": {
+    "derived": {
+     "panel": 1.0,
+     "member_object": "opo-format.org/library/templates/IfcMember",
+     "chord_values": {
+      "predefined_type": "CHORD",
+      "profile_kind": "rect_hollow",
+      "width": 0.12,
+      "depth": 0.12,
+      "wall_thickness": 0.006,
+      "material": "steel"
+     },
+     "web_values": {
+      "predefined_type": "MEMBER",
+      "profile_kind": "rect_hollow",
+      "width": 0.08,
+      "depth": 0.08,
+      "wall_thickness": 0.005,
+      "material": "steel"
+     },
+     "diagonals": [
+      [
+       [0.0, 0.0, 1.0],
+       [1.0, 0.0, 0.0]
+      ],
+      [
+       [1.0, 0.0, 1.0],
+       [2.0, 0.0, 0.0]
+      ],
+      [
+       [2.0, 0.0, 1.0],
+       [3.0, 0.0, 0.0]
+      ],
+      [
+       [3.0, 0.0, 1.0],
+       [4.0, 0.0, 0.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 0.0],
+       [6.0, 0.0, 1.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 0.0],
+       [8.0, 0.0, 1.0]
+      ]
+     ],
+     "verticals": [
+      [
+       [0.0, 0.0, 0.0],
+       [0.0, 0.0, 1.0]
+      ],
+      [
+       [1.0, 0.0, 0.0],
+       [1.0, 0.0, 1.0]
+      ],
+      [
+       [2.0, 0.0, 0.0],
+       [2.0, 0.0, 1.0]
+      ],
+      [
+       [3.0, 0.0, 0.0],
+       [3.0, 0.0, 1.0]
+      ],
+      [
+       [4.0, 0.0, 0.0],
+       [4.0, 0.0, 1.0]
+      ],
+      [
+       [5.0, 0.0, 0.0],
+       [5.0, 0.0, 1.0]
+      ],
+      [
+       [6.0, 0.0, 0.0],
+       [6.0, 0.0, 1.0]
+      ],
+      [
+       [7.0, 0.0, 0.0],
+       [7.0, 0.0, 1.0]
+      ],
+      [
+       [8.0, 0.0, 0.0],
+       [8.0, 0.0, 1.0]
+      ]
+     ],
+     "member_count": 19.0
+    },
+    "checks": {
+     "panels_even": true
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 9,
+       "volume": 0.0135,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "top_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "bottom_chord",
+       "solids": 1,
+       "volume": 0.021888,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_diagonals",
+       "solids": 8,
+       "volume": 0.016970562748,
+       "tolerance": 0.03
+      },
+      {
+       "geometry": "web_verticals",
+       "solids": 9,
+       "volume": 0.0135,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

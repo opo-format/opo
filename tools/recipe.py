@@ -268,6 +268,9 @@ def environment(T, values=None, inputs=None, context=None):
     host_defaults = {k: v.get("default") for k, v in ((T.get("opo::host") or {}).get("inputs") or {}).items()}
     ctx = {"host": {"thickness": 0.2, "y_min": -0.1, "y_max": 0.1, "bottom": 0.0, "top": 3.0, **host_defaults}, "level": {"elevation": 0.0, "height": 3.0},
            "view": {"cut_height": 1.2}, "rules": {}}
+    flip_decl = (T.get("opo::host") or {}).get("flip") or {}
+    ctx["flip"] = {axis: d["values"][0] for axis, d in flip_decl.items() if d.get("values")}
+    if isinstance((values or {}).get("flip"), dict): ctx["flip"].update(values["flip"])
     for k, v in (context or {}).items():
         ctx[k] = {**ctx.get(k, {}), **v} if isinstance(v, dict) else v
     env.update(ctx)

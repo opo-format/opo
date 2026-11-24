@@ -1,0 +1,602 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcOpeningElement",
+ "label": "Class template IfcOpeningElement",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-recess",
+   "values": {
+    "predefined_type": "RECESS"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": true,
+     "y_from": 0.0,
+     "y_to": 0.11,
+     "z_from": 2.9,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.1,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.1,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.1
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.11,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.11,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.11,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "outline-mode-custom",
+   "values": {
+    "outline_mode": "custom"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": false,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "host-kind-slab",
+   "values": {
+    "host_kind": "slab"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "recess-side-back",
+   "values": {
+    "recess_side": "back"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.22,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "custom-outline-arch",
+   "values": {
+    "outline_mode": "custom"
+   },
+   "inputs": {
+    "outline": [
+     [-0.5, 0.9],
+     [0.5, 0.9],
+     [0.5, 1.9],
+     [0.482962913, 2.029409523],
+     [0.433012702, 2.15],
+     [0.353553391, 2.253553391],
+     [0.25, 2.333012702],
+     [0.129409523, 2.382962913],
+     [0.0, 2.4],
+     [-0.129409523, 2.382962913],
+     [-0.25, 2.333012702],
+     [-0.353553391, 2.253553391],
+     [-0.433012702, 2.15],
+     [-0.482962913, 2.029409523],
+     [-0.5, 1.9]
+    ]
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [0.482962913, 2.029409523],
+      [0.433012702, 2.15],
+      [0.353553391, 2.253553391],
+      [0.25, 2.333012702],
+      [0.129409523, 2.382962913],
+      [0.0, 2.4],
+      [-0.129409523, 2.382962913],
+      [-0.25, 2.333012702],
+      [-0.353553391, 2.253553391],
+      [-0.433012702, 2.15],
+      [-0.482962913, 2.029409523],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.5,
+     "depth": 0.2,
+     "area": 1.388228567839,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.5,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.388228567839,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.277645713568
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.305410284925,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.305410284925,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 0.305410284925,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "slab-host",
+   "values": {
+    "host_kind": "slab"
+   },
+   "expected": {
+    "derived": {
+     "profile_points": [
+      [-0.5, 0.9],
+      [0.5, 0.9],
+      [0.5, 1.9],
+      [-0.5, 1.9]
+     ],
+     "is_recess": false,
+     "y_from": -0.11,
+     "y_to": 0.11,
+     "z_from": -0.01,
+     "z_to": 3.01,
+     "open_width": 1.0,
+     "open_height": 1.0,
+     "depth": 0.2,
+     "area": 1.0,
+     "above_cut": false
+    },
+    "checks": {
+     "outline_given": true,
+     "recess_fits": true
+    },
+    "quantities": {
+     "Qto_OpeningElementBaseQuantities.Width": 1.0,
+     "Qto_OpeningElementBaseQuantities.Height": 1.0,
+     "Qto_OpeningElementBaseQuantities.Depth": 0.2,
+     "Qto_OpeningElementBaseQuantities.Area": 1.0,
+     "Qto_OpeningElementBaseQuantities.Volume": 0.2
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ],
+     "void": [
+      {
+       "geometry": "void",
+       "solids": 1,
+       "volume": 3.02,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

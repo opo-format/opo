@@ -670,7 +670,7 @@
             "op": "for_each",
             "plane": "xy",
             "args": {
-              "items": "1..treads",
+              "items": "for k in 1..treads return k",
               "as": "k",
               "index": "i",
               "do": "if k * going <= x_cut then line([k * going, -hw], [k * going, hw]) else null"
@@ -681,7 +681,7 @@
             "op": "for_each",
             "plane": "xy",
             "args": {
-              "items": "1..treads",
+              "items": "for k in 1..treads return k",
               "as": "k",
               "index": "i",
               "do": "if k * going > x_cut then line([k * going, -hw], [k * going, hw]) else null"

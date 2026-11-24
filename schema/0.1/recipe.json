@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://opo-format.org/schema/0.1/recipe.json",
   "title": "opo::recipe",
-  "description": "Ordered geometry steps (spec §4.5).",
+  "description": "Ordered geometry steps (spec §4.5). Each operation has fixed argument names.",
   "type": "array",
   "items": {
     "type": "object",
@@ -71,6 +71,518 @@
         "if": {
           "properties": {
             "op": {
+              "const": "rectangle"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "min",
+                "max"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "min",
+                  "max"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "polygon"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "points"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "points"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "circle"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "center",
+                "radius"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "center",
+                  "radius",
+                  "segments"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "polyline"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "points"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "points"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "line"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "start",
+                "end"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "start",
+                  "end"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "arc"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "center",
+                "radius",
+                "start_angle",
+                "end_angle"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "center",
+                  "radius",
+                  "start_angle",
+                  "end_angle",
+                  "segments"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "band"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "path",
+                "left",
+                "right"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "path",
+                  "left",
+                  "right"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "difference"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "a",
+                "b"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "a",
+                  "b"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "union"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "items"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "items"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "boundary_curves"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "region"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "region"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "text"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "at",
+                "value"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "at",
+                  "value",
+                  "height"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "extrude"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "profile",
+                "from",
+                "to"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "profile",
+                  "from",
+                  "to"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "sweep"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "profile",
+                "path"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "profile",
+                  "path",
+                  "roll"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "revolve"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "profile",
+                "center",
+                "axis",
+                "angle"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "profile",
+                  "center",
+                  "axis",
+                  "angle",
+                  "segments"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "box"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "min",
+                "max"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "min",
+                  "max"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "cylinder"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "start",
+                "end",
+                "radius"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "start",
+                  "end",
+                  "radius",
+                  "segments"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "path3"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "points"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "points"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "move"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "geometry",
+                "by"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "geometry",
+                  "by"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "rotate"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "geometry",
+                "center",
+                "angle"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "geometry",
+                  "center",
+                  "angle"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "mirror"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "geometry",
+                "axis"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "geometry",
+                  "axis"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
               "const": "for_each"
             }
           }
@@ -81,7 +593,15 @@
               "required": [
                 "items",
                 "do"
-              ]
+              ],
+              "propertyNames": {
+                "enum": [
+                  "items",
+                  "do",
+                  "as",
+                  "index"
+                ]
+              }
             }
           }
         }
@@ -99,7 +619,15 @@
             "args": {
               "required": [
                 "object"
-              ]
+              ],
+              "propertyNames": {
+                "enum": [
+                  "object",
+                  "values",
+                  "inputs",
+                  "representation"
+                ]
+              }
             }
           }
         }

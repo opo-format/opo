@@ -1,0 +1,1851 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcBeam",
+ "label": "Class template IfcBeam",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-cornice",
+   "values": {
+    "predefined_type": "CORNICE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-diaphragm",
+   "values": {
+    "predefined_type": "DIAPHRAGM"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-edgebeam",
+   "values": {
+    "predefined_type": "EDGEBEAM"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-girder_segment",
+   "values": {
+    "predefined_type": "GIRDER_SEGMENT"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-hatstone",
+   "values": {
+    "predefined_type": "HATSTONE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-hollowcore",
+   "values": {
+    "predefined_type": "HOLLOWCORE"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-joist",
+   "values": {
+    "predefined_type": "JOIST"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-lintel",
+   "values": {
+    "predefined_type": "LINTEL"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-piercap",
+   "values": {
+    "predefined_type": "PIERCAP"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-spandrel",
+   "values": {
+    "predefined_type": "SPANDREL"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-t_beam",
+   "values": {
+    "predefined_type": "T_BEAM"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-i-section",
+   "values": {
+    "profile_kind": "i_section"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.009808,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.009808,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.04904,
+     "Qto_BeamBaseQuantities.NetVolume": 0.04904,
+     "Qto_BeamBaseQuantities.GrossWeight": 122.6
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04904,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04904,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-circle",
+   "values": {
+    "profile_kind": "circle"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.25,
+     "cv": -0.125,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.049087385212,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.049087385212,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.245436926062,
+     "Qto_BeamBaseQuantities.NetVolume": 0.245436926062,
+     "Qto_BeamBaseQuantities.GrossWeight": 613.592315154256
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.244736610413,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.244736610413,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-rect-hollow",
+   "values": {
+    "profile_kind": "rect_hollow"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.008856,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.008856,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.04428,
+     "Qto_BeamBaseQuantities.NetVolume": 0.04428,
+     "Qto_BeamBaseQuantities.GrossWeight": 110.7
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04428,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04428,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-circ-hollow",
+   "values": {
+    "profile_kind": "circ_hollow"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.25,
+     "cv": -0.125,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.004599291645,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.004599291645,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.022996458224,
+     "Qto_BeamBaseQuantities.NetVolume": 0.022996458224,
+     "Qto_BeamBaseQuantities.GrossWeight": 57.491145560693
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.022930841449,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.022930841449,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-channel",
+   "values": {
+    "profile_kind": "channel"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.009808,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.009808,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.04904,
+     "Qto_BeamBaseQuantities.NetVolume": 0.04904,
+     "Qto_BeamBaseQuantities.GrossWeight": 122.6
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04904,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.04904,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profile-kind-angle",
+   "values": {
+    "profile_kind": "angle"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.004464,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.004464,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.02232,
+     "Qto_BeamBaseQuantities.NetVolume": 0.02232,
+     "Qto_BeamBaseQuantities.GrossWeight": 55.8
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.02232,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.02232,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-h-left",
+   "values": {
+    "justification_h": "left"
+   },
+   "expected": {
+    "derived": {
+     "cu": -0.125,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-h-right",
+   "values": {
+    "justification_h": "right"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.125,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-v-centre",
+   "values": {
+    "justification_v": "centre"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": 0.0,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "justification-v-bottom",
+   "values": {
+    "justification_v": "bottom"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": 0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "load-bearing-false",
+   "values": {
+    "load_bearing": false
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": false
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profiles-examples-ipe-270",
+   "values": {
+    "profile_kind": "i_section",
+    "profile_name": "IPE 270",
+    "width": 0.135,
+    "depth": 0.27,
+    "web_thickness": 0.0066,
+    "flange_thickness": 0.0102,
+    "material": "steel"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.27,
+     "cv": -0.135,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.00440136,
+     "density": 7850.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.00440136,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.0220068,
+     "Qto_BeamBaseQuantities.NetVolume": 0.0220068,
+     "Qto_BeamBaseQuantities.GrossWeight": 172.75338
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0220068,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.0220068,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profiles-examples-concrete-250-500",
+   "values": {
+    "profile_kind": "rectangle",
+    "width": 0.25,
+    "depth": 0.5,
+    "material": "reinforced_concrete"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.625,
+     "Qto_BeamBaseQuantities.NetVolume": 0.625,
+     "Qto_BeamBaseQuantities.GrossWeight": 1562.5
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.625,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "profiles-examples-glulam-140-400",
+   "values": {
+    "profile_kind": "rectangle",
+    "width": 0.14,
+    "depth": 0.4,
+    "material": "timber"
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.4,
+     "cv": -0.2,
+     "seg_start": [5.0, 0.0, 0.0],
+     "seg_end": [5.0, 0.0, 0.0],
+     "len_start": 5.0,
+     "len_end": 5.0,
+     "p_start": [0.0, 0.0, 0.0],
+     "p_end": [5.0, 0.0, 0.0],
+     "axis_path": [
+      [0.0, 0.0, 0.0],
+      [5.0, 0.0, 0.0]
+     ],
+     "length": 5.0,
+     "plan_path": [
+      [0.0, 0.0],
+      [5.0, 0.0]
+     ],
+     "area": 0.056,
+     "density": null
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 5.0,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.056,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.28,
+     "Qto_BeamBaseQuantities.NetVolume": 0.28,
+     "Qto_BeamBaseQuantities.GrossWeight": null
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.28,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.28,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "sloped-with-extensions",
+   "values": {
+    "start_extension": 0.2,
+    "end_extension": 0.3
+   },
+   "inputs": {
+    "path": [
+     [0, 0, 0],
+     [3, 0, 1]
+    ]
+   },
+   "expected": {
+    "derived": {
+     "cu": 0.0,
+     "profile_height": 0.5,
+     "cv": -0.25,
+     "seg_start": [3, 0, 1],
+     "seg_end": [3, 0, 1],
+     "len_start": 3.162277660168,
+     "len_end": 3.162277660168,
+     "p_start": [-0.18973665961, 0.0, -0.063245553203],
+     "p_end": [3.284604989415, 0.0, 1.094868329805],
+     "axis_path": [
+      [-0.18973665961, 0.0, -0.063245553203],
+      [3.284604989415, 0.0, 1.094868329805]
+     ],
+     "length": 3.662277660168,
+     "plan_path": [
+      [-0.18973665961, 0.0],
+      [3.284604989415, 0.0]
+     ],
+     "area": 0.125,
+     "density": 2500.0
+    },
+    "checks": {
+     "path_points": true,
+     "walls_fit": true,
+     "flanges_fit": true
+    },
+    "ifc_properties": {
+     "Pset_BeamCommon.LoadBearing": true
+    },
+    "quantities": {
+     "Qto_BeamBaseQuantities.Length": 3.662277660168,
+     "Qto_BeamBaseQuantities.CrossSectionArea": 0.125,
+     "Qto_BeamBaseQuantities.GrossVolume": 0.457784707521,
+     "Qto_BeamBaseQuantities.NetVolume": 0.457784707521,
+     "Qto_BeamBaseQuantities.GrossWeight": 1144.461768802619
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.457784707521,
+       "tolerance": 0.03
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "body",
+       "solids": 1,
+       "volume": 0.457784707521,
+       "tolerance": 0.03
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

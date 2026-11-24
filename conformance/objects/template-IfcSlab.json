@@ -1,0 +1,1241 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../../library/templates/IfcSlab",
+ "label": "Class template IfcSlab",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-approach_slab",
+   "values": {
+    "predefined_type": "APPROACH_SLAB"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-baseslab",
+   "values": {
+    "predefined_type": "BASESLAB"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-landing",
+   "values": {
+    "predefined_type": "LANDING"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-paving",
+   "values": {
+    "predefined_type": "PAVING"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-roof",
+   "values": {
+    "predefined_type": "ROOF"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-sidewalk",
+   "values": {
+    "predefined_type": "SIDEWALK"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-trackslab",
+   "values": {
+    "predefined_type": "TRACKSLAB"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-wearing",
+   "values": {
+    "predefined_type": "WEARING"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-userdefined",
+   "values": {
+    "predefined_type": "USERDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "type-notdefined",
+   "values": {
+    "predefined_type": "NOTDEFINED"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "reference-core-top",
+   "values": {
+    "reference": "core_top"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.09,
+     "bottom_z": -0.2,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "reference-bottom",
+   "values": {
+    "reference": "bottom"
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.29,
+     "bottom_z": 0.0,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "load-bearing-false",
+   "values": {
+    "load_bearing": false
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": false,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "is-external-true",
+   "values": {
+    "is_external": true
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": true
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.96
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.96,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "types-examples-concrete-200",
+   "values": {
+    "layers": [
+     {
+      "material": "reinforced_concrete",
+      "thickness": 0.2,
+      "function": "structure",
+      "core": true
+     }
+    ]
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.2,
+     "layer_start": [0.0],
+     "core_index": 1.0,
+     "top_z": 0.0,
+     "bottom_z": -0.2,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.2,
+     "Qto_SlabBaseQuantities.Depth": 0.2,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 4.8,
+     "Qto_SlabBaseQuantities.NetVolume": 4.8
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 1,
+       "volume": 4.8,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 1,
+       "volume": 4.8,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "types-examples-floor-tiles-on-screed-insulation-concrete-250",
+   "values": {
+    "layers": [
+     {
+      "material": "ceramic_tile",
+      "thickness": 0.01,
+      "function": "finish"
+     },
+     {
+      "material": "cement_screed",
+      "thickness": 0.065,
+      "function": "finish"
+     },
+     {
+      "material": "rigid_insulation",
+      "thickness": 0.03,
+      "function": "insulation"
+     },
+     {
+      "material": "reinforced_concrete",
+      "thickness": 0.25,
+      "function": "structure",
+      "core": true
+     },
+     {
+      "material": "plaster",
+      "thickness": 0.01,
+      "function": "finish"
+     }
+    ]
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.365,
+     "layer_start": [0.0, 0.01, 0.075, 0.105, 0.355],
+     "core_index": 4.0,
+     "top_z": 0.0,
+     "bottom_z": -0.365,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.365,
+     "Qto_SlabBaseQuantities.Depth": 0.365,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 8.76,
+     "Qto_SlabBaseQuantities.NetVolume": 8.76
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 5,
+       "volume": 8.76,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 5,
+       "volume": 8.76,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "types-examples-timber-floor-boards-22-on-structure-200",
+   "values": {
+    "layers": [
+     {
+      "material": "timber",
+      "thickness": 0.022,
+      "function": "finish"
+     },
+     {
+      "material": "timber",
+      "thickness": 0.2,
+      "function": "structure",
+      "core": true
+     },
+     {
+      "material": "plasterboard",
+      "thickness": 0.0125,
+      "function": "finish"
+     }
+    ]
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.2345,
+     "layer_start": [0.0, 0.022, 0.222],
+     "core_index": 2.0,
+     "top_z": 0.0,
+     "bottom_z": -0.2345,
+     "gross_area": 24.0,
+     "holes_area": 0.0,
+     "net_area": 24.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.2345,
+     "Qto_SlabBaseQuantities.Depth": 0.2345,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 24.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 5.628,
+     "Qto_SlabBaseQuantities.NetVolume": 5.628
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 5.628,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 5.628,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "hole",
+   "inputs": {
+    "holes": [
+     [
+      [1, 1],
+      [2, 1],
+      [2, 2],
+      [1, 2]
+     ]
+    ]
+   },
+   "expected": {
+    "derived": {
+     "total_thickness": 0.29,
+     "layer_start": [0.0, 0.06, 0.09],
+     "core_index": 3.0,
+     "top_z": 0.0,
+     "bottom_z": -0.29,
+     "gross_area": 24.0,
+     "holes_area": 1.0,
+     "net_area": 23.0,
+     "closed_boundary": [
+      [0.0, 0.0],
+      [6.0, 0.0],
+      [6.0, 4.0],
+      [0.0, 4.0],
+      [0.0, 0.0]
+     ],
+     "perimeter": 20.0
+    },
+    "checks": {
+     "has_layers": true,
+     "layer_thickness": true,
+     "boundary_points": true
+    },
+    "ifc_properties": {
+     "Pset_SlabCommon.LoadBearing": true,
+     "Pset_SlabCommon.IsExternal": false
+    },
+    "quantities": {
+     "Qto_SlabBaseQuantities.Width": 0.29,
+     "Qto_SlabBaseQuantities.Depth": 0.29,
+     "Qto_SlabBaseQuantities.Perimeter": 20.0,
+     "Qto_SlabBaseQuantities.GrossArea": 24.0,
+     "Qto_SlabBaseQuantities.NetArea": 23.0,
+     "Qto_SlabBaseQuantities.GrossVolume": 6.96,
+     "Qto_SlabBaseQuantities.NetVolume": 6.67
+    },
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.67,
+       "tolerance": 1e-06
+      }
+     ],
+     "model.high": [
+      {
+       "geometry": "layer_solids",
+       "solids": 3,
+       "volume": 6.67,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
