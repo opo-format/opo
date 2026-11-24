@@ -89,7 +89,7 @@ handle_height:
 - `status`: `norm` | `maker` | `typical` | `illustrative` | `to_verify` (decision 0017).
 - `source` is an id in `references.yaml`; required for `norm` and `maker`.
 - `to_verify`, `typical` and `illustrative` need a `note`.
-- `opo build` writes the plain value. *Open question 1:* where the provenance goes in the package.
+- `opo build` writes the plain value, and the provenance into `opo::provenance` on the same node (see Resolved).
 - `opo check --sources` lists every `to_verify` value and fails a `stable` object that has any.
 
 ### 3. Registries
@@ -172,5 +172,9 @@ The result is an ordinary object source, compiled like any other.
 
 ## Open questions
 
-1. **Provenance in packages.** Keep `source`/`status`/`note` only in sources and generated docs (simplest; packages carry plain values), or also carry them into the `.opo` as an optional attribute `opo::provenance` (path → `{source, status, note}`), so users of a library object see which values are still `to_verify`? *Proposed: carry them (`opo::provenance`); it is small and decision 0017 is about trust in values.*
-2. **Where `references.yaml` and `styles/` live.** Library repository root (proposed), or a separate shared repository later if other libraries appear.
+None at this stage.
+
+## Resolved
+
+- **Provenance in packages** (maintainer, 24 Nov 2026): carried into the `.opo` as an optional attribute `opo::provenance` on the node whose value it describes: a map from a value path (`parameters.handle_height.default`, `values.nominal_width`, `ruleset.values.min_clear_width`) to `{source, status, note}`. Users of a library object can see which values are still `to_verify`.
+- **Registries** (maintainer, 24 Nov 2026): `references.yaml` and `styles/` live at the root of the library repository.
