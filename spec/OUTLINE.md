@@ -257,9 +257,13 @@ Rules: community contributions to the free library stay free. Contributors sign 
 
 | Repo | Contents |
 |---|---|
-| `opo-format/opo` | Spec, JSON Schema, Rust reference crate, validator CLI, test objects |
-| `opo-format/library` (later) | Free base objects |
-| `curva3d/curva` | Curva app, depends on the `opo` crate at a pinned version |
+| `opo-format/opo` | The standard: spec, schemas, conformance tests, decisions, proposals |
+| `opo-format/opo-rs` | Rust reference implementation and `opo` CLI |
+| `opo-format/library` | Object sources (YAML), class templates, rule sets, styles; releases publish packages |
+| `opo-format/.github` | Organisation-wide contributor files and templates |
+| `curva3d/curva` | Curva app, depends on `opo-rs` at a pinned version |
+
+Details: [`docs/architecture.md`](../docs/architecture.md) (decision 0013).
 
 ## 10. Reference test objects (drive the spec)
 
@@ -271,24 +275,9 @@ Rules: community contributions to the free library stay free. Contributors sign 
 
 The full list of planned objects (74 objects in eight families: openings, circulation, fixtures, furniture & equipment, shading devices, lifts & escalators, structure & coverings, MEP terminals & site), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.
 
-## 11. Decisions (23 Nov 2026)
+## 11. Decisions
 
-| # | Question | Decision |
-|---|---|---|
-| 1 | Formula language | FEEL (OMG DMN) subset with OPO unit helpers and curve queries (§4.4) |
-| 2 | Single file vs package | Always a zip container; CLI pack/unpack for version control (§5) |
-| 3 | IFCX alignment | `.opo` is an IFCX document with an `opo::` extension; each OPO version pins an IFCX snapshot and follows IFCX releases (§5) |
-| 4 | Plan-symbol styling | Semantic line classes and hatch materials; the application's drawing style chooses weights and patterns (§4.6) |
-| 5 | Sketch constraints | Solved by the application; OPO stores resolved geometry and validity rules (§4.3) |
-| 6 | Governance | Single maintainer until v0.1 (schema + door and window test objects); trademark search before any public announcement |
-| — | Units | Stored in metres and degrees (IFCX defaults) at full precision; displayed in any unit; limits/steps and standard sizes per unit system (§4.2, §4.4). Changed from millimetres on 23 Nov 2026 for IFC5 compatibility |
-| — | References | Library objects are based on openly licensed parametric objects, IFC parameters and published norms, named in `opo::object.references` (§4.14) |
-| — | Object catalogue | 74 objects in eight families, one sheet each, shared rule sets: `spec/objects/` |
-| — | Materials and hatches | Hatch patterns (line families, model or paper scale) and materials are embedded in the object (`opo::hatches`, `opo::materials`), so imported walls, slabs and other objects keep their hatches; project drawing styles may override; joins merge by material (§4.6). Decided 24 Nov 2026 |
-| — | IFC coverage | Every concrete IFC 4.3 element class gets an OPO class template built on one of eight archetypes; detailed library objects refine them (§4.16). Decided 24 Nov 2026 |
-| — | Norms by market | Europe: EN and ISO norms only, no national norms (DIN, NF, UNE…); where no EN/ISO norm exists, sizes are generic and labelled as such and rule sets stay empty. EU accessibility values from ISO 21542 until prEN 17210 is published. UK and US are separate markets. Decided 24 Nov 2026 |
-| — | Default door | O-01 default is a 900 × 2100 wall opening (nominal reference "opening") |
-| — | IFCX snapshot | IFCX alpha, IFC5-development commit `1a63082` (8 Sep 2026); mapping in §5.1 |
+Decisions are recorded one per file in [`decisions/`](../decisions/README.md) (decision 0001). The project's organisation (repositories, workflow, source format, provenance, stages) is described in [`docs/architecture.md`](../docs/architecture.md) and [`docs/workflow.md`](../docs/workflow.md).
 
 ## 12. Open questions
 

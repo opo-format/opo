@@ -1,0 +1,42 @@
+# Migration plan to the new structure
+
+From one mixed repository with Python prototypes to the structure in `architecture.md`. Each phase ends with green CI and nothing half-moved.
+
+## Phase 0 — Rules written down (this change)
+- [x] Decision records 0001–0018 in `decisions/` (earlier decisions converted from the spec outline).
+- [x] `docs/architecture.md`, `docs/workflow.md`, `docs/library-sources.md`, `docs/glossary.md`.
+- [x] `AGENTS.md`, `CLAUDE.md`, `GOVERNANCE.md`, `CONTRIBUTING.md`.
+
+## Phase 1 — Repositories (maintainer action needed)
+- [ ] Create `opo-format/opo-rs`, `opo-format/library`, `opo-format/.github` (public, empty) and give the Claude GitHub app access.
+- [ ] Organisation-wide files in `.github`: CONTRIBUTING, code of conduct, security policy, issue templates (task, bug, proposal, object, data), pull-request template.
+- [ ] Branch protection on `main` in all repos: required CI checks, squash merge, no direct pushes.
+- [ ] Labels and milestones as in `workflow.md`.
+
+## Phase 2 — Standard repository cleaned up
+- [ ] Split `spec/OUTLINE.md` into numbered chapters in `spec/`; decisions table replaced by links to `decisions/`.
+- [ ] JSON Schemas for every `opo::` attribute (`schema/`), drafted from the working examples.
+- [ ] Conformance suite: FEEL cases (from `tools/feel.py` tests and the template formulas), recipe cases (inputs + expected volumes, curves), object cases (door and the nine templates as fixtures with expected outputs).
+- [ ] REUSE licence metadata; CI: lint, schema validation, links.
+
+## Phase 3 — Rust implementation (`opo-rs`)
+- [ ] Workspace and crates; CI; `justfile`.
+- [ ] `opo-feel` passes the FEEL conformance cases.
+- [ ] `opo-model` (types for every `opo::` attribute, serde), `opo-ifcx` (read, write, compose layers).
+- [ ] `opo-recipe` (kernel: 2D regions, extrude, sweep, revolve, for_each, instance) passes the recipe cases.
+- [ ] `opo-check` reproduces today's `tools/check_opo.py` results; `opo-build` compiles YAML sources; `opo-render` previews with hatches.
+- [ ] Template generator in Rust reproduces the nine templates.
+
+## Phase 4 — Library repository
+- [ ] YAML source schema (Phase 2) applied: door and nine templates converted to YAML; `opo build` output equals today's files (golden comparison).
+- [ ] `styles/`, `rulesets/`, `references.yaml`, `ifc/` (extracted IFC data) moved over; values given `source` + `status`.
+- [ ] Catalogue sheets converted into `object.yaml` stubs (status `planned`) so the catalogue is generated.
+- [ ] CI builds, checks, renders previews and publishes packages on release.
+
+## Phase 5 — Retire the prototypes
+- [ ] Delete `tools/*.py`, `library/` and `examples/` from the standard repository (kept as conformance fixtures where useful).
+- [ ] Chat-project notes reduced to links into the repositories.
+
+## Phase 6 — Scale
+- [ ] Per-class table for all 150 IFC classes → all class templates.
+- [ ] P1 library objects from their sheets, through the object lifecycle.

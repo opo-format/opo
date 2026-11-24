@@ -15,6 +15,10 @@ An `.opo` is an IFCX (IFC5) document with an `opo::` extension, packaged as a zi
 
 > **Status:** early draft. Nothing is final yet. See the [spec outline](spec/OUTLINE.md).
 
+## How the project is organised
+
+One source of truth, everything else generated, everything checked: see [`docs/architecture.md`](docs/architecture.md), [`docs/workflow.md`](docs/workflow.md), [`decisions/`](decisions/README.md) and, for AI agents, [`AGENTS.md`](AGENTS.md). The repository is being split into `opo`, `opo-rs` and `library` ([`docs/migration.md`](docs/migration.md)).
+
 ## Repository contents
 
 | Path | Contents |
