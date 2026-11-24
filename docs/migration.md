@@ -12,14 +12,14 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] `opo-format/.github` created with the organisation profile, CONTRIBUTING, code of conduct, security policy, issue templates (task, bug, proposal, object, data) and pull-request template. (This repository cannot be attached to agent sessions because its name starts with a dot; edit it in the GitHub web editor.)
 - [x] Labels from `workflow.md` in `opo`, `opo-rs` and `library`.
 - [x] `protect-main` ruleset on `main` in `opo`, `opo-rs`, `library` (decision 0019): no force push or deletion; pull requests with review for others; maintainer, admins and the Claude app may bypass.
-- [ ] Add required status checks to the ruleset once CI exists (phase 2/3).
+- [x] Required status checks in `opo`'s ruleset (phase 2). `opo-rs` and `library` get theirs with their CI.
 - [ ] Milestones, once the phases become issues.
 
-## Phase 2 — Standard repository cleaned up
-- [x] `spec/OUTLINE.md` split into numbered chapters (`spec/00-index.md` …); decisions table replaced by links to `decisions/` (#1).
-- [ ] JSON Schemas for every `opo::` attribute (`schema/`), drafted from the working examples.
-- [ ] Conformance suite: FEEL cases (from `tools/feel.py` tests and the template formulas), recipe cases (inputs + expected volumes, curves), object cases (door and the nine templates as fixtures with expected outputs).
-- [ ] REUSE licence metadata; CI: lint, schema validation, links.
+## Phase 2 — Standard repository cleaned up ✅
+- [x] Spec split into numbered chapters (`spec/00-index.md` …); decisions table replaced by links to `decisions/` (#1).
+- [x] JSON Schemas for every `opo::` attribute (`schema/0.1/`); the door and the nine templates validate (#2).
+- [x] Conformance suite: 75 FEEL cases, 265 object cases for the door and nine templates (`conformance/`, #3).
+- [x] REUSE licence metadata; CI (licences, schemas and objects, conformance, links) green and required in the `protect-main` ruleset (#4).
 
 ## Phase 3 — Rust implementation (`opo-rs`)
 - [ ] Workspace and crates; CI; `justfile`.

@@ -41,7 +41,7 @@ Required checks, by repository:
 
 - **The maintainer and AI agents** may push to `main` and merge directly. Agents use pull requests when a change is large or needs discussion, and push small, checked changes directly.
 - Anything labelled `normative` (spec, schema, conformance, decisions, proposals) needs the maintainer's explicit approval before it is merged or pushed, never an automatic merge.
-- When CI exists, required status checks are added to the ruleset, and agents merge only on green CI.
+- Required status checks are part of the ruleset wherever CI exists (`opo` today). Agents bypass the ruleset, so they check CI themselves and merge or push only on green.
 - Squash-merge, with the pull request title as the commit message.
 
 ## Changing the standard: proposals
