@@ -25,7 +25,7 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] Workspace and crates; CI; `justfile` (opo-rs#7; the spec is pinned as submodule `opo-spec`).
 - [x] `opo-feel` passes the FEEL conformance cases (75/75, opo-rs#7).
 - [x] `opo-model` (types for every `opo::` attribute, serde), `opo-ifcx` (read, write, compose layers) (opo-rs#9).
-- [ ] `opo-recipe` (kernel: 2D regions, extrude, sweep, revolve, for_each, instance) passes the recipe cases.
+- [x] `opo-recipe` (kernel: 2D regions, extrude, sweep, revolve, for_each, instance) passes the recipe cases (265/265, opo-rs#11).
 - [ ] `opo-check` reproduces today's `tools/check_opo.py` results; `opo-build` compiles YAML sources; `opo-render` previews with hatches.
 - [ ] Template generator in Rust reproduces the nine templates.
 
