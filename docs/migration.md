@@ -7,11 +7,12 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] `docs/architecture.md`, `docs/workflow.md`, `docs/library-sources.md`, `docs/glossary.md`.
 - [x] `AGENTS.md`, `CLAUDE.md`, `GOVERNANCE.md`, `CONTRIBUTING.md`.
 
-## Phase 1 — Repositories (maintainer action needed)
-- [ ] Create `opo-format/opo-rs`, `opo-format/library`, `opo-format/.github` (public, empty) and give the Claude GitHub app access.
-- [ ] Organisation-wide files in `.github`: CONTRIBUTING, code of conduct, security policy, issue templates (task, bug, proposal, object, data), pull-request template.
-- [ ] Branch protection on `main` in all repos: required CI checks, squash merge, no direct pushes.
-- [ ] Labels and milestones as in `workflow.md`.
+## Phase 1 — Repositories
+- [x] `opo-format/opo-rs` and `opo-format/library` created (public) with README, licences (REUSE), `AGENTS.md`, `CLAUDE.md`; Claude GitHub app has access.
+- [x] `opo-format/.github` created with the organisation profile, CONTRIBUTING, code of conduct, security policy, issue templates (task, bug, proposal, object, data) and pull-request template. (This repository cannot be attached to agent sessions because its name starts with a dot; edit it in the GitHub web editor.)
+- [x] Labels from `workflow.md` in `opo`, `opo-rs` and `library`.
+- [ ] Branch protection on `main` (required CI checks, squash merge, no direct pushes): deferred by the maintainer until CI exists.
+- [ ] Milestones, once the phases become issues.
 
 ## Phase 2 — Standard repository cleaned up
 - [ ] Split `spec/OUTLINE.md` into numbered chapters in `spec/`; decisions table replaced by links to `decisions/`.
