@@ -14,9 +14,9 @@ precedence = "override"
 SPDX-FileCopyrightText = "OPO format contributors"
 SPDX-License-Identifier = "MIT OR Apache-2.0"
 
-# Example and template objects (prototypes; move to opo-format/library)
+# Fixture objects of the conformance suite (frozen copies of the prototype door and templates)
 [[annotations]]
-path = ["examples/**", "library/**"]
+path = ["conformance/fixtures/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "OPO format contributors"
 SPDX-License-Identifier = "CC0-1.0"

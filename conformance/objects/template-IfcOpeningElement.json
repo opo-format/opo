@@ -1,7 +1,7 @@
 {
  "suite": "objects",
  "spec": "0.1",
- "object": "../../library/templates/IfcOpeningElement",
+ "object": "../fixtures/library/templates/IfcOpeningElement",
  "label": "Class template IfcOpeningElement",
  "cases": [
   {

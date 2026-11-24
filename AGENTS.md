@@ -29,4 +29,4 @@ This is the **standard** repository of the OPO format (Open Parametric Object). 
 - File names: lower case with hyphens; decision and proposal files start with a four-digit number.
 
 ## Current state (keep this short; details live in issues)
-The repository is being migrated to the layout in `docs/architecture.md` (plan: `docs/migration.md`). `tools/*.py`, `library/` and `examples/` are prototypes that will move to `opo-rs` and `library` and then be deleted. Do not extend them except to produce fixtures for the conformance suite.
+The repository is being migrated to the layout in `docs/architecture.md` (plan: `docs/migration.md`). `tools/*.py` are prototypes that will be deleted (phase 5); do not extend them. The door and class templates are maintained in the library repository; `conformance/fixtures/` holds frozen copies for the conformance suite.
