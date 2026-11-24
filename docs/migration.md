@@ -30,10 +30,10 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [ ] Template generator in Rust reproduces the nine templates.
 
 ## Phase 4 — Library repository
-- [ ] YAML source schema (Phase 2) applied: door and nine templates converted to YAML; `opo build` output equals today's files (golden comparison).
-- [ ] `styles/`, `rulesets/`, `references.yaml`, `ifc/` (extracted IFC data) moved over; values given `source` + `status`.
-- [ ] Catalogue sheets converted into `object.yaml` stubs (status `planned`) so the catalogue is generated.
-- [ ] CI builds, checks, renders previews and publishes packages on release.
+- [x] YAML source schema (Phase 2) applied: door and nine templates converted to YAML; `opo build` output equals today's files (golden comparison; library#8, #9).
+- [x] `styles/` and `references.yaml` moved over (library#8); door values given `source` + `status` (library#10). IFC data is not committed (IFC is CC BY-ND 4.0): `opo ifc` reads buildingSMART's UML sources at a pinned commit at build time (opo-rs#20). Shared rule sets and family rules still need a home (library#13).
+- [x] Catalogue sheets converted into `object.yaml` stubs (status `planned`) so the catalogue is generated (`opo catalogue`; library#12).
+- [x] CI builds, checks, renders previews and publishes packages on release (library#7, #11).
 
 ## Phase 5 — Retire the prototypes
 - [ ] Delete `tools/*.py`, `library/` and `examples/` from the standard repository (kept as conformance fixtures where useful).
