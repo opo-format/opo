@@ -29,6 +29,7 @@ Applications edit slots in their own way (in Curva: double-click → sketch mode
 - **Derived values:** formulas from parameters and inputs (leaf width = width − 2 × frame; riser count = ceil(height ÷ max riser)).
 - **Checks:** conditions with messages ("double leaf needs width ≥ 1200 mm").
 - **Regional rule sets:** referenced, swappable sets of limits (stair riser/going, guard heights) per country or code. Rule sets and variants carry each market's standard sizes (a US door is 36"×80", not a converted 900×2100).
+  - The object declares the rule sets it reads in `opo::rules.rulesets` (`id`, `default`, `note`, `fields`). Each regional rule set is its **own node** with `opo::ruleset` (`id`, `label`, `uri`, `source`, `note`, `values`), usually in a layer file (`layers/ruleset-iso-21542.ifcx`). The application picks at most one rule-set node per declared id; formulas read its values as `rules.<id>.<field>`, and `rules.<id>` is `null` when none is picked (decision 0020).
 
 **Formula language: FEEL subset.** Formulas use FEEL (Friendly Enough Expression Language) from the OMG DMN standard: an open standard by a neutral body, readable by non-programmers, with several open implementations. OPO allows a listed subset only:
 - numbers, strings, booleans, `null`, lists (`[x, y]` for points; FEEL indexes from 1, so `p[1]` is x, and `p[-1]` is the last item), contexts (`{width: 0.1, depth: 0.2}`) and context access (`host.thickness`); a path on a list maps over it (`layers.thickness` is the list of thicknesses)
@@ -164,7 +165,7 @@ OPO objects are not invented from scratch. Every object in an OPO library states
 
 Values that are typical practice rather than taken from a norm (e.g. hinge positions) are marked as such in a `note`.
 
-**Size catalogues.** Standard sizes ship as layer files, one per norm or market. Each catalogue has one *system* node (inheriting the type) carrying that market's construction values (frame type, lining, gaps, leaf thickness, handle height…), and one variant node per standard size inheriting the system node. All markets use the same object; only the values differ.
+**Size catalogues.** Standard sizes ship as layer files, one per norm or market. Each catalogue has one *system* node (inheriting the type) carrying that market's construction values (frame type, lining, gaps, leaf thickness, handle height…), and one variant node per standard size inheriting the system node. All markets use the same object; only the values differ. `opo::values` merges key by key along `inherits`: a variant's own values win over its system node's, a `null` value removes an inherited one, and of several inherited nodes the later one in `inherits` wins (decision 0020).
 
 ## 4.15 Script step (optional, rare)
 For generators too complex for the recipe (e.g. balanced winder stairs):

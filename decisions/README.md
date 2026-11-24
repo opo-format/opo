@@ -23,5 +23,6 @@ One file per decision (MADR style, see 0001). Accepted records are not rewritten
 | 0017 | [Every value records its source and status](0017-every-value-records-its-source-and-status.md) | 2026-11-24 | accepted |
 | 0018 | [Proposals and objects move through maturity stages](0018-proposals-and-objects-move-through-maturity-stages.md) | 2026-11-24 | accepted |
 | 0019 | [Protected main, with direct push and merge for the maintainer and agents](0019-protected-main-with-maintainer-and-agent-bypass.md) | 2026-11-24 | accepted |
+| 0020 | [Layers only add; rule sets are their own nodes; values merge through inheritance](0020-layers-only-add-rule-sets-are-nodes-values-merge.md) | 2026-11-24 | accepted |
 
 New record: copy `template.md`, take the next number, open a pull request.

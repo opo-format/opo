@@ -139,6 +139,12 @@
       "value": {
         "dataType": "String"
       }
+    },
+    "opo::ruleset": {
+      "uri": "https://opo-format.org/schema/0.1/ruleset.json",
+      "value": {
+        "dataType": "Object"
+      }
     }
   },
   "data": []
