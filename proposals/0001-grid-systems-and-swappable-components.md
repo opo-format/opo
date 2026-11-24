@@ -160,7 +160,7 @@ panel_classes:
 | `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember`, `IfcDiscreteAccessory` *(to decide)* |
 | `post` | `point`, `direction` (along the path), `height`, `normal` | `face_width` | `IfcMember` |
 
-The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. It lets a door object sit in a cell of any mullion system.
+The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. This lets a door object sit in a cell of any mullion system.
 
 A check fails if an object placed in a component slot does not declare the slot's interface, or if a required interface input is not passed.
 
