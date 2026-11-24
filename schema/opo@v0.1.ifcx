@@ -145,6 +145,12 @@
       "value": {
         "dataType": "Object"
       }
+    },
+    "opo::provenance": {
+      "uri": "https://opo-format.org/schema/0.1/provenance.json",
+      "value": {
+        "dataType": "Object"
+      }
     }
   },
   "data": []
