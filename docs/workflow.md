@@ -37,8 +37,11 @@ Required checks, by repository:
 
 ## 4. Review and merge
 
-- The maintainer reviews and merges. Anything labelled `normative` (spec, schema, conformance, decisions, proposals) needs the maintainer's explicit approval, never an automatic merge.
-- Agents may review each other's pull requests as a first pass; the maintainer has the final say.
+`main` is protected by the `protect-main` ruleset (decision 0019): no force pushes or deletion; outside contributors need a pull request with 1 approving review, resolved conversations and squash merge.
+
+- **The maintainer and AI agents** may push to `main` and merge directly. Agents use pull requests when a change is large or needs discussion, and push small, checked changes directly.
+- Anything labelled `normative` (spec, schema, conformance, decisions, proposals) needs the maintainer's explicit approval before it is merged or pushed, never an automatic merge.
+- When CI exists, required status checks are added to the ruleset, and agents merge only on green CI.
 - Squash-merge, with the pull request title as the commit message.
 
 ## Changing the standard: proposals

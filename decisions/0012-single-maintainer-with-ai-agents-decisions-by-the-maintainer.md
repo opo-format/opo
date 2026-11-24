@@ -1,5 +1,5 @@
 ---
-status: accepted
+status: accepted (who merges: superseded by 0019)
 date: 2026-11-24
 deciders: maintainer
 ---

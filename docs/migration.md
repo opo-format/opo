@@ -11,7 +11,8 @@ From one mixed repository with Python prototypes to the structure in `architectu
 - [x] `opo-format/opo-rs` and `opo-format/library` created (public) with README, licences (REUSE), `AGENTS.md`, `CLAUDE.md`; Claude GitHub app has access.
 - [x] `opo-format/.github` created with the organisation profile, CONTRIBUTING, code of conduct, security policy, issue templates (task, bug, proposal, object, data) and pull-request template. (This repository cannot be attached to agent sessions because its name starts with a dot; edit it in the GitHub web editor.)
 - [x] Labels from `workflow.md` in `opo`, `opo-rs` and `library`.
-- [ ] Branch protection on `main` (required CI checks, squash merge, no direct pushes): deferred by the maintainer until CI exists.
+- [x] `protect-main` ruleset on `main` in `opo`, `opo-rs`, `library` (decision 0019): no force push or deletion; pull requests with review for others; maintainer, admins and the Claude app may bypass.
+- [ ] Add required status checks to the ruleset once CI exists (phase 2/3).
 - [ ] Milestones, once the phases become issues.
 
 ## Phase 2 — Standard repository cleaned up
