@@ -4,4 +4,4 @@ Changes to the standard move through stages 0–3 (`docs/workflow.md`, decision 
 
 | # | Proposal | Stage |
 |---|---|---|
-| — | none yet | — |
+| [0001](0001-grid-systems-and-swappable-components.md) | Grid systems and swappable components | 1 (draft) |
