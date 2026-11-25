@@ -157,7 +157,7 @@ panel_classes:
 |---|---|---|---|
 | `frame` | `path` (3D line), `normal` (front of the surface), `trim_start`, `trim_end` (lengths to stop short of the end nodes), `left_cell`, `right_cell` (sizes, may be null) | `face_width`, `depth`, `offset` (from the surface to the member's front face) | `IfcMember` MULLION |
 | `panel` | `outline` (closed polygon on the cell plane, counter-clockwise from the front), `normal`, `insets` (per edge, from the surrounding frames' `face_width`) | `thickness`, `offset` | `IfcPlate` CURTAIN_PANEL; `IfcWindow`, `IfcDoor` when a window or door fills a cell |
-| `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember`, `IfcDiscreteAccessory` *(to decide)* |
+| `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember` |
 | `post` | `point`, `direction` (along the path), `height`, `normal` | `face_width` | `IfcMember` |
 
 The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. This lets a door object sit in a cell of any mullion system.
@@ -221,13 +221,15 @@ Parameters: `module` (u size, flexible), `spandrel_height`, `frame_classes` (`bo
 
 ## Open questions
 
-1. **Junction class.** Which IFC class do junctions and fixings (spider fittings, clamps, brackets) export as: `IfcMember`, `IfcDiscreteAccessory` or `IfcMechanicalFastener`?
-2. **Non-rectangular grids.** Diagonal grid lines are left out of this version. Add later as a third grid direction?
+None.
 
 ## Resolved
 
 - **Corners** (maintainer, 24 Nov 2026): the pattern restarts on each straight run of the baseline; corners get their own `corner` lines.
 - **Archetype** (maintainer, 24 Nov 2026): curtain walls stay on the wall archetype, with a grid in place of layers.
+- **Junction class** (maintainer, 25 Nov 2026): junctions and fixings export as `IfcMember` for now. A later proposal may map some of them to `IfcDiscreteAccessory` or `IfcMechanicalFastener`.
+- **Non-rectangular grids** (maintainer, 25 Nov 2026): diagonal grid lines are left to a later proposal.
+- **Candidate** (maintainer, 25 Nov 2026): approved for implementation. The proposal moves to stage 2 when its schema changes and conformance tests are merged here and it is implemented in opo-rs.
 
 ## Prior art
 
