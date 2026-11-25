@@ -39,7 +39,9 @@
           "rotate",
           "mirror",
           "for_each",
-          "instance"
+          "instance",
+          "grid",
+          "reported"
         ]
       },
       "plane": {
@@ -626,6 +628,78 @@
                   "values",
                   "inputs",
                   "representation"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "grid"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "surface",
+                "u",
+                "v"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "surface",
+                  "u",
+                  "v",
+                  "join",
+                  "classes",
+                  "overrides",
+                  "widths"
+                ]
+              },
+              "properties": {
+                "classes": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "segment": {
+                      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+                    },
+                    "cell": {
+                      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "reported"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "object",
+                "name"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "object",
+                  "name",
+                  "values",
+                  "inputs"
                 ]
               }
             }

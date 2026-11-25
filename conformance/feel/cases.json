@@ -493,6 +493,160 @@
    "id": "string-concat",
    "expr": "\"IPE \" + \"270\"",
    "expected": "IPE 270"
+  },
+  {
+   "id": "layout-fixed-start",
+   "expr": "for l in (layout(5, [{size: 1.5}])).lines return l.at",
+   "expected": [0.0, 1.5, 3.0, 4.5, 5.0],
+   "note": "Proposal 0001 §1. The last bay is cut."
+  },
+  {
+   "id": "layout-fixed-infill",
+   "expr": "for b in layout(5, [{size: 1.5}], \"fixed\", \"start\", \"filler\").bays return b.cls",
+   "expected": ["main", "main", "main", "filler"],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-fixed-end",
+   "expr": "for l in (layout(5, [{size: 1.5}], \"fixed\", \"end\")).lines return l.at",
+   "expected": [0.0, 0.5, 2.0, 3.5, 5.0],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-fixed-center",
+   "expr": "for l in (layout(5, [{size: 1.5}], \"fixed\", \"center\")).lines return l.at",
+   "expected": [0.0, 0.25, 1.75, 3.25, 4.75, 5.0],
+   "note": "Proposal 0001 §1. The middle repetition is centred."
+  },
+  {
+   "id": "layout-best-division",
+   "expr": "for l in (layout(5, [{size: 1.5, flexible: true}], \"best_division\")).lines return l.at",
+   "expected": [0.0, 1.6666666666666667, 3.3333333333333335, 5.0],
+   "note": "Proposal 0001 §1. k = 3 gives s = 1.11, k = 4 gives 0.83."
+  },
+  {
+   "id": "layout-best-division-fixed-entries",
+   "expr": "for l in (layout(4.5, [{size: 1, flexible: true}, {size: 0.5}], \"best_division\")).lines return l.at",
+   "expected": [0.0, 1.0, 1.5, 2.5, 3.0, 4.0, 4.5],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-best-division-tie",
+   "expr": "count(layout(4 / 3, [{size: 1, flexible: true}], \"best_division\").bays)",
+   "expected": 2,
+   "note": "Proposal 0001 §1. k = 1 and k = 2 are both 1/3 from s = 1: the larger k wins."
+  },
+  {
+   "id": "layout-best-division-end-with",
+   "expr": "for l in (layout(2.4, [{size: 1, flexible: true}, {size: 0.4}], \"best_division\", null, null, 1)).lines return l.at",
+   "expected": [0.0, 1.0, 1.4, 2.4],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-best-division-invalid",
+   "expr": "layout(0.4, [{size: 1, flexible: true}, {size: 0.5}], \"best_division\")",
+   "expected": null,
+   "note": "Proposal 0001 §1. No k gives a positive scale."
+  },
+  {
+   "id": "layout-count",
+   "expr": "for l in (layout(3, [{size: 4}], \"count\")).lines return l.at",
+   "expected": [0.0, 0.75, 1.5, 2.25, 3.0],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-max-spacing",
+   "expr": "for l in (layout(3, [{size: 1.2}], \"max_spacing\")).lines return l.at",
+   "expected": [0.0, 1.0, 2.0, 3.0],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-positions",
+   "expr": "for l in (layout(3, [2, 0.5, 9], \"positions\")).lines return l.at",
+   "expected": [0.0, 0.5, 2.0, 3.0],
+   "note": "Proposal 0001 §1. Positions outside the length are ignored."
+  },
+  {
+   "id": "layout-within-lines",
+   "expr": "for l in (layout(6, [{size: 1, cls: \"spandrel\"}, {size: 2, flexible: true, cls: \"vision\"}], \"best_division\", null, null, null, [3])).lines return l.at",
+   "expected": [0.0, 1.0, 3.0, 4.0, 6.0],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-within-classes",
+   "expr": "for l in (layout(6, [{size: 1, cls: \"spandrel\"}, {size: 2, flexible: true, cls: \"vision\"}], \"best_division\", null, null, null, [3])).lines return l.cls",
+   "expected": ["border", "division", "break", "division", "border"],
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-within-index",
+   "expr": "(layout(6, [{size: 1, cls: \"spandrel\"}, {size: 2, flexible: true, cls: \"vision\"}], \"best_division\", null, null, null, [3])).bays[4].index",
+   "expected": 3,
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-context-form",
+   "expr": "layout(5, {pattern: [{size: 1.5}], origin: \"end\"}) = layout(5, [{size: 1.5}], \"fixed\", \"end\")",
+   "expected": true,
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "layout-result",
+   "expr": "layout(2, [{size: 2}], \"count\")",
+   "expected": {
+    "bays": [
+     {
+      "cls": "main",
+      "end": 1.0,
+      "index": 0,
+      "size": 1.0,
+      "start": 0.0
+     },
+     {
+      "cls": "main",
+      "end": 2.0,
+      "index": 1,
+      "size": 1.0,
+      "start": 1.0
+     }
+    ],
+    "lines": [
+     {
+      "at": 0.0,
+      "cls": "border",
+      "index": 0
+     },
+     {
+      "at": 1.0,
+      "cls": "division",
+      "index": 1
+     },
+     {
+      "at": 2.0,
+      "cls": "border",
+      "index": 2
+     }
+    ]
+   },
+   "note": "Proposal 0001 §1."
+  },
+  {
+   "id": "component-for-class",
+   "expr": "component_for({main: \"a\", default: \"d\"}, \"main\")",
+   "expected": "a",
+   "note": "Proposal 0001 §2."
+  },
+  {
+   "id": "component-for-default",
+   "expr": "component_for({main: \"a\", default: \"d\"}, \"spandrel\")",
+   "expected": "d",
+   "note": "Proposal 0001 §2."
+  },
+  {
+   "id": "component-for-id",
+   "expr": "component_for(\"x\", \"main\")",
+   "expected": "x",
+   "note": "Proposal 0001 §2."
   }
  ]
 }

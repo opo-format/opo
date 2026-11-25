@@ -1,5 +1,5 @@
 ---
-stage: 1          # 0 idea | 1 draft | 2 candidate | 3 final | withdrawn | rejected
+stage: 2          # 0 idea | 1 draft | 2 candidate | 3 final | withdrawn | rejected
 issue: "#5"
 spec_version: "0.2"
 ---
@@ -85,14 +85,18 @@ grid(surface, u, v, [join, classes, overrides])
 | `classes` | Optional FEEL rules for member classes (see Member classes). |
 | `join` | `u_continuous` (default: vertical members run through, like stick-system mullions) or `v_continuous`. Decides which segments break at a node. |
 | `overrides` | The instance `overrides` input (§5), or empty. |
+| `widths` | Optional context: member class → face width. Trims and panel insets use it (see §3, reported values). |
 
 **Baseline with several segments.** Each baseline segment is laid out on its own with `u`; the pattern restarts on every straight run, and baseline vertices become grid lines of class `"corner"`.
 
-**Result.** A context with three lists:
+**Result.** A context with three lists and the overrides that did not apply:
 
 - `nodes`: `{id, point, u_index, v_index}` at every line intersection.
 - `segments`: one per piece of a grid line between two nodes: `{id, direction ("u" or "v"), line_cls, cls, start, end, path, length, normal, trim_start, trim_end, cells}`. `line_cls` is the class of its line from the layout (`border`, `corner`, `break`, `division`); `cls` is the member class (below). `path` is the 3D line from `start` to `end`. `cells` holds the ids of the one or two cells on either side.
-- `cells`: `{id, column, row, cls, column_cls, row_cls, outline, panel_outline, width, height, origin, x_axis, y_axis, normal, segments}`. `outline` is the four 3D corners, counter-clockwise seen from the front (+normal side); `width` and `height` are measured on the surface between the grid lines (before member sizes are taken off, see §3 outputs).
+- `cells`: `{id, column, row, cls, column_cls, row_cls, outline, panel_outline, insets, width, height, origin, x_axis, y_axis, normal, segments, component, values}`. `insets` are the bottom, right, top and left insets of `panel_outline`.
+- `unused_overrides`: the override edits that matched no member or were invalid (§5).
+
+Segments also carry `component` and `values` (null unless an override sets them). The front of a baseline surface (its `normal`) is the right of the baseline direction; on a face, the normal follows the right-hand rule of its corners. Indices start at 0. `outline` is the four 3D corners, counter-clockwise seen from the front (+normal side); `width` and `height` are measured on the surface between the grid lines (before member sizes are taken off, see §3 outputs).
 
 **Ids** are stable for a given layout: lines are numbered from 0 along u and v; a cell is `"c{column}.{row}"`; a u-direction segment on line *j* between columns is `"h{j}.{column}"`, a v-direction segment on line *i* between rows is `"v{i}.{row}"`; a node is `"n{i}.{j}"`. (u-direction segments run horizontally on a vertical wall: transoms; v-direction segments run vertically: mullions.)
 
@@ -160,14 +164,22 @@ panel_classes:
 | `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember` |
 | `post` | `point`, `direction` (along the path), `height`, `normal` | `face_width` | `IfcMember` |
 
-The grid uses reported values: each segment's `trim_start` and `trim_end` are half the `face_width` of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the `face_width` of each bounding member. This lets a door object sit in a cell of any mullion system.
+The grid uses reported values: each segment's `trim_start` and `trim_end` are half the face width of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the face width of each bounding member. This lets a door object sit in a cell of any mullion system.
 
-A check fails if an object placed in a component slot does not declare the slot's interface, or if a required interface input is not passed.
+**Reported values.** `reported(object, name, [values, inputs])` returns a derived value an object reports through its interface; the nested recipe does not run. An object passes its members' face widths to the grid with it, class by class:
+
+```yaml
+widths: "{mullion: reported(component_for(frame_classes, 'mullion'), 'face_width'), transom: reported(component_for(frame_classes, 'transom'), 'face_width')}"
+```
+
+`reported` is a recipe operation: it can be called inline in step arguments or used as a step. Asking for a value the object does not list in `reports` is an error.
+
+A check fails if an object placed in a component slot does not declare the slot's interface, or if a required interface input is not passed. `opo::interface` is `{name, inputs, reports}`; an object declaring a standard interface lists at least its inputs and reports, and every report is one of its derived values. A component parameter's default is an object id, or null for a class map (its value is then the map).
 
 ### 4. Input slot types `surface` and `points`
 
 - **`surface`**: either `{baseline, base, top}`, where `baseline` is a polyline or arc in plan and `base` and `top` are heights (or level references resolved by the application to heights), or `{face}`, a flat closed polygon in 3D (sloped glazing, a sloped roof light). The surface's u direction runs along the baseline (or the face's first edge), v runs up (or across). Validity: baseline not self-intersecting; `top` > `base`; face planar within 1e-6 m.
-- **`points`**: an ordered list of a fixed number of 3D points (`count` in the slot declaration). Used by panel-type objects placed on four corners and by line-based objects (two points).
+- **`points`**: an ordered list of a fixed number of 3D points (`count` in the slot declaration); a different number is an error when the object runs. Used by panel-type objects placed on four corners and by line-based objects (two points).
 
 ### 5. Instance `overrides`
 
@@ -180,7 +192,7 @@ A check fails if an object placed in a component slot does not declare the slot'
 | `{cell: "<id>", cls: "<class>"}` | The cell's class changes. |
 | `{cell: "<id>" or segment: "<id>", component: <object id>, values: {…}}` | One member uses another object, or other values (a door in one cell, a deeper mullion at one line). |
 
-Edits whose id no longer exists after the layout changes are kept but ignored, and a check reports them, so a user who changes the module and changes it back gets their edits back. Keeping them means no edit is silently discarded.
+Removing a segment merges its two cells only when they form a rectangle; removing a border or corner segment is invalid. Edits whose id no longer exists after the layout changes, and invalid edits, are kept but ignored; the grid returns them in `unused_overrides`, and a check reports them, so a user who changes the module and changes it back gets their edits back. Keeping them means no edit is silently discarded.
 
 ### 6. IFC export
 
@@ -197,6 +209,10 @@ No new archetype. The `grid` operation is a recipe capability that any archetype
 ### Example: catalogue object O-16, stick curtain wall (outline)
 
 Parameters: `module` (u size, flexible), `spandrel_height`, `frame_classes` (`boundary`, `mullion`, `transom`, `corner`), `panel_classes` (`vision`, `spandrel`, `default`), `join` (default `u_continuous`), plus O-16's joint and glass parameters passed down to the components. Inputs: `surface` (baseline + base and top), `levels` (heights of the floors the façade passes), `overrides`. Recipe: the grid step above, `for_each` over segments and cells, and `instance` of the components. A user who removes transom `h2.3` gets one tall panel in column 3; a user who sets cell `c4.0` to a door component gets a door that fits the mullions on either side.
+
+## Limits of the candidate (stage 2)
+
+Baselines are polylines (arc baselines come later) and faces are rectangles; the grid reports an error for other surfaces. The conformance fixtures' members are axis-aligned boxes.
 
 ## Drawbacks
 

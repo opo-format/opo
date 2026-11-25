@@ -1,0 +1,332 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../fixtures/examples/grid/stick-wall",
+ "label": "Stick curtain wall with mullion and panel components (proposal 0001)",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "steps": [
+     {
+      "expr": "for c in g.cells return c.id",
+      "expected": ["c0.0", "c1.0", "c2.0", "c3.0", "c4.0", "c0.1", "c1.1", "c2.1", "c3.1", "c4.1"]
+     },
+     {
+      "expr": "for c in g.cells return c.cls",
+      "expected": ["spandrel", "spandrel", "spandrel", "spandrel", "spandrel", "vision", "vision", "vision", "vision", "vision"]
+     },
+     {
+      "expr": "count(g.segments)",
+      "expected": 27.0
+     },
+     {
+      "expr": "for s in g.segments return s.cls",
+      "expected": ["boundary", "boundary", "boundary", "boundary", "boundary", "transom", "transom", "transom", "transom", "transom", "boundary", "boundary", "boundary", "boundary", "boundary", "boundary", "boundary", "mullion", "mullion", "mullion", "mullion", "corner", "corner", "mullion", "mullion", "boundary", "boundary"]
+     },
+     {
+      "expr": "g.cells[1].insets",
+      "expected": [0.025, 0.025, 0.025, 0.025]
+     },
+     {
+      "expr": "g.cells[1].panel_outline",
+      "expected": [
+       [0.025, 0.0, 0.025],
+       [1.475, 0.0, 0.025],
+       [1.475, 0.0, 0.875],
+       [0.025, 0.0, 0.875]
+      ]
+     },
+     {
+      "expr": "for s in g.segments return [s.trim_start, s.trim_end]",
+      "expected": [
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0]
+      ]
+     },
+     {
+      "expr": "g.unused_overrides",
+      "expected": []
+     },
+     {
+      "expr": "for n in g.nodes return n.id",
+      "expected": ["n0.0", "n1.0", "n2.0", "n3.0", "n4.0", "n5.0", "n0.1", "n1.1", "n2.1", "n3.1", "n4.1", "n5.1", "n0.2", "n1.2", "n2.2", "n3.2", "n4.2", "n5.2"]
+     },
+     {
+      "expr": "g.segments[1]",
+      "expected": {
+       "cells": ["c0.0"],
+       "cls": "boundary",
+       "component": null,
+       "direction": "u",
+       "end": [1.5, 0.0, 0.0],
+       "id": "h0.0",
+       "length": 1.5,
+       "line_cls": "border",
+       "normal": [0.0, -1.0, 0.0],
+       "path": [
+        [0.0, 0.0, 0.0],
+        [1.5, 0.0, 0.0]
+       ],
+       "start": [0.0, 0.0, 0.0],
+       "trim_end": 0.025,
+       "trim_start": 0.025,
+       "values": null
+      }
+     }
+    ],
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "frames",
+       "solids": 27,
+       "volume": 0.352875,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "panels",
+       "solids": 10,
+       "volume": 0.696,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "join-v-continuous",
+   "values": {
+    "join": "v_continuous"
+   },
+   "expected": {
+    "steps": [
+     {
+      "expr": "g.cells[1].insets",
+      "expected": [0.025, 0.025, 0.025, 0.025]
+     },
+     {
+      "expr": "for s in g.segments return [s.trim_start, s.trim_end]",
+      "expected": [
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.0, 0.0],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025],
+       [0.025, 0.025]
+      ]
+     }
+    ],
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "frames",
+       "solids": 27,
+       "volume": 0.35275,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "panels",
+       "solids": 10,
+       "volume": 0.696,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "module-1",
+   "values": {
+    "module": 1.0
+   },
+   "expected": {
+    "steps": [
+     {
+      "expr": "for c in g.cells return c.id",
+      "expected": ["c0.0", "c1.0", "c2.0", "c3.0", "c4.0", "c5.0", "c6.0", "c7.0", "c0.1", "c1.1", "c2.1", "c3.1", "c4.1", "c5.1", "c6.1", "c7.1"]
+     },
+     {
+      "expr": "for c in g.cells return c.width",
+      "expected": [0.9, 0.9, 0.9000000000000001, 0.8999999999999999, 0.8999999999999999, 1.0, 1.0, 1.0, 0.9, 0.9, 0.9000000000000001, 0.8999999999999999, 0.8999999999999999, 1.0, 1.0, 1.0]
+     }
+    ],
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "frames",
+       "solids": 42,
+       "volume": 0.42375,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "panels",
+       "solids": 16,
+       "volume": 0.6816,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "overrides",
+   "inputs": {
+    "overrides": [
+     {
+      "remove": "h1.1"
+     },
+     {
+      "cell": "c3.0",
+      "cls": "vision"
+     },
+     {
+      "segment": "v2.1",
+      "values": {
+       "face": 0.1
+      }
+     },
+     {
+      "remove": "h0.0"
+     },
+     {
+      "cell": "c9.9",
+      "cls": "x"
+     }
+    ]
+   },
+   "expected": {
+    "steps": [
+     {
+      "expr": "for c in g.cells return c.id",
+      "expected": ["c0.0", "c1.0", "c2.0", "c3.0", "c4.0", "c0.1", "c2.1", "c3.1", "c4.1"]
+     },
+     {
+      "expr": "for c in g.cells return c.cls",
+      "expected": ["spandrel", "spandrel", "spandrel", "vision", "spandrel", "vision", "vision", "vision", "vision"]
+     },
+     {
+      "expr": "count(g.segments)",
+      "expected": 26.0
+     },
+     {
+      "expr": "g.cells[2].panel_outline",
+      "expected": [
+       [1.525, 0.0, 0.025],
+       [2.975, 0.0, 0.025],
+       [2.975, 0.0, 3.275],
+       [1.525, 0.0, 3.275]
+      ]
+     },
+     {
+      "expr": "g.unused_overrides",
+      "expected": [
+       {
+        "remove": "h0.0"
+       },
+       {
+        "cell": "c9.9",
+        "cls": "x"
+       }
+      ]
+     }
+    ],
+    "geometry": {
+     "model.medium": [
+      {
+       "geometry": "frames",
+       "solids": 26,
+       "volume": 0.36,
+       "tolerance": 1e-06
+      },
+      {
+       "geometry": "panels",
+       "solids": 9,
+       "volume": 0.698175,
+       "tolerance": 1e-06
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "sloped-face",
+   "inputs": {
+    "surface": {
+     "face": [
+      [0, 0, 0],
+      [3, 0, 0],
+      [3, 2, 2],
+      [0, 2, 2]
+     ]
+    }
+   },
+   "expected": {
+    "steps": [
+     {
+      "expr": "for c in g.cells return c.id",
+      "expected": ["c0.0", "c1.0", "c0.1", "c1.1"]
+     },
+     {
+      "expr": "g.cells[1].normal",
+      "expected": [0.0, -0.7071067811865476, 0.7071067811865476]
+     },
+     {
+      "expr": "g.cells[1].outline",
+      "expected": [
+       [0.0, 0.0, 0.0],
+       [1.5, 0.0, 0.0],
+       [1.5, 0.6363961030678927, 0.6363961030678927],
+       [0.0, 0.6363961030678927, 0.6363961030678927]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

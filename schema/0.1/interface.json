@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opo-format.org/schema/0.1/interface.json",
+  "title": "opo::interface",
+  "description": "What an object that fills a component slot accepts from its parent and reports back (proposal 0001 §3).",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name",
+      "description": "frame, panel, node, post, or an object's own interface."
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "description": "Inputs the parent must pass (they may be null)."
+    },
+    "reports": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name"
+      },
+      "description": "Derived values reported back."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "name": {
+            "const": "frame"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "inputs": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "path"
+                }
+              },
+              {
+                "contains": {
+                  "const": "normal"
+                }
+              },
+              {
+                "contains": {
+                  "const": "trim_start"
+                }
+              },
+              {
+                "contains": {
+                  "const": "trim_end"
+                }
+              },
+              {
+                "contains": {
+                  "const": "left_cell"
+                }
+              },
+              {
+                "contains": {
+                  "const": "right_cell"
+                }
+              }
+            ]
+          },
+          "reports": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "face_width"
+                }
+              },
+              {
+                "contains": {
+                  "const": "depth"
+                }
+              },
+              {
+                "contains": {
+                  "const": "offset"
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "inputs",
+          "reports"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "name": {
+            "const": "panel"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "inputs": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "outline"
+                }
+              },
+              {
+                "contains": {
+                  "const": "normal"
+                }
+              },
+              {
+                "contains": {
+                  "const": "insets"
+                }
+              }
+            ]
+          },
+          "reports": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "thickness"
+                }
+              },
+              {
+                "contains": {
+                  "const": "offset"
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "inputs",
+          "reports"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "name": {
+            "const": "node"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "inputs": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "point"
+                }
+              },
+              {
+                "contains": {
+                  "const": "normal"
+                }
+              },
+              {
+                "contains": {
+                  "const": "directions"
+                }
+              }
+            ]
+          },
+          "reports": {}
+        },
+        "required": [
+          "inputs"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "name": {
+            "const": "post"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "inputs": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "point"
+                }
+              },
+              {
+                "contains": {
+                  "const": "direction"
+                }
+              },
+              {
+                "contains": {
+                  "const": "height"
+                }
+              },
+              {
+                "contains": {
+                  "const": "normal"
+                }
+              }
+            ]
+          },
+          "reports": {
+            "allOf": [
+              {
+                "contains": {
+                  "const": "face_width"
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "inputs",
+          "reports"
+        ]
+      }
+    }
+  ]
+}

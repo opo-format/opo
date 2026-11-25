@@ -26,6 +26,7 @@ Each file names one fixture object (`object`, a folder relative to the file) and
 | `expected.ifc_properties` | IFC properties written from formulas |
 | `expected.quantities` | IFC base quantities written from formulas (`Qto_….Name`) |
 | `expected.ports` | evaluated `nominal_size`, `position`, `direction` of each active port |
+| `expected.steps` | FEEL expressions over the environment and the step results (`[{expr, expected}]`), for data steps such as a grid |
 | `expected.geometry` | per representation (`model.medium`, `model.high`, and `void` for openings): for each item, the number of solids and their total volume (m³) |
 
 Tolerances:
@@ -43,5 +44,6 @@ The fixture objects live in `fixtures/`, at the paths their ids name (`opo-forma
 |---|---|---|
 | `door-single-swing.json` | `fixtures/examples/door/single-swing-door` | sizes for four markets × ISO 21542 / ADA rule sets |
 | `template-*.json` | `fixtures/library/templates/<IfcClass>` | the nine class templates |
+| `grid-stick-wall.json` | `fixtures/examples/grid/stick-wall` (with `mullion` and `panel`) | proposal 0001: default, joins, module, overrides, sloped face |
 
 When objects move to the library repository (migration phase 4), the fixtures stay here as copies under `conformance/fixtures/`.

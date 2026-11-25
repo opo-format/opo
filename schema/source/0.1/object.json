@@ -243,6 +243,10 @@
       "type": "string",
       "minLength": 1,
       "description": "bsi::ifc::prop::TypeName of the type node when it differs from name."
+    },
+    "interface": {
+      "description": "opo::interface (proposal 0001 §3).",
+      "$ref": "https://opo-format.org/schema/0.1/interface.json"
     }
   }
 }
