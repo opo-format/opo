@@ -6,4 +6,4 @@
 4. **Stair on a walkline with winders** — curve input, curve queries, WASM script step
 5. **Branded product** — generic window + product binding + manufacturer geometry
 
-The full list of planned objects (74 objects in eight families: openings, circulation, fixtures, furniture & equipment, shading devices, lifts & escalators, structure & coverings, MEP terminals & site), with one specification sheet per object and shared rule sets, is in [`spec/objects/`](objects/README.md). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.
+The full list of planned objects (74 objects in eight families: openings, circulation, fixtures, furniture & equipment, shading devices, lifts & escalators, structure & coverings, MEP terminals & site), with one specification sheet per object and shared rule sets, is in the library repository (`objects/*/object.yaml`; see [`spec/objects/`](objects/README.md)). Test objects 1–4 are O-01, O-08 (with a custom outline; every window has an editable outline), C-01…C-03 and C-04 there.

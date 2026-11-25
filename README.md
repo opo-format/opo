@@ -24,7 +24,7 @@ One source of truth, everything else generated, everything checked: see [`docs/a
 | Path | Contents |
 |---|---|
 | [`spec/`](spec/00-index.md) | Draft specification (v0.1), one file per chapter |
-| [`spec/objects/`](spec/objects/README.md) | Object catalogue: a class template for every IFC 4.3 element class (150, on eight archetypes), and 74 planned detailed objects in eight families with one specification sheet each, and shared rule sets (stairs, guards, accessibility, escape windows, kitchens) |
+| [`spec/objects/`](spec/objects/README.md) | The archetypes of the class templates (150 IFC 4.3 element classes on nine archetypes), and where the catalogue, sheets, family rules and rule sets live in the library repository |
 | [`schema/`](schema/) | `opo@v0.1.ifcx`: IFCX declaration of the `opo::` attributes (draft). Will be published at `https://opo-format.org/schema/<version>/` |
 | [`conformance/`](conformance/README.md) | Conformance suite: FEEL and object cases, with fixture objects (the reference door and nine class templates, frozen) in `conformance/fixtures/` |
 | `crates/` *(planned)* | Rust reference reader and validator CLI |
