@@ -164,7 +164,7 @@ panel_classes:
 | `node` | `point`, `normal`, `directions` (unit vectors of the segments meeting there) | — | `IfcMember` |
 | `post` | `point`, `direction` (along the path), `height`, `normal` | `face_width` | `IfcMember` |
 
-The grid uses reported values: each segment's `trim_start` and `trim_end` are half the face width of the continuous members it meets, and each cell's `panel_outline` is its `outline` inset by half the face width of each bounding member. This lets a door object sit in a cell of any mullion system.
+The grid uses reported values: each segment's `trim_start` and `trim_end` are half the face width of the continuous members it meets (a continuous member itself runs on past a border line by half the width of the border member there, a negative trim, so the frame's outer corners are square), and each cell's `panel_outline` is its `outline` inset by half the face width of each bounding member. This lets a door object sit in a cell of any mullion system.
 
 **Reported values.** `reported(object, name, [values, inputs])` returns a derived value an object reports through its interface; the nested recipe does not run. An object passes its members' face widths to the grid with it, class by class:
 
@@ -245,6 +245,7 @@ None.
 - **Archetype** (maintainer, 24 Nov 2026): curtain walls stay on the wall archetype, with a grid in place of layers.
 - **Junction class** (maintainer, 25 Nov 2026): junctions and fixings export as `IfcMember` for now. A later proposal may map some of them to `IfcDiscreteAccessory` or `IfcMechanicalFastener`.
 - **Non-rectangular grids** (maintainer, 25 Nov 2026): diagonal grid lines are left to a later proposal.
+- **Square frame corners** (maintainer review, 25 Nov 2026): continuous members extend past border lines by half the border member's width.
 - **Candidate** (maintainer, 25 Nov 2026): approved for implementation. The proposal moves to stage 2 when its schema changes and conformance tests are merged here and it is implemented in opo-rs.
 
 ## Prior art
