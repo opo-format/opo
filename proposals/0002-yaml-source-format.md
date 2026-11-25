@@ -100,6 +100,7 @@ handle_height:
 references.yaml        id → {title, kind, edition | version, licence, url}
 styles/hatches.yaml    id → an opo::hatches entry
 styles/materials.yaml  id → an opo::materials entry (its cut / surface name hatch ids)
+rulesets/<id>/<variant>.yaml   a shared rule-set variant (layer source, kind ruleset)
 ```
 
 Registries live in the library repository. Objects refer to registry entries by id and never copy them; `opo build` embeds what an object uses (decision 0011).
@@ -181,3 +182,4 @@ None at this stage.
 
 - **Provenance in packages** (maintainer, 24 Nov 2026): carried into the `.opo` as an optional attribute `opo::provenance` on the node whose value it describes: a map from a value path (`parameters.handle_height.default`, `values.nominal_width`, `ruleset.values.min_clear_width`) to `{source, status, note}`. Users of a library object can see which values are still `to_verify`.
 - **Registries** (maintainer, 24 Nov 2026): `references.yaml` and `styles/` live at the root of the library repository.
+- **Shared rule sets** (maintainer, 25 Nov 2026): a rule-set variant used by many objects is written once, as `rulesets/<id>/<variant>.yaml` at the library root. The file is a layer source of kind `ruleset` (`schema/source/0.1/layer.json`); its `id` is the folder name, and it has no `node:`. `opo build` adds a rule-set layer `layers/ruleset-<id>-<variant>.ifcx` to every object that declares the rule set `<id>` in `rules.rulesets`. An object that has a rule-set layer of its own for that id gets no shared variants of it. The added layer's rule-set node id follows the scheme in §5 (`<path>/layers/ruleset-<id>-<variant>.ifcx/ruleset`). Values follow decision 0017: those not checked against the norm text are `to_verify`.
