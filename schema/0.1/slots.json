@@ -24,15 +24,20 @@
           "polygon",
           "polygon_list",
           "curve",
-          "region"
+          "region",
+          "surface",
+          "points",
+          "overrides"
         ]
       },
       "plane": {
         "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/plane"
       },
       "default": {
+        "description": "Default geometry: a list of points, a surface ({baseline, base, top} or {face}), a list of overrides, or null.",
         "type": [
           "array",
+          "object",
           "null"
         ]
       },
@@ -64,7 +69,158 @@
             "type": "boolean"
           }
         }
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "points slots: the number of points."
       }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "type": {
+              "const": "points"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "count"
+          ]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "type": {
+              "const": "surface"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "default": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "baseline",
+                    "top"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "baseline": {
+                      "type": "array",
+                      "minItems": 2
+                    },
+                    "base": {},
+                    "top": {}
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "face"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "face": {
+                      "type": "array",
+                      "minItems": 3
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "type": {
+              "const": "overrides"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "default": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/$defs/override"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "$defs": {
+    "override": {
+      "type": "object",
+      "description": "One instance edit of a grid (proposal 0001 §5).",
+      "oneOf": [
+        {
+          "required": [
+            "remove"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "remove": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "required": [
+            "segment"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "segment": {
+              "type": "string"
+            },
+            "cls": {
+              "type": "string"
+            },
+            "component": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object"
+            }
+          }
+        },
+        {
+          "required": [
+            "cell"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cell": {
+              "type": "string"
+            },
+            "cls": {
+              "type": "string"
+            },
+            "component": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object"
+            }
+          }
+        }
+      ]
     }
   }
 }

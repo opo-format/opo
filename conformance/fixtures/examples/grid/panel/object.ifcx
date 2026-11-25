@@ -1,0 +1,202 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/grid/panel/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-25"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "c606da64-6d01-5303-a138-ba0bd4a7b9e8",
+      "children": {
+        "Model_body_1": "ee9a76e9-1e04-5bad-ae0e-b9911a4de5bc"
+      },
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcPlate",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcPlate"
+        },
+        "bsi::ifc::prop::Name": "Grid panel (fixture)",
+        "bsi::ifc::prop::TypeName": "Grid panel (fixture)",
+        "opo::object": {
+          "id": "opo-format.org/examples/grid/panel",
+          "name": "Grid panel (fixture)",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "A flat panel filling a grid cell inside the frames; fills the panel interface.",
+          "tags": [
+            "grid",
+            "proposal 0001"
+          ],
+          "references": [
+            {
+              "role": "conformance",
+              "name": "Proposal 0001: grid systems and swappable components",
+              "used": "Fixture for the grid, layout and component conformance cases."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "panel_thickness",
+            "type": "length",
+            "default": 0.03,
+            "label": "Thickness",
+            "group": "Size"
+          }
+        ],
+        "opo::interface": {
+          "name": "panel",
+          "inputs": [
+            "outline",
+            "normal",
+            "insets"
+          ],
+          "reports": [
+            "thickness",
+            "offset"
+          ]
+        },
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "thickness",
+              "expr": "panel_thickness"
+            },
+            {
+              "name": "offset",
+              "expr": "0"
+            },
+            {
+              "name": "lo",
+              "expr": "for k in 1..3 return min(outline[1][k], outline[3][k]) - abs(normal[k]) * thickness / 2"
+            },
+            {
+              "name": "hi",
+              "expr": "for k in 1..3 return max(outline[1][k], outline[3][k]) + abs(normal[k]) * thickness / 2"
+            }
+          ]
+        },
+        "opo::slots": [
+          {
+            "name": "outline",
+            "type": "polyline3",
+            "default": [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 0, 1]]
+          },
+          {
+            "name": "normal",
+            "type": "point",
+            "default": [0, -1, 0]
+          }
+        ],
+        "opo::recipe": [
+          {
+            "id": "body",
+            "op": "box",
+            "args": {
+              "min": "lo",
+              "max": "hi"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "\"glass\""
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "\"glass\""
+              }
+            ]
+          }
+        ],
+        "opo::materials": {
+          "aluminium": {
+            "label": "Aluminium",
+            "category": "metal",
+            "colour": "#b8bcc0",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Aluminium"
+          },
+          "glass": {
+            "label": "Glass",
+            "category": "glass",
+            "colour": "#bcd4dc",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Glass"
+          }
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcPlate",
+          "predefinedType": "\"CURTAIN_PANEL\""
+        }
+      }
+    },
+    {
+      "path": "ee9a76e9-1e04-5bad-ae0e-b9911a4de5bc",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.0, -0.015, 0.0], [1.0, -0.015, 0.0], [1.0, 0.015, 0.0], [0.0, 0.015, 0.0], [0.0, -0.015, 1.0], [1.0, -0.015, 1.0], [1.0, 0.015, 1.0], [0.0, 0.015, 1.0]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "glass",
+          "uri": ""
+        }
+      }
+    }
+  ]
+}

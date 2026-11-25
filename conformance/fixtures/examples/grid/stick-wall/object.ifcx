@@ -1,0 +1,654 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/grid/stick-wall/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-25"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "fdf84ff1-599e-588e-aa3e-f673e233c7ec",
+      "children": {
+        "Model_frames_1": "0904bc10-203c-573b-9d11-6bf102209ae8",
+        "Model_frames_2": "a456105c-0892-58de-bd3b-da7f1b0e6a4b",
+        "Model_frames_3": "bcb2d361-611f-5a58-8350-a0296697057e",
+        "Model_frames_4": "c2268d7a-7491-504f-a6ed-e7354b3632ad",
+        "Model_frames_5": "2188ce19-53aa-59e5-a478-375738f9fabf",
+        "Model_frames_6": "9ec74304-ad7b-5547-bf8f-66d6f931531d",
+        "Model_frames_7": "6c5835f5-3d80-5e84-8cd6-7019ac78763e",
+        "Model_frames_8": "4ef9d967-9fb9-5f41-98f1-63d7dc21ea46",
+        "Model_frames_9": "23fac4f5-f65c-52e4-9fa7-d0794aa7c9ba",
+        "Model_frames_10": "e1ece7a9-2898-5c5f-999c-c07342644ac9",
+        "Model_frames_11": "b4596484-c368-532f-a3f1-ed0e5e94055c",
+        "Model_frames_12": "7677404c-8574-5ec1-ad8a-e355c4d0b5d4",
+        "Model_frames_13": "62275f90-c16d-5931-bc2a-3efb70dc5b7f",
+        "Model_frames_14": "88403028-d983-51eb-8636-120829900ce5",
+        "Model_frames_15": "3fbc443d-2c6e-5667-99bf-b62379a574f2",
+        "Model_frames_16": "d8ca207e-4557-5248-915d-bed1163b0d1d",
+        "Model_frames_17": "1705f600-c37f-55f3-afdb-46cb90922c9d",
+        "Model_frames_18": "0e794f61-e54e-5848-81f2-ddbe1d178f05",
+        "Model_frames_19": "3ed22a8b-cb15-5c0c-be6c-46d2676512e7",
+        "Model_frames_20": "8ce85a8e-0b6f-5f1d-ab70-ddf73bd4d6a1",
+        "Model_frames_21": "c9d39439-2620-50be-9263-c22d00418654",
+        "Model_frames_22": "b0f555f7-ac23-5a8c-82fd-1e60c7c75763",
+        "Model_frames_23": "360f3b6e-c044-513f-b882-e8d8798d2a97",
+        "Model_frames_24": "a246ff44-16b0-525d-a562-fc420c3dadcf",
+        "Model_frames_25": "eff21dd1-800d-5f35-a579-a2752dc04eb0",
+        "Model_frames_26": "7c3096e8-ea59-5af0-9e25-d79eb1aaf2ee",
+        "Model_frames_27": "114d4c20-53b1-522f-8d71-34ef641c81f5",
+        "Model_panels_1": "2ccb4f95-8298-5873-bd76-3551eaa3a6db",
+        "Model_panels_2": "494d02bf-7db6-54de-a54a-14f7e6ef3be8",
+        "Model_panels_3": "0a95aa3d-07da-545d-b5b6-4b1b84bc81f4",
+        "Model_panels_4": "0b12ccb5-70ef-5f95-be99-7140f25ea275",
+        "Model_panels_5": "d83e73b2-99de-591f-9e1c-baa3616bae85",
+        "Model_panels_6": "7b34da5d-cc52-5600-9207-e5f43e0d064b",
+        "Model_panels_7": "d5e000cf-47d5-51f7-a378-5174a6fb5aeb",
+        "Model_panels_8": "60a0b613-38c4-53bc-a872-174a7d8a8d08",
+        "Model_panels_9": "56748dc9-b409-579e-8371-9e1bdb258b30",
+        "Model_panels_10": "80470d24-18b0-527e-9baa-5d056dbc9064"
+      },
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcCurtainWall",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcCurtainWall"
+        },
+        "bsi::ifc::prop::Name": "Stick curtain wall (fixture)",
+        "bsi::ifc::prop::TypeName": "Stick curtain wall (fixture)",
+        "opo::object": {
+          "id": "opo-format.org/examples/grid/stick-wall",
+          "name": "Stick curtain wall (fixture)",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "A minimal stick curtain wall: a grid on a baseline with mullion and panel components and instance overrides.",
+          "tags": [
+            "grid",
+            "proposal 0001"
+          ],
+          "references": [
+            {
+              "role": "conformance",
+              "name": "Proposal 0001: grid systems and swappable components",
+              "used": "Fixture for the grid, layout and component conformance cases."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "module",
+            "type": "length",
+            "default": 1.5,
+            "label": "Module",
+            "group": "Grid"
+          },
+          {
+            "name": "spandrel_height",
+            "type": "length",
+            "default": 0.9,
+            "label": "Spandrel height",
+            "group": "Grid"
+          },
+          {
+            "name": "join",
+            "type": "choice",
+            "default": "u_continuous",
+            "options": [
+              "u_continuous",
+              "v_continuous"
+            ],
+            "label": "Join",
+            "group": "Grid"
+          },
+          {
+            "name": "frame_classes",
+            "type": "component",
+            "interface": "frame",
+            "default": null,
+            "label": "Frames",
+            "group": "Components",
+            "allowed": {
+              "ifc_class": "IfcMember"
+            },
+            "classes": {
+              "default": "opo-format.org/examples/grid/mullion"
+            }
+          },
+          {
+            "name": "panel_classes",
+            "type": "component",
+            "interface": "panel",
+            "default": null,
+            "label": "Panels",
+            "group": "Components",
+            "classes": {
+              "default": "opo-format.org/examples/grid/panel"
+            }
+          }
+        ],
+        "opo::slots": [
+          {
+            "name": "surface",
+            "type": "surface",
+            "default": {
+              "baseline": [[0, 0], [4.5, 0], [4.5, 3]],
+              "base": 0,
+              "top": 3.3
+            }
+          },
+          {
+            "name": "overrides",
+            "type": "overrides",
+            "default": []
+          }
+        ],
+        "opo::rules": {
+          "derived": [],
+          "checks": []
+        },
+        "opo::recipe": [
+          {
+            "id": "g",
+            "op": "grid",
+            "args": {
+              "surface": "surface",
+              "u": "{pattern: [{size: module, flexible: true}], distribution: \"best_division\"}",
+              "v": "{pattern: [{size: spandrel_height, cls: \"spandrel\"}, {size: 2.4, flexible: true, cls: \"vision\"}], distribution: \"best_division\"}",
+              "join": "join",
+              "overrides": "overrides",
+              "widths": "{boundary: reported(component_for(frame_classes, \"boundary\"), \"face_width\"), mullion: reported(component_for(frame_classes, \"mullion\"), \"face_width\"), transom: reported(component_for(frame_classes, \"transom\"), \"face_width\"), corner: reported(component_for(frame_classes, \"corner\"), \"face_width\")}"
+            }
+          },
+          {
+            "id": "frames",
+            "op": "for_each",
+            "args": {
+              "items": "g.segments",
+              "as": "s",
+              "do": "instance(if s.component != null then s.component else component_for(frame_classes, s.cls), if s.values != null then s.values else {}, {path: s.path, normal: s.normal, trim_start: s.trim_start, trim_end: s.trim_end, left_cell: null, right_cell: null})"
+            }
+          },
+          {
+            "id": "panels",
+            "op": "for_each",
+            "args": {
+              "items": "g.cells",
+              "as": "c",
+              "do": "instance(if c.component != null then c.component else component_for(panel_classes, c.cls), if c.values != null then c.values else {}, {outline: c.panel_outline, normal: c.normal, insets: c.insets})"
+            }
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "frames",
+                "part": "Frames"
+              },
+              {
+                "geometry": "panels",
+                "part": "Panels"
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "frames",
+                "part": "Frames"
+              },
+              {
+                "geometry": "panels",
+                "part": "Panels"
+              }
+            ]
+          }
+        ],
+        "opo::host": {
+          "is_host": false,
+          "nested": {
+            "objects": [
+              "opo-format.org/examples/grid/mullion",
+              "opo-format.org/examples/grid/panel"
+            ],
+            "note": "Component defaults."
+          }
+        },
+        "opo::materials": {
+          "aluminium": {
+            "label": "Aluminium",
+            "category": "metal",
+            "colour": "#b8bcc0",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Aluminium"
+          },
+          "glass": {
+            "label": "Glass",
+            "category": "glass",
+            "colour": "#bcd4dc",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Glass"
+          }
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcCurtainWall",
+          "predefinedType": "null",
+          "decomposition": "IfcCurtainWall aggregating its members (IfcMember) and panels (IfcPlate)."
+        }
+      }
+    },
+    {
+      "path": "0904bc10-203c-573b-9d11-6bf102209ae8",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.025, -0.075, -0.025], [1.475, -0.075, -0.025], [1.475, 0.075, -0.025], [0.025, 0.075, -0.025], [0.025, -0.075, 0.025], [1.475, -0.075, 0.025], [1.475, 0.075, 0.025], [0.025, 0.075, 0.025]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "a456105c-0892-58de-bd3b-da7f1b0e6a4b",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.525, -0.075, -0.025], [2.975, -0.075, -0.025], [2.975, 0.075, -0.025], [1.525, 0.075, -0.025], [1.525, -0.075, 0.025], [2.975, -0.075, 0.025], [2.975, 0.075, 0.025], [1.525, 0.075, 0.025]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "bcb2d361-611f-5a58-8350-a0296697057e",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.025, -0.075, -0.025], [4.475, -0.075, -0.025], [4.475, 0.075, -0.025], [3.025, 0.075, -0.025], [3.025, -0.075, 0.025], [4.475, -0.075, 0.025], [4.475, 0.075, 0.025], [3.025, 0.075, 0.025]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "c2268d7a-7491-504f-a6ed-e7354b3632ad",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 0.025, -0.025], [4.575, 0.025, -0.025], [4.575, 1.475, -0.025], [4.425, 1.475, -0.025], [4.425, 0.025, 0.025], [4.575, 0.025, 0.025], [4.575, 1.475, 0.025], [4.425, 1.475, 0.025]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "2188ce19-53aa-59e5-a478-375738f9fabf",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 1.525, -0.025], [4.575, 1.525, -0.025], [4.575, 2.975, -0.025], [4.425, 2.975, -0.025], [4.425, 1.525, 0.025], [4.575, 1.525, 0.025], [4.575, 2.975, 0.025], [4.425, 2.975, 0.025]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "9ec74304-ad7b-5547-bf8f-66d6f931531d",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.025, -0.075, 0.875], [1.475, -0.075, 0.875], [1.475, 0.075, 0.875], [0.025, 0.075, 0.875], [0.025, -0.075, 0.925], [1.475, -0.075, 0.925], [1.475, 0.075, 0.925], [0.025, 0.075, 0.925]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "6c5835f5-3d80-5e84-8cd6-7019ac78763e",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.525, -0.075, 0.875], [2.975, -0.075, 0.875], [2.975, 0.075, 0.875], [1.525, 0.075, 0.875], [1.525, -0.075, 0.925], [2.975, -0.075, 0.925], [2.975, 0.075, 0.925], [1.525, 0.075, 0.925]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "4ef9d967-9fb9-5f41-98f1-63d7dc21ea46",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.025, -0.075, 0.875], [4.475, -0.075, 0.875], [4.475, 0.075, 0.875], [3.025, 0.075, 0.875], [3.025, -0.075, 0.925], [4.475, -0.075, 0.925], [4.475, 0.075, 0.925], [3.025, 0.075, 0.925]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "23fac4f5-f65c-52e4-9fa7-d0794aa7c9ba",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 0.025, 0.875], [4.575, 0.025, 0.875], [4.575, 1.475, 0.875], [4.425, 1.475, 0.875], [4.425, 0.025, 0.925], [4.575, 0.025, 0.925], [4.575, 1.475, 0.925], [4.425, 1.475, 0.925]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "e1ece7a9-2898-5c5f-999c-c07342644ac9",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 1.525, 0.875], [4.575, 1.525, 0.875], [4.575, 2.975, 0.875], [4.425, 2.975, 0.875], [4.425, 1.525, 0.925], [4.575, 1.525, 0.925], [4.575, 2.975, 0.925], [4.425, 2.975, 0.925]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "b4596484-c368-532f-a3f1-ed0e5e94055c",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.025, -0.075, 3.275], [1.475, -0.075, 3.275], [1.475, 0.075, 3.275], [0.025, 0.075, 3.275], [0.025, -0.075, 3.325], [1.475, -0.075, 3.325], [1.475, 0.075, 3.325], [0.025, 0.075, 3.325]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "7677404c-8574-5ec1-ad8a-e355c4d0b5d4",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.525, -0.075, 3.275], [2.975, -0.075, 3.275], [2.975, 0.075, 3.275], [1.525, 0.075, 3.275], [1.525, -0.075, 3.325], [2.975, -0.075, 3.325], [2.975, 0.075, 3.325], [1.525, 0.075, 3.325]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "62275f90-c16d-5931-bc2a-3efb70dc5b7f",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.025, -0.075, 3.275], [4.475, -0.075, 3.275], [4.475, 0.075, 3.275], [3.025, 0.075, 3.275], [3.025, -0.075, 3.325], [4.475, -0.075, 3.325], [4.475, 0.075, 3.325], [3.025, 0.075, 3.325]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "88403028-d983-51eb-8636-120829900ce5",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 0.025, 3.275], [4.575, 0.025, 3.275], [4.575, 1.475, 3.275], [4.425, 1.475, 3.275], [4.425, 0.025, 3.325], [4.575, 0.025, 3.325], [4.575, 1.475, 3.325], [4.425, 1.475, 3.325]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "3fbc443d-2c6e-5667-99bf-b62379a574f2",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 1.525, 3.275], [4.575, 1.525, 3.275], [4.575, 2.975, 3.275], [4.425, 2.975, 3.275], [4.425, 1.525, 3.325], [4.575, 1.525, 3.325], [4.575, 2.975, 3.325], [4.425, 2.975, 3.325]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "d8ca207e-4557-5248-915d-bed1163b0d1d",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.025, -0.075, 0.0], [0.025, -0.075, 0.0], [0.025, 0.075, 0.0], [-0.025, 0.075, 0.0], [-0.025, -0.075, 0.9], [0.025, -0.075, 0.9], [0.025, 0.075, 0.9], [-0.025, 0.075, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "1705f600-c37f-55f3-afdb-46cb90922c9d",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.025, -0.075, 0.9], [0.025, -0.075, 0.9], [0.025, 0.075, 0.9], [-0.025, 0.075, 0.9], [-0.025, -0.075, 3.3], [0.025, -0.075, 3.3], [0.025, 0.075, 3.3], [-0.025, 0.075, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "0e794f61-e54e-5848-81f2-ddbe1d178f05",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.475, -0.075, 0.0], [1.525, -0.075, 0.0], [1.525, 0.075, 0.0], [1.475, 0.075, 0.0], [1.475, -0.075, 0.9], [1.525, -0.075, 0.9], [1.525, 0.075, 0.9], [1.475, 0.075, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "3ed22a8b-cb15-5c0c-be6c-46d2676512e7",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.475, -0.075, 0.9], [1.525, -0.075, 0.9], [1.525, 0.075, 0.9], [1.475, 0.075, 0.9], [1.475, -0.075, 3.3], [1.525, -0.075, 3.3], [1.525, 0.075, 3.3], [1.475, 0.075, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "8ce85a8e-0b6f-5f1d-ab70-ddf73bd4d6a1",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[2.975, -0.075, 0.0], [3.025, -0.075, 0.0], [3.025, 0.075, 0.0], [2.975, 0.075, 0.0], [2.975, -0.075, 0.9], [3.025, -0.075, 0.9], [3.025, 0.075, 0.9], [2.975, 0.075, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "c9d39439-2620-50be-9263-c22d00418654",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[2.975, -0.075, 0.9], [3.025, -0.075, 0.9], [3.025, 0.075, 0.9], [2.975, 0.075, 0.9], [2.975, -0.075, 3.3], [3.025, -0.075, 3.3], [3.025, 0.075, 3.3], [2.975, 0.075, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "b0f555f7-ac23-5a8c-82fd-1e60c7c75763",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.429289322, -0.070710678, 0.0], [4.570710678, -0.070710678, 0.0], [4.570710678, 0.070710678, 0.0], [4.429289322, 0.070710678, 0.0], [4.429289322, -0.070710678, 0.9], [4.570710678, -0.070710678, 0.9], [4.570710678, 0.070710678, 0.9], [4.429289322, 0.070710678, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "360f3b6e-c044-513f-b882-e8d8798d2a97",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.429289322, -0.070710678, 0.9], [4.570710678, -0.070710678, 0.9], [4.570710678, 0.070710678, 0.9], [4.429289322, 0.070710678, 0.9], [4.429289322, -0.070710678, 3.3], [4.570710678, -0.070710678, 3.3], [4.570710678, 0.070710678, 3.3], [4.429289322, 0.070710678, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "a246ff44-16b0-525d-a562-fc420c3dadcf",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 1.475, 0.0], [4.575, 1.475, 0.0], [4.575, 1.525, 0.0], [4.425, 1.525, 0.0], [4.425, 1.475, 0.9], [4.575, 1.475, 0.9], [4.575, 1.525, 0.9], [4.425, 1.525, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "eff21dd1-800d-5f35-a579-a2752dc04eb0",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 1.475, 0.9], [4.575, 1.475, 0.9], [4.575, 1.525, 0.9], [4.425, 1.525, 0.9], [4.425, 1.475, 3.3], [4.575, 1.475, 3.3], [4.575, 1.525, 3.3], [4.425, 1.525, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "7c3096e8-ea59-5af0-9e25-d79eb1aaf2ee",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 2.975, 0.0], [4.575, 2.975, 0.0], [4.575, 3.025, 0.0], [4.425, 3.025, 0.0], [4.425, 2.975, 0.9], [4.575, 2.975, 0.9], [4.575, 3.025, 0.9], [4.425, 3.025, 0.9]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "114d4c20-53b1-522f-8d71-34ef641c81f5",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.425, 2.975, 0.9], [4.575, 2.975, 0.9], [4.575, 3.025, 0.9], [4.425, 3.025, 0.9], [4.425, 2.975, 3.3], [4.575, 2.975, 3.3], [4.575, 3.025, 3.3], [4.425, 3.025, 3.3]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "2ccb4f95-8298-5873-bd76-3551eaa3a6db",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.025, -0.015, 0.025], [1.475, -0.015, 0.025], [1.475, 0.015, 0.025], [0.025, 0.015, 0.025], [0.025, -0.015, 0.875], [1.475, -0.015, 0.875], [1.475, 0.015, 0.875], [0.025, 0.015, 0.875]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "494d02bf-7db6-54de-a54a-14f7e6ef3be8",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.525, -0.015, 0.025], [2.975, -0.015, 0.025], [2.975, 0.015, 0.025], [1.525, 0.015, 0.025], [1.525, -0.015, 0.875], [2.975, -0.015, 0.875], [2.975, 0.015, 0.875], [1.525, 0.015, 0.875]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "0a95aa3d-07da-545d-b5b6-4b1b84bc81f4",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.025, -0.015, 0.025], [4.475, -0.015, 0.025], [4.475, 0.015, 0.025], [3.025, 0.015, 0.025], [3.025, -0.015, 0.875], [4.475, -0.015, 0.875], [4.475, 0.015, 0.875], [3.025, 0.015, 0.875]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "0b12ccb5-70ef-5f95-be99-7140f25ea275",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.485, 0.025, 0.025], [4.515, 0.025, 0.025], [4.515, 1.475, 0.025], [4.485, 1.475, 0.025], [4.485, 0.025, 0.875], [4.515, 0.025, 0.875], [4.515, 1.475, 0.875], [4.485, 1.475, 0.875]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "d83e73b2-99de-591f-9e1c-baa3616bae85",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.485, 1.525, 0.025], [4.515, 1.525, 0.025], [4.515, 2.975, 0.025], [4.485, 2.975, 0.025], [4.485, 1.525, 0.875], [4.515, 1.525, 0.875], [4.515, 2.975, 0.875], [4.485, 2.975, 0.875]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "7b34da5d-cc52-5600-9207-e5f43e0d064b",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[0.025, -0.015, 0.925], [1.475, -0.015, 0.925], [1.475, 0.015, 0.925], [0.025, 0.015, 0.925], [0.025, -0.015, 3.275], [1.475, -0.015, 3.275], [1.475, 0.015, 3.275], [0.025, 0.015, 3.275]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "d5e000cf-47d5-51f7-a378-5174a6fb5aeb",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[1.525, -0.015, 0.925], [2.975, -0.015, 0.925], [2.975, 0.015, 0.925], [1.525, 0.015, 0.925], [1.525, -0.015, 3.275], [2.975, -0.015, 3.275], [2.975, 0.015, 3.275], [1.525, 0.015, 3.275]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "60a0b613-38c4-53bc-a872-174a7d8a8d08",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[3.025, -0.015, 0.925], [4.475, -0.015, 0.925], [4.475, 0.015, 0.925], [3.025, 0.015, 0.925], [3.025, -0.015, 3.275], [4.475, -0.015, 3.275], [4.475, 0.015, 3.275], [3.025, 0.015, 3.275]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "56748dc9-b409-579e-8371-9e1bdb258b30",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.485, 0.025, 0.925], [4.515, 0.025, 0.925], [4.515, 1.475, 0.925], [4.485, 1.475, 0.925], [4.485, 0.025, 3.275], [4.515, 0.025, 3.275], [4.515, 1.475, 3.275], [4.485, 1.475, 3.275]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    },
+    {
+      "path": "80470d24-18b0-527e-9baa-5d056dbc9064",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[4.485, 1.525, 0.925], [4.515, 1.525, 0.925], [4.515, 2.975, 0.925], [4.485, 2.975, 0.925], [4.485, 1.525, 3.275], [4.515, 1.525, 3.275], [4.515, 2.975, 3.275], [4.485, 2.975, 3.275]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        }
+      }
+    }
+  ]
+}

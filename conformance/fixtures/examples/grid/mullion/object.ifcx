@@ -1,0 +1,252 @@
+{
+  "header": {
+    "id": "opo-format.org/examples/grid/mullion/object.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "0.1.0",
+    "author": "opo-format.org",
+    "timestamp": "2026-11-25"
+  },
+  "imports": [
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/prop@v5a.ifcx"
+    },
+    {
+      "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx"
+    },
+    {
+      "uri": "https://opo-format.org/schema/0.1/opo@v0.1.ifcx"
+    }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "d137f3bc-a9e6-5de7-b90a-a22b780f3f3b",
+      "children": {
+        "Model_body_1": "0f22752b-aca5-5f5f-9fe5-876f5b08adfb"
+      },
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcMember",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcMember"
+        },
+        "bsi::ifc::prop::Name": "Grid mullion (fixture)",
+        "bsi::ifc::prop::TypeName": "Grid mullion (fixture)",
+        "opo::object": {
+          "id": "opo-format.org/examples/grid/mullion",
+          "name": "Grid mullion (fixture)",
+          "version": "0.1.0",
+          "opo": "0.1",
+          "license": "CC0-1.0",
+          "author": "OPO format contributors",
+          "description": "A box member along a grid segment, trimmed at its ends; fills the frame interface.",
+          "tags": [
+            "grid",
+            "proposal 0001"
+          ],
+          "references": [
+            {
+              "role": "conformance",
+              "name": "Proposal 0001: grid systems and swappable components",
+              "used": "Fixture for the grid, layout and component conformance cases."
+            }
+          ]
+        },
+        "opo::parameters": [
+          {
+            "name": "face",
+            "type": "length",
+            "default": 0.05,
+            "label": "Face width",
+            "group": "Size"
+          },
+          {
+            "name": "member_depth",
+            "type": "length",
+            "default": 0.15,
+            "label": "Depth",
+            "group": "Size"
+          },
+          {
+            "name": "trim_start",
+            "type": "length",
+            "default": 0.0,
+            "label": "Trim at the start (from the parent)",
+            "group": "Size"
+          },
+          {
+            "name": "trim_end",
+            "type": "length",
+            "default": 0.0,
+            "label": "Trim at the end (from the parent)",
+            "group": "Size"
+          }
+        ],
+        "opo::interface": {
+          "name": "frame",
+          "inputs": [
+            "path",
+            "normal",
+            "trim_start",
+            "trim_end",
+            "left_cell",
+            "right_cell"
+          ],
+          "reports": [
+            "face_width",
+            "depth",
+            "offset"
+          ]
+        },
+        "opo::rules": {
+          "derived": [
+            {
+              "name": "face_width",
+              "expr": "face"
+            },
+            {
+              "name": "depth",
+              "expr": "member_depth"
+            },
+            {
+              "name": "offset",
+              "expr": "0"
+            },
+            {
+              "name": "length",
+              "expr": "sqrt((path[2][1] - path[1][1]) ** 2 + (path[2][2] - path[1][2]) ** 2 + (path[2][3] - path[1][3]) ** 2)"
+            },
+            {
+              "name": "dir",
+              "expr": "for k in 1..3 return (path[2][k] - path[1][k]) / length"
+            },
+            {
+              "name": "a",
+              "expr": "for k in 1..3 return path[1][k] + dir[k] * trim_start"
+            },
+            {
+              "name": "b",
+              "expr": "for k in 1..3 return path[2][k] - dir[k] * trim_end"
+            },
+            {
+              "name": "side",
+              "expr": "[dir[2] * normal[3] - dir[3] * normal[2], dir[3] * normal[1] - dir[1] * normal[3], dir[1] * normal[2] - dir[2] * normal[1]]"
+            },
+            {
+              "name": "lo",
+              "expr": "for k in 1..3 return min(a[k], b[k]) - abs(side[k]) * face_width / 2 - abs(normal[k]) * depth / 2"
+            },
+            {
+              "name": "hi",
+              "expr": "for k in 1..3 return max(a[k], b[k]) + abs(side[k]) * face_width / 2 + abs(normal[k]) * depth / 2"
+            }
+          ]
+        },
+        "opo::slots": [
+          {
+            "name": "path",
+            "type": "polyline3",
+            "default": [[0, 0, 0], [0, 0, 1]]
+          },
+          {
+            "name": "normal",
+            "type": "point",
+            "default": [0, -1, 0]
+          }
+        ],
+        "opo::recipe": [
+          {
+            "id": "body",
+            "op": "box",
+            "args": {
+              "min": "lo",
+              "max": "hi"
+            },
+            "note": "Axis-aligned members only, enough for the fixture walls."
+          }
+        ],
+        "opo::representations": [
+          {
+            "id": "model.medium",
+            "context": "model",
+            "lod": "medium",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "\"aluminium\""
+              }
+            ]
+          },
+          {
+            "id": "model.high",
+            "context": "model",
+            "lod": "high",
+            "source": "authored",
+            "ifc": {
+              "context": "Body",
+              "targetView": "MODEL_VIEW"
+            },
+            "items": [
+              {
+                "geometry": "body",
+                "material": "\"aluminium\""
+              }
+            ]
+          }
+        ],
+        "opo::materials": {
+          "aluminium": {
+            "label": "Aluminium",
+            "category": "metal",
+            "colour": "#b8bcc0",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Aluminium"
+          },
+          "glass": {
+            "label": "Glass",
+            "category": "glass",
+            "colour": "#bcd4dc",
+            "cut": {
+              "hatch": "solid_dark"
+            },
+            "ifc_name": "Glass"
+          }
+        },
+        "opo::hatches": {
+          "solid_dark": {
+            "label": "Solid, dark",
+            "kind": "solid",
+            "colour": "#3a3a3a"
+          }
+        },
+        "opo::ifc": {
+          "class": "IfcMember",
+          "predefinedType": "\"MULLION\""
+        }
+      }
+    },
+    {
+      "path": "0f22752b-aca5-5f5f-9fe5-876f5b08adfb",
+      "attributes": {
+        "opo::representation": "model.medium",
+        "usd::usdgeom::mesh": {
+          "points": [[-0.025, -0.075, 0.0], [0.025, -0.075, 0.0], [0.025, 0.075, 0.0], [-0.025, 0.075, 0.0], [-0.025, -0.075, 1.0], [0.025, -0.075, 1.0], [0.025, 0.075, 1.0], [-0.025, 0.075, 1.0]],
+          "faceVertexIndices": [2, 0, 3, 0, 2, 1, 6, 7, 4, 4, 5, 6, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+        },
+        "bsi::ifc::material": {
+          "code": "aluminium",
+          "uri": ""
+        }
+      }
+    }
+  ]
+}

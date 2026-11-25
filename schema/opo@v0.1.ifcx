@@ -151,6 +151,12 @@
       "value": {
         "dataType": "Object"
       }
+    },
+    "opo::interface": {
+      "uri": "https://opo-format.org/schema/0.1/interface.json",
+      "value": {
+        "dataType": "Object"
+      }
     }
   },
   "data": []

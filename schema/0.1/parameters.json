@@ -36,7 +36,8 @@
             "material",
             "colour",
             "layers",
-            "property_set"
+            "property_set",
+            "component"
           ]
         },
         "default": {},
@@ -151,6 +152,45 @@
                 "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
               }
             }
+          }
+        },
+        "interface": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/name",
+          "description": "component parameters: the interface their objects declare (frame, panel, node, post, or an object's own). Proposal 0001 §3."
+        },
+        "allowed": {
+          "description": "component parameters: objects allowed, by IFC class or by id.",
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ifc_class"
+              ],
+              "properties": {
+                "ifc_class": {
+                  "type": "string",
+                  "pattern": "^Ifc[A-Za-z]+$"
+                }
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "classes": {
+          "type": "object",
+          "description": "component parameters: a class map, one object id per member class, with a default entry; the parameter default is then null.",
+          "required": [
+            "default"
+          ],
+          "additionalProperties": {
+            "type": "string"
           }
         }
       },
