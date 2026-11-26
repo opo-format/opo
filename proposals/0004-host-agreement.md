@@ -58,7 +58,7 @@ Example: a door with its frame against the front of the core: `seat: {to: core_f
 ### 4. What the hosted object gives back
 
 - `void` (unchanged): the solid cut from the host.
-- `reveal` (new, optional): how the host's layers finish at the sides and head of the void, as a list of rules by layer `function`:
+- `reveal` (new, optional; **deferred by decision 0028**: walls are one solid and openings cut them square for now): how the host's layers finish at the sides and head of the void, as a list of rules by layer `function`:
   - `return` — the layer turns into the reveal up to a given plane (e.g. finishes return to the frame);
   - `stop` — the layer stops square at the void (default for all layers);
   - the plane is one of the seat names above or `frame` (a FEEL expression giving the y of the frame face).
