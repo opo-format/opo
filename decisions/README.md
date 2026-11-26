@@ -29,5 +29,7 @@ One file per decision (MADR style, see 0001). Accepted records are not rewritten
 | 0023 | [Objects are plain YAML with shared building blocks; generator scripts only while testing](0023-objects-are-plain-yaml-generators-only-while-testing.md) | 2026-11-26 | accepted |
 | 0024 | [Elevations are seen from outside](0024-elevations-are-seen-from-outside.md) | 2026-11-26 | accepted |
 | 0025 | [Curva work happens in Curva, under its own rules; wall and door first](0025-curva-work-happens-in-curva.md) | 2026-11-26 | accepted |
+| 0026 | [Wall joins: the application finds them, OPO computes them](0026-wall-joins-split-between-application-and-opo.md) | 2026-11-26 | accepted |
+| 0027 | [Levels of detail follow shared part categories](0027-levels-of-detail-follow-part-categories.md) | 2026-11-26 | accepted |
 
 New record: copy `template.md`, take the next number, open a pull request.
