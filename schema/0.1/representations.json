@@ -110,6 +110,26 @@
             },
             "part": {
               "type": "string"
+            },
+            "category": {
+              "enum": [
+                "structure",
+                "insulation",
+                "finish",
+                "membrane",
+                "frame",
+                "leaf",
+                "glass",
+                "panel",
+                "trim",
+                "sill",
+                "lintel",
+                "hardware",
+                "tread",
+                "railing",
+                "other"
+              ],
+              "description": "Part category; drawing levels of detail follow it (proposal 0005)."
             }
           }
         }
@@ -140,6 +160,26 @@
             },
             "part": {
               "type": "string"
+            },
+            "category": {
+              "enum": [
+                "structure",
+                "insulation",
+                "finish",
+                "membrane",
+                "frame",
+                "leaf",
+                "glass",
+                "panel",
+                "trim",
+                "sill",
+                "lintel",
+                "hardware",
+                "tread",
+                "railing",
+                "other"
+              ],
+              "description": "Part category; drawing levels of detail follow it (proposal 0005)."
             }
           }
         }
@@ -166,6 +206,37 @@
             "type": "array",
             "items": {
               "type": "string"
+            },
+            "description": "Deprecated by proposal 0005: use part categories."
+          },
+          "lod_exceptions": {
+            "type": "object",
+            "description": "This object's exceptions to the level-of-detail table, by category (proposal 0005). A project override wins over them.",
+            "propertyNames": {
+              "enum": [
+                "structure",
+                "insulation",
+                "finish",
+                "membrane",
+                "frame",
+                "leaf",
+                "glass",
+                "panel",
+                "trim",
+                "sill",
+                "lintel",
+                "hardware",
+                "tread",
+                "railing",
+                "other"
+              ]
+            },
+            "additionalProperties": {
+              "enum": [
+                "show",
+                "hide",
+                "symbol"
+              ]
             }
           }
         }
