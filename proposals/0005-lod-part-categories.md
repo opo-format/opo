@@ -27,7 +27,8 @@ A geometry item with a `part` also names its `category`. The list is fixed by th
 | `finish` | plaster, render, cladding, floor finish layers |
 | `membrane` | vapour barrier, waterproofing |
 | `frame` | door lining, window frame, curtain-wall mullion and transom |
-| `leaf` | door leaf, window sash, moving panel |
+| `leaf` | door leaf, moving door panel |
+| `sash` | window sash, opening light |
 | `glass` | glazing, glass infill |
 | `panel` | solid infill, spandrel, back panel |
 | `trim` | casing, architrave, stop, cover strip, bead |
@@ -57,7 +58,8 @@ Default table (a drafting convention, provenance `typical`):
 | finish | hide | show | show | hide | show | show |
 | membrane | hide | hide | show | hide | hide | show |
 | frame | show | show | show | show | show | show |
-| leaf | symbol | symbol | symbol | hide | show | show |
+| leaf | symbol | symbol | symbol | show | show | show |
+| sash | symbol | symbol | symbol | hide | show | show |
 | glass | show | show | show | show | show | show |
 | panel | show | show | show | show | show | show |
 | trim | hide | hide | show | hide | show | show |
@@ -68,7 +70,7 @@ Default table (a drafting convention, provenance `typical`):
 | railing | show | show | show | show | show | show |
 | other | show | show | show | show | show | show |
 
-At low detail a window sash or door leaf is left out of sections and elevations; the frame shows the opening. Lintels are not drawn in plan at any level (they sit above the cut); a project can switch them on.
+At low detail a window sash is left out of sections and elevations (the frame shows the opening); a door leaf stays. Lintels are not drawn in plan at any level (they sit above the cut); a project can switch them on.
 
 At low detail a wall is drawn as its outline with one fill (decision 0011 poché rules); hiding finish and insulation layers gives exactly that.
 
@@ -106,4 +108,4 @@ The table applies to plans, sections and elevations only. A 3D view shows the hi
 
 ## Open questions
 
-None. Settled by the maintainer on 26 November 2026: 3D shows high detail by default, with lower levels available to applications that offer a switch; lintels are hidden in plan by default (projects can switch them on); a sash or leaf is hidden in low-detail sections and elevations and shown from medium.
+None. Settled by the maintainer on 26 November 2026: 3D shows high detail by default, with lower levels available to applications that offer a switch; lintels are hidden in plan by default (projects can switch them on); a window sash is hidden in low-detail sections and elevations and shown from medium; a door leaf is always shown there (maintainer, 26 November 2026, which split `sash` from `leaf`).
