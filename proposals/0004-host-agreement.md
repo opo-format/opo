@@ -33,7 +33,7 @@ A wall type declares these values, evaluated at the insertion point. The names a
 | `face_front` | length | Offset of the front face from the wall's location line, along +y (positive). |
 | `face_back` | length | Offset of the back face, along −y (positive number). |
 | `exterior` | choice `front` / `back` / `none` | Which face is outside. `none` for internal walls. |
-| `layers` | layers | The build-up from back to front: `thickness`, `material`, `function` (`structure`, `insulation`, `finish`, `membrane`, `air`, `other`). |
+| `layers` | layers | The build-up from front to back (the order IFC uses with AXIS2 and NEGATIVE sense): `thickness`, `material`, `function` (`structure`, `insulation`, `finish`, `membrane`, `air`, `other`). |
 | `core_front`, `core_back` | length | Offsets of the faces of the structural core (the `structure` layers). |
 | `base` | length | Height of the wall's base above the level, at the insertion point. |
 | `height` | length | Wall height at the insertion point (top minus base). |
