@@ -57,26 +57,32 @@ Default table (a drafting convention, provenance `typical`):
 | finish | hide | show | show | hide | show | show |
 | membrane | hide | hide | show | hide | hide | show |
 | frame | show | show | show | show | show | show |
-| leaf | symbol | symbol | symbol | show | show | show |
+| leaf | symbol | symbol | symbol | hide | show | show |
 | glass | show | show | show | show | show | show |
 | panel | show | show | show | show | show | show |
 | trim | hide | hide | show | hide | show | show |
 | sill | show | show | show | show | show | show |
-| lintel | hide | show | show | hide | show | show |
+| lintel | hide | hide | hide | hide | show | show |
 | hardware | hide | hide | hide | hide | hide | show |
 | tread | show | show | show | show | show | show |
 | railing | show | show | show | show | show | show |
 | other | show | show | show | show | show | show |
 
+At low detail a window sash or door leaf is left out of sections and elevations; the frame shows the opening. Lintels are not drawn in plan at any level (they sit above the cut); a project can switch them on.
+
 At low detail a wall is drawn as its outline with one fill (decision 0011 poché rules); hiding finish and insulation layers gives exactly that.
 
-### 3. Where the table lives, and overrides
+### 3. 3D views
+
+The table applies to plans, sections and elevations only. A 3D view shows the high-detail model by default. Objects still carry their low and medium models, so an application with a level-of-detail switch for 3D (for large models or slow machines) can show them; the choice is the application's or the user's, not the object's.
+
+### 4. Where the table lives, and overrides
 
 - The default table is part of the spec, in `spec/` and as a schema-validated file (`schema/<version>/lod-table.json`).
 - A project (or an office drawing style) may override any cell; the override applies to every object in the project.
 - An object may override a cell for itself in its representation (`derive.lod_exceptions: {trim: show}`) with a `note` saying why. The project override wins over the object's exception, so an office keeps control.
 
-### 4. Replaces `exclude_parts`
+### 5. Replaces `exclude_parts`
 
 `derive.exclude_parts` stays readable for one version and is then removed. Library objects move to categories.
 
@@ -95,8 +101,9 @@ At low detail a wall is drawn as its outline with one fill (decision 0011 poché
 - The fixture door's three plans, generated from the default table, match today's output (leaf as symbol, hardware hidden, trim hidden at low and medium).
 - A project override `trim: show` at plan medium adds the casings to the medium plan of every fixture object.
 - An item without a category fails the check.
+- A project override `lintel: show` at plan high draws the fixture window's lintel in its high plan.
+- The fixture window's low elevation has no sash; its medium elevation has one.
 
 ## Open questions
 
-- Is `lintel` hidden at low plan detail right? In plan it sits above the cut, so it only matters for sections.
-- Should `symbol` also apply to sections (a window sash drawn as a line at low detail)?
+None. Settled by the maintainer on 26 November 2026: 3D shows high detail by default, with lower levels available to applications that offer a switch; lintels are hidden in plan by default (projects can switch them on); a sash or leaf is hidden in low-detail sections and elevations and shown from medium.
