@@ -8,3 +8,4 @@ Changes to the standard move through stages 0–3 (`docs/workflow.md`, decision 
 | [0002](0002-yaml-source-format.md) | YAML source format | 2 (candidate) |
 | [0003](0003-loft.md) | Loft | 2 (candidate) |
 | [0004](0004-host-agreement.md) | Host agreement: what a wall gives a door, and what a door gives back | 2 (candidate) |
+| [0005](0005-lod-part-categories.md) | Levels of detail follow part categories | 2 (candidate) |
