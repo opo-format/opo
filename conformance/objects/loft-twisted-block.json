@@ -1,0 +1,21 @@
+{
+ "suite": "objects",
+ "spec": "0.1",
+ "object": "../fixtures/examples/loft/twisted-block",
+ "label": "Block lofted through three sections (proposal 0003)",
+ "cases": [
+  {
+   "id": "default",
+   "expected": {
+    "geometry": {"model.medium": [{"geometry": "body", "solids": 1, "volume": 1.0, "tolerance": 1e-06}]}
+   }
+  },
+  {
+   "id": "taller, no shift",
+   "values": {"height": 3.0, "shift": 0.0},
+   "expected": {
+    "geometry": {"model.medium": [{"geometry": "body", "solids": 1, "volume": 1.5, "tolerance": 1e-06}]}
+   }
+  }
+ ]
+}
