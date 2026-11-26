@@ -31,5 +31,6 @@ One file per decision (MADR style, see 0001). Accepted records are not rewritten
 | 0025 | [Curva work happens in Curva, under its own rules; wall and door first](0025-curva-work-happens-in-curva.md) | 2026-11-26 | accepted |
 | 0026 | [Wall joins: the application finds them, OPO computes them](0026-wall-joins-split-between-application-and-opo.md) | 2026-11-26 | accepted |
 | 0027 | [Levels of detail follow shared part categories](0027-levels-of-detail-follow-part-categories.md) | 2026-11-26 | accepted |
+| 0028 | [A wall is one solid; its layers are drawn, not modelled](0028-a-wall-is-one-solid-layers-are-drawn.md) | 2026-11-26 | accepted |
 
 New record: copy `template.md`, take the next number, open a pull request.
