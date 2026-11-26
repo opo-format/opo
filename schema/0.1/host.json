@@ -24,7 +24,8 @@
       "type": "object",
       "additionalProperties": {
         "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
-      }
+      },
+      "description": "FEEL values the host gives hosted objects. Walls provide at least thickness, face_front, face_back, exterior, layers, core_front, core_back, base and height (proposal 0004)."
     },
     "inputs": {
       "type": "object",
@@ -51,7 +52,8 @@
           },
           "default": {},
           "from": {
-            "type": "string"
+            "type": "string",
+            "description": "One of the names a host provides (proposal 0004): thickness, face_front, face_back, exterior, layers, core_front, core_back, base, height; or free text for other hosts."
           }
         }
       }
@@ -146,6 +148,82 @@
     "nested": {},
     "slab_opening": {
       "type": "object"
+    },
+    "seat": {
+      "type": "object",
+      "description": "Which plane of the host the object's y = 0 lines up with (proposal 0004).",
+      "required": [
+        "to"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "to": {
+          "enum": [
+            "axis",
+            "face_front",
+            "face_back",
+            "core_front",
+            "core_back",
+            "core_centre"
+          ]
+        },
+        "offset": {
+          "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+        }
+      }
+    },
+    "reveal": {
+      "type": "array",
+      "description": "How the host's layers finish at the sides of the void, by layer function (proposal 0004). Layers not listed stop square.",
+      "items": {
+        "type": "object",
+        "required": [
+          "function",
+          "rule"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "function": {
+            "enum": [
+              "structure",
+              "insulation",
+              "finish",
+              "membrane",
+              "air",
+              "other"
+            ]
+          },
+          "rule": {
+            "enum": [
+              "return",
+              "stop"
+            ]
+          },
+          "to": {
+            "description": "Plane a returning layer runs to: a seat name, or 'frame' with frame_y.",
+            "enum": [
+              "axis",
+              "face_front",
+              "face_back",
+              "core_front",
+              "core_back",
+              "core_centre",
+              "frame"
+            ]
+          },
+          "frame_y": {
+            "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr"
+          }
+        }
+      }
+    },
+    "head": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr",
+      "description": "FEEL point list: the head line of the structural opening (proposal 0004)."
+    },
+    "sill": {
+      "$ref": "https://opo-format.org/schema/0.1/common.json#/$defs/expr",
+      "description": "FEEL point list: the bottom line of the opening (proposal 0004)."
     }
   }
 }
