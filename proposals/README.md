@@ -9,3 +9,4 @@ Changes to the standard move through stages 0–3 (`docs/workflow.md`, decision 
 | [0003](0003-loft.md) | Loft | 2 (candidate) |
 | [0004](0004-host-agreement.md) | Host agreement: what a wall gives a door, and what a door gives back | 2 (candidate) |
 | [0005](0005-lod-part-categories.md) | Levels of detail follow part categories | 2 (candidate) |
+| [0006](0006-wall-joins.md) | Wall joins | 2 (candidate) |
