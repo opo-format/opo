@@ -57,7 +57,7 @@ A chain of operations from a small, strictly specified vocabulary (a node graph 
 
 - **2D:** `line`, `arc`, `polyline`, `polygon`, `rectangle`, `circle`, `band` (region between two offsets of a path, mitred: wall layers, beams in plan), `difference`, `union`, `boundary_curves` (edges of a region), `text`; planned: fillet, offset of regions
 - **Curve queries:** length, point at, divide into N, perpendicular at, offset *(planned)*
-- **3D:** `extrude` (a region along its plane's normal), `sweep` (a profile drawn in its own u/v plane along a 3D path), `revolve`, `box`, `cylinder`, `path3` (3D axis curve); `union` of solids is a collection (no CSG needed for drawing); planned: loft, solid difference
+- **3D:** `extrude` (a region along its plane's normal), `sweep` (a profile drawn in its own u/v plane along a 3D path), `revolve`, `loft` (a solid through closed 3D sections), `box`, `cylinder`, `path3` (3D axis curve); `union` of solids is a collection (no CSG needed for drawing); planned: solid difference
 - **Patterning:** `for_each` (repeat a geometry expression over a list or range; each result keeps its item, so representations can use `each.material`), mirror
 - **Transform:** `move`, `rotate`, `mirror`
 - **Placement:** `instance(object_id, values, inputs)` places a nested OPO by id with values and drawn inputs; a packaged `.opo` embeds the nested objects it uses (§4.9)
@@ -79,6 +79,7 @@ A chain of operations from a small, strictly specified vocabulary (a node graph 
 | `text` | `at`, `value`, [`height`] | annotation text; height in printed metres (default 0.0025) |
 | `extrude` | `profile`, `from`, `to` | solid: the region moved along its plane's normal from `from` to `to` |
 | `sweep` | `profile`, `path`, [`roll`] | solid: a `profile`-plane region along a 3D path; `roll` in degrees about the path |
+| `loft` | `sections` | solid through two or more closed 3D point lists with the same number of points: point *i* of each section joins point *i* of the next by straight lines (two triangles per quad), and the first and last sections are capped; a closing point equal to the first is ignored (proposal 0003) |
 | `revolve` | `profile`, `center`, `axis`, `angle`, [`segments`] | solid: region revolved about an axis through `center` |
 | `box` | `min`, `max` | solid, axis-aligned, 3D corners |
 | `cylinder` | `start`, `end`, `radius`, [`segments`] | solid between two 3D points |

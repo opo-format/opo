@@ -31,6 +31,7 @@
           "text",
           "extrude",
           "sweep",
+          "loft",
           "revolve",
           "box",
           "cylinder",
@@ -392,6 +393,29 @@
                   "profile",
                   "path",
                   "roll"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "op": {
+              "const": "loft"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "sections"
+              ],
+              "propertyNames": {
+                "enum": [
+                  "sections"
                 ]
               }
             }
