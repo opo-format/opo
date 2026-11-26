@@ -132,6 +132,9 @@ Aligns with IFC geometric representation sub-contexts (target view + target scal
 
 ## 4.7 Host behaviour
 - Hosted objects (door, window, opening) declare the void they cut in their host (wall, slab, roof).
+- **Host agreement** (proposal 0004). A wall provides, at the insertion point: `thickness`; `face_front` and `face_back` (offsets of the finished faces from the location line, along +y and −y, both positive); `exterior` (`front`, `back` or `none`); `layers` (back to front, each with `thickness`, `material`, `function`); `core_front` and `core_back` (offsets of the structural core's faces); `base` and `height`. A hosted object reads them as `host.<name>`; an application placing it in a host that provides less leaves the rest at the object's defaults.
+- `seat` says which plane of the host the object's y = 0 lines up with: `axis` (default), `face_front`, `face_back`, `core_front`, `core_back` or `core_centre`, plus an optional `offset`.
+- A hosted object gives back its `void`, and optionally `reveal` (by layer function, `return` to a plane or `stop` square; unlisted layers stop), `head` and `sill` lines. The host applies the void and the reveal to its own geometry and drawings; the hosted object draws only itself.
 - Level-attached objects (stair) declare bottom/top attachment and the slab opening they cut.
 - Flip/mirror axes, insertion point, snapping points.
 
