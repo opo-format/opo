@@ -1,5 +1,5 @@
 ---
-stage: 1          # 0 idea | 1 draft | 2 candidate | 3 final | withdrawn | rejected
+stage: 2          # 0 idea | 1 draft | 2 candidate | 3 final | withdrawn | rejected
 issue: "#NN"
 spec_version: "0.2"
 ---
