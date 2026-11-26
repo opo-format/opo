@@ -24,5 +24,10 @@ One file per decision (MADR style, see 0001). Accepted records are not rewritten
 | 0018 | [Proposals and objects move through maturity stages](0018-proposals-and-objects-move-through-maturity-stages.md) | 2026-11-24 | accepted |
 | 0019 | [Protected main, with direct push and merge for the maintainer and agents](0019-protected-main-with-maintainer-and-agent-bypass.md) | 2026-11-24 | accepted |
 | 0020 | [Layers only add; rule sets are their own nodes; values merge through inheritance](0020-layers-only-add-rule-sets-are-nodes-values-merge.md) | 2026-11-24 | accepted |
+| 0021 | [OPO is Curva's object format](0021-opo-is-curvas-object-format.md) | 2026-11-26 | accepted |
+| 0022 | [Recipes describe exact geometry; each application builds it with its own engine](0022-recipes-describe-exact-geometry.md) | 2026-11-26 | accepted |
+| 0023 | [Objects are plain YAML with shared building blocks; generator scripts only while testing](0023-objects-are-plain-yaml-generators-only-while-testing.md) | 2026-11-26 | accepted |
+| 0024 | [Elevations are seen from outside](0024-elevations-are-seen-from-outside.md) | 2026-11-26 | accepted |
+| 0025 | [Curva work happens in Curva, under its own rules; wall and door first](0025-curva-work-happens-in-curva.md) | 2026-11-26 | accepted |
 
 New record: copy `template.md`, take the next number, open a pull request.
